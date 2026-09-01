@@ -1,0 +1,664 @@
+window.REWORN = {
+ "brand": {
+  "name": "REWORN.",
+  "slogan": "Worn once. Wanted twice.",
+  "sublines": [
+   "Not new. Better.",
+   "A second life, styled first.",
+   "We don't sell clothes. We sell the way you'll carry them."
+  ],
+  "contact": {
+   "whatsapp": "+393894338878",
+   "whatsapp_link": "https://wa.me/393894338878",
+   "email": "rinshadmens@gmail.com"
+  },
+  "audience": "University students (IIM, NIT) who know brand value",
+  "currency": "INR"
+ },
+ "pricing_note": "Prices are curated-premium over raw thrift value; PDFs in Products/*/ give honest resale ranges. USER MUST SIGN OFF before launch.",
+ "products": [
+  {
+   "id": "rl-linen-olive",
+   "tier": "hero",
+   "brand": "Polo Ralph Lauren",
+   "name": "Olive Linen Shirt",
+   "category": "shirts",
+   "size": "M · Classic Fit",
+   "material": "Linen (Made in India)",
+   "condition": 100,
+   "condition_note": "Original. No flaws.",
+   "story": "The green that works in every season. Classic Fit Polo linen — the quiet flex.",
+   "price_inr": 2400,
+   "source_dir": "Products/shirts/ralph lauren",
+   "hero_photo": "IMG_9796.JPG",
+   "outfit": {
+    "concept": "Olive + ecru, relaxed luxury",
+    "pieces": [
+     "olive RL linen shirt (worn open-collar, tucked)",
+     "ecru wide-leg pleated trousers",
+     "dark brown leather loafers, no socks",
+     "tortoise acetate sunglasses",
+     "steel-bracelet watch",
+     "slim brown leather belt"
+    ],
+    "mood": "Golden-hour studio calm; hands in pockets; jaw slightly turned"
+   },
+   "photos": [
+    "assets/img/products/rl-linen-olive-1.jpg",
+    "assets/img/products/rl-linen-olive-2.jpg",
+    "assets/img/products/rl-linen-olive-3.jpg"
+   ],
+   "editorial": []
+  },
+  {
+   "id": "rare-rabbit-kufa",
+   "tier": "hero",
+   "brand": "Rare Rabbit",
+   "name": "KUFA Print Shirt",
+   "category": "shirts",
+   "size": "M",
+   "material": "Cotton, abstract sketch print (style KUFA, colour White)",
+   "condition": 100,
+   "condition_note": "Original. No flaws.",
+   "story": "An artwork with buttons. Red-and-ink sketch print — worn when you want the room to look.",
+   "price_inr": 1800,
+   "source_dir": "Products/shirts/rare rabit",
+   "hero_photo": "IMG_9780.jpg",
+   "outfit": {
+    "concept": "Let the print speak; everything else ink-black",
+    "pieces": [
+     "KUFA shirt fully buttoned",
+     "black tailored wide trousers",
+     "black leather derbies",
+     "thin silver chain",
+     "black oval sunglasses"
+    ],
+    "mood": "Frontal, symmetric, museum-portrait stillness"
+   },
+   "photos": [
+    "assets/img/products/rare-rabbit-kufa-1.jpg",
+    "assets/img/products/rare-rabbit-kufa-2.jpg",
+    "assets/img/products/rare-rabbit-kufa-3.jpg"
+   ],
+   "editorial": []
+  },
+  {
+   "id": "pepe-linen-ecru",
+   "tier": "core",
+   "brand": "Pepe Jeans London",
+   "name": "Ecru Linen Shirt",
+   "category": "shirts",
+   "size": "Regular (fits L)",
+   "material": "Linen blend",
+   "condition": 100,
+   "condition_note": "Original. No flaws.",
+   "story": "Off-white linen that photographs like sunlight.",
+   "price_inr": 1400,
+   "source_dir": "Products/shirts/pepe",
+   "hero_photo": "IMG_9774.jpg",
+   "outfit": {
+    "concept": "Tonal ecru-on-linen monochrome",
+    "pieces": [
+     "ecru shirt, two buttons open, sleeves rolled once",
+     "sand pleated trousers",
+     "cream suede loafers",
+     "beaded natural-stone bracelet"
+    ],
+    "mood": "Walking shot, motion blur at feet, warm light"
+   },
+   "photos": [
+    "assets/img/products/pepe-linen-ecru-1.jpg",
+    "assets/img/products/pepe-linen-ecru-2.jpg"
+   ],
+   "editorial": []
+  },
+  {
+   "id": "pepe-denim",
+   "tier": "core",
+   "brand": "Pepe Jeans London",
+   "name": "Denim Shirt",
+   "category": "shirts",
+   "size": "M",
+   "material": "Cotton denim",
+   "condition": 100,
+   "condition_note": "Original. No flaws.",
+   "story": "The overshirt-shirt. Wear it open over white or alone, buttoned to the neck.",
+   "price_inr": 1500,
+   "source_dir": "Products/shirts/pepe",
+   "hero_photo": "IMG_9807.JPG",
+   "outfit": {
+    "concept": "Denim-on-charcoal, western minimal",
+    "pieces": [
+     "denim shirt open over white rib tank",
+     "charcoal straight trousers",
+     "black western belt, silver buckle",
+     "black boots"
+    ],
+    "mood": "Seated on stool, forearms on knees"
+   },
+   "photos": [
+    "assets/img/products/pepe-denim-1.jpg",
+    "assets/img/products/pepe-denim-2.jpg",
+    "assets/img/products/pepe-denim-3.jpg"
+   ],
+   "editorial": []
+  },
+  {
+   "id": "uspa-stripe",
+   "tier": "core",
+   "brand": "USPA Denim Co.",
+   "name": "Navy Stripe Shirt",
+   "category": "shirts",
+   "size": "M · 40cm",
+   "material": "Cotton",
+   "condition": 100,
+   "condition_note": "Original. No flaws.",
+   "story": "Banker stripes, weekend attitude.",
+   "price_inr": 1300,
+   "source_dir": "Products/shirts/usp",
+   "hero_photo": "IMG_9786.JPG",
+   "outfit": {
+    "concept": "Ivy-league off-duty",
+    "pieces": [
+     "stripe shirt tucked, top button open",
+     "off-white chinos",
+     "navy knit tie loose (optional)",
+     "brown penny loafers",
+     "leather-strap watch"
+    ],
+    "mood": "3/4 stance, hand adjusting cuff"
+   },
+   "photos": [
+    "assets/img/products/uspa-stripe-1.jpg",
+    "assets/img/products/uspa-stripe-2.jpg",
+    "assets/img/products/uspa-stripe-3.jpg"
+   ],
+   "editorial": []
+  },
+  {
+   "id": "vanheusen-brown",
+   "tier": "core",
+   "brand": "Van Heusen",
+   "name": "Brown Cotton-Linen Shirt",
+   "category": "shirts",
+   "size": "TBC (user confirms)",
+   "material": "70% Cotton · 30% Linen",
+   "condition": 98,
+   "condition_note": "Small thread pull near chest pocket seam (confirm with user).",
+   "story": "Espresso tones. The shirt that makes gold jewellery louder.",
+   "price_inr": 1100,
+   "source_dir": "Products/shirts/van huesen",
+   "hero_photo": "IMG_9800.JPG",
+   "outfit": {
+    "concept": "Chocolate + cream contrast",
+    "pieces": [
+     "brown shirt, collar relaxed",
+     "cream wide trousers",
+     "dark brown suede loafers",
+     "gold-tone watch"
+    ],
+    "mood": "Leaning against wall, one knee bent"
+   },
+   "photos": [
+    "assets/img/products/vanheusen-brown-1.jpg",
+    "assets/img/products/vanheusen-brown-2.jpg",
+    "assets/img/products/vanheusen-brown-3.jpg"
+   ],
+   "editorial": []
+  },
+  {
+   "id": "lp-polo-black",
+   "tier": "core",
+   "brand": "Louis Philippe",
+   "name": "Black Knit Polo, Mint Tipping",
+   "category": "shirts",
+   "size": "TBC (user confirms)",
+   "material": "100% Cotton knit",
+   "condition": 100,
+   "condition_note": "Original. No flaws.",
+   "story": "The polo that reads tailored. Mint collar detail keeps it modern.",
+   "price_inr": 1000,
+   "source_dir": "Products/shirts/lp",
+   "hero_photo": "IMG_9794.JPG",
+   "needs_front_photo": true,
+   "outfit": {
+    "concept": "Black-on-black with grey wide trousers",
+    "pieces": [
+     "black polo buttoned to top",
+     "grey pleated wide trousers",
+     "black loafers, white socks",
+     "steel watch"
+    ],
+    "mood": "Profile shot, chin down, editorial B&W option"
+   },
+   "photos": [
+    "assets/img/products/lp-polo-black-1.jpg",
+    "assets/img/products/lp-polo-black-2.jpg"
+   ],
+   "editorial": []
+  },
+  {
+   "id": "pan-america-navy",
+   "tier": "core",
+   "brand": "Pan America",
+   "name": "Navy Short-Sleeve Shirt",
+   "category": "shirts",
+   "size": "TBC (user confirms)",
+   "material": "Textured cotton",
+   "condition": 100,
+   "condition_note": "Original. No flaws.",
+   "story": "Boxy navy short-sleeve — the summer uniform.",
+   "price_inr": 800,
+   "source_dir": "Products/shirts/pan america and other",
+   "hero_photo": "IMG_9750.JPG",
+   "outfit": {
+    "concept": "Riviera minimal",
+    "pieces": [
+     "navy SS shirt, all buttons closed",
+     "ecru pleated shorts or trousers",
+     "leather sandals or loafers",
+     "thin silver chain"
+    ],
+    "mood": "Sun-lit, squinting into light"
+   },
+   "photos": [
+    "assets/img/products/pan-america-navy-1.jpg",
+    "assets/img/products/pan-america-navy-2.jpg"
+   ],
+   "editorial": []
+  },
+  {
+   "id": "chambray-blue",
+   "tier": "core",
+   "brand": "TBC (user confirms brand)",
+   "name": "Blue Chambray Shirt",
+   "category": "shirts",
+   "size": "TBC",
+   "material": "Cotton chambray",
+   "condition": 100,
+   "condition_note": "Original. No flaws.",
+   "story": "Faded-sky chambray. Softens every outfit it enters.",
+   "price_inr": 900,
+   "source_dir": "Products/shirts/pan america and other",
+   "hero_photo": "IMG_9762.jpg",
+   "outfit": {
+    "concept": "Washed blue + white",
+    "pieces": [
+     "chambray shirt sleeves rolled",
+     "white straight trousers",
+     "white leather sneakers",
+     "canvas belt"
+    ],
+    "mood": "Candid laugh, looking off-frame"
+   },
+   "photos": [
+    "assets/img/products/chambray-blue-1.jpg",
+    "assets/img/products/chambray-blue-2.jpg"
+   ],
+   "editorial": []
+  },
+  {
+   "id": "nike-padded",
+   "tier": "hero",
+   "brand": "Nike Sportswear",
+   "name": "Lightweight Padded Jacket",
+   "category": "outerwear",
+   "size": "Oversized fit (style 477139-010, FA12)",
+   "material": "Nylon shell, synthetic fill",
+   "condition": 92,
+   "condition_note": "Pre-owned, good condition. Verified style code 477139-010 (Fall 2012).",
+   "story": "A 2012 Nike Sportswear piece — glossy black quilting you can't buy new anymore.",
+   "price_inr": 2900,
+   "source_dir": "Products/1",
+   "hero_photo": "IMG_9656.jpg",
+   "outfit": {
+    "concept": "Techwear-clean, Nike recording homage",
+    "pieces": [
+     "padded jacket zipped to chin",
+     "grey hoodie under (hood out)",
+     "black wide track trousers",
+     "grey-black running sneakers",
+     "black beanie"
+    ],
+    "mood": "Back shot + front shot pair, like the Nike PDP"
+   },
+   "photos": [
+    "assets/img/products/nike-padded-1.jpg",
+    "assets/img/products/nike-padded-2.jpg",
+    "assets/img/products/nike-padded-3.jpg",
+    "assets/img/products/nike-padded-4.jpg"
+   ],
+   "editorial": []
+  },
+  {
+   "id": "lilang-trench",
+   "tier": "hero",
+   "brand": "Lilang (利郎)",
+   "name": "Grey-Taupe Car Coat",
+   "category": "outerwear",
+   "size": "165/84A (Asia M) — oversized on most",
+   "material": "50% Polyester · 50% Nylon, quilted lining",
+   "condition": 90,
+   "condition_note": "Pre-owned; light crease wear (steams out).",
+   "story": "A Fujian-tailored car coat with throat-latch detail. Detective-film energy.",
+   "price_inr": 1900,
+   "source_dir": "Products/2",
+   "hero_photo": "IMG_9672.jpg",
+   "outfit": {
+    "concept": "Long-line monochrome, Lemaire-ish",
+    "pieces": [
+     "coat collar popped, throat latch open",
+     "charcoal knit under",
+     "navy pleated trousers",
+     "black leather boots"
+    ],
+    "mood": "Walking toward camera, coat moving"
+   },
+   "photos": [
+    "assets/img/products/lilang-trench-1.jpg",
+    "assets/img/products/lilang-trench-2.jpg",
+    "assets/img/products/lilang-trench-3.jpg"
+   ],
+   "editorial": []
+  },
+  {
+   "id": "sourepose-chore",
+   "tier": "core",
+   "brand": "Sourepose (奢步士)",
+   "name": "Olive Chore Overshirt",
+   "category": "outerwear",
+   "size": "175/96A (Men's L)",
+   "material": "100% Cotton, poly lining (art. 6HW128)",
+   "condition": 90,
+   "condition_note": "Pre-owned; honest wear.",
+   "story": "Military olive chore jacket — four-pocket utility, drapes like workwear should.",
+   "price_inr": 1600,
+   "source_dir": "Products/3",
+   "hero_photo": "IMG_9680.JPG",
+   "outfit": {
+    "concept": "Workwear tonal: olive + navy",
+    "pieces": [
+     "chore jacket over white tee",
+     "navy pleated trousers",
+     "off-white sneakers",
+     "canvas tote"
+    ],
+    "mood": "Mid-stride candid"
+   },
+   "photos": [
+    "assets/img/products/sourepose-chore-1.jpg",
+    "assets/img/products/sourepose-chore-2.jpg",
+    "assets/img/products/sourepose-chore-3.jpg"
+   ],
+   "editorial": []
+  },
+  {
+   "id": "angn-utility",
+   "tier": "core",
+   "brand": "ANGN / Artisan Gratification",
+   "name": "Charcoal Utility Overshirt",
+   "category": "outerwear",
+   "size": "XL",
+   "material": "100% Cotton",
+   "condition": 92,
+   "condition_note": "Pre-owned, good condition.",
+   "story": "Four flap pockets, boxy cut — the layer that carries everything.",
+   "price_inr": 1500,
+   "source_dir": "Products/4",
+   "hero_photo": "IMG_9688.JPG",
+   "outfit": {
+    "concept": "Grey-scale utility",
+    "pieces": [
+     "utility overshirt buttoned low",
+     "grey marl knit under",
+     "black cargo trousers",
+     "black boots"
+    ],
+    "mood": "Detail shot of pockets + full body"
+   },
+   "photos": [
+    "assets/img/products/angn-utility-1.jpg",
+    "assets/img/products/angn-utility-2.jpg",
+    "assets/img/products/angn-utility-3.jpg"
+   ],
+   "editorial": []
+  },
+  {
+   "id": "wuhuan-plaid",
+   "tier": "hero",
+   "brand": "Wuhuan (五环) — Shanghai, 1990s",
+   "name": "Vintage Plaid Harrington",
+   "category": "outerwear",
+   "size": "Boxy vintage fit",
+   "material": "Plaid weave, ribbed collar/hem, smooth lining",
+   "condition": 88,
+   "condition_note": "True vintage (90s state-factory Shanghai). Wear consistent with age.",
+   "story": "1990s Shanghai factory bomber. Nobody else on campus will have this. Fact.",
+   "price_inr": 2200,
+   "source_dir": "Products/5",
+   "hero_photo": "IMG_9665.jpg",
+   "outfit": {
+    "concept": "Vintage grandpa-core styled sharp",
+    "pieces": [
+     "plaid harrington zipped half",
+     "cream turtleneck under",
+     "pleated navy trousers",
+     "burgundy loafers"
+    ],
+    "mood": "Side profile by window light (existing pose ref IMG_9688)"
+   },
+   "photos": [
+    "assets/img/products/wuhuan-plaid-1.jpg",
+    "assets/img/products/wuhuan-plaid-2.jpg",
+    "assets/img/products/wuhuan-plaid-3.jpg"
+   ],
+   "editorial": []
+  },
+  {
+   "id": "hongdou-harrington",
+   "tier": "core",
+   "brand": "Hongdou (红豆)",
+   "name": "Black Zip Harrington",
+   "category": "outerwear",
+   "size": "Relaxed fit",
+   "material": "Cotton blend, jacquard-branded lining",
+   "condition": 92,
+   "condition_note": "Pre-owned, good condition.",
+   "story": "The black dad-jacket — quiet, correct, goes over everything.",
+   "price_inr": 1700,
+   "source_dir": "Products/6",
+   "hero_photo": "IMG_9730.jpg",
+   "outfit": {
+    "concept": "Minimal black + light grey",
+    "pieces": [
+     "harrington zipped",
+     "light grey trousers",
+     "white sneakers",
+     "silver watch"
+    ],
+    "mood": "Hands in jacket pockets, looking down-left"
+   },
+   "photos": [
+    "assets/img/products/hongdou-harrington-1.jpg",
+    "assets/img/products/hongdou-harrington-2.jpg",
+    "assets/img/products/hongdou-harrington-3.jpg"
+   ],
+   "editorial": []
+  },
+  {
+   "id": "tries-coated",
+   "tier": "core",
+   "brand": "TRIES / Caizi (才子)",
+   "name": "Black Coated Biker Jacket",
+   "category": "outerwear",
+   "size": "Art. 222615472",
+   "material": "Coated textured finish, asymmetric zip",
+   "condition": 90,
+   "condition_note": "Pre-owned; coating intact.",
+   "story": "Leather-look without the leather price. Asymmetric zip does the talking.",
+   "price_inr": 1800,
+   "source_dir": "Products/7",
+   "hero_photo": "IMG_9726.jpg",
+   "outfit": {
+    "concept": "All-black rock minimal",
+    "pieces": [
+     "biker zipped 3/4",
+     "black jeans",
+     "black chelsea boots",
+     "silver rings"
+    ],
+    "mood": "Low-key light, strong shadow, B&W option"
+   },
+   "photos": [
+    "assets/img/products/tries-coated-1.jpg",
+    "assets/img/products/tries-coated-2.jpg",
+    "assets/img/products/tries-coated-3.jpg"
+   ],
+   "editorial": []
+  },
+  {
+   "id": "jinlong-carcoat",
+   "tier": "hero",
+   "brand": "Jin Long (金龍) — Hong Kong tailoring",
+   "name": "Charcoal Wool Car Coat",
+   "category": "outerwear",
+   "size": "190/105A (fits tall XL–XXL, oversized on M)",
+   "material": "Wool blend, tailored single-breasted",
+   "condition": 92,
+   "condition_note": "Pre-owned, excellent drape.",
+   "story": "Hong Kong-tailored topcoat. Wear it oversized — that's the point.",
+   "price_inr": 2000,
+   "source_dir": "Products/8",
+   "hero_photo": "IMG_9716.jpg",
+   "outfit": {
+    "concept": "Collar-popped mafia minimal (existing photo IMG_9716 is the reference!)",
+    "pieces": [
+     "car coat collar up, nothing visible under",
+     "black trousers",
+     "black boots"
+    ],
+    "mood": "The garden shot the user already took — recreate in studio, hands on chest"
+   },
+   "photos": [
+    "assets/img/products/jinlong-carcoat-1.jpg",
+    "assets/img/products/jinlong-carcoat-2.jpg",
+    "assets/img/products/jinlong-carcoat-3.jpg"
+   ],
+   "editorial": []
+  },
+  {
+   "id": "greymarl-mockneck",
+   "tier": "capsule",
+   "brand": "No-label (archive surplus)",
+   "name": "Grey Marl Mock-Neck Knit",
+   "category": "knitwear",
+   "size": "Relaxed",
+   "material": "Ribbed knit",
+   "condition": 90,
+   "condition_note": "Unbranded factory-surplus piece — sold for the fabric and the fit, not the tag.",
+   "story": "The under-layer that makes every jacket on this page work.",
+   "price_inr": 900,
+   "source_dir": "Products/9",
+   "hero_photo": " .jpg",
+   "outfit": {
+    "concept": "Styling piece — appears under ANGN + Lilang looks",
+    "pieces": [
+     "mock-neck under overshirts/coats"
+    ],
+    "mood": "Support role in other shoots + one clean flat-lay"
+   },
+   "photos": [
+    "assets/img/products/greymarl-mockneck-1.jpg"
+   ],
+   "editorial": []
+  },
+  {
+   "id": "xint-henley",
+   "tier": "core",
+   "brand": "XINT (Turkey)",
+   "name": "Beige Henley Knit",
+   "category": "knitwear",
+   "size": "M",
+   "material": "80% Cotton · 20% Elastane (Beige Melange)",
+   "condition": 95,
+   "condition_note": "Pre-owned, excellent.",
+   "story": "Turkish-made fine-gauge henley — the smart-casual cheat code.",
+   "price_inr": 1400,
+   "source_dir": "Products/10",
+   "hero_photo": "IMG_9818.JPG",
+   "outfit": {
+    "concept": "Tonal beige, Rustle-lookbook homage",
+    "pieces": [
+     "henley, two buttons open",
+     "off-white wide trousers",
+     "cream sneakers"
+    ],
+    "mood": "Rotated editorial frame like Rustle Essentials page"
+   },
+   "photos": [
+    "assets/img/products/xint-henley-1.jpg",
+    "assets/img/products/xint-henley-2.jpg",
+    "assets/img/products/xint-henley-3.jpg"
+   ],
+   "editorial": []
+  },
+  {
+   "id": "onward-furcollar",
+   "tier": "hero",
+   "brand": "Clothing 9 to 5 by Onward Kashiyama (Tokyo)",
+   "name": "Faux-Fur Collar Jacket",
+   "category": "outerwear",
+   "size": "Japan sizing (user confirms)",
+   "material": "Nylon shell, quilted red interior, YKK hardware",
+   "condition": 90,
+   "condition_note": "Pre-owned; hardware perfect.",
+   "story": "Japanese archive piece — red quilted inside like a secret. Open it slow.",
+   "price_inr": 2400,
+   "source_dir": "Products/11",
+   "hero_photo": "IMG_9814.JPG",
+   "outfit": {
+    "concept": "Archive flex: show the red lining",
+    "pieces": [
+     "jacket half-off one shoulder showing red quilt",
+     "black knit",
+     "black trousers"
+    ],
+    "mood": "Editorial motion, jacket being put on"
+   },
+   "photos": [
+    "assets/img/products/onward-furcollar-1.jpg",
+    "assets/img/products/onward-furcollar-2.jpg",
+    "assets/img/products/onward-furcollar-3.jpg"
+   ],
+   "editorial": []
+  },
+  {
+   "id": "cable-knit-grey",
+   "tier": "capsule",
+   "brand": "No-label (archive)",
+   "name": "Grey Cable-Knit Sweater",
+   "category": "knitwear",
+   "size": "TBC",
+   "material": "Cable knit",
+   "condition": 85,
+   "condition_note": "Small snag on knit (visible in photos) — priced accordingly.",
+   "story": "Fisherman cables, archive grey. Honest wear, honest price.",
+   "price_inr": 1000,
+   "source_dir": "Products/shirts/pan america and other",
+   "hero_photo": "IMG_9761.jpg",
+   "outfit": {
+    "concept": "Cozy-layer support piece",
+    "pieces": [
+     "cable knit over chambray shirt collar-out",
+     "navy trousers"
+    ],
+    "mood": "Detail texture shot + layered look"
+   },
+   "photos": [
+    "assets/img/products/cable-knit-grey-1.jpg",
+    "assets/img/products/cable-knit-grey-2.jpg"
+   ],
+   "editorial": []
+  }
+ ]
+};

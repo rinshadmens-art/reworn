@@ -1,0 +1,48 @@
+/* ============================================
+   REWORN. — design tokens
+   Palette: user's Soft Linen base, 60-30-10,
+   no pure white, ink not #000, red used at 10%.
+   ============================================ */
+
+:root {
+  /* -- color: surfaces (60%) -- */
+  --linen:        #F2F1EA;   /* Soft Linen — page ground */
+  --parchment:    #EEECE8;   /* Parchment — alt sections */
+
+  /* -- color: cards & structure (30%) -- */
+  --card:         #E4E2DB;   /* warm grey product card */
+  --card-deep:    #D9D7CF;   /* hover / pressed card */
+  --hairline:     #CFCDC4;   /* rules, borders */
+
+  /* -- color: ink -- */
+  --ink:          #1A1917;   /* near-black, warm */
+  --ink-soft:     #55534D;   /* secondary text */
+  --ink-faint:    #8B887F;   /* metadata, captions */
+
+  /* -- color: accent (10%, sparingly) -- */
+  --signal:       #D6301D;   /* Rebirth red — period, hovers, sold */
+
+  /* -- type -- */
+  --serif: 'Instrument Serif', 'Times New Roman', serif;
+  --sans:  'Inter', -apple-system, 'Helvetica Neue', sans-serif;
+  --mono:  'Space Mono', 'SF Mono', monospace;
+
+  /* -- type scale (fluid) -- */
+  --fs-hero:   clamp(64px, 16vw, 220px);  /* wordmark scale-play */
+  --fs-h1:     clamp(40px, 7vw, 96px);
+  --fs-h2:     clamp(28px, 4vw, 52px);
+  --fs-h3:     clamp(20px, 2.4vw, 28px);
+  --fs-body:   16px;
+  --fs-small:  13px;
+  --fs-micro:  11px;                       /* uppercase labels */
+
+  --track-micro: 0.14em;                   /* letterspacing for labels */
+
+  /* -- space -- */
+  --gutter: clamp(16px, 4vw, 48px);
+  --sect:   clamp(72px, 12vw, 160px);      /* section rhythm */
+
+  /* -- motion -- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur: 600ms;
+}

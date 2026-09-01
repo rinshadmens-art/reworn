@@ -1,0 +1,104 @@
+@import url('../site/assets/fonts/fonts.css');
+@import url('../site/css/tokens.css');
+
+@page { size: 210mm 297mm; margin: 0; }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { font-family: var(--sans); color: var(--ink); background: var(--linen); }
+img { display: block; }
+
+.page {
+  position: relative;
+  width: 210mm; height: 297mm;
+  overflow: hidden;
+  page-break-after: always;
+  background: var(--linen);
+  padding: 18mm;
+}
+.page:last-child { page-break-after: auto; }
+.page--dark { background: var(--ink); color: var(--linen); }
+.page--flush { padding: 0; }
+
+.serif { font-family: var(--serif); font-weight: 400; line-height: 0.9; letter-spacing: -0.02em; }
+.mono  { font-family: var(--mono); }
+.micro { font-size: 7pt; text-transform: uppercase; letter-spacing: 0.16em; font-weight: 500; }
+.dot   { color: var(--signal); }
+.muted { color: var(--ink-soft); }
+.faint { color: var(--ink-faint); }
+
+/* ---------- cover ---------- */
+.cover__img { position: absolute; inset: 0; }
+.cover__img img { width: 100%; height: 100%; object-fit: cover; }
+.cover::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(18,17,15,0.62) 0%, rgba(18,17,15,0) 45%),
+              linear-gradient(to bottom, rgba(18,17,15,0.34) 0%, rgba(18,17,15,0) 24%);
+}
+.cover__top { position: absolute; top: 16mm; left: 16mm; right: 16mm; z-index: 2;
+              display: flex; justify-content: space-between; color: rgba(242,241,234,0.9); }
+.cover__mark { position: absolute; left: 16mm; right: 16mm; bottom: 20mm; z-index: 2;
+               color: var(--linen); font-size: 76pt; }
+.cover__sub { position: absolute; left: 16mm; bottom: 13mm; z-index: 2;
+              color: rgba(242,241,234,0.78); }
+
+/* ---------- statement / index ---------- */
+.statement { display: flex; flex-direction: column; justify-content: space-between; height: 100%; }
+.statement h2 { font-size: 40pt; max-width: 15ch; }
+.statement p { font-size: 10pt; line-height: 1.6; max-width: 52ch; color: var(--ink-soft); }
+.statement p + p { margin-top: 0.9em; }
+
+.index { columns: 2; column-gap: 14mm; font-size: 8.5pt; }
+.index__row { break-inside: avoid; display: flex; justify-content: space-between;
+              gap: 6mm; padding: 2.6mm 0; border-bottom: 0.4pt solid var(--hairline); }
+.index__row span:last-child { font-family: var(--mono); white-space: nowrap; color: var(--ink-faint); }
+
+/* ---------- product spread ---------- */
+.spread { display: grid; grid-template-columns: 1.15fr 1fr; height: 100%; gap: 10mm; }
+.spread__img { background: var(--card); overflow: hidden; position: relative; }
+.spread__img img { width: 100%; height: 100%; object-fit: cover; }
+.spread__no {
+  position: absolute; top: 6mm; left: 6mm; z-index: 2;
+  color: var(--linen); font-family: var(--serif); font-size: 30pt; line-height: 1;
+  text-shadow: 0 1px 12px rgba(0,0,0,0.45);
+}
+.spread__body { display: flex; flex-direction: column; padding: 4mm 0; }
+.spread__brand { margin-bottom: 3mm; }
+.spread__name { font-size: 26pt; margin-bottom: 4mm; }
+.spread__price { font-family: var(--mono); font-size: 12pt; margin-bottom: 6mm; }
+.spread__story { font-size: 9pt; line-height: 1.6; color: var(--ink-soft); margin-bottom: 7mm; }
+
+.sp { width: 100%; border-collapse: collapse; font-family: var(--mono); font-size: 7.5pt; margin-bottom: 7mm; }
+.sp th, .sp td { text-align: left; padding: 2mm 0; border-bottom: 0.4pt solid var(--hairline); vertical-align: top; }
+.sp th { font-weight: 400; color: var(--ink-faint); width: 38%; text-transform: uppercase; letter-spacing: 0.1em; font-size: 6.5pt; }
+
+.health__bar { height: 1.2pt; background: var(--hairline); position: relative; margin: 2mm 0 2mm; }
+.health__fill { position: absolute; inset: 0 auto 0 0; background: var(--ink); }
+.health__fill.low { background: var(--signal); }
+
+.wear { margin-top: auto; }
+.wear ul { list-style: none; font-size: 8pt; color: var(--ink-soft); }
+.wear li { padding: 1.6mm 0; border-bottom: 0.4pt solid var(--hairline); }
+.wear li::before { content: '— '; color: var(--signal); }
+
+/* rotated sessùn-style caption down the outer edge */
+.edge {
+  position: absolute; right: 6mm; top: 50%;
+  transform: translateY(-50%) rotate(90deg); transform-origin: right center;
+  white-space: nowrap; color: var(--ink-faint); font-family: var(--mono); font-size: 6.5pt;
+  letter-spacing: 0.22em; text-transform: uppercase;
+}
+
+/* ---------- full-bleed plate ---------- */
+.plate { position: relative; }
+.plate img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.plate__cap { position: absolute; left: 12mm; bottom: 12mm; z-index: 2; color: var(--linen); }
+.plate::after { content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(18,17,15,0.5), rgba(18,17,15,0) 40%); }
+
+/* ---------- closing ---------- */
+.close { display: flex; flex-direction: column; justify-content: space-between; height: 100%; }
+.close h2 { font-size: 40pt; max-width: 13ch; }
+.close a, .close p { color: rgba(242,241,234,0.78); font-size: 9.5pt; }
+.close strong { color: var(--linen); font-weight: 500; }
+.close__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10mm; }
