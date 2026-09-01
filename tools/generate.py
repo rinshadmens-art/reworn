@@ -78,20 +78,29 @@ def key():
     return k
 
 
-def call(path, payload=None, method="GET"):
+class ApiError(Exception):
+    def __init__(self, msg, code=None):
+        super().__init__(msg)
+        self.code = code
+
+
+def call(path, payload=None, method="GET", timeout=240):
     req = urllib.request.Request(
         API + path, method=method,
         data=json.dumps(payload).encode() if payload else None,
         headers={"x-goog-api-key": key(), "Content-Type": "application/json"})
     try:
-        with urllib.request.urlopen(req, timeout=300) as r:
+        with urllib.request.urlopen(req, timeout=timeout) as r:
             return json.loads(r.read())
     except urllib.error.HTTPError as e:
-        body = e.read().decode()[:900]
-        raise SystemExit(f"\nAPI {e.code} on {path}\n{body}\n")
+        body = e.read().decode()[:400]
+        raise ApiError(f"HTTP {e.code}: {body}", e.code)
+    except Exception as e:                       # timeouts, resets, DNS
+        raise ApiError(f"{type(e).__name__}: {e}", None)
 
 
 def image_models():
+    """List image-capable models; raises ApiError upward for the CLI to report."""
     out = []
     data = call("/models")
     for m in data.get("models", []):
@@ -102,15 +111,14 @@ def image_models():
 
 
 def pick_model():
+    """Return the fallback chain, best first."""
     if os.environ.get("REWORN_MODEL"):
-        return os.environ["REWORN_MODEL"]
-    have = image_models()
-    for want in PREFERRED_MODELS:
-        if want in have:
-            return want
-    if have:
-        return have[0]
-    sys.exit("No image-capable model available on this key. Run: generate.py models")
+        return [m.strip() for m in os.environ["REWORN_MODEL"].split(",")]
+    have = set(image_models())
+    chain = [m for m in PREFERRED_MODELS if m in have]
+    if not chain:
+        sys.exit("No image-capable model available on this key. Run: generate.py models")
+    return chain
 
 
 def part_image(path):
@@ -120,18 +128,42 @@ def part_image(path):
     return {"inline_data": {"mime_type": mime, "data": blob}}
 
 
-def generate(model, prompt, refs, dest, tries=3):
+def generate(model, prompt, refs, dest, tries=None):
+    """Try `model`, then fall back down the chain — Pro 503s hard at peak.
+
+    `model` may be a single name or a list; the first that returns an image wins.
+    """
+    tries = tries or int(os.environ.get("REWORN_TRIES", 3))
+    chain = [model] if isinstance(model, str) else list(model)
+    for i, m in enumerate(chain):
+        out = _generate_one(m, prompt, refs, dest, tries)
+        if out:
+            if i:
+                print(f"      (fell back to {m})")
+            return out
+        if i + 1 < len(chain):
+            print(f"    {m} unavailable — trying {chain[i+1]}")
+    return None
+
+
+def _generate_one(model, prompt, refs, dest, tries=3):
+    """The image models 503 under load and 429 on burst — back off and keep going."""
     parts = [part_image(p) for p in refs if os.path.exists(p)] + [{"text": prompt}]
     body = {"contents": [{"role": "user", "parts": parts}],
             "generationConfig": {"responseModalities": ["IMAGE"]}}
     for attempt in range(1, tries + 1):
         try:
             res = call(f"/models/{model}:generateContent", body, "POST")
-        except SystemExit as e:
+        except ApiError as e:
+            if e.code in (400, 401, 403):         # our fault — don't hammer it
+                print(f"    {e}")
+                return None
             if attempt == tries:
-                raise
-            print(f"    retry {attempt} ({str(e).splitlines()[1] if len(str(e).splitlines())>1 else e})")
-            time.sleep(6 * attempt)
+                print(f"    gave up after {tries}: {e}")
+                return None
+            wait = min(120, 20 * attempt)         # 20, 40, 60, 80, 100, 120 …
+            print(f"    {str(e)[:60]} — waiting {wait}s ({attempt}/{tries})")
+            time.sleep(wait)
             continue
         for cand in res.get("candidates", []):
             for p in cand.get("content", {}).get("parts", []):
@@ -172,7 +204,7 @@ IDENTITY_SHOTS = [
 
 def cmd_identity(argv):
     model = pick_model()
-    print(f"model: {model}")
+    print(f"models: {model}")
     for i, (tag, framing) in enumerate(IDENTITY_SHOTS, 1):
         dest = os.path.join(IDENT, f"model-sheet-{i}-{tag}.jpg")
         prompt = (f"Create a professional model-casting photograph.\n\n"
@@ -245,7 +277,7 @@ def cmd_shoot(argv):
     if not items:
         sys.exit("Nothing matched. Give an id, or --all [--tier hero].")
     model = pick_model()
-    print(f"model: {model}  ·  {len(items)} product(s)\n")
+    print(f"models: {model}  ·  {len(items)} product(s)\n")
     for p in items:
         print(f"{p['brand']} — {p['name']}")
         shoot_product(model, p)
@@ -270,7 +302,7 @@ CAMPAIGN = [
 
 def cmd_campaign(argv):
     model = pick_model()
-    print(f"model: {model}")
+    print(f"models: {model}")
     brand = os.path.join(SITE, "assets", "img", "brand")
     for tag, framing in CAMPAIGN:
         dest = os.path.join(brand, f"{tag}.jpg")
