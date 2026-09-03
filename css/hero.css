@@ -1,0 +1,221 @@
+/* ============================================================
+   HERO — faithful port of "hero animation" reference.
+   Structure, class names and mechanics are the reference's.
+   Only the palette and typeface are REWORN's.
+   ============================================================ */
+
+.hero-stage-wrap {
+  position: relative;
+  width: 100vw;
+  height: 100svh;
+  overflow: hidden;
+  background: var(--linen);
+}
+
+/* --- revealers --- */
+.revealers {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100svh;
+  display: flex;
+  flex-direction: column;
+  z-index: 3;
+  pointer-events: none;
+}
+.revealer {
+  flex: 1;
+  width: 100%;
+  background-color: var(--linen);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+/* --- the full-bleed image sequence --- */
+.images {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%; height: 100%;
+  transform-origin: center center;
+  will-change: transform;
+}
+.img {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%) scale(1.5);
+  width: 100%; height: 100%;
+  visibility: visible;
+  will-change: transform;
+  opacity: 0;
+  margin: 0;
+}
+.img:first-child { opacity: 1; }
+.img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* --- the stack the survivors collapse into --- */
+.images.stacked-container {
+  position: fixed;
+  left: 2em; bottom: 2em;
+  width: auto; height: auto;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-start;
+  gap: 1em;
+  transform: none;
+  will-change: transform;
+  z-index: 2;
+}
+.img.stacked {
+  position: relative;
+  width: 150px; height: 100px;
+  transform: none;
+  top: auto; left: auto;
+  opacity: 1;
+  will-change: transform;
+}
+
+/* --- hero copy --- */
+.hero-content {
+  position: relative;
+  width: 100%; height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+.hero-content a { pointer-events: auto; }
+
+.site-logo {
+  position: absolute;
+  top: 2em; left: 2em;
+  display: flex;
+  gap: 0.4em;
+}
+.site-logo h1 {
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 5vw;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.site-logo h1 sup {
+  position: absolute;
+  top: -0.125em;
+  font-size: 1.25rem;
+  color: var(--signal);
+}
+
+.hero-nav {
+  position: absolute;
+  right: 0;
+  width: 50%;
+  padding: 2em;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.4em;
+}
+.hero-nav .nav-item { position: relative; }
+.hero-nav .nav-item p,
+.hero-nav .nav-item a {
+  position: relative;
+  font-size: var(--fs-micro);
+  text-transform: uppercase;
+  letter-spacing: var(--track-micro);
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.team-img {
+  position: absolute;
+  right: 2em; bottom: 2em;
+  width: 40%; height: 50%;
+  clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+  overflow: hidden;
+}
+.team-img img {
+  width: 100%; height: 100%; object-fit: cover;
+  filter: saturate(0);
+}
+
+.site-info {
+  position: absolute;
+  bottom: 2em; left: 2em;
+  width: 50%; height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* clear of the stacked pile in the corner */
+  padding-left: calc(150px + 2em);
+}
+.site-info .row { display: flex; gap: 2em; }
+.site-info .row .col { flex: 1; }
+.site-info h2 {
+  font-family: var(--serif);
+  font-size: clamp(20px, 1.9vw, 28px);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.site-info p {
+  text-transform: uppercase;
+  font-size: var(--fs-micro);
+  letter-spacing: var(--track-micro);
+  font-weight: 500;
+  color: var(--ink);
+}
+.site-info .row:nth-child(2) .col:nth-child(2) { display: flex; }
+.address, .socials { flex: 1; }
+.address p, .socials p { line-height: 1.45; }
+.socials a { color: var(--ink); }
+.socials a:hover { color: var(--signal); }
+
+/* --- masked line reveals --- */
+.word, .nav-item, .line {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+.word h1,
+.nav-item p, .nav-item a,
+.site-info h2 .line span,
+.line p {
+  position: relative;
+  will-change: transform;
+}
+.site-info h2 .line span { display: block; transform: translateY(100%); }
+.word h1,
+.nav-item p, .nav-item a,
+.line p { transform: translateY(100%); }
+
+/* no-JS and reduced motion: everything simply on screen */
+html:not(.js) .word h1,
+html:not(.js) .nav-item p,
+html:not(.js) .nav-item a,
+html:not(.js) .line p { transform: none; }
+html:not(.js) .img { opacity: 1; transform: translate(-50%, -50%); }
+html:not(.js) .revealers { display: none; }
+
+@media (max-width: 1000px) {
+  .site-logo h1 { font-size: 12vw; }
+  .team-img { width: 46%; height: 34%; }
+  .site-info {
+    width: calc(100% - 4em);
+    height: auto;
+    bottom: 2em;
+    padding-left: 0;
+    gap: 1.4em;
+  }
+  .site-info .row:nth-child(2) { display: none; }
+  .images.stacked-container { left: 1em; bottom: 1em; gap: 0.5em; }
+  .img.stacked { width: 84px; height: 56px; }
+  .hero-nav { display: none; }
+}
+
+/* The reference is a single-screen landing, so its stack stays fixed
+   forever. Ours sits above a long page, so it retires once the hero
+   has scrolled away rather than covering the sections below. */
+.images.stacked-container {
+  transition: opacity 500ms var(--ease-out), transform 500ms var(--ease-out);
+}
+.scrolled .images.stacked-container {
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+}

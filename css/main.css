@@ -321,13 +321,9 @@ body {
    Hidden ONLY when JS confirms it can restore them, and a
    failsafe guarantees nothing ever stays invisible.
    ============================================================ */
-.js .reveal { opacity: 0; transform: translateY(14px); }
-.js .reveal.is-in {
-  opacity: 1; transform: none;
-  transition: opacity var(--dur-slow) var(--ease-out), transform var(--dur-slow) var(--ease-out);
-}
+/* js/reveal.js now owns this and toggles .is-clipped instead; the old
+   .is-in rule left every .reveal stuck at opacity 0. */
 @media (prefers-reduced-motion: reduce) {
-  .js .reveal, .js .reveal.is-in { opacity: 1; transform: none; transition: none; }
   .hero__media img, .marquee__track, .hero__cue span, .health__fill { animation: none; }
 }
 
@@ -416,3 +412,23 @@ body {
 .scrub__dots { position: absolute; right: 14px; bottom: 16px; z-index: 2; display: flex; gap: 5px; pointer-events: none; }
 .scrub__dots i { width: 16px; height: 2px; background: rgba(242,241,234,0.45); transition: background 160ms linear; }
 .scrub__dots i.is-on { background: var(--linen); }
+
+/* ---------- reveal (see js/reveal.js) ---------- */
+.card__media {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  transition: clip-path 1s var(--ease-out);
+}
+.card.is-clipped .card__media { clip-path: var(--from, polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)); }
+.card__meta { transition: opacity 700ms var(--ease-out) 150ms, transform 700ms var(--ease-out) 150ms; }
+.card.is-clipped .card__meta { opacity: 0; transform: translateY(12px); }
+
+.reveal { transition: opacity 800ms var(--ease-out), transform 800ms var(--ease-out); }
+.reveal.is-clipped { opacity: 0; transform: translateY(18px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .card__media, .card__meta, .reveal { transition: none; }
+}
+
+/* the ported menu bar is fixed and 4.5rem tall — inner pages start below it */
+.page-shell > section:first-of-type,
+.page-shell > .section:first-of-type { padding-top: calc(var(--sect) * 0.7 + 3rem); }

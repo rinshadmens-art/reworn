@@ -1,0 +1,219 @@
+/* ============================================================
+   HOVER GRID — faithful port of "HoverGrid".
+   Hover a category and three garment frames wipe in from
+   different directions behind a large title.
+   ============================================================ */
+
+.hg {
+  position: relative;
+  min-height: 100svh;
+  width: 100%;
+  /* clears the fixed menu bar above it */
+  padding: calc(var(--gutter) + 4.5rem) var(--gutter) var(--gutter);
+  display: grid;
+  z-index: 2;
+  grid-row-gap: 1rem;
+  grid-column-gap: 2rem;
+  justify-items: start;
+  grid-template-columns: auto auto auto;
+  grid-template-areas:
+    'year menu menu'
+    'tagline tagline tagline'
+    'works works works'
+    'content content content'
+    'title title title';
+  color: var(--ink);
+}
+.hg a { pointer-events: auto; }
+
+.hg__tagline {
+  grid-area: tagline;
+  max-width: 240px;
+  line-height: 1.5;
+  font-size: var(--fs-small);
+  color: var(--ink-soft);
+}
+.hg__site { grid-area: site; }
+.hg__year { grid-area: year; }
+.hg__site, .hg__year, .hg__menu {
+  font-size: var(--fs-micro);
+  text-transform: uppercase;
+  letter-spacing: var(--track-micro);
+}
+.hg__menu { grid-area: menu; justify-self: end; }
+
+.hg__works {
+  grid-area: works;
+  display: flex;
+  flex-direction: column;
+  pointer-events: none;
+}
+.hg__works > span {
+  margin-bottom: 1.5rem;
+  font-size: var(--fs-micro);
+  text-transform: uppercase;
+  letter-spacing: var(--track-micro);
+  color: var(--ink-faint);
+}
+.hg__works a {
+  pointer-events: auto;
+  padding: 0.3rem 0;
+  position: relative;
+  font-family: var(--serif);
+  font-size: clamp(22px, 2.3vw, 34px);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  color: var(--ink);
+  transition: color 300ms var(--ease-out);
+}
+.hg__works a:hover { color: var(--signal); }
+.hg__works a .n {
+  font-family: var(--mono);
+  font-size: var(--fs-micro);
+  color: var(--ink-faint);
+  margin-right: 0.8em;
+}
+
+.hg__content {
+  grid-area: content;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-areas: 'content-item';
+  min-height: 46svh;
+}
+
+.hg__title-main {
+  line-height: 0.9;
+  font-weight: 400;
+  font-family: var(--serif);
+  margin: 0;
+  grid-area: content;
+  color: var(--ink);
+  font-size: clamp(2rem, 8vw, 9rem);
+  display: grid;
+  align-content: center;
+  width: 100%;
+  pointer-events: none;
+  letter-spacing: -0.03em;
+}
+.hg__title-main span:last-child { margin-left: 1em; }
+.hg__title-main .dot { color: var(--signal); }
+
+.hg__item {
+  pointer-events: none;
+  position: relative;
+  opacity: 0;
+  grid-area: content-item;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+.hg__item--current { opacity: 1; }
+
+.hg__item-title {
+  position: relative;
+  z-index: 10;
+  font-weight: 400;
+  font-family: var(--serif);
+  opacity: 0;
+  grid-area: 1 / 2 / -1 / -2;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  align-content: center;
+  margin: 0;
+  line-height: 1;
+  color: var(--ink);
+  font-size: clamp(2rem, 9vw, 8rem);
+  letter-spacing: -0.03em;
+  mix-blend-mode: difference;
+  filter: invert(1);
+}
+html:not(.js) .hg__item-title { opacity: 1; }
+
+.hg__img { position: relative; will-change: clip-path, filter; overflow: hidden; }
+.hg__img-inner {
+  background-size: cover;
+  background-position: 50% 35%;
+  width: 100%;
+  height: 100%;
+}
+
+/* the reference's positions, kept exactly */
+.pos-1 { grid-area: 1 / 1 / 5 / 5; }
+.pos-2 { grid-area: 5 / 8 / 10 / 11; }
+.pos-3 { grid-area: 8 / 3 / 11 / 5; }
+
+.pos-4 { grid-area: 3 / 5 / 8 / 10; }
+.pos-5 { grid-area: 7 / 4 / 10 / 7; }
+.pos-6 { grid-area: 2 / 2 / 4 / 4; }
+
+.pos-7 { grid-area: 8 / 2 / 11 / 5; }
+.pos-8 { grid-area: 2 / 8 / 8 / 11; }
+.pos-9 { grid-area: 3 / 3 / 6 / 6; }
+
+.pos-10 { grid-area: 7 / 7 / 10 / 9; }
+.pos-11 { grid-area: 4 / 1 / 10 / 4; }
+.pos-12 { grid-area: 2 / 5 / 6 / 9; }
+
+.hg__bg {
+  position: fixed;
+  right: 0; bottom: 0;
+  width: 100vw; height: 100svh;
+  display: grid;
+  z-index: 0;
+  grid-template-areas: 'background';
+  grid-template-columns: 100%;
+  grid-template-rows: 100%;
+  pointer-events: none;
+  place-items: center;
+}
+.hg__bg-image {
+  position: relative;
+  z-index: 0;
+  grid-area: background;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.35) saturate(0.6);
+  width: 120%; height: 120%;
+  opacity: 0;
+}
+
+@media screen and (min-width: 53em) {
+  .hg {
+    height: 100svh;
+    grid-template-columns: 24% 20% 1fr 1fr;
+    grid-template-rows: auto auto 1fr auto;
+    align-content: space-between;
+    grid-template-areas:
+      'tagline ... ... menu'
+      'tagline content content content'
+      'works content content content'
+      'title title title title';
+  }
+  .hg__works { margin-bottom: 6vh; }
+  .hg__title-main { grid-area: 4 / 2 / 2 / 5; }
+}
+
+/* While a category is revealed a dark plate covers the page, so the
+   surrounding copy inverts to stay legible. */
+.hg-active .hg__tagline,
+.hg-active .hg__year,
+.hg-active .hg__menu,
+.hg-active .hg__works > span { color: rgba(242, 241, 234, 0.65); }
+.hg-active .hg__works a { color: var(--linen); }
+.hg-active .hg__works a:hover { color: var(--signal); }
+.hg-active .menu-bar { color: var(--linen); }
+.hg-active .menu-logo a { color: var(--linen); }
+.hg-active .menu-hamburger-icon { border-color: rgba(242, 241, 234, 0.25); }
+.hg__tagline, .hg__year, .hg__menu,
+.hg__works > span, .hg__works a,
+.menu-bar, .menu-logo a { transition: color 500ms var(--ease-out); }
+
+/* the item title sits on the plate, so it is simply light */
+.hg__item-title { mix-blend-mode: normal; filter: none; color: var(--linen); }

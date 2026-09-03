@@ -6,17 +6,49 @@
 <title>About — REWORN.</title>
 <meta name="description" content="Why REWORN exists, how pieces are chosen, and how they arrive.">
 <script>document.documentElement.classList.add('js')</script>
-<link rel="stylesheet" href="css/motion.css?v=1788417490">
-<link rel="stylesheet" href="css/main.css?v=1788417490">
+<link rel="stylesheet" href="css/menu.css?v=1788436101">
+<link rel="stylesheet" href="css/main.css?v=1788436101">
 </head>
 <body>
-<nav class="nav">
-  <a class="nav__mark" href="index.html">REWORN<span class="dot">.</span></a>
-    <button class="menu-toggle" type="button" aria-controls="menu" aria-expanded="false">
-      <span class="menu-toggle__label"><span>Menu</span></span>
-      <span class="menu-toggle__icon" aria-hidden="true"><i></i><i></i></span>
+<nav class="site-nav">
+  <div class="menu-bar">
+    <div class="menu-logo"><a href="index.html">REWORN<span class="dot">.</span></a></div>
+    <button class="menu-toggle-btn" type="button" aria-controls="menu-overlay" aria-expanded="false">
+      <div class="menu-toggle-label"><p>Menu</p></div>
+      <div class="menu-hamburger-icon"><span></span><span></span></div>
     </button>
+  </div>
+  <div class="menu-overlay" id="menu-overlay">
+    <div class="menu-overlay-content">
+      <div class="menu-media-wrapper">
+        <img src="assets/img/editorial/jinlong-carcoat-1.jpg" alt="">
+      </div>
+      <div class="menu-content-wrapper">
+        <div class="menu-content-main">
+          <div class="menu-col">
+            <div class="menu-link"><a href="index.html">Index</a></div>
+            <div class="menu-link"><a href="collection.html">Collection</a></div>
+            <div class="menu-link"><a href="browse.html">Browse</a></div>
+            <div class="menu-link"><a href="about.html">About</a></div>
+          </div>
+          <div class="menu-col">
+            <div class="menu-tag"><a href="collection.html?c=shirts">Shirts</a></div>
+            <div class="menu-tag"><a href="collection.html?c=outerwear">Outerwear</a></div>
+            <div class="menu-tag"><a href="collection.html?c=knitwear">Knitwear</a></div>
+          </div>
+        </div>
+        <div class="menu-footer">
+          <div class="menu-col"><p>Archive 01 — 21 pieces</p></div>
+          <div class="menu-col">
+            <p>+39 389 433 8878</p>
+            <p>rinshadmens@gmail.com</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </nav>
+
 <div class="page-shell">
 
 
@@ -82,41 +114,19 @@
     <span>Designed &amp; built by Rinshad</span>
   </div>
 </footer>
-<script src="assets/vendor/gsap.min.js"></script>
-<script src="assets/vendor/ScrollTrigger.min.js"></script>
-<script src="assets/vendor/Flip.min.js"></script>
-<script src="assets/vendor/CustomEase.min.js"></script>
-<script src="assets/vendor/SplitText.min.js"></script>
-<script src="assets/vendor/lenis.min.js"></script>
 
 
-<script src="js/catalog.js?v=1788417490"></script>
-<script src="js/motion.js?v=1788417490"></script>
-<script src="js/app.js?v=1788417490"></script>
 
 </div><!-- /page-shell -->
 
-<!-- OVERLAY MENU -->
-<div class="menu-overlay" id="menu">
-  <div class="menu-overlay__grid">
-    <nav class="menu-links" aria-label="Main">
-      <a href="index.html">Index</a>
-      <a href="collection.html">Collection</a>
-      <a href="about.html">About</a>
-      <a href="https://wa.me/393894338878">Contact</a>
-    </nav>
-    <div class="menu-meta">
-      <p class="micro" style="color:var(--linen);margin-bottom:14px">The archive</p>
-      <p>21 pieces, one of each. Pre-owned, restyled, and listed with every flaw written down.</p>
-      <p style="margin-top:22px"><a href="https://wa.me/393894338878">WhatsApp +39 389 433 8878</a></p>
-      <p><a href="mailto:rinshadmens@gmail.com">rinshadmens@gmail.com</a></p>
-    </div>
-  </div>
-  <div class="menu-overlay__foot micro">
-    <span>REWORN. — Archive 01</span>
-    <span>Worn once. Wanted twice.</span>
-  </div>
-</div>
 
+<script src="assets/vendor/gsap.min.js"></script>
+<script src="assets/vendor/ScrollTrigger.min.js"></script>
+<script src="assets/vendor/CustomEase.min.js"></script>
+<script src="assets/vendor/SplitText.min.js"></script>
+<script src="js/catalog.js?v=1788436101"></script>
+<script src="js/menu.js?v=1788436101"></script>
+<script src="js/reveal.js?v=1788436101"></script>
+<script src="js/app.js?v=1788436101"></script>
 </body>
 </html>

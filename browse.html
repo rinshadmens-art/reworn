@@ -3,12 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>REWORN.</title>
+<title>Browse — REWORN.</title>
+<meta name="description" content="Browse the REWORN archive by category — shirts, outerwear and knitwear.">
+<meta name="theme-color" content="#F2F1EA">
 <script>document.documentElement.classList.add('js')</script>
 <link rel="stylesheet" href="css/menu.css?v=1788436101">
+<link rel="stylesheet" href="css/hovergrid.css?v=1788436101">
 <link rel="stylesheet" href="css/main.css?v=1788436101">
 </head>
 <body>
+
 <nav class="site-nav">
   <div class="menu-bar">
     <div class="menu-logo"><a href="index.html">REWORN<span class="dot">.</span></a></div>
@@ -27,8 +31,8 @@
           <div class="menu-col">
             <div class="menu-link"><a href="index.html">Index</a></div>
             <div class="menu-link"><a href="collection.html">Collection</a></div>
-            <div class="menu-link"><a href="browse.html">Browse</a></div>
             <div class="menu-link"><a href="about.html">About</a></div>
+            <div class="menu-link"><a href="https://wa.me/393894338878">Connect</a></div>
           </div>
           <div class="menu-col">
             <div class="menu-tag"><a href="collection.html?c=shirts">Shirts</a></div>
@@ -49,53 +53,26 @@
 </nav>
 
 <div class="page-shell">
+  <main class="hg">
+    <div class="hg__tagline">Pre-owned branded menswear, chosen one piece at a time and listed with every flaw written down. Hover a category to see it.</div>
+    <div class="hg__year">Archive 01</div>
+    <div class="hg__menu">21 pieces</div>
 
+    <nav class="hg__works"><span>Browse the archive</span></nav>
 
-<section class="section" style="padding-top:calc(var(--sect) * 0.8)">
-  <p class="micro faint wrap" style="margin-bottom:30px"><a href="collection.html">← Collection</a></p>
-  <div class="pdp" data-pdp></div>
-</section>
+    <div class="hg__content"></div>
 
-<section class="section wrap">
-  <p class="micro faint" style="margin-bottom:30px">Wears well with</p>
-  <div class="grid" data-grid="more"></div>
-</section>
+    <h2 class="hg__title-main"><span>Worn once</span> <span>Wanted twice<span class="dot">.</span></span></h2>
+  </main>
 
-<footer class="foot">
-  <h2 class="foot__pitch">Take the piece.<br>Or take the website.</h2>
-  <div class="foot__grid">
-    <div class="foot__col">
-      <p class="micro" style="color:var(--linen);margin-bottom:12px">The other offer</p>
-      <p>You're looking at a site built end-to-end — brand, type, photography direction, code. If you want one like it for your label, your startup or your portfolio, that's the second thing I sell.</p>
-    </div>
-    <div class="foot__col">
-      <p class="micro" style="color:var(--linen);margin-bottom:12px">Talk</p>
-      <p><a href="https://wa.me/393894338878">WhatsApp +39 389 433 8878</a><br>
-         <a href="mailto:rinshadmens@gmail.com">rinshadmens@gmail.com</a></p>
-    </div>
-    <div class="foot__col">
-      <p class="micro" style="color:var(--linen);margin-bottom:12px">Archive</p>
-      <p><a href="index.html">Home</a><br><a href="collection.html">Collection</a></p>
-    </div>
-  </div>
-  <div class="foot__bottom micro">
-    <span>REWORN. — Archive 01</span>
-    <span>Designed &amp; built by Rinshad</span>
-  </div>
-</footer>
-
-
-
-</div><!-- /page-shell -->
-
+  <div class="hg__bg"></div>
+</div>
 
 <script src="assets/vendor/gsap.min.js"></script>
-<script src="assets/vendor/ScrollTrigger.min.js"></script>
 <script src="assets/vendor/CustomEase.min.js"></script>
 <script src="assets/vendor/SplitText.min.js"></script>
 <script src="js/catalog.js?v=1788436101"></script>
 <script src="js/menu.js?v=1788436101"></script>
-<script src="js/reveal.js?v=1788436101"></script>
-<script src="js/app.js?v=1788436101"></script>
+<script src="js/hovergrid.js?v=1788436101"></script>
 </body>
 </html>
