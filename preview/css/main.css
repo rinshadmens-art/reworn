@@ -217,7 +217,9 @@ body {
 .card { display: block; }
 .card__media {
   display: block; position: relative; overflow: hidden;
-  background: linear-gradient(168deg, var(--card) 0%, var(--card-deep) 100%);
+  /* vertical, not 168deg: the reference's tile is lit from above like a
+     studio wall, and a diagonal reads as a gradient rather than as light */
+  background: linear-gradient(to bottom, var(--plate-top) 0%, var(--plate-bot) 100%);
   aspect-ratio: 4/5;
 }
 .card__media img {
@@ -235,8 +237,13 @@ body {
   position: absolute; top: 12px; left: 12px; z-index: 2; white-space: nowrap;
   background: var(--linen); padding: 5px 9px;
 }
+/* A badge that appears on every card is not a badge, it is a background
+   texture. On the index every piece is tier:hero, so all four wore
+   "Piece of the drop" and it stopped meaning anything. It still earns
+   its place on the collection page, where hero pieces sit among core. */
+[data-grid="home"] .card__flag:not(.card__flag--sold) { display: none; }
 .card__flag--sold { background: var(--signal); color: var(--linen); }
-.card__meta { padding-top: 14px; display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: baseline; }
+.card__meta { padding-top: 18px; display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: baseline; }
 .card__brand { display: block; margin-bottom: 3px; }
 .card__name  { font-size: var(--fs-small); }
 .card__price { font-family: var(--mono); font-size: var(--fs-small); }
@@ -314,24 +321,86 @@ body {
    change of room */
 section.ground { padding-top: var(--sect); padding-bottom: var(--sect); }
 
-/* The footer is the one block that is dark on EVERY page, so it cannot
-   be allowed to invert with the theme — inside .theme-dark, var(--ink)
-   is bone and this would have flipped to a white footer.
-   Its secondary tones derive from currentColor instead of the hardcoded
-   rgba(242,241,234, …) they used to be, so they follow whatever ground
-   it is standing on. */
-.foot { background: #1A1917; color: #F2F1EA; padding: var(--sect) var(--gutter) 44px; }
-/* on a dark page the footer separates by being raised, not by inverting */
-.theme-dark .foot { background: var(--parchment); color: var(--ink); }
-.foot a { border-bottom: 1px solid color-mix(in srgb, currentColor 28%, transparent); transition: color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out); }
-.foot a:hover { border-bottom-color: var(--signal); color: var(--signal); }
-.foot__pitch { font-family: var(--serif); font-size: var(--fs-h2); line-height: 1; max-width: 15ch; letter-spacing: -0.025em; }
-.foot__grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: clamp(26px, 4vw, 60px); margin-top: clamp(40px, 6vw, 72px); }
-@media (max-width: 800px) { .foot__grid { grid-template-columns: 1fr; gap: 30px; } }
-.foot__col p { color: color-mix(in srgb, currentColor 66%, transparent); font-size: var(--fs-small); }
-/* column headers read at full strength against the muted body copy */
-.foot__label { color: inherit; margin-bottom: 12px; }
-.foot__col p.foot__label { color: inherit; }
+/* ============================================================
+   FOOTER — rebuilt on the reference's structure.
+
+   The old one was a dark plate with a display-size pitch line. The
+   reference does the opposite and is the more premium read: the footer
+   is quiet, it sits on the page's own ground rather than interrupting
+   it, and the only large thing in it is the wordmark, last.
+
+   It carries the SAME ground as whatever page it closes, which is why
+   nothing here is hardcoded any more — the previous version had to be,
+   because it was always dark regardless of theme.
+   ============================================================ */
+.foot {
+  background: var(--linen);
+  color: var(--ink);
+  border-top: 1px solid var(--hairline);
+  padding: clamp(56px, 8vw, 104px) var(--gutter) 0;
+}
+
+.foot__cols {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(26px, 4vw, 64px);
+  padding-bottom: clamp(48px, 7vw, 96px);
+}
+@media (max-width: 900px) { .foot__cols { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .foot__cols { grid-template-columns: 1fr; } }
+
+.foot__h {
+  font-size: var(--fs-micro);
+  text-transform: uppercase;
+  letter-spacing: var(--track-micro);
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 22px;
+}
+.foot__col p {
+  color: var(--ink-soft);
+  font-size: var(--fs-small);
+  line-height: 1.75;
+}
+.foot__col p + p { margin-top: 14px; }
+.foot a {
+  border-bottom: 1px solid transparent;
+  transition: color var(--dur-fast) var(--ease-out),
+              border-color var(--dur-fast) var(--ease-out);
+}
+.foot a:hover { color: var(--ink); border-bottom-color: var(--signal); }
+
+.foot__bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 22px 0;
+  border-top: 1px solid var(--hairline);
+  font-size: var(--fs-micro);
+  text-transform: uppercase;
+  letter-spacing: var(--track-micro);
+  color: var(--ink-faint);
+}
+.foot__legal { display: flex; gap: clamp(14px, 2vw, 28px); flex-wrap: wrap; }
+
+/* The wordmark closes the page, oversized and quiet — the one piece of
+   scale the reference allows itself down here. Clipped at the baseline
+   so it reads as part of the page edge rather than as a logo dropped
+   onto it. */
+.foot__mark {
+  font-family: var(--serif);
+  font-size: clamp(64px, 20vw, 300px);
+  line-height: 0.78;
+  letter-spacing: -0.04em;
+  text-align: center;
+  color: var(--ink);
+  padding-top: clamp(20px, 3vw, 44px);
+  margin-bottom: -0.16em;
+  overflow: hidden;
+  user-select: none;
+}
+.foot__mark .dot { color: var(--signal); }
 .foot__bottom { display: flex; justify-content: space-between; gap: 20px; margin-top: clamp(48px, 8vw, 88px);
                 padding-top: 22px; border-top: 1px solid color-mix(in srgb, currentColor 18%, transparent);
                 color: color-mix(in srgb, currentColor 50%, transparent); flex-wrap: wrap; }
@@ -438,8 +507,18 @@ section.ground { padding-top: var(--sect); padding-bottom: var(--sect); }
    starts hidden and ends at the natural state, with no fill-mode — so a
    throttled tab that never runs the animation still shows the product.
    Hiding by default and transitioning back is what left the grid blank. */
-.card.is-lit .card__media { animation: card-wipe 1000ms var(--ease-out) both; }
-.card.is-lit .card__meta  { animation: card-meta 700ms var(--ease-out) 150ms both; }
+/* NO fill-mode. `both` is `backwards` + `forwards`, and `backwards` pins
+   the element to the `from` keyframe from the moment .is-lit lands —
+   clip-path: nothing for the media, opacity 0 for the meta. If the
+   animation is then throttled and never advances, the card is stuck
+   invisible, which is exactly the blank grid the comment above says this
+   design exists to prevent. Observed: the whole collection page rendering
+   as empty tiles with only the flags showing.
+
+   Without fill-mode the resting state really is the visible one, and the
+   animation is only ever a flourish on the way in. */
+.card.is-lit .card__media { animation: card-wipe 1000ms var(--ease-out); }
+.card.is-lit .card__meta  { animation: card-meta 700ms var(--ease-out) 150ms; }
 
 @keyframes card-wipe {
   from { clip-path: var(--from, polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)); }
@@ -450,7 +529,7 @@ section.ground { padding-top: var(--sect); padding-bottom: var(--sect); }
   to   { opacity: 1; transform: none; }
 }
 
-.reveal.is-lit { animation: copy-rise 800ms var(--ease-out) both; }
+.reveal.is-lit { animation: copy-rise 800ms var(--ease-out); }
 @keyframes copy-rise {
   from { opacity: 0; transform: translateY(18px); }
   to   { opacity: 1; transform: none; }
@@ -484,45 +563,33 @@ section.ground { padding-top: var(--sect); padding-bottom: var(--sect); }
 .drop__all:hover { color: var(--signal); }
 
 /* ---- "Discover the selection" ----
-   A band, not a button. The whole row is the target, the rule above it
-   does the work of a border without drawing a box, and the arrow travels
-   on hover so the affordance is motion rather than decoration. */
+   A centred outline pill. The first pass was a full-width band with a
+   90px headline; against a four-up grid of quiet product plates that
+   shouted, and shouting is the opposite of the register this page is
+   trying to hold. Restraint is the whole point of the reference. */
+.discover-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(48px, 7vw, 92px);
+}
 .discover {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  grid-template-areas:
-    'label label'
-    'title arrow';
-  align-items: end;
-  gap: 10px 24px;
-  margin-top: clamp(56px, 8vw, 104px);
-  padding-top: clamp(24px, 3vw, 38px);
-  border-top: 1px solid var(--hairline);
-  color: var(--ink);
-}
-.discover__label {
-  grid-area: label;
-  color: var(--ink-faint);
-}
-.discover__title {
-  grid-area: title;
-  font-family: var(--serif);
-  font-size: clamp(34px, 6.5vw, 92px);
-  line-height: 0.94;
-  letter-spacing: -0.035em;
-  transition: color var(--dur) var(--ease-out);
-}
-.discover__arrow {
-  grid-area: arrow;
-  font-size: clamp(26px, 3.5vw, 48px);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: min(340px, 80vw);
+  padding: 20px 40px;
+  border: 1px solid var(--ink);
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-body);
   line-height: 1;
-  padding-bottom: 0.12em;
-  transition: transform var(--dur) var(--ease-out), color var(--dur) var(--ease-out);
+  color: var(--ink);
+  background: transparent;
+  transition: background var(--dur) var(--ease-out),
+              color var(--dur) var(--ease-out),
+              border-color var(--dur) var(--ease-out);
 }
-.discover:hover .discover__title,
-.discover:hover .discover__arrow { color: var(--signal); }
-.discover:hover .discover__arrow { transform: translateX(18px); }
-
-@media (prefers-reduced-motion: reduce) {
-  .discover:hover .discover__arrow { transform: none; }
+.discover:hover {
+  background: var(--ink);
+  color: var(--linen);
+  border-color: var(--ink);
 }

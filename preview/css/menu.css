@@ -95,10 +95,16 @@
   overflow: hidden;
   z-index: 1;
   width: 100vw; height: 100svh;
-  color: var(--linen);
+  /* Absolute, not tokenised. This overlay is a full-screen dark plate on
+     EVERY page, so it is themed by itself and not by the page under it.
+     As tokens it was background:var(--ink) + color:var(--linen), which
+     inside .theme-dark means a bone background with near-black type —
+     the whole menu rendered light-on-light and the tag column and footer
+     were effectively invisible. */
+  color: #EDEAE3;
 }
 .menu-overlay {
-  background-color: var(--ink);
+  background-color: #14120F;
   clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
   will-change: clip-path;
 }
@@ -118,32 +124,49 @@
   top: 50%; left: 50%;
   transform: translate(-50%, -50%);
 }
-.menu-footer { margin: 0 auto; }
+.menu-footer {
+  /* pinned to the bottom of the panel rather than floated in the middle,
+     so the panel reads as a composed page and not a centred list */
+  position: absolute;
+  bottom: 0; left: 50%;
+  transform: translateX(-50%);
+}
 .menu-content-main, .menu-footer {
   display: flex;
   align-items: flex-end;
-  width: 75%;
-  padding: 2rem;
-  gap: 2rem;
+  width: min(82%, 620px);
+  padding: 2.4rem 2rem;
+  gap: 3rem;
 }
-.menu-col { display: flex; flex-direction: column; gap: 0.5rem; }
+.menu-footer {
+  border-top: 1px solid rgba(237, 234, 227, 0.14);
+  padding-bottom: 2.8rem;
+}
+.menu-col { display: flex; flex-direction: column; gap: 0.65rem; }
 .menu-col:nth-child(1) { flex: 3; }
 .menu-col:nth-child(2) { flex: 2; }
+/* the secondary column is a list of routes, not a paragraph — it needs
+   its own top alignment against the tall serif links beside it */
+.menu-content-main .menu-col:nth-child(2) { align-self: flex-end; padding-bottom: 0.6rem; }
 
 .menu-link a {
   font-family: var(--serif);
   font-size: 3.5rem;
   font-weight: 400;
   line-height: 1.2;
-  letter-spacing: -0.02em;
-  color: var(--linen);
+  letter-spacing: -0.025em;
+  color: #EDEAE3;
+  transition: color var(--dur-fast) var(--ease-out);
 }
-.menu-link a:hover { color: var(--signal); }
+.menu-link a:hover { color: #F0523A; }
 .menu-tag a, .menu-footer p {
-  color: rgba(242, 241, 234, 0.5);
+  /* was 0.5 alpha of the linen literal, which read as invisible once the
+     plate was fixed — 0.68 is legible without competing with the links */
+  color: rgba(237, 234, 227, 0.68);
   font-size: var(--fs-small);
+  transition: color var(--dur-fast) var(--ease-out);
 }
-.menu-tag a:hover { color: var(--linen); }
+.menu-tag a:hover { color: #EDEAE3; }
 .line { position: relative; will-change: transform; }
 
 html.no-scroll, body.no-scroll { overflow: hidden; }
@@ -198,10 +221,16 @@ html.no-scroll, body.no-scroll { overflow: hidden; }
   pointer-events: none;
   z-index: -1;
   opacity: 0;
-  background: linear-gradient(to bottom,
-    var(--linen) 0%,
-    color-mix(in srgb, var(--linen) 72%, transparent) 42%,
-    transparent 100%);
+  /* Not a colour. The bar floats over the dark narrative AND over the
+     linen product island on the same page, so any tinted gradient is
+     wrong on one of them — as var(--linen) it painted a dark smear
+     across the top of the light grid. A blur is ground-agnostic: it
+     takes whatever is underneath and softens it, so the wordmark gets
+     separation without the page getting a stripe. */
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 38%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 38%, transparent 100%);
   transition: opacity 420ms var(--ease-out);
 }
 .scrolled .menu-bar::before { opacity: 1; }

@@ -35,6 +35,14 @@
   --ink-soft:     #55534D;
   --ink-faint:    #8B887F;
 
+  /* The plate a product photo sits on. Sampled off the reference: a soft
+     vertical grey, #DBDBD9 at the top easing to near the page colour at
+     the bottom, so the tile reads as a lit studio wall rather than a box.
+     Warmed by ~2 points so it belongs to this palette instead of looking
+     lifted from someone else's. */
+  --plate-top:    #E2E1DD;
+  --plate-bot:    #F4F3F0;
+
   /* -- accent (10%) -- */
   --signal:       #D6301D;
 
@@ -136,6 +144,10 @@
      but sits heavy. Warmed and lightened it reads as the same colour
      while clearing contrast. */
   --signal:       #F0523A;
+
+  /* on the theatre ground the plate is a lit recess, not a wall */
+  --plate-top:  #22201D;
+  --plate-bot:  #171613;
 
   --scrim:      rgba(11, 10, 9, 0.5);
   --scrim-deep: rgba(11, 10, 9, 0.82);
