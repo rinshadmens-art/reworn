@@ -1,0 +1,153 @@
+/* ============================================================
+   SPOTLIGHT — port of the "Scroll Animation 47" reference.
+
+   Structure, the four-card fan and the two-phase choreography are the
+   reference's. Ours differs in three places, each deliberate:
+
+   1. It runs on the theatre ground, not the reference's sage/#edf1e8.
+   2. The pin is shorter (see spotlight.js) — six screens of pinned
+      scroll is a long time to hold a shopper hostage for one gag.
+   3. The cards carry captions, because two of the four are real stock
+      and an unlabelled garment is a missed sale.
+   ============================================================ */
+
+.spot {
+  position: relative;
+  width: 100%;
+  background: var(--linen);
+  color: var(--ink);
+}
+
+.spot section {
+  position: relative;
+  width: 100%;
+  min-height: 100svh;
+  padding: var(--gutter);
+  display: grid;
+  align-content: center;
+  overflow: hidden;
+}
+
+.spot h1 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 7.5vw, 5rem);
+  font-weight: 400;
+  letter-spacing: -0.028em;
+  line-height: 0.98;
+  width: min(64ch, 82%);
+  /* holds the statement inside the centre column the fanned cards leave
+     open — wider than this and the line-ends run under them */
+  max-width: 17ch;
+  margin: 0 auto;
+  text-align: center;
+  color: var(--ink);
+  text-wrap: balance;
+}
+
+.spot .dot { color: var(--signal); }
+
+/* The intro and outro sit a step above the pinned middle, so the
+   spotlight reads as a recess the page falls into and climbs out of. */
+.spot-intro,
+.spot-outro { background: var(--parchment); }
+.spot-stage { background: var(--linen); }
+
+/* --- the header the cards uncover --- */
+.spot-header {
+  position: relative;
+  z-index: 0;
+}
+
+/* --- the four cards --- */
+.spot-imgs {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.spot-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: clamp(17rem, 24vw, 30rem);
+  aspect-ratio: 7 / 5;
+  /* the house radius is 0 everywhere else, but these are cards in mid-air,
+     not panels on a grid — a hair of radius is what makes them read as
+     objects rather than holes cut in the page */
+  border-radius: 4px;
+  overflow: hidden;
+  /* starts below the fold; spotlight.js drives it from here */
+  transform: translate(-50%, 200%);
+  will-change: transform;
+  background: var(--card);
+  box-shadow: 0 30px 80px -30px rgba(0, 0, 0, 0.75);
+}
+
+.spot-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* --- captions --------------------------------------------------------
+   Two of the four cards are real stock. They say so, and they say it in
+   the archive's own mono voice so it reads as a label on an exhibit
+   rather than a price tag. Faded in only once the card has settled. */
+.spot-img figcaption {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 34px 12px 10px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-family: var(--mono);
+  font-size: var(--fs-micro);
+  text-transform: uppercase;
+  letter-spacing: var(--track-micro);
+  color: #EDEAE3;
+  background: linear-gradient(to top, rgba(11, 10, 9, 0.85), transparent);
+  opacity: 0;
+  transition: opacity 700ms var(--ease-out);
+}
+.spot-img.is-settled figcaption { opacity: 1; }
+.spot-img figcaption .stock { color: #F0523A; }
+
+@media (max-width: 1000px) {
+  .spot h1 { width: 100%; max-width: none; }
+  .spot-img { width: min(74vw, 22rem); }
+  .spot-img figcaption { padding: 26px 10px 8px; }
+}
+
+/* No pinning below 1000px and none under reduced motion: spotlight.js
+   bails out and the cards are laid out as a plain stack instead, so the
+   section still carries its pictures and its statement. */
+/* The pinned variant clips deliberately — cards fly in from off-stage.
+   The static variant must NOT, or a stacked grid taller than one screen
+   gets its lower half cut off with no way to scroll to it. */
+.spot-stage.is-static {
+  min-height: 0;
+  height: auto;
+  overflow: visible;
+  padding-block: var(--sect);
+}
+.spot-stage.is-static .spot-imgs {
+  position: static;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--col-gap);
+  margin-top: var(--sect-tight);
+}
+.spot-stage.is-static .spot-img {
+  position: relative;
+  top: auto; left: auto;
+  width: 100%;
+  transform: none;
+  box-shadow: none;
+}
+.spot-stage.is-static .spot-img figcaption { opacity: 1; }
+
+@media (max-width: 620px) {
+  .spot-stage.is-static .spot-imgs { grid-template-columns: 1fr; }
+}

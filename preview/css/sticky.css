@@ -1,0 +1,156 @@
+/* ============================================================
+   STICKY IMAGE — faithful port of "StickyImageEffect" styles.
+   Drag the plate and it stretches; release and it snaps to the
+   next piece. Titles behind it stroke out and slide.
+   ============================================================ */
+
+.gl-section {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  overflow: hidden;
+  background: var(--ink);
+  color: var(--linen);
+}
+.gl-app { position: relative; width: 100%; height: 100%; }
+.gl-app canvas { display: block; position: absolute; inset: 0; }
+
+.gl-section__tip {
+  position: absolute;
+  bottom: 2rem; left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  font-family: var(--sans);
+  font-size: var(--fs-micro);
+  text-transform: uppercase;
+  letter-spacing: var(--track-micro);
+  color: rgba(242, 241, 234, 0.55);
+  pointer-events: none;
+}
+
+.slides {
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  padding: 0 10vw;
+  width: 100%;
+  max-width: 100%;
+  z-index: 3;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.slide {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 33vh;
+  color: var(--linen);
+  transform: translateY(-50%);
+  transition: transform 1300ms cubic-bezier(0.2, 1, 0.3, 1),
+              opacity 500ms cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.slide-title {
+  font-size: 9vw;
+  margin: 0;
+  color: var(--linen);
+  font-family: var(--serif);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  transition: color 500ms cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.slide-meta {
+  margin: 0 0 0.4rem;
+  font-family: var(--sans);
+  font-size: var(--fs-micro);
+  text-transform: uppercase;
+  letter-spacing: var(--track-micro);
+  color: rgba(242, 241, 234, 0.7);
+}
+
+.slide-more {
+  opacity: 0;
+  pointer-events: auto;
+  margin-top: 1rem;
+  font-family: var(--mono);
+  font-size: var(--fs-small);
+  color: var(--linen);
+  border-bottom: 1px solid var(--signal);
+  padding-bottom: 2px;
+  transition: opacity 900ms cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.show-meta .slide-meta,
+.show-meta .slide-more {
+  opacity: 1;
+  transition: opacity 1500ms 300ms cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.prev, .next { opacity: 0; }
+.prev { transform: translateY(-85%); }
+.next { transform: translateY(-15%); }
+
+/* the inactive titles become outlines — the reference's signature */
+.prev .slide-title,
+.next .slide-title {
+  -webkit-text-stroke: 1.5px var(--linen);
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.scrolling > .slide { transform: translateY(-50%); opacity: 1; }
+
+/* --- drag cursor --- */
+.cursor { display: none; }
+/* Until the pointer has actually moved, the custom cursor sits at its
+   initial 0,0 — a stray ring and dot pinned in the top-left corner of a
+   freshly loaded page. It earns its place on first pointermove. */
+.cursor__inner { opacity: 0; transition: opacity 220ms linear; }
+.has-pointer .cursor__inner { opacity: 1; }
+.cursor__inner {
+  z-index: 9999;
+  pointer-events: none;
+  position: fixed;
+  top: 0; left: 0;
+  mix-blend-mode: difference;
+  border-radius: 50%;
+}
+.cursor__inner--dot { width: 8px; height: 8px; background: #fff; }
+.cursor__inner--circle { width: 40px; height: 40px; border: 1px solid #fff; }
+
+@media (min-width: 1000px) and (hover: hover) {
+  .cursor { display: block; }
+  /* the site cursor would sit on top of the drag cursor */
+  .gl-section { cursor: grab; }
+  .gl-section:active { cursor: grabbing; }
+}
+
+/* --- fallback when WebGL is unavailable or on a phone --- */
+.gl-section--fallback { height: auto; padding: var(--sect) var(--gutter); }
+.gl-section--fallback .gl-app { height: auto; }
+.gl-section--fallback .slides { position: static; padding: 0; transform: none; }
+.gl-section--fallback .slide {
+  height: auto;
+  transform: none;
+  opacity: 1;
+  padding-block: 2.2rem;
+  border-top: 1px solid rgba(242, 241, 234, 0.16);
+}
+.gl-section--fallback .slide-title { font-size: clamp(2rem, 9vw, 4rem); }
+.gl-section--fallback .slide-meta,
+.gl-section--fallback .slide-more { opacity: 1; }
+.gl-section--fallback .prev .slide-title,
+.gl-section--fallback .next .slide-title {
+  -webkit-text-stroke: 0;
+  -webkit-text-fill-color: var(--linen);
+  color: var(--linen);
+}
+.gl-section--fallback .gl-section__tip { display: none; }

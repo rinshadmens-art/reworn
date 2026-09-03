@@ -1,0 +1,305 @@
+/* ============================================================
+   HERO — faithful port of "hero animation" reference.
+   Structure, class names and mechanics are the reference's.
+   Only the palette and typeface are REWORN's.
+   ============================================================ */
+
+.hero-stage-wrap {
+  position: relative;
+  width: 100vw;
+  height: 100svh;
+  overflow: hidden;
+  background: var(--linen);
+}
+
+/* --- ambient backdrop ------------------------------------------------
+   The reference is a one-screen landing, so when its frames collapse
+   into the corner stack it can afford to leave the ground bare. On a
+   near-black ground that reads as an empty room, not as restraint.
+
+   So one atmospheric frame stays behind everything at low opacity,
+   under a vignette. It is decorative only — it carries no product and
+   no information, which is why it is a background-image rather than an
+   <img>, and why it never announces itself to a screen reader. */
+.hero-amb {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0;
+  background-size: cover;
+  background-position: center 38%;
+  /* the photographs are already amber; this only deepens the corners */
+  filter: saturate(0.85) contrast(1.04);
+  transition: opacity 1600ms var(--ease-out);
+  pointer-events: none;
+}
+.hero-amb::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(120% 90% at 50% 42%, transparent 30%, var(--scrim-deep) 100%),
+    linear-gradient(to bottom, var(--scrim) 0%, transparent 26%, transparent 58%, var(--scrim-deep) 100%);
+}
+/* lit only once the sequence has handed off, so it never competes with
+   the full-bleed frames during the reveal */
+.hero-lit .hero-amb { opacity: 0.5; }
+
+/* --- revealers --- */
+.revealers {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100svh;
+  display: flex;
+  flex-direction: column;
+  z-index: 3;
+  pointer-events: none;
+}
+.revealer {
+  flex: 1;
+  width: 100%;
+  background-color: var(--linen);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+/* --- the full-bleed image sequence --- */
+.images {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%; height: 100%;
+  transform-origin: center center;
+  will-change: transform;
+}
+.img {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%) scale(1.5);
+  width: 100%; height: 100%;
+  visibility: visible;
+  will-change: transform;
+  opacity: 0;
+  margin: 0;
+}
+.img:first-child { opacity: 1; }
+.img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* --- the stack the survivors collapse into --- */
+.images.stacked-container {
+  position: fixed;
+  left: 2em; bottom: 2em;
+  width: auto; height: auto;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-start;
+  gap: 1em;
+  transform: none;
+  will-change: transform;
+  z-index: 2;
+}
+.img.stacked {
+  position: relative;
+  /* The reference stacks landscape tiles because its source frames are
+     landscape. Every frame that survives ours is a garment shot at
+     1289x1600 — cropping that to 150x100 keeps a band of torso and
+     throws the clothes away. Portrait tiles, so the piece is legible. */
+  width: 104px; height: 140px;
+  transform: none;
+  top: auto; left: auto;
+  opacity: 1;
+  will-change: transform;
+  /* on a near-black ground a photograph with dark edges dissolves into
+     the page — a hairline gives each survivor an edge to sit on */
+  outline: 1px solid var(--hairline);
+  outline-offset: 0;
+}
+
+/* --- hero copy --- */
+.hero-content {
+  position: relative;
+  width: 100%; height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+.hero-content a { pointer-events: auto; }
+
+.site-logo {
+  position: absolute;
+  top: 2em; left: 2em;
+  display: flex;
+  gap: 0.4em;
+}
+.site-logo h1 {
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 5vw;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.site-logo h1 sup {
+  position: absolute;
+  top: -0.125em;
+  font-size: 1.25rem;
+  color: var(--signal);
+}
+
+.hero-nav {
+  position: absolute;
+  right: 0;
+  width: 50%;
+  padding: 2em;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.4em;
+}
+.hero-nav .nav-item { position: relative; }
+.hero-nav .nav-item p,
+.hero-nav .nav-item a {
+  position: relative;
+  font-size: var(--fs-micro);
+  text-transform: uppercase;
+  letter-spacing: var(--track-micro);
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.team-img {
+  position: absolute;
+  right: 2em; bottom: 2em;
+  width: 40%; height: 50%;
+  clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+  overflow: hidden;
+  z-index: 1;
+}
+.team-img img {
+  width: 100%; height: 100%; object-fit: cover;
+  /* was saturate(0). Fully desaturating was the right call on linen,
+     where colour fought the paper. Against the theatre ground the amber
+     IS the light source, and greyscale throws away the only warmth on
+     the screen — so it is pulled back, not removed.
+     The brightness trim matters more than it looks: this frame is a
+     product plate shot on a pale ground, and at full strength it was the
+     brightest object on a near-black page — a lightbox stuck to a wall
+     rather than something standing in the same room. */
+  filter: saturate(0.7) contrast(1.06) brightness(0.82);
+}
+/* the room's light falls off towards the edges of this panel too */
+.team-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(105% 78% at 42% 34%, transparent 42%, rgba(11, 10, 9, 0.5) 100%),
+    linear-gradient(to top, rgba(11, 10, 9, 0.42), transparent 42%);
+}
+
+.site-info {
+  position: absolute;
+  bottom: 2em; left: 2em;
+  width: 50%; height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* clear of the stacked pile in the corner */
+  padding-left: calc(104px + 3em);
+}
+.site-info .row { display: flex; gap: 2em; }
+.site-info .row .col { flex: 1; }
+.site-info h2 {
+  font-family: var(--serif);
+  /* the statement is the second thing read after the wordmark, so it is
+     allowed to be genuinely large — 28px was a caption pretending to be
+     a headline */
+  font-size: clamp(22px, 2.5vw, 38px);
+  font-weight: 400;
+  line-height: 1.16;
+  letter-spacing: -0.018em;
+  color: var(--ink);
+  max-width: 22ch;
+  /* no inline markup in here: hero.js runs SplitType over this element
+     and rebuilds each line from textContent, so tags would be dropped */
+}
+.site-info p {
+  text-transform: uppercase;
+  font-size: var(--fs-micro);
+  letter-spacing: var(--track-micro);
+  font-weight: 500;
+  color: var(--ink);
+}
+.site-info .row:nth-child(2) .col:nth-child(2) { display: flex; }
+.address, .socials { flex: 1; }
+.address p, .socials p { line-height: 1.45; }
+.socials a { color: var(--ink); }
+.socials a:hover { color: var(--signal); }
+
+/* --- masked line reveals --- */
+.word, .nav-item, .line {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+.word h1,
+.nav-item p, .nav-item a,
+.site-info h2 .line span,
+.line p {
+  position: relative;
+  will-change: transform;
+}
+.site-info h2 .line span { display: block; transform: translateY(100%); }
+.word h1,
+.nav-item p, .nav-item a,
+.line p { transform: translateY(100%); }
+
+/* no-JS and reduced motion: everything simply on screen */
+html:not(.js) .word h1,
+html:not(.js) .nav-item p,
+html:not(.js) .nav-item a,
+html:not(.js) .line p { transform: none; }
+html:not(.js) .img { opacity: 1; transform: translate(-50%, -50%); }
+html:not(.js) .revealers { display: none; }
+
+@media (max-width: 1000px) {
+  .site-logo h1 { font-size: 12vw; }
+  .team-img { width: 46%; height: 34%; }
+  .site-info {
+    width: calc(100% - 4em);
+    height: auto;
+    bottom: 2em;
+    padding-left: 0;
+    gap: 1.4em;
+  }
+  .site-info .row:nth-child(2) { display: none; }
+  .images.stacked-container { left: 1em; bottom: 1em; gap: 0.5em; }
+  .img.stacked { width: 72px; height: 96px; }
+  .hero-nav { display: none; }
+}
+
+/* The reference is a single-screen landing, so its stack stays fixed
+   forever. Ours sits above a long page, so it retires once the hero
+   has scrolled away rather than covering the sections below. */
+/* Fading to opacity 0 is not enough for a position:fixed element. Any jump
+   that outruns the transition — a hash link, a restored scroll position, a
+   throttled tab — leaves it half-lit on top of the archive. visibility
+   takes it out of the page for real.
+
+   The delay is asymmetric on purpose: going out, visibility waits for the
+   fade to finish; coming back, it flips immediately so there is something
+   to fade in. */
+.images.stacked-container {
+  visibility: visible;
+  transition: opacity 500ms var(--ease-out),
+              transform 500ms var(--ease-out),
+              visibility 0s;
+}
+.scrolled .images.stacked-container {
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+}
+/* Set by a real setTimeout in menu.js rather than by the transition
+   finishing, because a transition in a throttled tab never finishes.
+   This is the state that actually guarantees the pile is gone. */
+.stack-retired .images.stacked-container {
+  visibility: hidden;
+  opacity: 0;
+}

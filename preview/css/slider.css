@@ -1,0 +1,108 @@
+/* ============================================================
+   SLIDER — faithful port of "ripple-displacement-slider".
+   WebGL ripple crossfade between archive frames, with SplitText
+   title and description over it in difference blend.
+   ============================================================ */
+
+.slider {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  background: var(--parchment);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.slider canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.slide-content {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  mix-blend-mode: difference;
+  user-select: none;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* difference-blending white text was how this stayed legible over a pale
+   product plate on a linen page. Against the theatre ground it inverts
+   into near-black on near-black — the title all but disappears wherever
+   it overhangs the image. On dark it is simply set in bone, with a soft
+   shadow for the stretch that does cross the photograph. */
+.theme-dark .slide-content {
+  mix-blend-mode: normal;
+  text-shadow: 0 2px 26px rgba(11, 10, 9, 0.65);
+}
+.theme-dark .slide-title,
+.theme-dark .slide-description { color: var(--ink); }
+
+.slide-title {
+  position: absolute;
+  top: 50%; left: 3rem;
+  transform: translate(0%, -50%);
+  width: max-content;
+  color: #fff;
+}
+.slide-title h1 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4vw, 6rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  max-width: 12ch;
+}
+
+.slide-description {
+  position: absolute;
+  top: 50%; right: 3rem;
+  transform: translate(0%, -50%);
+  width: 15%;
+  min-width: 250px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  z-index: 2;
+}
+.slide-description p { font-size: var(--fs-small); line-height: 1.55; font-weight: 400; }
+.slide-meta {
+  font-family: var(--mono);
+  font-size: var(--fs-micro);
+  text-transform: uppercase;
+  letter-spacing: var(--track-micro);
+}
+
+.char, .line { display: inline-block; will-change: transform; position: relative; }
+
+/* affordance — the reference relies on the visitor guessing */
+.slider__cue {
+  position: absolute;
+  bottom: 2rem; left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  font-family: var(--sans);
+  font-size: var(--fs-micro);
+  text-transform: uppercase;
+  letter-spacing: var(--track-micro);
+  color: var(--ink-soft);
+  pointer-events: none;
+}
+.slider__count { font-family: var(--mono); }
+
+@media (max-width: 1000px) {
+  .slide-title { top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; }
+  .slide-title h1 { max-width: none; }
+  .slide-description {
+    width: 75%;
+    text-align: center;
+    top: unset; bottom: 12%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    min-width: 0;
+  }
+}

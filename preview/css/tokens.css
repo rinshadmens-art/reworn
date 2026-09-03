@@ -1,0 +1,148 @@
+/* ============================================
+   REWORN. — design tokens
+
+   TWO GROUNDS, ONE BRAND.
+   The archive is a gallery: linen walls, ink type, goods lit flat.
+   The narrative is a theatre: warm black, one raking light.
+
+   Both are expressed through the SAME token names. `:root` holds the
+   gallery. `.theme-dark` re-declares those names to the theatre values,
+   so any component written against `var(--linen)` / `var(--ink)` flips
+   automatically the moment it lands inside a dark scope — no call-site
+   churn, and removing the class is a complete undo.
+
+   The blacks are warm (a red-shifted grey, never #000, never blue-black)
+   because every photograph in the archive is lit amber. A cold black
+   under warm light reads as a colour mistake even when nobody can name it.
+   ============================================ */
+
+/* The gallery is the default AND an explicit scope, so a linen island can
+   sit inside a dark page (and vice versa) just by naming it. Theming is a
+   class either way — nothing is baked into the document root. */
+:root,
+.theme-light {
+  color-scheme: light;
+
+  /* -- surfaces (60%) -- */
+  --linen:        #F2F1EA;
+  --parchment:    #EAE8E0;
+  --card:         #E4E2DB;
+  --card-deep:    #D9D7CF;
+  --hairline:     #CFCDC4;
+
+  /* -- ink -- */
+  --ink:          #1A1917;
+  --ink-soft:     #55534D;
+  --ink-faint:    #8B887F;
+
+  /* -- accent (10%) -- */
+  --signal:       #D6301D;
+
+  /* -- SEMANTIC ALIASES -------------------------------------------
+     New components (hero, spotlight) are written against these, so
+     they read honestly in both grounds. Old components keep using the
+     literal names above, which flip underneath them. */
+  --bg:        var(--linen);
+  --bg-2:      var(--parchment);
+  --surface:   var(--card);
+  --rule:      var(--hairline);
+  --fg:        var(--ink);
+  --fg-soft:   var(--ink-soft);
+  --fg-faint:  var(--ink-faint);
+
+  /* Scrims sit over photography, so they are stated as alpha, not as a
+     flat colour — the image has to stay visible underneath. */
+  --scrim:     rgba(10, 9, 8, 0.34);
+  --scrim-deep:rgba(10, 9, 8, 0.66);
+  --glow:      rgba(242, 241, 234, 0);   /* no bloom on a light ground */
+
+  /* -- type families -- */
+  --serif: 'Instrument Serif', 'Times New Roman', serif;
+  --sans:  'Switzer', -apple-system, 'Helvetica Neue', sans-serif;
+  --mono:  'Space Mono', 'SF Mono', monospace;
+
+  /* -- TYPE SCALE --------------------------------------------------
+     A real scale with violent contrast between levels. Visual
+     hierarchy needs jumps, not increments: display is ~14x body. */
+  --fs-display: clamp(72px, 19vw, 320px);   /* wordmark, hero numerals */
+  --fs-h1:      clamp(44px, 9vw, 132px);    /* section openers        */
+  --fs-h2:      clamp(30px, 5vw, 68px);     /* statements             */
+  --fs-h3:      clamp(19px, 2.2vw, 27px);   /* lede                   */
+  --fs-body:    16px;
+  --fs-small:   13px;
+  --fs-micro:   10.5px;                     /* uppercase labels       */
+
+  --lh-tight:   0.86;                       /* display                */
+  --lh-snug:    1.05;
+  --lh-body:    1.6;
+  --track-micro: 0.18em;
+  --track-tight: -0.03em;                   /* optical: big type needs negative tracking */
+
+  /* Switzer is a tighter, warmer neo-grotesque than Inter was. It can
+     carry the negative tracking that makes UI copy look drawn rather
+     than typed — but only above ~20px; small text needs the space back. */
+  --track-sans: -0.011em;
+
+  /* -- GRID: 12 columns, one gutter everywhere -- */
+  --gutter: clamp(16px, 3.4vw, 56px);
+  --col-gap: clamp(10px, 1.6vw, 26px);
+  --sect: clamp(88px, 15vh, 220px);
+  --sect-tight: clamp(48px, 8vh, 96px);
+
+  /* -- MOTION ------------------------------------------------------
+     Custom curves. The built-in CSS easings are too weak to read as
+     intentional (emil-design-eng). */
+  --ease-out:    cubic-bezier(0.19, 1, 0.22, 1);   /* the house curve — patient */
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+  --dur-fast: 180ms;    /* anything a finger touches — feedback is instant */
+  --dur:      560ms;    /* things that travel */
+  --dur-slow: 1100ms;   /* reveals and image scales — nothing snaps */
+
+  /* radius: sharp, or full pill. Never between. */
+  --radius: 0px;
+  --radius-pill: 999px;
+}
+
+/* ============================================================
+   THE THEATRE
+
+   Same names, re-declared. Note there is no pure #000 anywhere: the
+   deepest ground is #0B0A09, which keeps the amber in the photographs
+   from looking like it is floating on a hole.
+
+   Contrast, checked against WCAG on --void:
+     --linen  #EDEAE3  16.6:1   body and headings
+     --ink-soft #A8A399 7.6:1   secondary copy
+     --ink-faint #6E6960 3.4:1  labels and rules only, never body text
+   ============================================================ */
+.theme-dark {
+  color-scheme: dark;
+
+  /* surfaces, darkest first — the naming stays relative, not literal:
+     "linen" is always the ground, whatever colour the ground is */
+  --linen:        #0B0A09;   /* void  */
+  --parchment:    #121110;   /* pitch */
+  --card:         #1A1917;   /* the old ink is now a raised surface */
+  --card-deep:    #24221F;
+  --hairline:     #302D28;
+
+  /* type */
+  --ink:          #EDEAE3;   /* bone */
+  --ink-soft:     #A8A399;
+  --ink-faint:    #6E6960;
+
+  /* The red has to be lifted off black — #D6301D at 4.0:1 is legible
+     but sits heavy. Warmed and lightened it reads as the same colour
+     while clearing contrast. */
+  --signal:       #F0523A;
+
+  --scrim:      rgba(11, 10, 9, 0.5);
+  --scrim-deep: rgba(11, 10, 9, 0.82);
+  /* on dark, a bloom is what sells the raking light */
+  --glow:       rgba(240, 226, 200, 0.10);
+}
+
+/* Painting the ground on <html> as well as <body> stops the white
+   flash behind overscroll and behind the page-transition scale-down. */
+html.theme-dark { background: #0B0A09; }
