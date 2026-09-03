@@ -42,6 +42,15 @@
 
   var isMobile = window.innerWidth < 1000;
 
+  /* The reference runs at 0.25s on back.out(1.7). At that speed the tabs
+     snap the instant the cursor crosses them, which reads as twitchy
+     rather than considered. Slower, softer, and with a short intent
+     delay so brushing past on the way somewhere else does not fire. */
+  var LIFT = 0.55;          // tab rise
+  var FAN  = 0.7;           // frames fanning out
+  var EASE = 'expo.out';    // decelerates long and settles, no overshoot snap
+  var INTENT = 90;          // ms the cursor must rest before it opens
+
   function setInitialPositions() {
     gsap.set(folderWrappers, { y: isMobile ? 0 : 25 });
     gsap.set(previewImagesAll, { y: '0%', rotation: 0 });
@@ -58,7 +67,7 @@
     });
 
     gsap.to(folderWrappers[index], {
-      y: 0, duration: 0.25, ease: 'back.out(1.7)'
+      y: 0, duration: LIFT, ease: EASE, overwrite: 'auto'
     });
 
     images.forEach(function (img, i) {
@@ -81,20 +90,26 @@
     folders.forEach(function (f) { f.classList.remove('disabled'); });
 
     gsap.to(folderWrappers[index], {
-      y: 25, duration: 0.25, ease: 'back.out(1.7)'
+      y: 25, duration: LIFT * 0.8, ease: 'power2.inOut', overwrite: 'auto'
     });
 
     images.forEach(function (img, i) {
       gsap.to(img, {
         y: '0%', rotation: 0,
-        duration: 0.25, ease: 'back.out(1.7)', delay: i * 0.05
+        duration: FAN * 0.7, ease: 'power2.inOut', delay: i * 0.04, overwrite: 'auto'
       });
     });
   }
 
   folders.forEach(function (folder, index) {
-    folder.addEventListener('mouseenter', function () { handleEnter(folder, index); });
-    folder.addEventListener('mouseleave', function () { handleLeave(index); });
+    var timer;
+    folder.addEventListener('mouseenter', function () {
+      timer = setTimeout(function () { handleEnter(folder, index); }, INTENT);
+    });
+    folder.addEventListener('mouseleave', function () {
+      clearTimeout(timer);
+      handleLeave(index);
+    });
   });
 
   window.addEventListener('resize', function () {

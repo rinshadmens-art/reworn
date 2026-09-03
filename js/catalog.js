@@ -1109,6 +1109,47 @@ window.REWORN = {
     ]
    }
   ],
+  "svgPanes": [
+   {
+    "titleUp": "Worn",
+    "titleDown": "Once",
+    "freq": "0.03",
+    "octaves": "3",
+    "scale": "50",
+    "final": "1500",
+    "src": "assets/img/editorial/rl-linen-olive-1.jpg",
+    "id": "rl-linen-olive",
+    "w": 1289,
+    "h": 1600,
+    "text": "Polo Ralph Lauren · M · Classic Fit · ₹2,400"
+   },
+   {
+    "titleUp": "Wanted",
+    "titleDown": "Twice",
+    "freq": "0.1",
+    "octaves": "1",
+    "scale": "100",
+    "final": "1600",
+    "src": "assets/img/editorial/rare-rabbit-kufa-1.jpg",
+    "id": "rare-rabbit-kufa",
+    "w": 1289,
+    "h": 1600,
+    "text": "Rare Rabbit · M · ₹1,800"
+   },
+   {
+    "titleUp": "One",
+    "titleDown": "Of One",
+    "freq": "0.02",
+    "octaves": "3",
+    "scale": "80",
+    "final": "1500",
+    "src": "assets/img/editorial/nike-padded-1.jpg",
+    "id": "nike-padded",
+    "w": 1289,
+    "h": 1600,
+    "text": "Nike Sportswear · Oversized fit (style 477139-010, FA12) · ₹2,900"
+   }
+  ],
   "slides": [
    {
     "title": "Olive Linen Shirt",

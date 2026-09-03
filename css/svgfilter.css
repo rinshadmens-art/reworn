@@ -1,0 +1,85 @@
+/* ============================================================
+   SVG ON-SCROLL FILTER — faithful port of "OnScrollFilter".
+   A title splits in two, and between the halves an SVG mask
+   opens over the garment with a turbulent, liquid edge.
+   ============================================================ */
+
+.sf {
+  display: grid;
+  place-items: center;
+  grid-template-areas: 'main';
+}
+
+.sf__content {
+  grid-area: main;
+  display: grid;
+  place-items: center;
+  line-height: 1.2;
+  grid-template-areas: 'content';
+}
+
+/* the first pane is a full screen so the title is met on its own */
+.sf .sf__content:first-child { height: 100svh; }
+
+.sf__content--layout {
+  grid-template-areas:
+    'title-up title-down'
+    'img img'
+    'text text';
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.sf__img {
+  grid-area: img;
+  max-width: 50%;
+  height: auto;
+}
+
+.sf__title-wrap {
+  display: flex;
+  gap: 0.4em;
+  align-items: center;
+  justify-content: center;
+}
+
+.sf__title {
+  padding-top: 0.3em;
+  line-height: 0.9;
+  font-size: clamp(3rem, 12vw, 11rem);
+  font-family: var(--serif);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  position: relative;
+  z-index: 100;
+  color: var(--ink);
+}
+.sf__title--up   { grid-area: title-up;   font-style: italic; }
+.sf__title--down { grid-area: title-down; }
+
+.sf__text {
+  grid-area: text;
+  text-transform: uppercase;
+  font-family: var(--sans);
+  font-size: var(--fs-micro);
+  letter-spacing: var(--track-micro);
+  margin: 0;
+  opacity: 0.55;
+  text-align: center;
+  max-width: 42ch;
+}
+.sf__text a { border-bottom: 1px solid var(--signal); padding-bottom: 2px; }
+
+/* per-pane framing, echoing the reference's varied layouts */
+.sf__img--1 { max-width: 42%; }
+.sf__img--2 { max-width: 58%; }
+.sf__img--3 { max-width: 46%; }
+
+@media (max-width: 900px) {
+  .sf__content--layout {
+    grid-template-areas: 'title-up' 'title-down' 'img' 'text';
+    grid-template-columns: 1fr;
+  }
+  .sf__img, .sf__img--1, .sf__img--2, .sf__img--3 { max-width: 88%; }
+  .sf__title { font-size: clamp(2.6rem, 17vw, 5rem); }
+}

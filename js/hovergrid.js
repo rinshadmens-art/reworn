@@ -59,6 +59,13 @@
   var workLinks = [].slice.call(nav.querySelectorAll('a'));
   var title = root.querySelector('.hg__title-main');
 
+  /* The reference fires after 30ms and runs at 0.95s. The duration is
+     right; the trigger is not — 30ms means the panel flips every time the
+     cursor crosses a row on its way elsewhere. */
+  var INTENT = 110;
+  var IN_DUR = 1.15;
+  var OUT_DUR = 0.8;
+
   var getClipPath = function (imageElement) {
     var clipPathDirections = {
       right:  'polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)',
@@ -95,7 +102,7 @@
          surrounding copy so it stays readable */
       document.body.classList.add('hg-active');
 
-      link.tlEnter = gsap.timeline({ defaults: { duration: 0.95, ease: 'power4' } })
+      link.tlEnter = gsap.timeline({ defaults: { duration: IN_DUR, ease: 'power4' } })
         .set(bgElement, { opacity: 1 })
         .fromTo(contentTitle, { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1 }, 0)
         .fromTo(contentImages, {
@@ -114,7 +121,7 @@
       gsap.set(contentElement, { zIndex: 0 });
 
       link.tlLeave = gsap.timeline({
-        defaults: { duration: 0.95, ease: 'power4' },
+        defaults: { duration: OUT_DUR, ease: 'power3.inOut' },
         onComplete: function () {
           contentElement.classList.remove('hg__item--current');
           if (!document.querySelector('.hg__item--current')) {
@@ -136,7 +143,7 @@
     workLinks.forEach(function (workLink) {
       var hoverTimer;
       workLink.addEventListener('mouseenter', function () {
-        hoverTimer = setTimeout(function () { toggleWork(workLink, true); }, 30);
+        hoverTimer = setTimeout(function () { toggleWork(workLink, true); }, INTENT);
       });
       workLink.addEventListener('mouseleave', function () {
         clearTimeout(hoverTimer);
@@ -146,11 +153,11 @@
 
     nav.addEventListener('mouseenter', function () {
       gsap.killTweensOf(title);
-      gsap.to(title, { duration: 0.6, ease: 'power4', opacity: 0 });
+      gsap.to(title, { duration: 0.9, ease: 'power3.out', opacity: 0 });
     });
     nav.addEventListener('mouseleave', function () {
       gsap.killTweensOf(title);
-      gsap.to(title, { duration: 0.6, ease: 'sine.in', opacity: 1 });
+      gsap.to(title, { duration: 0.9, ease: 'power2.inOut', opacity: 1 });
     });
   }
 

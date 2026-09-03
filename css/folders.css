@@ -88,10 +88,10 @@
   line-height: 1;
   letter-spacing: -0.02em;
 }
-.folder-name h1, .folder-index p { transition: color 250ms ease; }
+.folder-name h1, .folder-index p { transition: color 550ms var(--ease-out); }
 
 .folder-index, .folder-index::after, .folder-name {
-  transition: background-color 250ms ease;
+  transition: background-color 550ms var(--ease-out);
 }
 
 /* REWORN's three tab tones, standing in for the reference's yellows */

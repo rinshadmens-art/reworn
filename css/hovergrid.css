@@ -65,7 +65,7 @@
   letter-spacing: -0.01em;
   text-decoration: none;
   color: var(--ink);
-  transition: color 300ms var(--ease-out);
+  transition: color 550ms var(--ease-out);
 }
 .hg__works a:hover { color: var(--signal); }
 .hg__works a .n {
@@ -213,7 +213,7 @@ html:not(.js) .hg__item-title { opacity: 1; }
 .hg-active .menu-hamburger-icon { border-color: rgba(242, 241, 234, 0.25); }
 .hg__tagline, .hg__year, .hg__menu,
 .hg__works > span, .hg__works a,
-.menu-bar, .menu-logo a { transition: color 500ms var(--ease-out); }
+.menu-bar, .menu-logo a { transition: color 700ms var(--ease-out); }
 
 /* the item title sits on the plate, so it is simply light */
 .hg__item-title { mix-blend-mode: normal; filter: none; color: var(--linen); }
