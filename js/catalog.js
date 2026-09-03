@@ -1053,6 +1053,92 @@ window.REWORN = {
     ]
    }
   ],
+  "folderTabs": [
+   {
+    "label": "Shirts",
+    "href": "collection.html?c=shirts",
+    "shots": [
+     "assets/img/editorial/rl-linen-olive-1.jpg",
+     "assets/img/editorial/rare-rabbit-kufa-1.jpg",
+     "assets/img/editorial/pepe-linen-ecru-1.jpg"
+    ]
+   },
+   {
+    "label": "Outerwear",
+    "href": "collection.html?c=outerwear",
+    "shots": [
+     "assets/img/editorial/nike-padded-1.jpg",
+     "assets/img/editorial/lilang-trench-1.jpg",
+     "assets/img/editorial/sourepose-chore-1.jpg"
+    ]
+   },
+   {
+    "label": "Knitwear",
+    "href": "collection.html?c=knitwear",
+    "shots": [
+     "assets/img/editorial/greymarl-mockneck-1.jpg",
+     "assets/img/editorial/xint-henley-1.jpg",
+     "assets/img/editorial/cable-knit-grey-1.jpg"
+    ]
+   },
+   {
+    "label": "Archive",
+    "href": "collection.html",
+    "shots": [
+     "assets/img/editorial/rl-linen-olive-1.jpg",
+     "assets/img/editorial/rare-rabbit-kufa-1.jpg",
+     "assets/img/editorial/nike-padded-1.jpg"
+    ]
+   },
+   {
+    "label": "Under ₹1500",
+    "href": "collection.html",
+    "shots": [
+     "assets/img/editorial/pepe-linen-ecru-1.jpg",
+     "assets/img/editorial/pepe-denim-1.jpg",
+     "assets/img/editorial/uspa-stripe-1.jpg"
+    ]
+   },
+   {
+    "label": "Full health",
+    "href": "collection.html",
+    "shots": [
+     "assets/img/editorial/rl-linen-olive-1.jpg",
+     "assets/img/editorial/rare-rabbit-kufa-1.jpg",
+     "assets/img/editorial/pepe-linen-ecru-1.jpg"
+    ]
+   }
+  ],
+  "slides": [
+   {
+    "title": "Olive Linen Shirt",
+    "description": "The green that works in every season. Classic Fit Polo linen — the quiet flex.",
+    "meta": "Polo Ralph Lauren · M · Classic Fit · ₹2,400",
+    "image": "assets/img/editorial/rl-linen-olive-1.jpg",
+    "id": "rl-linen-olive"
+   },
+   {
+    "title": "KUFA Print Shirt",
+    "description": "An artwork with buttons. Red-and-ink sketch print — worn when you want the room to look.",
+    "meta": "Rare Rabbit · M · ₹1,800",
+    "image": "assets/img/editorial/rare-rabbit-kufa-1.jpg",
+    "id": "rare-rabbit-kufa"
+   },
+   {
+    "title": "Lightweight Padded Jacket",
+    "description": "A 2012 Nike Sportswear piece — glossy black quilting you can't buy new anymore.",
+    "meta": "Nike Sportswear · Oversized fit (style 477139-010, FA12) · ₹2,900",
+    "image": "assets/img/editorial/nike-padded-1.jpg",
+    "id": "nike-padded"
+   },
+   {
+    "title": "Grey-Taupe Car Coat",
+    "description": "A Fujian-tailored car coat with throat-latch detail. Detective-film energy.",
+    "meta": "Lilang (利郎) · 165/84A (Asia M) — oversized on most · ₹1,900",
+    "image": "assets/img/editorial/lilang-trench-1.jpg",
+    "id": "lilang-trench"
+   }
+  ],
   "heroStack": [
    {
     "src": "assets/img/editorial/rl-linen-olive-1.jpg",

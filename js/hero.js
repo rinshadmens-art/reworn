@@ -25,8 +25,11 @@
     wrap.innerHTML = shots.map(function (s, i) {
       /* the last three survive the sequence and become the stack */
       var main = i >= shots.length - 3 ? ' main' : '';
+      /* every frame is on screen within ~3s, so none of them are lazy —
+         a lazy frame decodes mid-animation and shows as a blur */
       return '<figure class="img' + main + '"><img src="' + s.src +
-             '" alt="" ' + (i === 0 ? 'fetchpriority="high"' : 'loading="lazy"') + '></figure>';
+             '" alt="" decoding="async"' +
+             (i === 0 ? ' fetchpriority="high"' : '') + '></figure>';
     }).join('');
   }
 
@@ -36,6 +39,25 @@
     gsap.set('.team-img', { clipPath: 'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)' });
     var rv = document.querySelector('.revealers'); if (rv) rv.style.display = 'none';
     return;
+  }
+
+  /* The revealers stay shut until every hero frame has actually decoded.
+     Starting the timeline earlier is what caused the first seconds to look
+     blurry: the browser was still progressively decoding full-size JPEGs
+     while they were already on screen at scale(1.5). */
+  function framesReady() {
+    var imgs = [].slice.call(wrap ? wrap.querySelectorAll('img') : []);
+    if (!imgs.length) return Promise.resolve();
+    return Promise.all(imgs.map(function (img) {
+      if (img.decode) {
+        return img.decode().catch(function () {});   // decode() rejects on some GIF/SVG
+      }
+      if (img.complete) return Promise.resolve();
+      return new Promise(function (res) {
+        img.addEventListener('load', res, { once: true });
+        img.addEventListener('error', res, { once: true });
+      });
+    }));
   }
 
   /* ---------- split the statement into masked lines ---------- */
@@ -52,7 +74,7 @@
     });
   }
 
-  var mainTl    = gsap.timeline();
+  var mainTl    = gsap.timeline({ paused: true });
   var revealerTl = gsap.timeline();
   var scaleTl    = gsap.timeline();
 
@@ -103,6 +125,17 @@
       clipPath: 'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)',
       duration: 2, ease: 'hop', delay: -4.75
     });
+
+  /* Start once the frames are decoded, but never wait forever on a slow
+     connection — after 2.5s the reveal runs regardless. */
+  var started = false;
+  var start = function () {
+    if (started) return;
+    started = true;
+    mainTl.play();
+  };
+  framesReady().then(start);
+  setTimeout(start, 2500);
 
   /* Failsafe on a real timer — gsap.delayedCall shares the throttled
      rAF ticker, so it would stall exactly when the rescue is needed. */

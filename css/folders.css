@@ -1,0 +1,129 @@
+/* ============================================================
+   FOLDERS — faithful port of the "hover" reference.
+   Overlapping tabs stacked at the bottom of the screen; hovering
+   one lifts it and fans three frames up from behind it.
+   ============================================================ */
+
+.folders {
+  width: 100%;
+  height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+
+.folders .row {
+  position: relative;
+  width: 100%;
+  display: flex;
+}
+
+.folder {
+  position: relative;
+  flex: 1;
+  height: 12.5rem;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+.folders .row:nth-child(2) .folder:nth-child(1) { flex: 2; }
+.folders .row:nth-child(2) .folder:nth-child(2) { flex: 3; }
+
+.folder-preview {
+  position: absolute;
+  top: 0; left: 0;
+  width: 25rem;
+  height: 100%;
+  pointer-events: none;
+}
+.folder-preview-img {
+  position: absolute;
+  top: 50%;
+  width: 8rem;
+  height: 12rem;
+  overflow: hidden;
+  background: var(--card);
+}
+.folder-preview-img:nth-child(1) { left: 20%; transform-origin: top left; }
+.folder-preview-img:nth-child(2) { left: 50%; transform-origin: center; }
+.folder-preview-img:nth-child(3) { left: 80%; transform-origin: top right; }
+.folder-preview-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.folder-wrapper {
+  position: relative;
+  width: 100%; height: 100%;
+  will-change: transform;
+}
+.folder-index {
+  position: relative;
+  width: 40%;
+  padding: 0.75rem;
+}
+.folder-index::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 99%;
+  height: 101%;
+  aspect-ratio: 1;
+  clip-path: polygon(0 0, 25% 0, 100% 100%, 0% 100%);
+}
+.folder-name {
+  width: 100%; height: 100%;
+  display: flex;
+  align-items: flex-start;
+  padding: 0 0.25rem 0 2rem;
+}
+.folder-index p {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  line-height: 1;
+}
+.folder-name h1 {
+  font-family: var(--serif);
+  font-size: 2.75rem;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.folder-name h1, .folder-index p { transition: color 250ms ease; }
+
+.folder-index, .folder-index::after, .folder-name {
+  transition: background-color 250ms ease;
+}
+
+/* REWORN's three tab tones, standing in for the reference's yellows */
+.folder.variant-1 .folder-index,
+.folder.variant-1 .folder-index::after,
+.folder.variant-1 .folder-name { background-color: var(--signal); }
+.folder.variant-1 .folder-name h1,
+.folder.variant-1 .folder-index p { color: var(--linen); }
+
+.folder.variant-2 .folder-index,
+.folder.variant-2 .folder-index::after,
+.folder.variant-2 .folder-name { background-color: var(--card); }
+
+.folder.variant-3 .folder-index,
+.folder.variant-3 .folder-index::after,
+.folder.variant-3 .folder-name { background-color: var(--card-deep); }
+
+.folder.disabled .folder-index,
+.folder.disabled .folder-index::after,
+.folder.disabled .folder-name { background-color: var(--parchment); }
+.folder.disabled p, .folder.disabled h1 { color: var(--ink-faint); }
+
+/* the overlap that makes them read as a stack of tabs */
+.folders .row:nth-child(1) { bottom: -13rem; }
+.folders .row:nth-child(2) { bottom: -7.5rem; }
+.folders .row:nth-child(3) { bottom: -2rem; }
+
+@media (max-width: 62.5rem) {
+  .folder-name h1 { font-size: 2rem; }
+  .folders .row { flex-direction: column; bottom: 0 !important; }
+  .folder { margin-bottom: -0.5rem; }
+  .folder-preview { display: none; }
+  .folder-name { padding: 0 2rem 2rem; }
+  .folders { height: auto; padding-bottom: 3rem; }
+}
