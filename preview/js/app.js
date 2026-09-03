@@ -38,6 +38,13 @@
   }
 
   /* ---------- product cards ---------- */
+  /* Categories are stored lowercase as filter keys; printed in a spec
+     table beside "Polo Ralph Lauren" and "Linen (Made in India)", a bare
+     "shirts" reads as a bug rather than as a value. */
+  function cap(s) {
+    return String(s || '').replace(/^./, function (c) { return c.toUpperCase(); });
+  }
+
   function card(p) {
     var im = imgs(p);
     var alt = im[1] || im[0];
@@ -188,7 +195,7 @@
         '<table class="spec"><tbody>' +
           '<tr><th>Size</th><td>' + esc(p.size) + '</td></tr>' +
           '<tr><th>Material</th><td>' + esc(p.material) + '</td></tr>' +
-          '<tr><th>Category</th><td>' + esc(p.category) + '</td></tr>' +
+          '<tr><th>Category</th><td>' + esc(cap(p.category)) + '</td></tr>' +
           '<tr><th>Pieces</th><td>1 of 1 — no restock</td></tr>' +
         '</tbody></table>' +
 

@@ -295,3 +295,44 @@ html:not(.js) .hg__item-title { opacity: 1; }
    light-on-dark and correct. The plate only deepens a ground that was
    already dark, so the block is gone rather than fixed.
    ============================================================ */
+
+/* ---------- small screens ----------
+   There is no hover on a touch device, so the whole reveal never fires:
+   the 46svh stage stays permanently empty and the standing title, which
+   the grid places over that stage, was landing at y:-69 — under the
+   fixed bar. On a phone this section is its list of routes, and the
+   parts that only exist to support hovering stand down. */
+@media (max-width: 62.5rem) {
+  .hg {
+    padding-top: calc(var(--gutter) + 5.5rem);
+    /* The base map puts the statement after the route list, which on a
+       phone means five links scroll past before the page says what it
+       is. Reordered so the statement leads and the routes follow it. */
+    grid-template-areas:
+      'site year menu'
+      'title title title'
+      'tagline tagline tagline'
+      'works works works'
+      'content content content'
+      'contact contact contact'
+      'links links links';
+  }
+  .hg__content { min-height: 0; }
+  .hg__title-main {
+    position: static;
+    grid-area: title;
+    font-size: clamp(2.4rem, 13vw, 4rem);
+    margin-bottom: 1.4rem;
+  }
+  .hg__title-main span:last-child { margin-left: 0; display: block; }
+  .hg__works a { font-size: clamp(24px, 7vw, 34px); padding: 0.5rem 0; }
+  .hg__works a .c { display: none; }
+  .hg__links { gap: 1rem; }
+}
+
+/* Without a pointer the reveal is unreachable, so the panels and the
+   plate are never shown — and an element that can never be seen should
+   not be downloading five background photographs. */
+@media (hover: none) {
+  .hg__bg, .hg__item { display: none; }
+}

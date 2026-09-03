@@ -271,19 +271,65 @@ html:not(.js) .img { opacity: 1; transform: translate(-50%, -50%); }
 html:not(.js) .revealers { display: none; }
 
 @media (max-width: 1000px) {
-  .site-logo h1 { font-size: 12vw; }
-  .team-img { width: 46%; height: 34%; }
+  /* The two words sat side by side at 12vw, which on a 500px screen is a
+     590px line — it ran under the MENU button and off the right edge.
+     Stacked and smaller, it fits and reads bigger, not smaller. */
+  .site-logo {
+    flex-direction: column;
+    gap: 0;
+    top: 1.25em; left: 1.25em;
+    /* never grow into the menu button's corner */
+    max-width: calc(100% - 8.5em);
+  }
+  .site-logo h1 { font-size: 13vw; line-height: 0.84; }
+  .site-logo h1 sup { font-size: 0.9rem; }
+
+  /* Lifted off the bottom edge. Sitting bottom-right it overlapped the
+     statement, which on a phone is the full width of the screen — the
+     sentence was legible for eight words and then ran under a jacket. */
+  .team-img {
+    width: 58%; height: 26%;
+    right: 0; bottom: auto; top: 34%;
+  }
+
   .site-info {
-    width: calc(100% - 4em);
+    width: calc(100% - 2.5em);
     height: auto;
-    bottom: 2em;
+    left: 1.25em;
+    bottom: 1.25em;
     padding-left: 0;
-    gap: 1.4em;
+    gap: 1.2em;
   }
   .site-info .row:nth-child(2) { display: none; }
-  .images.stacked-container { left: 1em; bottom: 1em; gap: 0.5em; }
-  .img.stacked { width: 72px; height: 96px; }
+  /* The rows are two flex columns side by side. On a phone that gave the
+     statement half of 500px and pushed it under the garment panel, so the
+     one sentence the hero exists to say was invisible. */
+  .site-info .row { flex-direction: column; gap: 0.75em; }
+  /* the copy sits over the ambient plate at this size, so it earns a
+     little ground of its own rather than relying on the vignette */
+  .site-info::before {
+    content: '';
+    position: absolute;
+    inset: -1.5em -1.25em -1.5em -1.25em;
+    background: linear-gradient(to top, var(--scrim-deep) 45%, transparent 100%);
+    pointer-events: none;
+    z-index: -1;
+  }
+  .site-info h2 { font-size: clamp(19px, 5.2vw, 30px); max-width: 20ch; }
+
+  /* The corner stack is decorative, and on a phone it was overlapping the
+     statement AND hanging off the left edge. The hero's job on a small
+     screen is the wordmark and the sentence; the pile is what gets cut. */
+  .images.stacked-container { display: none; }
+
   .hero-nav { display: none; }
+}
+
+/* Below the fold on a short screen the statement and the panel fight for
+   the same space, so the panel yields — the sentence is the thing that
+   has to survive. */
+@media (max-width: 1000px) and (max-height: 700px) {
+  .team-img { display: none; }
 }
 
 /* The reference is a single-screen landing, so its stack stays fixed

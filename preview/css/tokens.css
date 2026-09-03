@@ -43,6 +43,12 @@
   --plate-top:    #E2E1DD;
   --plate-bot:    #F4F3F0;
 
+  /* Folder-tab tones. They must step visibly or the stack reads as one
+     block; the reference used three distinct yellows for exactly this. */
+  --tab-1: #E7E5DE;
+  --tab-2: #DBD9D1;
+  --tab-3: #CFCDC4;
+
   /* -- accent (10%) -- */
   --signal:       #D6301D;
 
@@ -148,6 +154,13 @@
   /* on the theatre ground the plate is a lit recess, not a wall */
   --plate-top:  #22201D;
   --plate-bot:  #171613;
+
+  /* On the theatre ground --card / --card-deep / --parchment sit within
+     six points of each other, so the tab stack rendered as a single dark
+     slab. These are spaced to actually read as separate tabs. */
+  --tab-1: #322E29;
+  --tab-2: #26231F;
+  --tab-3: #1B1916;
 
   --scrim:      rgba(11, 10, 9, 0.5);
   --scrim-deep: rgba(11, 10, 9, 0.82);

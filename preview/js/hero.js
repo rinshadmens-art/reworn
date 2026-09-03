@@ -84,7 +84,13 @@
   if (window.SplitType) {
     var splitH2 = new SplitType('.site-info h2', { types: 'lines' });
     splitH2.lines.forEach(function (line) {
-      var text = line.textContent;
+      /* SplitType hands back each line without the space that separated
+         it from the next one. Rebuilt as block spans it still LOOKS right,
+         but the element's text becomes "That isthe only thing" — which is
+         what a screen reader announces and what a copy-paste produces.
+         The space is restored here; it collapses visually because each
+         span is display:block. */
+      var text = line.textContent.replace(/\s+$/, '') + ' ';
       var wrapper = document.createElement('div');
       wrapper.className = 'line';
       var span = document.createElement('span');
