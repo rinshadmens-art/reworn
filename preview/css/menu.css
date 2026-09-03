@@ -181,3 +181,29 @@ html.no-scroll, body.no-scroll { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) {
   .js.is-entering .page-shell { clip-path: none; transform: none; }
 }
+
+/* ---- the bar's backdrop -------------------------------------------
+   The bar is transparent and fixed, so anything that scrolls beneath it
+   collides with the wordmark — most visibly on browse, where the frame's
+   tagline sits in the same top-left corner as the mark.
+
+   A soft gradient rather than a solid plate: a hard bar would cut the
+   full-bleed photography in half, which is the opposite of what this
+   page is for. It fades in only once content is actually passing under. */
+.menu-bar::before {
+  content: '';
+  position: absolute;
+  inset: -1px 0 auto 0;
+  height: 190%;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0;
+  background: linear-gradient(to bottom,
+    var(--linen) 0%,
+    color-mix(in srgb, var(--linen) 72%, transparent) 42%,
+    transparent 100%);
+  transition: opacity 420ms var(--ease-out);
+}
+.scrolled .menu-bar::before { opacity: 1; }
+/* over the fullscreen menu the bar has the overlay behind it already */
+.menu-open .menu-bar::before { opacity: 0; }

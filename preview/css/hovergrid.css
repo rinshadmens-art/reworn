@@ -1,7 +1,14 @@
 /* ============================================================
-   HOVER GRID — faithful port of "HoverGrid".
-   Hover a category and three garment frames wipe in from
-   different directions behind a large title.
+   HOVER GRID — port of "HoverGrid".
+
+   Hover a route into the archive and three garment frames wipe in from
+   different directions behind a large title, over a dimmed plate.
+
+   The reference's structure is reproduced exactly: the same five-column
+   frame, the same 10x10 content grid, the same fifteen authored
+   positions, the same directional clip-paths. What is ours is the type,
+   the palette and the fact that the five routes are real filters rather
+   than five project names.
    ============================================================ */
 
 .hg {
@@ -17,64 +24,109 @@
   justify-items: start;
   grid-template-columns: auto auto auto;
   grid-template-areas:
-    'year menu menu'
+    'site year menu'
     'tagline tagline tagline'
+    'contact contact contact'
     'works works works'
     'content content content'
-    'title title title';
+    'title title title'
+    'links links links';
   color: var(--ink);
 }
 .hg a { pointer-events: auto; }
 
+/* ---------- the frame's small type ---------- */
 .hg__tagline {
   grid-area: tagline;
-  max-width: 240px;
-  line-height: 1.5;
+  max-width: 25ch;
+  line-height: 1.55;
   font-size: var(--fs-small);
   color: var(--ink-soft);
 }
 .hg__site { grid-area: site; }
 .hg__year { grid-area: year; }
-.hg__site, .hg__year, .hg__menu {
+.hg__menu { grid-area: menu; justify-self: end; }
+.hg__contact { grid-area: contact; }
+
+.hg__site, .hg__year, .hg__menu, .hg__contact,
+.hg__links a, .hg__works > span {
+  font-family: var(--mono);
   font-size: var(--fs-micro);
   text-transform: uppercase;
   letter-spacing: var(--track-micro);
 }
-.hg__menu { grid-area: menu; justify-self: end; }
+.hg__site, .hg__year, .hg__menu { color: var(--ink-faint); }
+.hg__works > span { color: var(--ink-faint); margin-bottom: 1.6rem; }
 
+.hg__contact a,
+.hg__links a {
+  color: var(--ink-soft);
+  border-bottom: 1px solid transparent;
+  padding-bottom: 3px;
+  transition: color var(--dur-fast) var(--ease-out),
+              border-color var(--dur-fast) var(--ease-out);
+}
+.hg__contact a:hover,
+.hg__links a:hover { color: var(--signal); border-bottom-color: var(--signal); }
+
+.hg__links {
+  grid-area: links;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.4rem;
+  align-self: end;
+}
+
+/* ---------- the routes ---------- */
 .hg__works {
   grid-area: works;
   display: flex;
   flex-direction: column;
   pointer-events: none;
 }
-.hg__works > span {
-  margin-bottom: 1.5rem;
-  font-size: var(--fs-micro);
-  text-transform: uppercase;
-  letter-spacing: var(--track-micro);
-  color: var(--ink-faint);
-}
 .hg__works a {
   pointer-events: auto;
-  padding: 0.3rem 0;
+  padding: 0.34rem 0;
   position: relative;
+  display: flex;
+  align-items: baseline;
+  gap: 0.75em;
   font-family: var(--serif);
-  font-size: clamp(22px, 2.3vw, 34px);
-  line-height: 1.15;
-  letter-spacing: -0.01em;
+  font-size: clamp(21px, 2.1vw, 31px);
+  line-height: 1.14;
+  letter-spacing: -0.015em;
   text-decoration: none;
+  /* The reference sets these #fff on black and #f4d88c on hover. Ours is
+     already light-on-dark, so the resting colour is simply the ink token;
+     the hover is the brand's red rather than the reference's gold,
+     because this archive has exactly one accent and adding a second
+     would make the palette look borrowed. */
   color: var(--ink);
-  transition: color 550ms var(--ease-out);
+  transition: color 420ms var(--ease-out), opacity 420ms var(--ease-out);
 }
 .hg__works a:hover { color: var(--signal); }
+
+/* Dimming the siblings is what makes the hovered route read as chosen
+   rather than merely coloured — the reference gets this for free from
+   its white/gold contrast, which a single-accent palette cannot. */
+.hg__works:hover a { opacity: 0.38; }
+.hg__works:hover a:hover { opacity: 1; }
+
 .hg__works a .n {
   font-family: var(--mono);
   font-size: var(--fs-micro);
   color: var(--ink-faint);
-  margin-right: 0.8em;
+  letter-spacing: var(--track-micro);
+}
+.hg__works a .c {
+  font-family: var(--mono);
+  font-size: var(--fs-micro);
+  color: var(--ink-faint);
+  margin-left: auto;
+  padding-left: 1.5em;
 }
 
+/* ---------- the stage ---------- */
 .hg__content {
   grid-area: content;
   width: 100%;
@@ -85,7 +137,7 @@
 }
 
 .hg__title-main {
-  line-height: 0.9;
+  line-height: 0.88;
   font-weight: 400;
   font-family: var(--serif);
   margin: 0;
@@ -96,9 +148,13 @@
   align-content: center;
   width: 100%;
   pointer-events: none;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.035em;
 }
-.hg__title-main span:last-child { margin-left: 1em; }
+/* Direct child only. Without the ">", this also matched the nested
+   <span class="dot">, which is the last child of ITS parent — so the
+   full stop was pushed 1em (117px at display size) away from the word
+   it belongs to and floated on its own out to the right. */
+.hg__title-main > span:last-child { margin-left: 1em; }
 .hg__title-main .dot { color: var(--signal); }
 
 .hg__item {
@@ -128,11 +184,13 @@
   align-content: center;
   margin: 0;
   line-height: 1;
-  color: var(--ink);
+  /* Sits on top of the dimmed plate and the photographs, so it is stated
+     absolutely rather than themed. var(--ink) would be correct today and
+     wrong the moment this component is used on a light page. */
+  color: #F4F2EC;
+  text-shadow: 0 2px 40px rgba(11, 10, 9, 0.5);
   font-size: clamp(2rem, 9vw, 8rem);
-  letter-spacing: -0.03em;
-  mix-blend-mode: difference;
-  filter: invert(1);
+  letter-spacing: -0.035em;
 }
 html:not(.js) .hg__item-title { opacity: 1; }
 
@@ -144,7 +202,7 @@ html:not(.js) .hg__item-title { opacity: 1; }
   height: 100%;
 }
 
-/* the reference's positions, kept exactly */
+/* the reference's fifteen authored positions, kept exactly */
 .pos-1 { grid-area: 1 / 1 / 5 / 5; }
 .pos-2 { grid-area: 5 / 8 / 10 / 11; }
 .pos-3 { grid-area: 8 / 3 / 11 / 5; }
@@ -161,6 +219,11 @@ html:not(.js) .hg__item-title { opacity: 1; }
 .pos-11 { grid-area: 4 / 1 / 10 / 4; }
 .pos-12 { grid-area: 2 / 5 / 6 / 9; }
 
+.pos-13 { grid-area: 3 / 8 / 8 / 11; }
+.pos-14 { grid-area: 1 / 5 / 5 / 7; }
+.pos-15 { grid-area: 6 / 2 / 11 / 5; }
+
+/* ---------- the plate behind it ---------- */
 .hg__bg {
   position: fixed;
   right: 0; bottom: 0;
@@ -179,41 +242,56 @@ html:not(.js) .hg__item-title { opacity: 1; }
   grid-area: background;
   background-size: cover;
   background-position: center;
-  filter: brightness(0.35) saturate(0.6);
+  /* the reference's own brightness(0.2) — anything lighter and the
+     wiped-in frames stop reading as lit objects in a dark room */
+  filter: brightness(0.2) saturate(0.85);
   width: 120%; height: 120%;
   opacity: 0;
 }
 
 @media screen and (min-width: 53em) {
+  /* the reference's exact column split and area map */
   .hg {
     height: 100svh;
-    grid-template-columns: 24% 20% 1fr 1fr;
-    grid-template-rows: auto auto 1fr auto;
+    grid-template-columns: 20% 15% 30% 1fr 1fr;
+    grid-template-rows: auto auto 1fr 1fr auto;
     align-content: space-between;
+    /* The reference puts the tagline in row 1 alongside the meta, because
+       it has no fixed navigation. Ours does, and its wordmark lives in
+       exactly that corner — the tagline's first two lines were rendering
+       underneath the mark. Row 1 is now the meta rail alone, and the
+       tagline starts on row 2, clear of the bar and with more air above
+       it than the reference had. */
     grid-template-areas:
-      'tagline ... ... menu'
-      'tagline content content content'
-      'works content content content'
-      'title title title title';
+      '...     ...     site  year    menu'
+      'tagline content content content content'
+      'contact content content content content'
+      'works   content content content content'
+      'title   title   links   links   links';
+    grid-row-gap: 1.6rem;
   }
-  .hg__works { margin-bottom: 6vh; }
-  .hg__title-main { grid-area: 4 / 2 / 2 / 5; }
+  .hg__site, .hg__year { justify-self: end; }
+  .hg__contact { padding-top: 3rem; }
+  .hg__links { gap: 2rem; justify-self: end; }
+  .hg__works { margin-bottom: 10vh; }
+  .hg__works a { padding: 0.44rem 0; }
+  .hg__title-main { grid-area: 5 / 3 / 2 / 6; }
 }
 
-/* While a category is revealed a dark plate covers the page, so the
-   surrounding copy inverts to stay legible. */
-.hg-active .hg__tagline,
-.hg-active .hg__year,
-.hg-active .hg__menu,
-.hg-active .hg__works > span { color: rgba(242, 241, 234, 0.65); }
-.hg-active .hg__works a { color: var(--linen); }
-.hg-active .hg__works a:hover { color: var(--signal); }
-.hg-active .menu-bar { color: var(--linen); }
-.hg-active .menu-logo a { color: var(--linen); }
-.hg-active .menu-hamburger-icon { border-color: rgba(242, 241, 234, 0.25); }
-.hg__tagline, .hg__year, .hg__menu,
-.hg__works > span, .hg__works a,
-.menu-bar, .menu-logo a { transition: color 700ms var(--ease-out); }
+/* ============================================================
+   NOTE ON THE COLOUR BUG THIS REPLACES.
 
-/* the item title sits on the plate, so it is simply light */
-.hg__item-title { mix-blend-mode: normal; filter: none; color: var(--linen); }
+   The previous version carried an .hg-active block that repainted the
+   surrounding copy to var(--linen) so it would stay legible once the
+   dark plate dropped. That was written when the page was linen and the
+   plate was the only dark thing on it.
+
+   The page is now the theatre ground, so var(--linen) IS near-black —
+   and every one of those rules was turning the nav links, the category
+   title and the menu bar black-on-black at exactly the moment they were
+   supposed to become readable. Whole component went dark on hover.
+
+   There is nothing to invert any more: the resting state is already
+   light-on-dark and correct. The plate only deepens a ground that was
+   already dark, so the block is gone rather than fixed.
+   ============================================================ */

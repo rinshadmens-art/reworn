@@ -10,11 +10,11 @@
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#0B0A09">
 <script>document.documentElement.classList.add('js','is-entering');setTimeout(function(){document.documentElement.classList.remove('is-entering')},1200)</script>
-<link rel="stylesheet" href="css/menu.css?v=1788467627">
-<link rel="stylesheet" href="css/hero.css?v=1788467627">
-<link rel="stylesheet" href="css/spotlight.css?v=1788467627">
-<link rel="stylesheet" href="css/svgpath.css?v=1788467627">
-<link rel="stylesheet" href="css/main.css?v=1788467627">
+<link rel="stylesheet" href="css/menu.css?v=1788476244">
+<link rel="stylesheet" href="css/hero.css?v=1788476244">
+<link rel="stylesheet" href="css/spotlight.css?v=1788476244">
+<link rel="stylesheet" href="css/svgpath.css?v=1788476244">
+<link rel="stylesheet" href="css/main.css?v=1788476244">
 </head>
 <body class="is-home">
 
@@ -171,11 +171,20 @@
      twenty-one glowing white rectangles floating in a void. Theatre for
      the story, gallery for the goods. -->
 <section class="section wrap theme-light ground">
-  <div style="display:flex;justify-content:space-between;align-items:baseline;gap:20px;margin-bottom:34px">
+  <div class="drop__head">
     <p class="micro faint">The pieces of this drop</p>
-    <a class="micro" href="collection.html" style="border-bottom:1px solid var(--signal);padding-bottom:3px">All 21 →</a>
+    <a class="micro drop__all" href="collection.html">All 21 &rarr;</a>
   </div>
-  <div class="grid" data-grid="home"></div>
+  <div class="grid" data-grid="home" data-limit="4"></div>
+
+  <!-- The index shows four. This is the door to the other seventeen, and
+       it is a full-width band rather than a small link because it is the
+       single most important click on the page. -->
+  <a class="discover" href="collection.html">
+    <span class="discover__label micro">Archive 01 &mdash; 21 pieces, one of each</span>
+    <span class="discover__title">Discover the selection</span>
+    <span class="discover__arrow" aria-hidden="true">&rarr;</span>
+  </a>
 </section>
 
 <!-- ===== FOOTER ===== -->
@@ -210,13 +219,13 @@
 <script src="assets/vendor/CustomEase.min.js"></script>
 <script src="assets/vendor/SplitText.min.js"></script>
 <script src="assets/vendor/split-type.min.js"></script>
-<script src="js/catalog.js?v=1788467627"></script>
-<script src="js/menu.js?v=1788467627"></script>
-<script src="js/transition.js?v=1788467627"></script>
-<script src="js/copy.js?v=1788467627"></script>
-<script src="js/hero.js?v=1788467627"></script>
-<script src="js/spotlight.js?v=1788467627"></script>
-<script src="js/svgpath.js?v=1788467627"></script>
-<script src="js/app.js?v=1788467627"></script>
+<script src="js/catalog.js?v=1788476244"></script>
+<script src="js/menu.js?v=1788476244"></script>
+<script src="js/transition.js?v=1788476244"></script>
+<script src="js/copy.js?v=1788476244"></script>
+<script src="js/hero.js?v=1788476244"></script>
+<script src="js/spotlight.js?v=1788476244"></script>
+<script src="js/svgpath.js?v=1788476244"></script>
+<script src="js/app.js?v=1788476244"></script>
 </body>
 </html>

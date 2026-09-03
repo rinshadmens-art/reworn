@@ -1041,6 +1041,7 @@ window.REWORN = {
    {
     "key": "shirts",
     "label": "Shirts",
+    "href": "collection.html?c=shirts",
     "count": 9,
     "shots": [
      "assets/img/editorial/rl-linen-olive-1.jpg",
@@ -1051,6 +1052,7 @@ window.REWORN = {
    {
     "key": "outerwear",
     "label": "Outerwear",
+    "href": "collection.html?c=outerwear",
     "count": 9,
     "shots": [
      "assets/img/editorial/nike-padded-1.jpg",
@@ -1061,11 +1063,34 @@ window.REWORN = {
    {
     "key": "knitwear",
     "label": "Knitwear",
+    "href": "collection.html?c=knitwear",
     "count": 3,
     "shots": [
      "assets/img/editorial/greymarl-mockneck-1.jpg",
      "assets/img/editorial/xint-henley-1.jpg",
      "assets/img/editorial/cable-knit-grey-1.jpg"
+    ]
+   },
+   {
+    "key": "under1500",
+    "label": "Under ₹1,500",
+    "href": "collection.html?max=1500",
+    "count": 11,
+    "shots": [
+     "assets/img/editorial/pan-america-navy-1.jpg",
+     "assets/img/editorial/chambray-blue-1.jpg",
+     "assets/img/editorial/greymarl-mockneck-1.jpg"
+    ]
+   },
+   {
+    "key": "full",
+    "label": "Full health",
+    "href": "collection.html?health=100",
+    "count": 10,
+    "shots": [
+     "assets/img/editorial/rl-linen-olive-1.jpg",
+     "assets/img/editorial/rare-rabbit-kufa-1.jpg",
+     "assets/img/editorial/pepe-linen-ecru-1.jpg"
     ]
    }
   ],

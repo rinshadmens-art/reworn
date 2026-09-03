@@ -70,7 +70,12 @@
   /* ---------- home ---------- */
   var homeGrid = document.querySelector('[data-grid="home"]');
   if (homeGrid) {
-    renderGrid(homeGrid, D.products.filter(function (p) { return p.tier === 'hero'; }));
+    /* Four, not all seven heroes. The index is a trailer, not the shop —
+       seven cards is most of a browsing page's worth of decisions to make
+       before anyone has been told what the archive is, and the row below
+       ("Discover the selection") is what should carry them onward. */
+    var n = parseInt(homeGrid.dataset.limit, 10) || 4;
+    renderGrid(homeGrid, D.products.filter(function (p) { return p.tier === 'hero'; }).slice(0, n));
   }
 
   /* ---------- collection ---------- */
