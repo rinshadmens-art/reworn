@@ -134,7 +134,19 @@
   font-family: var(--serif);
   font-size: 5vw;
   font-weight: 400;
-  line-height: 1;
+  /* Optical, not arbitrary. At line-height 1 the wordmark's box starts at
+     the 32px gutter but its CAPITALS start ~13px lower, because the line
+     box carries leading the glyphs never use. The MENU cluster opposite
+     it has almost no leading, so the two read as sitting on different
+     lines — measured 14px apart at 1440px, which is exactly the "the nav
+     looks misplaced" gap.
+
+     Trimming the leading pulls the capitals up to the gutter so both
+     corners share one optical baseline. Expressed as a ratio, so it
+     holds at every viewport width rather than only the one it was
+     measured at. Instrument Serif has no descenders in "REWORN Archive",
+     so nothing is clipped. */
+  line-height: 0.78;
   letter-spacing: -0.02em;
 }
 .site-logo h1 sup {

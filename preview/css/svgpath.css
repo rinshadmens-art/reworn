@@ -1,0 +1,259 @@
+/* ============================================================
+   ON-SCROLL PATH ANIMATIONS — port of "OnScrollPathAnimations".
+
+   The mechanic is one idea applied everywhere: any <path class="pa">
+   morphs its own `d` toward `data-path-to`, scrubbed against its SVG's
+   trip through the viewport. Separators between sections, the clipPaths
+   that hold the photography, and the loose line drawings all use it.
+
+   Structure and the path coordinates are the reference's. What is ours:
+     - the theatre ground rather than its cream
+     - Instrument Serif / Switzer instead of its Typekit faces
+     - preserveAspectRatio="slice" on every <image>, without which a
+       portrait garment shot letterboxes inside its own silhouette
+   ============================================================ */
+
+.pa-page {
+  position: relative;
+  background: var(--linen);
+  color: var(--ink);
+  /* the separators are drawn in the ground colour and overhang their
+     sections; without this they paint over the page edges */
+  overflow: hidden;
+}
+
+.pa-sec { position: relative; }
+
+.pa-sec--centered {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--sect) var(--gutter);
+}
+
+/* ---------- titles ---------- */
+.pa-title {
+  line-height: 0.86;
+  font-family: var(--serif);
+  font-weight: 400;
+}
+.pa-title--right { text-align: right; }
+/* The reference's .text-light meant "the light colour" — its --color-bg
+   was cream. Ours flips: inside .theme-dark, var(--linen) IS the near
+   black ground, so this rendered dark type on a dark photograph and the
+   headline vanished. Type standing on a photograph is not themed by the
+   page, it is themed by the photograph, so it is stated absolutely. */
+.pa-title--light {
+  color: #EDEAE3;
+  text-shadow: 0 2px 40px rgba(11, 10, 9, 0.55);
+}
+
+.pa-title__pre {
+  display: block;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(2rem, 8vw, 5.5rem);
+  letter-spacing: -0.03em;
+}
+.pa-title__pre--offset { margin-left: 12vw; }
+
+.pa-title__main {
+  font-size: clamp(3rem, 11vw, 12rem);
+  margin: 0;
+  letter-spacing: -0.04em;
+}
+.pa-title .dot { color: var(--signal); }
+
+/* ---------- the scroll cue ---------- */
+.pa-scroll {
+  position: absolute;
+  bottom: 0;
+  padding-bottom: 6rem;
+  font-family: var(--mono);
+  font-size: var(--fs-micro);
+  text-transform: uppercase;
+  letter-spacing: var(--track-micro);
+  color: var(--ink-faint);
+}
+.pa-scroll::before {
+  position: absolute;
+  content: '';
+  width: 1px;
+  height: 3rem;
+  background: currentColor;
+  left: 50%;
+  top: 2.4rem;
+}
+
+/* ---------- full-bleed plates ---------- */
+.pa-bg {
+  width: 100%;
+  height: 100svh;
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: var(--gutter);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+.pa-bg--bottom { background-position: 50% 100%; }
+/* every plate is a photograph with type on it, so it gets a scrim —
+   the reference could skip this because its type sat on empty sky */
+.pa-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, var(--scrim) 0%, transparent 40%, var(--scrim-deep) 100%);
+  pointer-events: none;
+}
+.pa-bg > * { position: relative; z-index: 1; }
+
+/* ---------- separators ---------- */
+.pa-sep {
+  display: block;
+  position: absolute;
+  z-index: 10;
+  pointer-events: none;
+  width: 100%;
+  height: 150px;
+  fill: var(--linen);
+}
+.pa-sep--up   { top: -1px; }
+.pa-sep--down { bottom: -1px; }
+
+.pa-sep--solo {
+  position: relative;
+  height: auto;
+  width: calc(100% + 5px);
+  margin-left: -2.5px;
+  z-index: 0;
+}
+.pa-sep--line {
+  fill: none;
+  stroke: var(--ink-faint);
+  stroke-width: 1px;
+}
+
+/* ---------- clipped photography ---------- */
+.pa-clip {
+  max-width: 100%;
+  height: auto;
+}
+.pa-clip--offset { margin-top: -20%; }
+
+/* ---------- side-by-side ---------- */
+.pa-sides {
+  display: grid;
+  gap: 6vw;
+  grid-template-columns: 100%;
+  padding: 10vh var(--gutter) 24vh;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.pa-sides--nogap { gap: 0; padding-bottom: 0; }
+.pa-sides .pa-clip { max-width: 100%; justify-self: center; }
+
+.pa-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: right;
+  align-items: end;
+}
+.pa-text--left { text-align: left; align-items: start; }
+.pa-text h2 {
+  font-size: clamp(1.75rem, 7vw, 5rem);
+  font-weight: 400;
+  font-family: var(--serif);
+  margin: 0 0 22px;
+  line-height: 0.88;
+  letter-spacing: -0.035em;
+}
+.pa-text p {
+  line-height: 1.6;
+  max-width: 42ch;
+  /* --fs-h3 is a lede size (27px at this width) and turned three
+     paragraphs of body copy into a wall of headline. The reference sets
+     1.25rem here for the same reason. */
+  font-size: 1.125rem;
+  color: var(--ink-soft);
+}
+.pa-text p + p { margin-top: 1em; }
+
+/* ---------- the offset grid ---------- */
+.pa-grid {
+  justify-items: center;
+  padding: 18vh var(--gutter) 26vh;
+  display: grid;
+  grid-template-columns: 100%;
+  gap: 10vw;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.pa-grid .pa-clip { width: 100%; max-width: 400px; height: auto; }
+
+/* ---------- the stacked lenses ---------- */
+.pa-stacked {
+  padding: 18vh 10vw 26vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (min-width: 53em) {
+  .pa-sides { grid-template-columns: 55% 1fr; }
+  .pa-grid  { grid-template-columns: repeat(2, 1fr); }
+  /* the reference's ±50vh offsets are what make the grid read as drifting
+     rather than as a table of four pictures */
+  .pa-grid .pa-clip:nth-child(2) { margin-top:  50vh; }
+  .pa-grid .pa-clip:nth-child(3) { margin-top: -50vh; }
+}
+
+/* ---------- reduced motion ----------
+   svgpath.js does not build the scrubs, so every path simply keeps its
+   authored `d`. The shapes are still shapes; they just do not breathe. */
+@media (prefers-reduced-motion: reduce) {
+  .pa-grid .pa-clip:nth-child(2),
+  .pa-grid .pa-clip:nth-child(3) { margin-top: 0; }
+  .pa-clip--offset { margin-top: 0; }
+}
+
+/* ---------- the Product Health block ----------
+   Sits between the two line-wave drawings, so it needs its own measure:
+   full-width prose under a 12rem headline reads as an unrelated document. */
+.pa-health {
+  max-width: 62ch;
+  margin: clamp(40px, 7vh, 88px) auto 0;
+  display: grid;
+  gap: 1.15em;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--ink-soft);
+}
+.pa-health strong {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.pa-cta {
+  margin-top: 1.6em;
+  font-family: var(--mono);
+  font-size: var(--fs-micro);
+  text-transform: uppercase;
+  letter-spacing: var(--track-micro);
+  line-height: 2.2;
+}
+.pa-cta a {
+  color: var(--ink);
+  border-bottom: 1px solid var(--signal);
+  padding-bottom: 2px;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+.pa-cta a:hover { color: var(--signal); }
