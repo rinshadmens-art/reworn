@@ -1,449 +1,569 @@
-/* REWORN. — motion layer
-   Everything interactive lives here so app.js stays about data.
+/* ============================================================
+   REWORN. — motion layer (GSAP 3.14)
 
-   Contents
-     1  custom cursor            8  magnetic buttons
-     2  page transition curtain  9  scroll-driven parallax
-     3  overlay navigation      10  split-text hero reveal
-     4  hover image reveal      11  marquee velocity on scroll
-     5  WebGL grain shader      12  count-up numerals
-     6  SVG draw-on             13  editorial slider
-     7  grid stagger reveal
+   Five techniques adapted from the reference set, plus the cursor
+   kept from the previous layer:
+     0 hairline cursor
+     1 intro revealers + Flip hero stack      (hero animation)
+     2 marquee → pinned Flip → horizontal     (scroll animation)
+     3 category folder fan-out                (hover)
+     4 fullscreen overlay menu + SplitText    (navigation menus)
+     5 directional clip-path grid reveal      (HoverGrid)
 
-   House rules (DESIGN.md): transform + opacity only, never layout.
-   Travel eases on cubic-bezier(0.19,1,0.22,1); touch feedback stays instant.
-*/
+   Two rules this file obeys:
+   - Nothing is hidden by CSS. Every "from" state is set here at
+     runtime, so a JS failure leaves the page fully readable.
+   - Anything that pins or runs a timeline is desktop-only. Phones
+     get the same content as ordinary, fast scroll.
+   ============================================================ */
 (function () {
   'use strict';
 
+  var D = window.REWORN;
+  if (!D || !window.gsap) return;
+
+  var M = D.motion || {};
   var REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var FINE    = matchMedia('(pointer: fine)').matches;
-  var EASE    = 'cubic-bezier(0.19, 1, 0.22, 1)';
-  var lerp    = function (a, b, t) { return a + (b - a) * t; };
-  var clamp   = function (v, a, b) { return Math.min(b, Math.max(a, v)); };
+  var DESKTOP = matchMedia('(min-width: 900px)').matches;
+  var HOVERS  = matchMedia('(hover: hover)').matches;
+
+  gsap.registerPlugin(ScrollTrigger, Flip, CustomEase, SplitText);
+
+  /* The reference set's signature easing — slow in, decisive out. */
+  CustomEase.create('hop',  'M0,0 C0.355,0.022 0.448,0.079 0.5,0.5 0.542,0.846 0.615,1 1,1');
+  CustomEase.create('hop2', 'M0,0 C0.078,0.617 0.114,0.716 0.255,0.828 0.373,0.922 0.561,1 1,1');
+
+  var $  = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  var esc = function (s) {
+    return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+    });
+  };
+  var inr = function (n) { return '₹' + Number(n).toLocaleString('en-IN'); };
 
   /* ============================================================
-     1 — CUSTOM CURSOR
-     A hairline ring that lags the pointer and swells over links.
+     Smooth scroll (Lenis) — drives ScrollTrigger so pinning stays
+     in sync. Off for reduced motion and on phones, where native
+     momentum scrolling beats anything JS can do.
      ============================================================ */
-  function cursor() {
-    if (!FINE || REDUCED) return;
-    var el = document.createElement('div');
-    el.className = 'cur';
-    el.innerHTML = '<span class="cur__dot"></span><span class="cur__ring"></span>';
-    document.body.appendChild(el);
-    var dot = el.querySelector('.cur__dot'), ring = el.querySelector('.cur__ring');
-    var mx = innerWidth / 2, my = innerHeight / 2, rx = mx, ry = my;
-
-    addEventListener('pointermove', function (e) {
-      mx = e.clientX; my = e.clientY;
-      dot.style.transform = 'translate(' + mx + 'px,' + my + 'px)';
-    }, { passive: true });
-
-    (function loop() {
-      rx = lerp(rx, mx, 0.16); ry = lerp(ry, my, 0.16);
-      ring.style.transform = 'translate(' + rx + 'px,' + ry + 'px)';
-      requestAnimationFrame(loop);
-    })();
-
-    document.addEventListener('pointerover', function (e) {
-      var t = e.target.closest('a, button, [data-scrub], .card');
-      el.classList.toggle('is-active', !!t);
-      var scrub = e.target.closest('[data-scrub]');
-      el.classList.toggle('is-drag', !!scrub);
-    });
-    addEventListener('pointerdown', function () { el.classList.add('is-down'); });
-    addEventListener('pointerup',   function () { el.classList.remove('is-down'); });
+  function initScroll() {
+    if (REDUCED || !DESKTOP || !window.Lenis) return;
+    var lenis = new Lenis({ duration: 1.05, smoothWheel: true });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(function (t) { lenis.raf(t * 1000); });
+    gsap.ticker.lagSmoothing(0);
+    window.__lenis = lenis;
   }
 
   /* ============================================================
-     2 — PAGE TRANSITION CURTAIN
-     An ink panel wipes up over the old page, then away from the new
-     one. Runs alongside the View Transitions morph.
+     0 · Cursor — a hairline ring that trails the pointer and
+     swells over anything clickable.
      ============================================================ */
-  function curtain() {
-    if (REDUCED) return;
-    var c = document.createElement('div');
-    c.className = 'curtain';
-    c.innerHTML = '<span class="curtain__mark">REWORN<i>.</i></span>';
-    document.body.appendChild(c);
+  function initCursor() {
+    if (!HOVERS || REDUCED || !DESKTOP) return;
+    var ring = document.createElement('div');
+    ring.className = 'cursor';
+    document.body.appendChild(ring);
 
-    /* On first paint the curtain is already hidden — it only ever covers
-       during an outgoing navigation. */
+    var x = gsap.quickTo(ring, 'x', { duration: 0.45, ease: 'power3' });
+    var y = gsap.quickTo(ring, 'y', { duration: 0.45, ease: 'power3' });
 
-    document.addEventListener('click', function (e) {
-      var a = e.target.closest('a[href]');
-      if (!a) return;
-      var href = a.getAttribute('href');
-      if (!href || href.startsWith('#') || href.startsWith('http') ||
-          href.startsWith('mailto') || a.target === '_blank') return;
-      if (document.startViewTransition) return;   /* the morph handles it */
-      e.preventDefault();
-      c.classList.add('is-covering');
-      setTimeout(function () { location.href = href; }, 560);
+    window.addEventListener('mousemove', function (e) { x(e.clientX); y(e.clientY); });
+    document.addEventListener('mouseover', function (e) {
+      var hot = e.target.closest('a, button, .card, .folder');
+      ring.classList.toggle('is-hot', !!hot);
     });
-    addEventListener('pageshow', function () { c.classList.remove('is-covering'); });
   }
 
   /* ============================================================
-     3 — OVERLAY NAVIGATION
-     Full-screen ink panel, oversized serif list, staggered in.
+     1 · Hero — revealers wipe away, images scale in, then Flip
+     collapses the survivors into a centred stack.
      ============================================================ */
-  function overlayNav() {
-    var nav = document.querySelector('.nav');
-    if (!nav || document.querySelector('.menu')) return;
+  function initHero() {
+    var stage = $('.hero-stage');
+    if (!stage) return;
 
-    var btn = document.createElement('button');
-    btn.className = 'menu__toggle micro';
-    btn.setAttribute('aria-label', 'Menu');
-    btn.innerHTML = '<span></span><span></span>';
-    nav.appendChild(btn);
+    var wrap  = $('.hero-stage__images', stage);
+    var shots = (M.heroStack || []).slice(0, 7);
+    if (!wrap || !shots.length) return;
 
-    var links = [['Index', 'index.html'], ['Collection', 'collection.html'],
-                 ['About', 'about.html'], ['Contact', 'index.html#contact']];
-    var m = document.createElement('div');
-    m.className = 'menu';
-    m.innerHTML =
-      '<div class="menu__inner">' +
-        '<ul class="menu__list">' +
-          links.map(function (l, i) {
-            return '<li style="--i:' + i + '"><a href="' + l[1] + '"><span>' + l[0] + '</span></a></li>';
-          }).join('') +
-        '</ul>' +
-        '<div class="menu__meta">' +
-          '<p class="micro">Archive 01</p><p class="micro">21 pieces · one of each</p>' +
-          '<p class="micro" style="margin-top:auto">WhatsApp +39 389 433 8878<br>rinshadmens@gmail.com</p>' +
-        '</div>' +
-      '</div>';
-    document.body.appendChild(m);
+    /* Deterministic scatter — a designed composition, not random. */
+    var LAYOUT = [
+      { x: -128, y: -18, r: -8 }, { x: 122, y: -32, r: 7 },
+      { x:  -74, y:  34, r:  5 }, { x:  86, y:  40, r: -6 },
+      { x:  -14, y: -46, r:  3 },
+      { x:  -34, y:   6, r:  0 }, { x:  34, y:   6, r:  0 }
+    ];
 
-    var open = false;
-    var set = function (v) {
-      open = v;
-      m.classList.toggle('is-open', v);
-      btn.classList.toggle('is-open', v);
-      document.documentElement.style.overflow = v ? 'hidden' : '';
-    };
-    btn.addEventListener('click', function () { set(!open); });
-    m.addEventListener('click', function (e) { if (e.target === m) set(false); });
-    addEventListener('keydown', function (e) { if (e.key === 'Escape' && open) set(false); });
-  }
+    wrap.innerHTML = shots.map(function (s, i) {
+      var kept = i >= shots.length - 3;   /* the last three survive */
+      return '<figure class="hero-stage__img' + (kept ? ' is-kept' : '') + '">' +
+               '<img src="' + esc(s.src) + '" alt="' + esc(s.brand + ' ' + s.name) + '">' +
+             '</figure>';
+    }).join('');
 
-  /* ============================================================
-     4 — HOVER IMAGE REVEAL
-     A text list where hovering a row floats its image toward the
-     cursor on a spring. Ported from the Originkit component.
-     ============================================================ */
-  function hoverReveal() {
-    var list = document.querySelector('[data-reveal-list]');
-    if (!list || !FINE || REDUCED) return;
+    var imgs  = $$('.hero-stage__img', wrap);
+    var kept  = $$('.hero-stage__img.is-kept', wrap);
+    var lines = $$('.mask > *', stage);
 
-    var figure = document.createElement('div');
-    figure.className = 'reveal-img';
-    list.appendChild(figure);
-    var rows = [].slice.call(list.querySelectorAll('[data-reveal]'));
-    rows.forEach(function (r) {
-      var img = document.createElement('img');
-      img.src = r.dataset.reveal; img.alt = ''; img.loading = 'lazy';
-      figure.appendChild(img);
-    });
-    var imgs = figure.querySelectorAll('img');
-
-    var tx = 0, ty = 0, cx = 0, cy = 0, vx = 0, vy = 0, active = -1;
-    list.addEventListener('pointermove', function (e) {
-      var r = list.getBoundingClientRect();
-      tx = e.clientX - r.left; ty = e.clientY - r.top;
-    });
-    rows.forEach(function (row, i) {
-      row.addEventListener('pointerenter', function () {
-        active = i;
-        list.classList.add('is-hovering');
-        rows.forEach(function (o, j) { o.classList.toggle('is-dim', j !== i); });
-        imgs.forEach(function (im, j) { im.classList.toggle('is-on', j === i); });
+    if (REDUCED) {
+      wrap.classList.add('is-stacked');
+      imgs.forEach(function (n) {
+        n.classList.contains('is-kept') ? n.classList.add('is-settled') : n.remove();
       });
-    });
-    list.addEventListener('pointerleave', function () {
-      active = -1;
-      list.classList.remove('is-hovering');
-      rows.forEach(function (o) { o.classList.remove('is-dim'); });
-      imgs.forEach(function (im) { im.classList.remove('is-on'); });
-    });
+      return;
+    }
 
-    /* critically-damped spring so it settles without wobble */
-    (function loop() {
-      var k = 0.12, d = 0.72;
-      vx = (vx + (tx - cx) * k) * d; cx += vx;
-      vy = (vy + (ty - cy) * k) * d; cy += vy;
-      figure.style.transform = 'translate3d(' + cx + 'px,' + cy + 'px,0) translate(-50%,-50%)' +
-        ' rotate(' + clamp(vx * 0.35, -9, 9) + 'deg)';
-      requestAnimationFrame(loop);
-    })();
+    imgs.forEach(function (n, i) {
+      var L = LAYOUT[i] || LAYOUT[0];
+      gsap.set(n, { xPercent: L.x, yPercent: L.y, rotate: L.r, scale: 0.86, opacity: 0 });
+    });
+    gsap.set(lines, { yPercent: 110 });
+    gsap.set('.revealer', { clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)' });
+
+    /* Flip writes inline position/width/height while absolute:true. Strip
+       them or the stack keeps the scattered geometry forever. */
+    function settle() {
+      wrap.classList.add('is-stacked');
+      kept.forEach(function (n) {
+        n.removeAttribute('style');
+        n.classList.add('is-settled');
+      });
+    }
+
+    gsap.timeline({ defaults: { ease: 'hop' } })
+      .to('.r-1', { clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)', duration: 1.4 })
+      .to('.r-2', { clipPath: 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)', duration: 1.4 }, '<')
+      .to(imgs, { opacity: 1, scale: 1, duration: 1.1, ease: 'power3.out', stagger: 0.075 }, '-=1.0')
+      .add(function () {
+        imgs.forEach(function (n) { if (!n.classList.contains('is-kept')) n.remove(); });
+        var state = Flip.getState(kept);
+        wrap.classList.add('is-stacked');
+        gsap.set(kept, { clearProps: 'transform' });
+        return Flip.from(state, {
+          duration: 1.5, ease: 'hop', absolute: true, stagger: { amount: -0.22 },
+          onComplete: settle
+        });
+      })
+      .to(lines, { yPercent: 0, duration: 1.5, ease: 'hop2', stagger: 0.07 }, '-=1.05');
+
+    /* Failsafe on a real timer, NOT gsap.delayedCall: delayedCall rides the
+       same requestAnimationFrame ticker as the timeline, so a throttled or
+       backgrounded tab stalls the rescue exactly when it is needed. */
+    setTimeout(function () {
+      if (kept.length && kept[0].classList.contains('is-settled')) return;
+      settle();
+      lines.forEach(function (n) { n.style.transform = 'none'; });
+      $$('.revealer').forEach(function (n) {
+        n.style.clipPath = 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)';
+      });
+    }, 7000);
   }
 
   /* ============================================================
-     5 — WEBGL GRAIN SHADER
-     A slow animated film-grain + warm wash over the hero. Real
-     WebGL; silently does nothing if the context is unavailable.
+     2 · Scroll sequence — the marquee drifts, one frame detaches
+     and Flips to fullscreen, then the rail travels sideways while
+     the ground turns to ink.
      ============================================================ */
-  function shader() {
-    var host = document.querySelector('[data-shader]');
-    if (!host || REDUCED) return;
-    var cv = document.createElement('canvas');
-    cv.className = 'shader';
-    host.appendChild(cv);
-    var gl = cv.getContext('webgl', { alpha: true, antialias: false });
-    if (!gl) { cv.remove(); return; }
+  function initSequence() {
+    var seq = $('.seq');
+    if (!seq) return;
 
-    var vs = 'attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}';
-    var fs =
-      'precision mediump float;uniform vec2 r;uniform float t;' +
-      'float h(vec2 v){return fract(sin(dot(v,vec2(12.9898,78.233)))*43758.5453);}' +
-      'float n(vec2 v){vec2 i=floor(v),f=fract(v);f=f*f*(3.-2.*f);' +
-      'return mix(mix(h(i),h(i+vec2(1,0)),f.x),mix(h(i+vec2(0,1)),h(i+vec2(1,1)),f.x),f.y);}' +
-      'void main(){vec2 uv=gl_FragCoord.xy/r;' +
-      'float g=h(gl_FragCoord.xy+t*60.)*0.055;' +          /* film grain */
-      'float w=n(uv*2.2+vec2(t*0.02,t*0.014))*0.10;' +      /* slow warm drift */
-      'float v=smoothstep(1.25,0.15,distance(uv,vec2(0.5)));' + /* vignette */
-      'vec3 c=vec3(0.949,0.945,0.918)*w;' +                 /* linen tint */
-      'gl_FragColor=vec4(c+g,(g+w*0.85)*v);}';
+    var track  = $('.seq__track', seq);
+    var rail   = $('.seq__rail', seq);
+    var horiz  = $('.seq__horizontal', seq);
+    var shots  = M.marquee || [];
+    var panels = M.horizontal || [];
+    if (!track || !shots.length) { seq.remove(); return; }
 
-    var sh = function (type, src) {
-      var s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); return s;
-    };
-    var pr = gl.createProgram();
-    gl.attachShader(pr, sh(gl.VERTEX_SHADER, vs));
-    gl.attachShader(pr, sh(gl.FRAGMENT_SHADER, fs));
-    gl.linkProgram(pr); gl.useProgram(pr);
+    track.innerHTML = shots.map(function (s) {
+      return '<figure class="seq__shot' + (s.pin ? ' is-pin' : '') + '">' +
+               '<img src="' + esc(s.src) + '" alt="' + esc(s.brand + ' ' + s.name) +
+               '" loading="lazy">' +
+             '</figure>';
+    }).join('');
 
-    var buf = gl.createBuffer();
-    gl.bindBuffer(gl.ARRAY_BUFFER, buf);
-    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 3,-1, -1,3]), gl.STATIC_DRAW);
-    var loc = gl.getAttribLocation(pr, 'p');
-    gl.enableVertexAttribArray(loc);
-    gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
-    gl.enable(gl.BLEND);
-    gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+    if (rail) {
+      rail.innerHTML =
+        '<div class="seq__panel seq__panel--spacer"></div>' +
+        panels.slice(0, 2).map(function (p) {
+          return '<div class="seq__panel"><div class="seq__panel-inner">' +
+                   '<p class="micro" style="color:var(--signal)">' + esc(p.brand) + '</p>' +
+                   '<h3>' + esc(p.name) + '</h3>' +
+                   '<p>' + esc(p.story) + '</p>' +
+                   '<a class="price" href="product.html?id=' + esc(p.id) + '">' +
+                     inr(p.price) + ' — see the piece →</a>' +
+                 '</div></div>';
+        }).join('');
+    }
 
-    var uR = gl.getUniformLocation(pr, 'r'), uT = gl.getUniformLocation(pr, 't');
-    var size = function () {
-      var d = Math.min(devicePixelRatio || 1, 1.5);
-      cv.width = host.offsetWidth * d; cv.height = host.offsetHeight * d;
-      gl.viewport(0, 0, cv.width, cv.height);
-      gl.uniform2f(uR, cv.width, cv.height);
-    };
-    size(); addEventListener('resize', size);
+    /* Phones and reduced motion get a plain scrolling strip: no pin,
+       no fixed plate, nothing that can trap the page. */
+    if (!DESKTOP || REDUCED) { horiz && horiz.remove(); return; }
 
-    var run = true, t0 = performance.now();
-    new IntersectionObserver(function (es) { run = es[0].isIntersecting; }).observe(host);
-    (function draw() {
-      if (run) {
-        gl.uniform1f(uT, (performance.now() - t0) / 1000);
-        gl.drawArrays(gl.TRIANGLES, 0, 3);
+    var css   = getComputedStyle(document.documentElement);
+    var ink   = css.getPropertyValue('--ink').trim();
+    var linen = css.getPropertyValue('--linen').trim();
+
+    gsap.fromTo(track, { xPercent: -8 }, {
+      xPercent: -46, ease: 'none',
+      scrollTrigger: { trigger: seq, start: 'top bottom', end: 'top top', scrub: true }
+    });
+
+    /* The reference clones the marquee frame at its live position. That
+       only works when the strip is stationary — ours has already scrolled
+       the frame off-screen by the time the section is reached, so the
+       clone lands outside the viewport. A dedicated plate that starts
+       centred is deterministic at any width and cannot be orphaned. */
+    var pin = (shots.filter(function (s) { return s.pin; })[0]) || shots[0];
+    var plate = document.createElement('figure');
+    plate.className = 'seq__plate';
+    plate.innerHTML = '<img src="' + esc(pin.src) + '" alt="' + esc(pin.brand + ' ' + pin.name) + '">';
+    plate.setAttribute('aria-hidden', 'true');
+    horiz.insertBefore(plate, horiz.firstChild);
+
+    /* The plate is always full-bleed; it *appears* small because a
+       centred clip-path masks it down. Opening the mask is the growth.
+       No width/height/position animation means nothing to go stale. */
+    function maskAt(t) {
+      var box = Math.min(340, Math.max(220, window.innerWidth * 0.22));
+      var h = box * 4 / 3;
+      var x = Math.max(0, (100 - (box / window.innerWidth) * 100) / 2);
+      var y = Math.max(0, (100 - (h / window.innerHeight) * 100) / 2);
+      return 'inset(' + (y * (1 - t)) + '% ' + (x * (1 - t)) + '% ' +
+                        (y * (1 - t)) + '% ' + (x * (1 - t)) + '%)';
+    }
+
+    gsap.set(plate, { clipPath: maskAt(0) });
+
+    ScrollTrigger.create({
+      trigger: horiz,
+      start: 'top top',
+      end: function () { return '+=' + window.innerHeight * 4; },
+      pin: true, anticipatePin: 1, invalidateOnRefresh: true,
+      onRefresh: function () { gsap.set(plate, { clipPath: maskAt(0) }); },
+      onLeaveBack: function () {
+        gsap.set(plate, { clipPath: maskAt(0), xPercent: 0 });
+        gsap.set(horiz, { backgroundColor: linen });
+        gsap.set(rail, { xPercent: 0 });
+      },
+      onUpdate: function (self) {
+        var p = self.progress;
+
+        gsap.set(horiz, {
+          backgroundColor: p <= 0.06
+            ? gsap.utils.interpolate(linen, ink, Math.min(p / 0.06, 1))
+            : ink
+        });
+
+        if (p <= 0.3) {
+          gsap.set(plate, { clipPath: maskAt(p / 0.3), xPercent: 0 });
+        } else {
+          var hp = Math.min((p - 0.3) / 0.65, 1);
+          /* the plate clears the screen in the first half of the travel so
+             it never sits on top of the panel copy arriving behind it */
+          gsap.set(plate, { clipPath: maskAt(1), xPercent: -110 * Math.min(hp / 0.45, 1) });
+          gsap.set(rail, { xPercent: -66.667 * hp });
+        }
       }
-      requestAnimationFrame(draw);
-    })();
-  }
-
-  /* ============================================================
-     6 — SVG DRAW-ON
-     Any path inside [data-draw] strokes itself in when scrolled to.
-     ============================================================ */
-  function svgDraw() {
-    var svgs = document.querySelectorAll('[data-draw]');
-    if (!svgs.length) return;
-    svgs.forEach(function (svg) {
-      var paths = svg.querySelectorAll('path, line, circle, rect, polyline');
-      paths.forEach(function (p, i) {
-        var len = p.getTotalLength ? p.getTotalLength() : 400;
-        p.style.strokeDasharray = len;
-        p.style.strokeDashoffset = REDUCED ? 0 : len;
-        p.style.transition = 'stroke-dashoffset 1.6s ' + EASE + ' ' + (i * 110) + 'ms';
-      });
-      new IntersectionObserver(function (es, o) {
-        if (!es[0].isIntersecting) return;
-        paths.forEach(function (p) { p.style.strokeDashoffset = 0; });
-        o.disconnect();
-      }, { threshold: 0.3 }).observe(svg);
     });
   }
 
   /* ============================================================
-     7 — GRID STAGGER REVEAL
-     Tiles rise and clip open in sequence as the grid enters view.
+     3 · Category folders — three frames fan out on hover and the
+     siblings dim. Pointer devices only.
      ============================================================ */
-  function gridReveal() {
-    if (REDUCED) return;
-    var io = new IntersectionObserver(function (es, o) {
-      es.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        [].slice.call(e.target.children).forEach(function (c, i) {
-          c.style.transitionDelay = Math.min(i, 8) * 60 + 'ms';
-          c.classList.add('tile-in');
-        });
-        var kids = [].slice.call(e.target.children);
-        setTimeout(function () {
-          kids.forEach(function (n) {
-            if (getComputedStyle(n).opacity !== '1') {
-              n.style.transition = 'none';
-              n.style.opacity = '1';
-              n.style.transform = 'none';
-              n.style.clipPath = 'none';
-            }
+  function initFolders() {
+    var host = $('.folders');
+    if (!host) return;
+
+    var cats = (M.categories || []).filter(function (c) { return c.shots.length; });
+    if (!cats.length) { host.remove(); return; }
+
+    host.innerHTML = cats.map(function (c, i) {
+      return '<a class="folder" href="collection.html?c=' + esc(c.key) + '">' +
+               '<span class="folder__preview">' +
+                 c.shots.map(function (s) {
+                   return '<span class="folder__shot"><img src="' + esc(s) +
+                          '" alt="" loading="lazy"></span>';
+                 }).join('') +
+               '</span>' +
+               '<span class="folder__body">' +
+                 '<span class="micro faint">' + String(i + 1).padStart(2, '0') + '</span>' +
+                 '<span class="folder__name">' + esc(c.label) + '</span>' +
+                 '<span class="folder__count">' + c.count + ' pieces</span>' +
+               '</span>' +
+             '</a>';
+    }).join('');
+
+    if (REDUCED || !HOVERS) return;
+
+    var folders = $$('.folder', host);
+
+    folders.forEach(function (folder) {
+      var shots = $$('.folder__shot', folder);
+      var body  = $('.folder__body', folder);
+      gsap.set(shots, { yPercent: 115, rotate: 0 });
+      gsap.set(body, { y: 18 });
+
+      folder.addEventListener('mouseenter', function () {
+        folders.forEach(function (f) { if (f !== folder) f.classList.add('is-dimmed'); });
+        gsap.to(body, { y: 0, duration: 0.3, ease: 'back.out(1.7)' });
+        shots.forEach(function (s, i) {
+          gsap.to(s, {
+            yPercent: 0, rotate: i === 0 ? -13 : i === 1 ? 2 : 14,
+            duration: 0.4, ease: 'back.out(1.6)', delay: i * 0.04
           });
-        }, 1900);
-        o.unobserve(e.target);
-      });
-    }, { rootMargin: '0px 0px -8%' });
-    document.querySelectorAll('.grid').forEach(function (g) {
-      [].slice.call(g.children).forEach(function (c) { c.classList.add('tile'); });
-      io.observe(g);
-    });
-  }
-
-  /* ============================================================
-     8 — MAGNETIC BUTTONS
-     The pill leans toward the cursor, then springs back.
-     ============================================================ */
-  function magnetic() {
-    if (!FINE || REDUCED) return;
-    document.querySelectorAll('.btn, .menu__toggle').forEach(function (b) {
-      b.addEventListener('pointermove', function (e) {
-        var r = b.getBoundingClientRect();
-        var x = (e.clientX - r.left - r.width / 2) * 0.22;
-        var y = (e.clientY - r.top - r.height / 2) * 0.32;
-        b.style.transform = 'translate(' + x + 'px,' + y + 'px)';
-      });
-      b.addEventListener('pointerleave', function () {
-        b.style.transition = 'transform 700ms ' + EASE;
-        b.style.transform = '';
-        setTimeout(function () { b.style.transition = ''; }, 700);
-      });
-    });
-  }
-
-  /* ============================================================
-     9 — SCROLL PARALLAX
-     Images drift slower than the page. Transform only.
-     ============================================================ */
-  function parallax() {
-    if (REDUCED) return;
-    var items = [].slice.call(document.querySelectorAll('[data-parallax]'));
-    if (!items.length) return;
-    var tick = function () {
-      items.forEach(function (el) {
-        var r = el.getBoundingClientRect();
-        if (r.bottom < -200 || r.top > innerHeight + 200) return;
-        var mid = (r.top + r.height / 2 - innerHeight / 2) / innerHeight;
-        var amt = parseFloat(el.dataset.parallax) || 12;
-        el.style.transform = 'translate3d(0,' + (-mid * amt).toFixed(2) + '%,0) scale(1.06)';
-      });
-    };
-    addEventListener('scroll', tick, { passive: true });
-    addEventListener('resize', tick); tick();
-  }
-
-  /* ============================================================
-     10 — SPLIT-TEXT HERO REVEAL
-     Each line masked, rising on its own delay.
-     ============================================================ */
-  function splitText() {
-    document.querySelectorAll('[data-split]').forEach(function (el) {
-      var html = el.innerHTML.split(/<br\s*\/?>/i);
-      el.innerHTML = html.map(function (line, i) {
-        return '<span class="line"><span class="line__in" style="--d:' +
-               (i * 110 + 120) + 'ms">' + line + '</span></span>';
-      }).join('');
-      requestAnimationFrame(function () { el.classList.add('is-in'); });
-      /* A transition can stall (throttled tab, backgrounded window) and leave
-         the headline masked forever. Guarantee the end state. */
-      var lines = el.querySelectorAll('.line__in');
-      setTimeout(function () {
-        lines.forEach(function (n) {
-          if (getComputedStyle(n).transform !== 'none') {
-            n.style.transition = 'none';
-            n.style.transform = 'none';
-          }
         });
-      }, 1700);
+      });
+
+      folder.addEventListener('mouseleave', function () {
+        folders.forEach(function (f) { f.classList.remove('is-dimmed'); });
+        gsap.to(body, { y: 18, duration: 0.3, ease: 'back.out(1.7)' });
+        gsap.to(shots, { yPercent: 115, rotate: 0, duration: 0.3, ease: 'power2.in', stagger: 0.03 });
+      });
     });
   }
 
   /* ============================================================
-     11 — MARQUEE VELOCITY
-     Scrolling faster speeds the marquee and skews it slightly.
+     4 · Overlay menu — page drops away, ink panel wipes in, links
+     reveal line by line.
      ============================================================ */
-  function marqueeVelocity() {
-    var track = document.querySelector('.marquee__track');
-    if (!track || REDUCED) return;
-    var last = scrollY, v = 0;
-    addEventListener('scroll', function () {
-      v = clamp((scrollY - last) * 0.35, -14, 14); last = scrollY;
-    }, { passive: true });
-    (function loop() {
-      v *= 0.92;
-      track.style.transform = 'skewX(' + (-v * 0.22).toFixed(2) + 'deg)';
-      requestAnimationFrame(loop);
-    })();
-  }
+  function initMenu() {
+    var toggle  = $('.menu-toggle');
+    var overlay = $('.menu-overlay');
+    if (!toggle || !overlay) return;
 
-  /* ============================================================
-     12 — COUNT-UP NUMERALS
-     The stat bar counts to its value once, on entry.
-     ============================================================ */
-  function countUp() {
-    document.querySelectorAll('[data-count]').forEach(function (el) {
-      var to = parseFloat(el.dataset.count), suffix = el.dataset.suffix || '';
-      new IntersectionObserver(function (es, o) {
-        if (!es[0].isIntersecting) return;
-        o.disconnect();
-        if (REDUCED) { el.textContent = to + suffix; return; }
-        var t0 = performance.now(), dur = 1200;
-        (function step(now) {
-          var p = clamp((now - t0) / dur, 0, 1);
-          var e = 1 - Math.pow(1 - p, 3);
-          el.textContent = Math.round(to * e) + suffix;
-          if (p < 1) requestAnimationFrame(step);
-        })(t0);
-      }, { threshold: 0.6 }).observe(el);
-    });
-  }
+    var page  = $('.page-shell');
+    var links = $$('.menu-links a', overlay);
+    var metas = $$('.menu-meta p, .menu-meta a', overlay);
+    var label = $('.menu-toggle__label span', toggle);
+    var open = false, busy = false;
 
-  /* ============================================================
-     13 — EDITORIAL SLIDER
-     Drag-scrollable horizontal rail with momentum and a progress
-     rule. (Reference slider 1 — the restrained one.)
-     ============================================================ */
-  function slider() {
-    document.querySelectorAll('[data-slider]').forEach(function (rail) {
-      var bar = rail.parentElement.querySelector('.rail__bar i');
-      var down = false, sx = 0, sl = 0;
-      rail.addEventListener('pointerdown', function (e) {
-        down = true; sx = e.clientX; sl = rail.scrollLeft;
-        rail.setPointerCapture(e.pointerId); rail.classList.add('is-drag');
-      });
-      rail.addEventListener('pointermove', function (e) {
-        if (!down) return;
-        rail.scrollLeft = sl - (e.clientX - sx);
-      });
-      ['pointerup', 'pointercancel'].forEach(function (ev) {
-        rail.addEventListener(ev, function () { down = false; rail.classList.remove('is-drag'); });
-      });
-      var prog = function () {
-        if (!bar) return;
-        var max = rail.scrollWidth - rail.clientWidth;
-        bar.style.transform = 'scaleX(' + (max > 0 ? rail.scrollLeft / max : 0) + ')';
+    var lines = links.concat(metas).reduce(function (acc, el) {
+      return acc.concat(SplitText.create(el, {
+        type: 'lines', mask: 'lines', linesClass: 'line'
+      }).lines);
+    }, []);
+
+    function lock(on) {
+      document.documentElement.classList.toggle('no-scroll', on);
+      document.body.classList.toggle('no-scroll', on);
+      if (window.__lenis) { on ? window.__lenis.stop() : window.__lenis.start(); }
+    }
+
+    /* The open/closed state is a CLASS, applied synchronously, with the
+       final geometry in CSS. GSAP only decorates the change. If the
+       timeline stalls — throttled tab, low-power mode — the menu is still
+       correctly open or closed and the page is never left scroll-locked
+       behind an invisible overlay. */
+    function run() {
+      if (busy) return;
+      busy = true;
+      open = !open;
+
+      overlay.classList.toggle('is-open', open);
+      document.body.classList.toggle('is-menu-open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+      lock(open);
+
+      var done = function () {
+        busy = false;
+        /* Hand control back to CSS. A stalled tween leaves its "from"
+           value inline, which would otherwise outrank .is-open and pin
+           the overlay shut with the page still locked. */
+        gsap.set(overlay, { clearProps: 'clipPath' });
+        gsap.set(lines, { clearProps: 'transform' });
+        if (page && !open) gsap.set(page, { clearProps: 'transform,opacity' });
       };
-      rail.addEventListener('scroll', prog, { passive: true }); prog();
+      /* real timer, independent of the GSAP ticker */
+      var guard = setTimeout(done, 1600);
+
+      var tl = gsap.timeline({
+        defaults: { ease: 'hop', duration: 0.9 },
+        onComplete: function () { clearTimeout(guard); done(); }
+      });
+
+      if (open) {
+        tl.fromTo(overlay,
+            { clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)' },
+            { clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)' })
+          .fromTo(lines, { yPercent: 110 },
+            { yPercent: 0, duration: 1, stagger: 0.045, ease: 'hop2' }, '-=0.45');
+        if (page)  tl.to(page, { y: '14svh', opacity: 0.3 }, 0);
+        if (label) tl.to(label, { yPercent: -100, duration: 0.4, ease: 'power2.out' }, 0);
+      } else {
+        tl.to(lines, { yPercent: 110, duration: 0.4, stagger: 0.02, ease: 'power2.in' })
+          .fromTo(overlay,
+            { clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)' },
+            { clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)' }, '-=0.15');
+        if (page)  tl.to(page, { y: 0, opacity: 1 }, 0);
+        if (label) tl.to(label, { yPercent: 0, duration: 0.4, ease: 'power2.out' }, 0);
+      }
+    }
+
+    toggle.addEventListener('click', run);
+
+    /* A fullscreen overlay with no keyboard exit is a trap. */
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && open) { busy = false; run(); }
     });
+  }
+
+  /* ============================================================
+     5 · Grid — cards reveal with a directional clip-path.
+     Supersedes the IntersectionObserver that lived in app.js.
+     ============================================================ */
+  var DIRS = [
+    'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)',        /* from bottom */
+    'polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)',        /* from right  */
+    'polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)' /* from left   */
+  ];
+  var FULL = 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)';
+
+  /* Deliberately NOT GSAP. Whether a product is visible is the one thing
+     that must never depend on an animation ticker: a throttled tab, a
+     backgrounded window or low-power mode would otherwise leave the
+     archive blank. IntersectionObserver fires from the browser, the
+     transition is plain CSS, and the direction is the only thing the
+     reference technique actually contributes. */
+  function revealCards(scope) {
+    var cards = $$('.card', scope || document).filter(function (c) { return !c.__lit; });
+    if (!cards.length) return;
+
+    cards.forEach(function (card, i) {
+      card.__lit = true;
+      card.style.setProperty('--from', DIRS[i % 3]);
+      if (!REDUCED) card.classList.add('is-clipped');
+    });
+
+    if (REDUCED || !('IntersectionObserver' in window)) {
+      cards.forEach(function (c) { c.classList.remove('is-clipped'); });
+      return;
+    }
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        e.target.classList.remove('is-clipped');
+        io.unobserve(e.target);
+      });
+    }, { rootMargin: '0px 0px -10% 0px' });
+
+    cards.forEach(function (c) { io.observe(c); });
+
+    /* IntersectionObserver and requestAnimationFrame are both throttled in
+       backgrounded or low-power tabs. Native scroll events are not, and
+       neither is setTimeout — so sweep on both. Whatever else fails, a
+       shopper never faces an empty grid. */
+    var sweep = function () {
+      var left = 0;
+      cards.forEach(function (c) {
+        if (!c.classList.contains('is-clipped')) return;
+        var r = c.getBoundingClientRect();
+        if (r.top < window.innerHeight && r.bottom > 0) c.classList.remove('is-clipped');
+        else left++;
+      });
+      if (!left) window.removeEventListener('scroll', sweep);
+    };
+    window.addEventListener('scroll', sweep, { passive: true });
+    setTimeout(sweep, 400);
+    setTimeout(sweep, 1500);
+  }
+
+  /* app.js re-renders grids on filter change and fires this. */
+  window.addEventListener('reworn:grid', function (e) {
+    revealCards(e.detail || document);
+    ScrollTrigger.refresh();
+  });
+
+  /* ============================================================
+     Small handlers the existing markup still relies on:
+     [data-draw] rules, [data-count] numerals, [data-parallax] images.
+     ============================================================ */
+  function initDetails() {
+    $$('[data-draw] line, [data-draw] circle, [data-draw] path').forEach(function (n) {
+      var len = n.getTotalLength ? n.getTotalLength() : 0;
+      if (!len || REDUCED) return;
+      gsap.set(n, { strokeDasharray: len, strokeDashoffset: len });
+      ScrollTrigger.create({
+        trigger: n.closest('[data-draw]'), start: 'top 85%', once: true,
+        onEnter: function () {
+          gsap.to(n, { strokeDashoffset: 0, duration: 1.4, ease: 'power2.inOut' });
+        }
+      });
+    });
+
+    $$('[data-count]').forEach(function (el) {
+      var target = parseFloat(el.dataset.count) || 0;
+      var suffix = el.dataset.suffix || '';
+      if (REDUCED) { el.textContent = target + suffix; return; }
+      var obj = { v: 0 };
+      ScrollTrigger.create({
+        trigger: el, start: 'top 92%', once: true,
+        onEnter: function () {
+          gsap.to(obj, {
+            v: target, duration: 1.6, ease: 'power2.out',
+            onUpdate: function () { el.textContent = Math.round(obj.v) + suffix; }
+          });
+        }
+      });
+      setTimeout(function () { el.textContent = target + suffix; }, 4000);
+    });
+
+    if (REDUCED || !DESKTOP) return;
+    $$('[data-parallax]').forEach(function (el) {
+      var amt = parseFloat(el.dataset.parallax) || 8;
+      gsap.fromTo(el, { yPercent: -amt / 2 }, {
+        yPercent: amt / 2, ease: 'none',
+        scrollTrigger: { trigger: el, start: 'top bottom', end: 'bottom top', scrub: true }
+      });
+    });
+  }
+
+  /* section headings and copy blocks */
+  function initCopy() {
+    var els = $$('.reveal');
+    if (!els.length || REDUCED) return;
+    els.forEach(function (el) {
+      gsap.set(el, { opacity: 0, y: 18 });
+      ScrollTrigger.create({
+        trigger: el, start: 'top 90%', once: true,
+        onEnter: function () {
+          gsap.to(el, { opacity: 1, y: 0, duration: 0.9, ease: 'power2.out' });
+        }
+      });
+    });
+    setTimeout(function () {
+      els.forEach(function (el) {
+        if (el.getBoundingClientRect().top > window.innerHeight * 1.2) return;
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+      });
+    }, 4500);
   }
 
   /* ---------- boot ---------- */
-  function init() {
-    cursor(); curtain(); overlayNav(); hoverReveal(); shader();
-    svgDraw(); gridReveal(); magnetic(); parallax(); splitText();
-    marqueeVelocity(); countUp(); slider();
+  function boot() {
+    initScroll();
+    initCursor();
+    initHero();
+    initSequence();
+    initFolders();
+    initMenu();
+    initDetails();
+    initCopy();
+    revealCards();
+    ScrollTrigger.refresh();
   }
+
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else { init(); }
+    document.addEventListener('DOMContentLoaded', boot);
+  } else {
+    boot();
+  }
+
+  /* Late images move every trigger position. */
+  window.addEventListener('load', function () { ScrollTrigger.refresh(); });
 })();

@@ -63,7 +63,8 @@
   function renderGrid(el, items) {
     el.innerHTML = items.length ? items.map(card).join('') :
       '<p class="empty">Nothing in this category yet.</p>';
-    observe(el.querySelectorAll('.reveal'));
+    /* motion.js owns the reveal; tell it fresh cards exist. */
+    window.dispatchEvent(new CustomEvent('reworn:grid', { detail: el }));
   }
 
   /* ---------- home ---------- */
@@ -270,7 +271,9 @@
     window.addEventListener('resize', syncNav);
   }
 
-  /* ---------- scroll reveal ---------- */
+  /* ---------- scroll reveal ----------
+     Kept only as the no-GSAP fallback. When motion.js boots it owns
+     .reveal and .card, so this never runs. */
   function observe(nodes) {
     nodes = [].slice.call(nodes);
     var show = function (n, i) {
@@ -312,5 +315,5 @@
       });
     }, 1600);
   }
-  observe(document.querySelectorAll('.reveal'));
+  if (!window.gsap) observe(document.querySelectorAll('.reveal'));
 })();

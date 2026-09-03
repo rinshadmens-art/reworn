@@ -969,5 +969,258 @@ window.REWORN = {
     "assets/img/products/cable-knit-grey-2.jpg"
    ]
   }
- ]
+ ],
+ "motion": {
+  "heroStack": [
+   {
+    "src": "assets/img/editorial/rl-linen-olive-1.jpg",
+    "id": "rl-linen-olive",
+    "brand": "Polo Ralph Lauren",
+    "name": "Olive Linen Shirt"
+   },
+   {
+    "src": "assets/img/editorial/rare-rabbit-kufa-1.jpg",
+    "id": "rare-rabbit-kufa",
+    "brand": "Rare Rabbit",
+    "name": "KUFA Print Shirt"
+   },
+   {
+    "src": "assets/img/editorial/nike-padded-1.jpg",
+    "id": "nike-padded",
+    "brand": "Nike Sportswear",
+    "name": "Lightweight Padded Jacket"
+   },
+   {
+    "src": "assets/img/editorial/lilang-trench-1.jpg",
+    "id": "lilang-trench",
+    "brand": "Lilang (利郎)",
+    "name": "Grey-Taupe Car Coat"
+   },
+   {
+    "src": "assets/img/editorial/wuhuan-plaid-1.jpg",
+    "id": "wuhuan-plaid",
+    "brand": "Wuhuan (五环) — Shanghai, 1990s",
+    "name": "Vintage Plaid Harrington"
+   },
+   {
+    "src": "assets/img/editorial/jinlong-carcoat-1.jpg",
+    "id": "jinlong-carcoat",
+    "brand": "Jin Long (金龍) — Hong Kong tailoring",
+    "name": "Charcoal Wool Car Coat"
+   },
+   {
+    "src": "assets/img/editorial/onward-furcollar-1.jpg",
+    "id": "onward-furcollar",
+    "brand": "Clothing 9 to 5 by Onward Kashiyama (Tokyo)",
+    "name": "Faux-Fur Collar Jacket"
+   }
+  ],
+  "marquee": [
+   {
+    "src": "assets/img/editorial/rl-linen-olive-1.jpg",
+    "id": "rl-linen-olive",
+    "brand": "Polo Ralph Lauren",
+    "name": "Olive Linen Shirt",
+    "pin": false
+   },
+   {
+    "src": "assets/img/editorial/rare-rabbit-kufa-1.jpg",
+    "id": "rare-rabbit-kufa",
+    "brand": "Rare Rabbit",
+    "name": "KUFA Print Shirt",
+    "pin": false
+   },
+   {
+    "src": "assets/img/editorial/pepe-linen-ecru-1.jpg",
+    "id": "pepe-linen-ecru",
+    "brand": "Pepe Jeans London",
+    "name": "Ecru Linen Shirt",
+    "pin": false
+   },
+   {
+    "src": "assets/img/editorial/pepe-denim-1.jpg",
+    "id": "pepe-denim",
+    "brand": "Pepe Jeans London",
+    "name": "Denim Shirt",
+    "pin": false
+   },
+   {
+    "src": "assets/img/editorial/uspa-stripe-1.jpg",
+    "id": "uspa-stripe",
+    "brand": "USPA Denim Co.",
+    "name": "Navy Stripe Shirt",
+    "pin": false
+   },
+   {
+    "src": "assets/img/editorial/vanheusen-brown-1.jpg",
+    "id": "vanheusen-brown",
+    "brand": "Van Heusen",
+    "name": "Brown Cotton-Linen Shirt",
+    "pin": false
+   },
+   {
+    "src": "assets/img/editorial/lp-polo-black-1.jpg",
+    "id": "lp-polo-black",
+    "brand": "Louis Philippe",
+    "name": "Black Knit Polo, Mint Tipping",
+    "pin": false
+   },
+   {
+    "src": "assets/img/editorial/pan-america-navy-1.jpg",
+    "id": "pan-america-navy",
+    "brand": "Pan America",
+    "name": "Navy Short-Sleeve Shirt",
+    "pin": false
+   },
+   {
+    "src": "assets/img/editorial/chambray-blue-1.jpg",
+    "id": "chambray-blue",
+    "brand": "Unbranded archive",
+    "name": "Blue Chambray Shirt",
+    "pin": false
+   },
+   {
+    "src": "assets/img/editorial/nike-padded-1.jpg",
+    "id": "nike-padded",
+    "brand": "Nike Sportswear",
+    "name": "Lightweight Padded Jacket",
+    "pin": false
+   },
+   {
+    "src": "assets/img/editorial/lilang-trench-1.jpg",
+    "id": "lilang-trench",
+    "brand": "Lilang (利郎)",
+    "name": "Grey-Taupe Car Coat",
+    "pin": false
+   },
+   {
+    "src": "assets/img/editorial/sourepose-chore-1.jpg",
+    "id": "sourepose-chore",
+    "brand": "Sourepose (奢步士)",
+    "name": "Olive Chore Overshirt",
+    "pin": false
+   },
+   {
+    "src": "assets/img/editorial/angn-utility-1.jpg",
+    "id": "angn-utility",
+    "brand": "ANGN / Artisan Gratification",
+    "name": "Charcoal Utility Overshirt",
+    "pin": false
+   },
+   {
+    "src": "assets/img/editorial/wuhuan-plaid-1.jpg",
+    "id": "wuhuan-plaid",
+    "brand": "Wuhuan (五环) — Shanghai, 1990s",
+    "name": "Vintage Plaid Harrington",
+    "pin": false
+   },
+   {
+    "src": "assets/img/editorial/hongdou-harrington-1.jpg",
+    "id": "hongdou-harrington",
+    "brand": "Hongdou (红豆)",
+    "name": "Black Zip Harrington",
+    "pin": false
+   },
+   {
+    "src": "assets/img/editorial/tries-coated-1.jpg",
+    "id": "tries-coated",
+    "brand": "TRIES / Caizi (才子)",
+    "name": "Black Coated Biker Jacket",
+    "pin": false
+   },
+   {
+    "src": "assets/img/editorial/jinlong-carcoat-1.jpg",
+    "id": "jinlong-carcoat",
+    "brand": "Jin Long (金龍) — Hong Kong tailoring",
+    "name": "Charcoal Wool Car Coat",
+    "pin": true
+   },
+   {
+    "src": "assets/img/editorial/greymarl-mockneck-1.jpg",
+    "id": "greymarl-mockneck",
+    "brand": "No-label (archive surplus)",
+    "name": "Grey Marl Mock-Neck Knit",
+    "pin": false
+   },
+   {
+    "src": "assets/img/editorial/xint-henley-1.jpg",
+    "id": "xint-henley",
+    "brand": "XINT (Turkey)",
+    "name": "Beige Henley Knit",
+    "pin": false
+   },
+   {
+    "src": "assets/img/editorial/onward-furcollar-1.jpg",
+    "id": "onward-furcollar",
+    "brand": "Clothing 9 to 5 by Onward Kashiyama (Tokyo)",
+    "name": "Faux-Fur Collar Jacket",
+    "pin": false
+   },
+   {
+    "src": "assets/img/editorial/cable-knit-grey-1.jpg",
+    "id": "cable-knit-grey",
+    "brand": "No-label (archive)",
+    "name": "Grey Cable-Knit Sweater",
+    "pin": false
+   }
+  ],
+  "horizontal": [
+   {
+    "src": "assets/img/editorial/rl-linen-olive-2.jpg",
+    "id": "rl-linen-olive",
+    "brand": "Polo Ralph Lauren",
+    "name": "Olive Linen Shirt",
+    "price": 2400,
+    "story": "The green that works in every season. Classic Fit Polo linen — the quiet flex."
+   },
+   {
+    "src": "assets/img/editorial/rare-rabbit-kufa-2.jpg",
+    "id": "rare-rabbit-kufa",
+    "brand": "Rare Rabbit",
+    "name": "KUFA Print Shirt",
+    "price": 1800,
+    "story": "An artwork with buttons. Red-and-ink sketch print — worn when you want the room to look."
+   },
+   {
+    "src": "assets/img/editorial/nike-padded-2.jpg",
+    "id": "nike-padded",
+    "brand": "Nike Sportswear",
+    "name": "Lightweight Padded Jacket",
+    "price": 2900,
+    "story": "A 2012 Nike Sportswear piece — glossy black quilting you can't buy new anymore."
+   }
+  ],
+  "categories": [
+   {
+    "key": "shirts",
+    "label": "Shirts",
+    "count": 9,
+    "shots": [
+     "assets/img/editorial/rl-linen-olive-1.jpg",
+     "assets/img/editorial/rare-rabbit-kufa-1.jpg",
+     "assets/img/editorial/pepe-linen-ecru-1.jpg"
+    ]
+   },
+   {
+    "key": "outerwear",
+    "label": "Outerwear",
+    "count": 9,
+    "shots": [
+     "assets/img/editorial/nike-padded-1.jpg",
+     "assets/img/editorial/lilang-trench-1.jpg",
+     "assets/img/editorial/sourepose-chore-1.jpg"
+    ]
+   },
+   {
+    "key": "knitwear",
+    "label": "Knitwear",
+    "count": 3,
+    "shots": [
+     "assets/img/editorial/greymarl-mockneck-1.jpg",
+     "assets/img/editorial/xint-henley-1.jpg",
+     "assets/img/editorial/cable-knit-grey-1.jpg"
+    ]
+   }
+  ]
+ }
 };
