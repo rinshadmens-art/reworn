@@ -160,3 +160,24 @@ html.no-scroll, body.no-scroll { overflow: hidden; }
   .menu-link a { font-size: 2.6rem; }
   .menu-tag a { font-size: 1rem; }
 }
+
+/* ---------- page transition (see js/transition.js) ----------
+   Clipped before first paint so the reveal starts from nothing
+   instead of flashing the finished page. Only while JS is present,
+   and cleared by the script the moment it takes over. */
+/* A keyframe animation with NO fill-mode: the resting state of the
+   element is the finished state, so if the animation is throttled and
+   never runs the page simply shows normally. A transition or a GSAP
+   "from" state would instead strand it clipped to nothing. */
+.js.is-entering .page-shell {
+  transform-origin: 50% 50%;
+  animation: page-enter 1000ms cubic-bezier(0.65, 0, 0.35, 1);
+}
+@keyframes page-enter {
+  from { clip-path: inset(100% 0 0 0); transform: scale(0.6); }
+  60%  { clip-path: inset(0% 0 0 0);   transform: scale(0.6); }
+  to   { clip-path: inset(0% 0 0 0);   transform: scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .js.is-entering .page-shell { clip-path: none; transform: none; }
+}

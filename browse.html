@@ -6,12 +6,13 @@
 <title>Browse — REWORN.</title>
 <meta name="description" content="Browse the REWORN archive — shirts, outerwear and knitwear, with a ripple slider through the pieces of this drop.">
 <meta name="theme-color" content="#F2F1EA">
-<script>document.documentElement.classList.add('js')</script>
-<link rel="stylesheet" href="css/menu.css?v=1788439509">
-<link rel="stylesheet" href="css/slider.css?v=1788439509">
-<link rel="stylesheet" href="css/hovergrid.css?v=1788439509">
-<link rel="stylesheet" href="css/folders.css?v=1788439509">
-<link rel="stylesheet" href="css/main.css?v=1788439509">
+<script>document.documentElement.classList.add('js','is-entering');setTimeout(function(){document.documentElement.classList.remove('is-entering')},1200)</script>
+<link rel="stylesheet" href="css/menu.css?v=1788441381">
+<link rel="stylesheet" href="css/slider.css?v=1788441381">
+<link rel="stylesheet" href="css/hovergrid.css?v=1788441381">
+<link rel="stylesheet" href="css/folders.css?v=1788441381">
+<link rel="stylesheet" href="css/sticky.css?v=1788441381">
+<link rel="stylesheet" href="css/main.css?v=1788441381">
 </head>
 <body>
 
@@ -68,6 +69,13 @@
     <p class="slider__cue">Click to ripple — <span class="slider__count">01 / 04</span></p>
   </section>
 
+
+  <!-- ===== WEBGL STICKY SHOWCASE ===== -->
+  <section class="gl-section">
+    <div class="gl-app" id="gl-app"></div>
+    <p class="gl-section__tip">Click &amp; drag</p>
+  </section>
+
   <!-- ===== HOVER GRID ===== -->
   <main class="hg">
     <div class="hg__tagline" data-copy>Pre-owned branded menswear, chosen one piece at a time and listed with every flaw written down. Hover a category to see it.</div>
@@ -87,15 +95,23 @@
   <div class="hg__bg"></div>
 </div>
 
+<div class="cursor">
+  <div class="cursor__inner cursor__inner--circle"></div>
+  <div class="cursor__inner cursor__inner--dot"></div>
+</div>
+
+<script src="assets/vendor/popmotion.min.js"></script>
 <script src="assets/vendor/gsap.min.js"></script>
 <script src="assets/vendor/ScrollTrigger.min.js"></script>
 <script src="assets/vendor/CustomEase.min.js"></script>
 <script src="assets/vendor/SplitText.min.js"></script>
-<script src="js/catalog.js?v=1788439509"></script>
-<script src="js/menu.js?v=1788439509"></script>
-<script src="js/copy.js?v=1788439509"></script>
-<script src="js/hovergrid.js?v=1788439509"></script>
-<script src="js/folders.js?v=1788439509"></script>
-<script type="module" src="js/slider.js?v=1788439509"></script>
+<script src="js/catalog.js?v=1788441381"></script>
+<script src="js/menu.js?v=1788441381"></script>
+<script src="js/transition.js?v=1788441381"></script>
+<script src="js/copy.js?v=1788441381"></script>
+<script src="js/hovergrid.js?v=1788441381"></script>
+<script src="js/folders.js?v=1788441381"></script>
+<script type="module" src="js/webgl/index.js?v=1788441381"></script>
+<script type="module" src="js/slider.js?v=1788441381"></script>
 </body>
 </html>

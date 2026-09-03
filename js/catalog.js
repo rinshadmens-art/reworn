@@ -1109,6 +1109,38 @@ window.REWORN = {
     ]
    }
   ],
+  "sticky": [
+   {
+    "image": "assets/img/editorial/rl-linen-olive-1.jpg",
+    "title": "Olive Linen Shirt",
+    "id": "rl-linen-olive",
+    "meta": "Polo Ralph Lauren — ₹2,400"
+   },
+   {
+    "image": "assets/img/editorial/rare-rabbit-kufa-1.jpg",
+    "title": "KUFA Print Shirt",
+    "id": "rare-rabbit-kufa",
+    "meta": "Rare Rabbit — ₹1,800"
+   },
+   {
+    "image": "assets/img/editorial/nike-padded-1.jpg",
+    "title": "Lightweight Padded Jacket",
+    "id": "nike-padded",
+    "meta": "Nike Sportswear — ₹2,900"
+   },
+   {
+    "image": "assets/img/editorial/lilang-trench-1.jpg",
+    "title": "Grey-Taupe Car Coat",
+    "id": "lilang-trench",
+    "meta": "Lilang (利郎) — ₹1,900"
+   },
+   {
+    "image": "assets/img/editorial/wuhuan-plaid-1.jpg",
+    "title": "Vintage Plaid Harrington",
+    "id": "wuhuan-plaid",
+    "meta": "Wuhuan (五环) — Shanghai, 1990s — ₹2,200"
+   }
+  ],
   "svgPanes": [
    {
     "titleUp": "Worn",
