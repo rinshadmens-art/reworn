@@ -1,0 +1,131 @@
+/* REWORN. — motion layer styles. Pairs with js/motion.js */
+@import url('tokens.css');
+
+/* ---- 1 custom cursor ---- */
+@media (pointer: fine) {
+  .cur { position: fixed; inset: 0; pointer-events: none; z-index: 9999; }
+  .cur__dot, .cur__ring { position: absolute; top: 0; left: 0; border-radius: 999px; margin: -3px 0 0 -3px; }
+  .cur__dot  { width: 6px; height: 6px; background: var(--ink); }
+  .cur__ring { width: 34px; height: 34px; margin: -17px 0 0 -17px; border: 1px solid var(--ink);
+               opacity: .38; transition: width 420ms var(--ease-out), height 420ms var(--ease-out),
+               margin 420ms var(--ease-out), opacity 300ms var(--ease-out), border-color 300ms; }
+  .cur.is-active .cur__ring { width: 62px; height: 62px; margin: -31px 0 0 -31px; opacity: .7; }
+  .cur.is-drag   .cur__ring { border-color: var(--signal); opacity: 1; }
+  .cur.is-down   .cur__ring { width: 26px; height: 26px; margin: -13px 0 0 -13px; }
+  body { cursor: none; }
+  a, button, [data-scrub] { cursor: none; }
+}
+
+/* ---- 2 page curtain ---- */
+/* Default state is HIDDEN. If JS never runs, the page is never covered —
+   a curtain that fails closed would black out the whole site. */
+.curtain {
+  position: fixed; inset: 0; z-index: 9000; background: var(--ink);
+  display: grid; place-items: center; pointer-events: none;
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 820ms var(--ease-out);
+}
+.curtain.is-covering { clip-path: inset(0 0 0 0); }
+.curtain__mark { font-family: var(--serif); font-size: clamp(40px,7vw,92px); color: var(--linen);
+                 letter-spacing: -.03em; transition: opacity 400ms; }
+.curtain__mark i { color: var(--signal); font-style: normal; }
+.curtain__mark { opacity: 0; }
+.curtain.is-covering .curtain__mark { opacity: 1; }
+
+/* ---- 3 overlay nav ---- */
+.menu__toggle { position: relative; width: 30px; height: 18px; margin-left: 26px; }
+.menu__toggle span { position: absolute; left: 0; right: 0; height: 1px; background: currentColor;
+                     transition: transform 520ms var(--ease-out), opacity 200ms; }
+.menu__toggle span:first-child { top: 4px; } .menu__toggle span:last-child { bottom: 4px; }
+.menu__toggle.is-open span:first-child { transform: translateY(5px) rotate(45deg); }
+.menu__toggle.is-open span:last-child  { transform: translateY(-5px) rotate(-45deg); }
+
+.menu { position: fixed; inset: 0; z-index: 8000; background: var(--ink); color: var(--linen);
+        clip-path: inset(0 0 100% 0); transition: clip-path 780ms var(--ease-out);
+        pointer-events: none; }
+.menu.is-open { clip-path: inset(0 0 0 0); pointer-events: auto; }
+.menu__inner { height: 100%; display: grid; grid-template-columns: 1.6fr 1fr; gap: 40px;
+               padding: clamp(90px,12vh,150px) var(--gutter) var(--gutter); }
+.menu__list { list-style: none; align-self: center; }
+.menu__list li { overflow: hidden; }
+.menu__list a { display: block; font-family: var(--serif); font-size: clamp(44px,9vw,120px);
+                line-height: 1.06; letter-spacing: -.03em; }
+.menu__list a span { display: block; transform: translateY(105%);
+                     transition: transform 760ms var(--ease-out) calc(var(--i) * 70ms + 120ms); }
+.menu.is-open .menu__list a span { transform: none; }
+.menu__list a:hover span { color: var(--signal); }
+.menu__meta { display: flex; flex-direction: column; gap: 10px; align-self: end;
+              color: rgba(242,241,234,.55); opacity: 0; transition: opacity 500ms 500ms; }
+.menu.is-open .menu__meta { opacity: 1; }
+@media (max-width: 760px) { .menu__inner { grid-template-columns: 1fr; } }
+
+/* ---- 4 hover image reveal ---- */
+[data-reveal-list] { position: relative; }
+[data-reveal-list] [data-reveal] { transition: opacity 460ms var(--ease-out), transform 620ms var(--ease-out); }
+[data-reveal-list] [data-reveal].is-dim { opacity: .28; }
+[data-reveal-list] [data-reveal]:hover { transform: translateX(18px); }
+.reveal-img { position: absolute; top: 0; left: 0; width: clamp(200px,22vw,320px); aspect-ratio: 3/4;
+              pointer-events: none; z-index: 5; opacity: 0; transition: opacity 380ms var(--ease-out); }
+[data-reveal-list].is-hovering .reveal-img { opacity: 1; }
+.reveal-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+                  opacity: 0; transform: scale(1.06); transition: opacity 420ms var(--ease-out),
+                  transform 900ms var(--ease-out); }
+.reveal-img img.is-on { opacity: 1; transform: none; }
+
+/* ---- 5 shader ---- */
+.shader { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none;
+          z-index: 1; mix-blend-mode: overlay; }
+
+/* ---- 6 svg ---- */
+[data-draw] path, [data-draw] line, [data-draw] circle, [data-draw] rect, [data-draw] polyline {
+  fill: none; stroke: currentColor; stroke-width: 1; vector-effect: non-scaling-stroke;
+}
+
+/* ---- 7 grid stagger ---- */
+.js .tile { opacity: 0; transform: translateY(26px); clip-path: inset(8% 0 0 0);
+            transition: opacity 900ms var(--ease-out), transform 1000ms var(--ease-out),
+                        clip-path 1000ms var(--ease-out); }
+.js .tile.tile-in { opacity: 1; transform: none; clip-path: inset(0 0 0 0); }
+
+/* ---- 10 split text ---- */
+[data-split] .line { display: block; overflow: hidden; }
+[data-split] .line__in { display: block; transform: translateY(108%);
+                         transition: transform 1100ms var(--ease-out) var(--d); }
+[data-split].is-in .line__in { transform: none; }
+
+/* ---- 11 marquee ---- */
+.marquee__track { will-change: transform; }
+
+/* ---- 13 slider ---- */
+.rail { position: relative; }
+.rail__track { display: flex; gap: var(--col-gap); overflow-x: auto; scroll-snap-type: x proximity;
+               scrollbar-width: none; padding-inline: var(--gutter); cursor: grab; }
+.rail__track::-webkit-scrollbar { display: none; }
+.rail__track.is-drag { cursor: grabbing; scroll-behavior: auto; }
+.rail__item { flex: 0 0 clamp(240px, 30vw, 400px); scroll-snap-align: start; }
+.rail__item img { width: 100%; aspect-ratio: 4/5; object-fit: cover; background: var(--card); }
+.rail__bar { height: 1px; background: var(--hairline); margin: 28px var(--gutter) 0; position: relative; }
+.rail__bar i { position: absolute; inset: 0; background: var(--ink); transform-origin: left;
+               transform: scaleX(0); transition: transform 120ms linear; }
+
+@media (prefers-reduced-motion: reduce) {
+  .curtain, .cur, .shader, .reveal-img { display: none !important; }
+  .menu { transition: none; }
+  .js .tile { opacity: 1; transform: none; clip-path: none; }
+  [data-split] .line__in { transform: none; }
+  body { cursor: auto; }
+}
+
+/* ---- category index (hover image reveal host) ---- */
+.cat { list-style: none; }
+.cat__row { display: grid; grid-template-columns: 60px 1fr auto; gap: 20px; align-items: baseline;
+            padding: clamp(18px,2.6vw,34px) 0; border-top: 1px solid var(--hairline); }
+.cat li:last-child .cat__row { border-bottom: 1px solid var(--hairline); }
+.cat__n { font-size: var(--fs-small); color: var(--signal); }
+.cat__t { font-family: var(--serif); font-size: clamp(30px,5.4vw,72px); line-height: 1;
+          letter-spacing: -.025em; }
+.cat__c { font-size: var(--fs-small); color: var(--ink-faint); }
+
+/* ---- drawn rule ---- */
+.rule-svg { width: 100%; height: 60px; color: var(--hairline); margin-bottom: 10px; }
+.rule-svg circle { fill: var(--linen); }

@@ -1,0 +1,64 @@
+/* ============================================
+   REWORN. — design tokens
+   Palette from the user's own coolors file, 60-30-10,
+   no pure white, ink never #000, red held at 10%.
+   ============================================ */
+
+:root {
+  /* -- surfaces (60%) -- */
+  --linen:        #F2F1EA;
+  --parchment:    #EAE8E0;
+  --card:         #E4E2DB;
+  --card-deep:    #D9D7CF;
+  --hairline:     #CFCDC4;
+
+  /* -- ink -- */
+  --ink:          #1A1917;
+  --ink-soft:     #55534D;
+  --ink-faint:    #8B887F;
+
+  /* -- accent (10%) -- */
+  --signal:       #D6301D;
+
+  /* -- type families -- */
+  --serif: 'Instrument Serif', 'Times New Roman', serif;
+  --sans:  'Inter', -apple-system, 'Helvetica Neue', sans-serif;
+  --mono:  'Space Mono', 'SF Mono', monospace;
+
+  /* -- TYPE SCALE --------------------------------------------------
+     A real scale with violent contrast between levels. Visual
+     hierarchy needs jumps, not increments: display is ~14x body. */
+  --fs-display: clamp(72px, 19vw, 320px);   /* wordmark, hero numerals */
+  --fs-h1:      clamp(44px, 9vw, 132px);    /* section openers        */
+  --fs-h2:      clamp(30px, 5vw, 68px);     /* statements             */
+  --fs-h3:      clamp(19px, 2.2vw, 27px);   /* lede                   */
+  --fs-body:    16px;
+  --fs-small:   13px;
+  --fs-micro:   10.5px;                     /* uppercase labels       */
+
+  --lh-tight:   0.86;                       /* display                */
+  --lh-snug:    1.05;
+  --lh-body:    1.6;
+  --track-micro: 0.18em;
+  --track-tight: -0.03em;                   /* optical: big type needs negative tracking */
+
+  /* -- GRID: 12 columns, one gutter everywhere -- */
+  --gutter: clamp(16px, 3.4vw, 56px);
+  --col-gap: clamp(10px, 1.6vw, 26px);
+  --sect: clamp(88px, 15vh, 220px);
+  --sect-tight: clamp(48px, 8vh, 96px);
+
+  /* -- MOTION ------------------------------------------------------
+     Custom curves. The built-in CSS easings are too weak to read as
+     intentional (emil-design-eng). */
+  --ease-out:    cubic-bezier(0.19, 1, 0.22, 1);   /* the house curve — patient */
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+  --dur-fast: 180ms;    /* anything a finger touches — feedback is instant */
+  --dur:      560ms;    /* things that travel */
+  --dur-slow: 1100ms;   /* reveals and image scales — nothing snaps */
+
+  /* radius: sharp, or full pill. Never between. */
+  --radius: 0px;
+  --radius-pill: 999px;
+}
