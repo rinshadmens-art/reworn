@@ -63,6 +63,17 @@ window.REWORN = {
     "assets/img/editorial/rl-linen-olive-20.jpg"
    ],
    "cutout": "assets/img/cutout/rl-linen-olive.webp",
+   "m": {
+    "card": "assets/img/m/editorial__rl-linen-olive-1-card.webp",
+    "gallery": [
+     "assets/img/m/editorial__rl-linen-olive-1-view.webp",
+     "assets/img/m/editorial__rl-linen-olive-2-view.webp",
+     "assets/img/m/editorial__rl-linen-olive-3-view.webp",
+     "assets/img/m/editorial__rl-linen-olive-4-view.webp",
+     "assets/img/m/editorial__rl-linen-olive-5-view.webp",
+     "assets/img/m/editorial__rl-linen-olive-6-view.webp"
+    ]
+   },
    "proof": [
     "assets/img/products/rl-linen-olive-2.jpg",
     "assets/img/products/rl-linen-olive-3.jpg"
@@ -113,6 +124,17 @@ window.REWORN = {
     "assets/img/editorial/rare-rabbit-kufa-20.jpg"
    ],
    "cutout": "assets/img/cutout/rare-rabbit-kufa.webp",
+   "m": {
+    "card": "assets/img/m/editorial__rare-rabbit-kufa-1-card.webp",
+    "gallery": [
+     "assets/img/m/editorial__rare-rabbit-kufa-1-view.webp",
+     "assets/img/m/editorial__rare-rabbit-kufa-2-view.webp",
+     "assets/img/m/editorial__rare-rabbit-kufa-4-view.webp",
+     "assets/img/m/editorial__rare-rabbit-kufa-5-view.webp",
+     "assets/img/m/editorial__rare-rabbit-kufa-6-view.webp",
+     "assets/img/m/editorial__rare-rabbit-kufa-7-view.webp"
+    ]
+   },
    "proof": [
     "assets/img/products/rare-rabbit-kufa-2.jpg",
     "assets/img/products/rare-rabbit-kufa-3.jpg"
@@ -159,6 +181,17 @@ window.REWORN = {
     "assets/img/editorial/pepe-linen-ecru-9.jpg"
    ],
    "cutout": "assets/img/cutout/pepe-linen-ecru.webp",
+   "m": {
+    "card": "assets/img/m/editorial__pepe-linen-ecru-1-card.webp",
+    "gallery": [
+     "assets/img/m/editorial__pepe-linen-ecru-1-view.webp",
+     "assets/img/m/editorial__pepe-linen-ecru-2-view.webp",
+     "assets/img/m/editorial__pepe-linen-ecru-4-view.webp",
+     "assets/img/m/editorial__pepe-linen-ecru-5-view.webp",
+     "assets/img/m/editorial__pepe-linen-ecru-6-view.webp",
+     "assets/img/m/editorial__pepe-linen-ecru-7-view.webp"
+    ]
+   },
    "proof": [
     "assets/img/products/pepe-linen-ecru-2.jpg"
    ]
@@ -205,6 +238,17 @@ window.REWORN = {
     "assets/img/editorial/pepe-denim-9.jpg"
    ],
    "cutout": "assets/img/cutout/pepe-denim.webp",
+   "m": {
+    "card": "assets/img/m/editorial__pepe-denim-1-card.webp",
+    "gallery": [
+     "assets/img/m/editorial__pepe-denim-1-view.webp",
+     "assets/img/m/editorial__pepe-denim-2-view.webp",
+     "assets/img/m/editorial__pepe-denim-4-view.webp",
+     "assets/img/m/editorial__pepe-denim-5-view.webp",
+     "assets/img/m/editorial__pepe-denim-6-view.webp",
+     "assets/img/m/editorial__pepe-denim-7-view.webp"
+    ]
+   },
    "proof": [
     "assets/img/products/pepe-denim-2.jpg",
     "assets/img/products/pepe-denim-3.jpg"
@@ -253,6 +297,17 @@ window.REWORN = {
     "assets/img/editorial/uspa-stripe-9.jpg"
    ],
    "cutout": "assets/img/cutout/uspa-stripe.webp",
+   "m": {
+    "card": "assets/img/m/editorial__uspa-stripe-1-card.webp",
+    "gallery": [
+     "assets/img/m/editorial__uspa-stripe-1-view.webp",
+     "assets/img/m/editorial__uspa-stripe-2-view.webp",
+     "assets/img/m/editorial__uspa-stripe-4-view.webp",
+     "assets/img/m/editorial__uspa-stripe-5-view.webp",
+     "assets/img/m/editorial__uspa-stripe-6-view.webp",
+     "assets/img/m/editorial__uspa-stripe-7-view.webp"
+    ]
+   },
    "proof": [
     "assets/img/products/uspa-stripe-2.jpg",
     "assets/img/products/uspa-stripe-3.jpg"
@@ -300,6 +355,17 @@ window.REWORN = {
     "assets/img/editorial/vanheusen-brown-9.jpg"
    ],
    "cutout": "assets/img/cutout/vanheusen-brown.webp",
+   "m": {
+    "card": "assets/img/m/editorial__vanheusen-brown-1-card.webp",
+    "gallery": [
+     "assets/img/m/editorial__vanheusen-brown-1-view.webp",
+     "assets/img/m/editorial__vanheusen-brown-2-view.webp",
+     "assets/img/m/editorial__vanheusen-brown-4-view.webp",
+     "assets/img/m/editorial__vanheusen-brown-5-view.webp",
+     "assets/img/m/editorial__vanheusen-brown-6-view.webp",
+     "assets/img/m/editorial__vanheusen-brown-7-view.webp"
+    ]
+   },
    "proof": [
     "assets/img/products/vanheusen-brown-2.jpg",
     "assets/img/products/vanheusen-brown-3.jpg"
@@ -347,6 +413,17 @@ window.REWORN = {
     "assets/img/editorial/lp-polo-black-9.jpg"
    ],
    "cutout": "assets/img/cutout/lp-polo-black.webp",
+   "m": {
+    "card": "assets/img/m/editorial__lp-polo-black-1-card.webp",
+    "gallery": [
+     "assets/img/m/editorial__lp-polo-black-1-view.webp",
+     "assets/img/m/editorial__lp-polo-black-2-view.webp",
+     "assets/img/m/editorial__lp-polo-black-4-view.webp",
+     "assets/img/m/editorial__lp-polo-black-5-view.webp",
+     "assets/img/m/editorial__lp-polo-black-6-view.webp",
+     "assets/img/m/editorial__lp-polo-black-7-view.webp"
+    ]
+   },
    "proof": [
     "assets/img/products/lp-polo-black-2.jpg"
    ]
@@ -392,6 +469,17 @@ window.REWORN = {
     "assets/img/editorial/pan-america-navy-9.jpg"
    ],
    "cutout": "assets/img/cutout/pan-america-navy.webp",
+   "m": {
+    "card": "assets/img/m/editorial__pan-america-navy-1-card.webp",
+    "gallery": [
+     "assets/img/m/editorial__pan-america-navy-1-view.webp",
+     "assets/img/m/editorial__pan-america-navy-2-view.webp",
+     "assets/img/m/editorial__pan-america-navy-4-view.webp",
+     "assets/img/m/editorial__pan-america-navy-5-view.webp",
+     "assets/img/m/editorial__pan-america-navy-6-view.webp",
+     "assets/img/m/editorial__pan-america-navy-7-view.webp"
+    ]
+   },
    "proof": [
     "assets/img/products/pan-america-navy-2.jpg"
    ]
@@ -437,6 +525,17 @@ window.REWORN = {
     "assets/img/editorial/chambray-blue-9.jpg"
    ],
    "cutout": "assets/img/cutout/chambray-blue.webp",
+   "m": {
+    "card": "assets/img/m/editorial__chambray-blue-1-card.webp",
+    "gallery": [
+     "assets/img/m/editorial__chambray-blue-1-view.webp",
+     "assets/img/m/editorial__chambray-blue-2-view.webp",
+     "assets/img/m/editorial__chambray-blue-4-view.webp",
+     "assets/img/m/editorial__chambray-blue-5-view.webp",
+     "assets/img/m/editorial__chambray-blue-6-view.webp",
+     "assets/img/m/editorial__chambray-blue-7-view.webp"
+    ]
+   },
    "proof": [
     "assets/img/products/chambray-blue-2.jpg"
    ]
@@ -486,6 +585,17 @@ window.REWORN = {
     "assets/img/editorial/nike-padded-20.jpg"
    ],
    "cutout": "assets/img/cutout/nike-padded.webp",
+   "m": {
+    "card": "assets/img/m/editorial__nike-padded-1-card.webp",
+    "gallery": [
+     "assets/img/m/editorial__nike-padded-1-view.webp",
+     "assets/img/m/editorial__nike-padded-2-view.webp",
+     "assets/img/m/editorial__nike-padded-4-view.webp",
+     "assets/img/m/editorial__nike-padded-5-view.webp",
+     "assets/img/m/editorial__nike-padded-6-view.webp",
+     "assets/img/m/editorial__nike-padded-7-view.webp"
+    ]
+   },
    "proof": [
     "assets/img/products/nike-padded-2.jpg",
     "assets/img/products/nike-padded-3.jpg"
@@ -534,6 +644,17 @@ window.REWORN = {
     "assets/img/editorial/lilang-trench-20.jpg"
    ],
    "cutout": "assets/img/cutout/lilang-trench.webp",
+   "m": {
+    "card": "assets/img/m/editorial__lilang-trench-1-card.webp",
+    "gallery": [
+     "assets/img/m/editorial__lilang-trench-1-view.webp",
+     "assets/img/m/editorial__lilang-trench-2-view.webp",
+     "assets/img/m/editorial__lilang-trench-4-view.webp",
+     "assets/img/m/editorial__lilang-trench-5-view.webp",
+     "assets/img/m/editorial__lilang-trench-6-view.webp",
+     "assets/img/m/editorial__lilang-trench-7-view.webp"
+    ]
+   },
    "proof": [
     "assets/img/products/lilang-trench-2.jpg",
     "assets/img/products/lilang-trench-3.jpg"
@@ -581,6 +702,17 @@ window.REWORN = {
     "assets/img/editorial/sourepose-chore-9.jpg"
    ],
    "cutout": "assets/img/cutout/sourepose-chore.webp",
+   "m": {
+    "card": "assets/img/m/editorial__sourepose-chore-1-card.webp",
+    "gallery": [
+     "assets/img/m/editorial__sourepose-chore-1-view.webp",
+     "assets/img/m/editorial__sourepose-chore-2-view.webp",
+     "assets/img/m/editorial__sourepose-chore-4-view.webp",
+     "assets/img/m/editorial__sourepose-chore-5-view.webp",
+     "assets/img/m/editorial__sourepose-chore-6-view.webp",
+     "assets/img/m/editorial__sourepose-chore-7-view.webp"
+    ]
+   },
    "proof": [
     "assets/img/products/sourepose-chore-2.jpg",
     "assets/img/products/sourepose-chore-3.jpg"
@@ -628,6 +760,17 @@ window.REWORN = {
     "assets/img/editorial/angn-utility-9.jpg"
    ],
    "cutout": "assets/img/cutout/angn-utility.webp",
+   "m": {
+    "card": "assets/img/m/editorial__angn-utility-1-card.webp",
+    "gallery": [
+     "assets/img/m/editorial__angn-utility-1-view.webp",
+     "assets/img/m/editorial__angn-utility-2-view.webp",
+     "assets/img/m/editorial__angn-utility-4-view.webp",
+     "assets/img/m/editorial__angn-utility-5-view.webp",
+     "assets/img/m/editorial__angn-utility-6-view.webp",
+     "assets/img/m/editorial__angn-utility-7-view.webp"
+    ]
+   },
    "proof": [
     "assets/img/products/angn-utility-2.jpg",
     "assets/img/products/angn-utility-3.jpg"
@@ -676,6 +819,17 @@ window.REWORN = {
     "assets/img/editorial/wuhuan-plaid-20.jpg"
    ],
    "cutout": "assets/img/cutout/wuhuan-plaid.webp",
+   "m": {
+    "card": "assets/img/m/editorial__wuhuan-plaid-1-card.webp",
+    "gallery": [
+     "assets/img/m/editorial__wuhuan-plaid-1-view.webp",
+     "assets/img/m/editorial__wuhuan-plaid-2-view.webp",
+     "assets/img/m/editorial__wuhuan-plaid-4-view.webp",
+     "assets/img/m/editorial__wuhuan-plaid-5-view.webp",
+     "assets/img/m/editorial__wuhuan-plaid-6-view.webp",
+     "assets/img/m/editorial__wuhuan-plaid-7-view.webp"
+    ]
+   },
    "proof": [
     "assets/img/products/wuhuan-plaid-2.jpg",
     "assets/img/products/wuhuan-plaid-3.jpg"
@@ -723,6 +877,17 @@ window.REWORN = {
     "assets/img/editorial/hongdou-harrington-9.jpg"
    ],
    "cutout": "assets/img/cutout/hongdou-harrington.webp",
+   "m": {
+    "card": "assets/img/m/editorial__hongdou-harrington-1-card.webp",
+    "gallery": [
+     "assets/img/m/editorial__hongdou-harrington-1-view.webp",
+     "assets/img/m/editorial__hongdou-harrington-2-view.webp",
+     "assets/img/m/editorial__hongdou-harrington-4-view.webp",
+     "assets/img/m/editorial__hongdou-harrington-5-view.webp",
+     "assets/img/m/editorial__hongdou-harrington-6-view.webp",
+     "assets/img/m/editorial__hongdou-harrington-7-view.webp"
+    ]
+   },
    "proof": [
     "assets/img/products/hongdou-harrington-2.jpg",
     "assets/img/products/hongdou-harrington-3.jpg"
@@ -770,6 +935,17 @@ window.REWORN = {
     "assets/img/editorial/tries-coated-9.jpg"
    ],
    "cutout": "assets/img/cutout/tries-coated.webp",
+   "m": {
+    "card": "assets/img/m/editorial__tries-coated-1-card.webp",
+    "gallery": [
+     "assets/img/m/editorial__tries-coated-1-view.webp",
+     "assets/img/m/editorial__tries-coated-2-view.webp",
+     "assets/img/m/editorial__tries-coated-4-view.webp",
+     "assets/img/m/editorial__tries-coated-5-view.webp",
+     "assets/img/m/editorial__tries-coated-6-view.webp",
+     "assets/img/m/editorial__tries-coated-7-view.webp"
+    ]
+   },
    "proof": [
     "assets/img/products/tries-coated-2.jpg",
     "assets/img/products/tries-coated-3.jpg"
@@ -817,6 +993,17 @@ window.REWORN = {
     "assets/img/editorial/jinlong-carcoat-20.jpg"
    ],
    "cutout": "assets/img/cutout/jinlong-carcoat.webp",
+   "m": {
+    "card": "assets/img/m/editorial__jinlong-carcoat-1-card.webp",
+    "gallery": [
+     "assets/img/m/editorial__jinlong-carcoat-1-view.webp",
+     "assets/img/m/editorial__jinlong-carcoat-2-view.webp",
+     "assets/img/m/editorial__jinlong-carcoat-4-view.webp",
+     "assets/img/m/editorial__jinlong-carcoat-5-view.webp",
+     "assets/img/m/editorial__jinlong-carcoat-6-view.webp",
+     "assets/img/m/editorial__jinlong-carcoat-7-view.webp"
+    ]
+   },
    "proof": [
     "assets/img/products/jinlong-carcoat-2.jpg",
     "assets/img/products/jinlong-carcoat-3.jpg"
@@ -859,6 +1046,17 @@ window.REWORN = {
     "assets/img/editorial/greymarl-mockneck-9.jpg"
    ],
    "cutout": "assets/img/cutout/greymarl-mockneck.webp",
+   "m": {
+    "card": "assets/img/m/editorial__greymarl-mockneck-1-card.webp",
+    "gallery": [
+     "assets/img/m/editorial__greymarl-mockneck-1-view.webp",
+     "assets/img/m/editorial__greymarl-mockneck-2-view.webp",
+     "assets/img/m/editorial__greymarl-mockneck-4-view.webp",
+     "assets/img/m/editorial__greymarl-mockneck-5-view.webp",
+     "assets/img/m/editorial__greymarl-mockneck-6-view.webp",
+     "assets/img/m/editorial__greymarl-mockneck-7-view.webp"
+    ]
+   },
    "proof": []
   },
   {
@@ -902,6 +1100,17 @@ window.REWORN = {
     "assets/img/editorial/xint-henley-9.jpg"
    ],
    "cutout": "assets/img/cutout/xint-henley.webp",
+   "m": {
+    "card": "assets/img/m/editorial__xint-henley-1-card.webp",
+    "gallery": [
+     "assets/img/m/editorial__xint-henley-1-view.webp",
+     "assets/img/m/editorial__xint-henley-2-view.webp",
+     "assets/img/m/editorial__xint-henley-4-view.webp",
+     "assets/img/m/editorial__xint-henley-5-view.webp",
+     "assets/img/m/editorial__xint-henley-6-view.webp",
+     "assets/img/m/editorial__xint-henley-7-view.webp"
+    ]
+   },
    "proof": [
     "assets/img/products/xint-henley-2.jpg",
     "assets/img/products/xint-henley-3.jpg"
@@ -949,6 +1158,17 @@ window.REWORN = {
     "assets/img/editorial/onward-furcollar-20.jpg"
    ],
    "cutout": "assets/img/cutout/onward-furcollar.webp",
+   "m": {
+    "card": "assets/img/m/editorial__onward-furcollar-1-card.webp",
+    "gallery": [
+     "assets/img/m/editorial__onward-furcollar-1-view.webp",
+     "assets/img/m/editorial__onward-furcollar-2-view.webp",
+     "assets/img/m/editorial__onward-furcollar-4-view.webp",
+     "assets/img/m/editorial__onward-furcollar-5-view.webp",
+     "assets/img/m/editorial__onward-furcollar-6-view.webp",
+     "assets/img/m/editorial__onward-furcollar-7-view.webp"
+    ]
+   },
    "proof": [
     "assets/img/products/onward-furcollar-2.jpg",
     "assets/img/products/onward-furcollar-3.jpg"
@@ -993,6 +1213,17 @@ window.REWORN = {
     "assets/img/editorial/cable-knit-grey-9.jpg"
    ],
    "cutout": "assets/img/cutout/cable-knit-grey.webp",
+   "m": {
+    "card": "assets/img/m/editorial__cable-knit-grey-1-card.webp",
+    "gallery": [
+     "assets/img/m/editorial__cable-knit-grey-1-view.webp",
+     "assets/img/m/editorial__cable-knit-grey-2-view.webp",
+     "assets/img/m/editorial__cable-knit-grey-4-view.webp",
+     "assets/img/m/editorial__cable-knit-grey-5-view.webp",
+     "assets/img/m/editorial__cable-knit-grey-6-view.webp",
+     "assets/img/m/editorial__cable-knit-grey-7-view.webp"
+    ]
+   },
    "proof": [
     "assets/img/products/cable-knit-grey-2.jpg"
    ]
@@ -1043,6 +1274,7 @@ window.REWORN = {
    }
   ],
   "heroAmbient": "assets/img/mood/rack-warm.jpg",
+  "heroAmbientM": "assets/img/m/mood__rack-warm-view.webp",
   "spotlight": [
    {
     "src": "assets/img/mood/camel-hands.jpg",

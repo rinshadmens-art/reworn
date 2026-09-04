@@ -6,9 +6,9 @@
    paths and PlaneBufferGeometry -> PlaneGeometry (removed in
    three r150). This entry point feeds them the archive.
    ============================================================ */
-import { Showcase } from "./Showcase.js?v=1788498844";
-import { Slides } from "./Slides.js?v=1788498844";
-import { Cursor } from "./Cursor.js?v=1788498844";
+import { Showcase } from "./Showcase.js?v=1788503539";
+import { Slides } from "./Slides.js?v=1788503539";
+import { Cursor } from "./Cursor.js?v=1788503539";
 
 const container = document.getElementById("gl-app");
 const cursorEl = document.querySelector(".cursor");

@@ -1,0 +1,352 @@
+/* ============================================================
+   REWORN. — mobile.
+
+   A separate site, not a breakpoint. See m/README.md for the rule:
+   nothing in here is ever loaded by site/, and nothing in site/css is
+   ever loaded by here. The palette and type scale are imported so there
+   is still exactly one place to change a colour.
+
+   Everything below is built for a thumb. Scroll-snap does the work that
+   ScrollTrigger and WebGL do on the desktop site, which is both the
+   right feel on a phone and the reason this page weighs a fraction of
+   what the desktop one does.
+   ============================================================ */
+
+@import url('../../assets/fonts/fonts.css?v=1788503539');
+@import url('../../css/tokens.css?v=1788503539');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  background: var(--linen);
+  /* iOS Safari: stop the rubber-band overscroll showing white above the
+     dark page, which reads as a flash of the wrong site */
+  overscroll-behavior-y: none;
+}
+
+body {
+  background: var(--linen);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  /* the WhatsApp bar is fixed; this keeps the last of the page reachable
+     above it, and above the iPhone home indicator */
+  padding-bottom: calc(64px + env(safe-area-inset-bottom));
+  overflow-x: hidden;
+}
+
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; }
+
+/* Every control on a phone is a thumb target. 44px is the floor. */
+a, button { -webkit-tap-highlight-color: transparent; }
+
+:where(a, button):focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 3px;
+}
+::selection { background: var(--signal); color: #FFF8F5; }
+
+.m-micro {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+.m-serif { font-family: var(--serif); font-weight: 400; letter-spacing: -0.03em; }
+.dot { color: var(--signal); }
+.m-wrap { padding-inline: 20px; }
+
+/* ---------- top bar ---------- */
+.m-bar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  background: color-mix(in srgb, var(--linen) 88%, transparent);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 300ms ease;
+}
+.m-bar.is-stuck { border-bottom-color: var(--hairline); }
+.m-bar__mark { font-family: var(--serif); font-size: 19px; letter-spacing: -0.02em; }
+.m-bar__back { display: flex; align-items: center; gap: 8px; min-height: 44px; }
+
+.m-nav { display: flex; gap: 18px; }
+.m-nav a { min-height: 44px; display: flex; align-items: center; color: var(--ink-faint); }
+.m-nav a[aria-current='page'] { color: var(--ink); }
+
+/* ---------- the pinned WhatsApp bar ----------
+   On a phone this is how the sale happens, so it is never more than a
+   thumb away. Fixed rather than sticky so it survives every scroll
+   container on the page. */
+.m-ask {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: calc(56px + env(safe-area-inset-bottom));
+  padding-bottom: env(safe-area-inset-bottom);
+  background: var(--signal);
+  color: #FFF8F5;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  box-shadow: 0 -12px 30px -18px rgba(0, 0, 0, 0.8);
+}
+.m-ask:active { filter: brightness(0.92); }
+
+/* ---------- home hero ---------- */
+.m-hero {
+  position: relative;
+  min-height: 78svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 28px 20px 32px;
+  overflow: hidden;
+}
+.m-hero__img {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center 40%;
+}
+.m-hero__img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top,
+    var(--linen) 2%, color-mix(in srgb, var(--linen) 55%, transparent) 34%,
+    transparent 72%);
+}
+.m-hero__inner { position: relative; }
+.m-hero__mark {
+  font-family: var(--serif);
+  font-size: 15vw;
+  line-height: 0.84;
+  letter-spacing: -0.035em;
+  margin-bottom: 18px;
+}
+.m-hero__say {
+  font-family: var(--serif);
+  font-size: 25px;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  max-width: 17ch;
+  margin-bottom: 16px;
+}
+.m-hero__facts { color: var(--ink-soft); display: flex; flex-wrap: wrap; gap: 6px 14px; }
+
+/* ---------- swipe rail ----------
+   scroll-snap, not a carousel library. It is what a phone already does
+   well, it keeps momentum, and it costs nothing. */
+.m-rail__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 0 20px;
+  margin: 44px 0 14px;
+}
+.m-rail__head a { color: var(--ink-faint); }
+.m-rail {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: 20px;
+  padding: 0 20px 4px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.m-rail::-webkit-scrollbar { display: none; }
+.m-rail__item { flex: 0 0 72vw; scroll-snap-align: start; }
+.m-rail__item img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  background: linear-gradient(168deg, var(--card), var(--card-deep));
+}
+
+/* ---------- product card ---------- */
+.m-meta { padding-top: 10px; }
+.m-meta__brand { color: var(--ink-faint); }
+.m-meta__row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 3px;
+}
+.m-meta__name { font-size: 14px; line-height: 1.3; }
+.m-meta__price { font-family: var(--mono); font-size: 13px; font-variant-numeric: tabular-nums; }
+
+/* ---------- the two-up grid ---------- */
+.m-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26px 12px;
+  padding: 0 20px;
+}
+.m-grid img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  background: linear-gradient(168deg, var(--card), var(--card-deep));
+}
+
+/* ---------- filter chips ---------- */
+.m-chips {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 14px 20px 18px;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.m-chips::-webkit-scrollbar { display: none; }
+.m-chip {
+  flex: 0 0 auto;
+  min-height: 38px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--hairline);
+  border-radius: 999px;
+  color: var(--ink-soft);
+  white-space: nowrap;
+  transition: background 200ms ease, color 200ms ease, border-color 200ms ease;
+}
+.m-chip.is-on {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--linen);
+}
+
+/* ---------- product gallery ---------- */
+.m-gal {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.m-gal::-webkit-scrollbar { display: none; }
+.m-gal img {
+  flex: 0 0 100vw;
+  scroll-snap-align: center;
+  width: 100vw;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  background: linear-gradient(168deg, var(--card), var(--card-deep));
+}
+.m-dots { display: flex; gap: 6px; justify-content: center; padding: 12px 0 4px; }
+.m-dots i {
+  width: 5px; height: 5px;
+  border-radius: 999px;
+  background: var(--hairline);
+  transition: background 250ms ease, width 250ms ease;
+}
+.m-dots i.is-on { background: var(--ink); width: 16px; }
+
+/* ---------- product detail ---------- */
+.m-pdp__head { padding: 18px 20px 0; }
+.m-pdp__name {
+  font-family: var(--serif);
+  font-size: 30px;
+  line-height: 1.06;
+  letter-spacing: -0.03em;
+  margin: 6px 0 10px;
+}
+.m-pdp__price { font-family: var(--mono); font-size: 17px; font-variant-numeric: tabular-nums; }
+.m-pdp__story { color: var(--ink-soft); margin: 16px 0 22px; }
+
+.m-health { margin: 0 20px 22px; }
+.m-health__bar { height: 2px; background: var(--hairline); position: relative; margin-top: 8px; }
+.m-health__bar i { position: absolute; inset: 0 auto 0 0; background: var(--ink); }
+.m-health__note { color: var(--ink-soft); font-size: 14px; margin-top: 10px; }
+
+.m-spec { width: 100%; border-collapse: collapse; margin: 0 20px 30px; width: calc(100% - 40px); }
+.m-spec th, .m-spec td {
+  text-align: left;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--hairline);
+  vertical-align: top;
+}
+.m-spec th {
+  width: 38%;
+  font-weight: 400;
+  color: var(--ink-faint);
+  font-family: var(--mono);
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+.m-spec td { font-size: 14px; }
+
+/* ---------- sections and prose ---------- */
+.m-sec { padding: 44px 0; }
+.m-sec__label { color: var(--ink-faint); padding: 0 20px; margin-bottom: 12px; }
+.m-h {
+  font-family: var(--serif);
+  font-size: 30px;
+  line-height: 1.06;
+  letter-spacing: -0.03em;
+  padding: 0 20px;
+  text-wrap: balance;
+}
+.m-p { color: var(--ink-soft); padding: 0 20px; margin-top: 14px; }
+.m-p + .m-p { margin-top: 1em; }
+.m-figure { margin: 26px 0; }
+.m-figure img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; }
+.m-figure figcaption { color: var(--ink-faint); padding: 10px 20px 0; }
+
+/* ---------- the big row that ends a screen ---------- */
+.m-discover {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 40px 20px 0;
+  padding-top: 22px;
+  border-top: 1px solid var(--hairline);
+  min-height: 56px;
+}
+.m-discover span { font-family: var(--serif); font-size: 27px; letter-spacing: -0.03em; }
+.m-discover i { font-style: normal; font-size: 22px; }
+
+/* ---------- footer ---------- */
+.m-foot { padding: 40px 20px 30px; border-top: 1px solid var(--hairline); margin-top: 44px; }
+.m-foot a { color: var(--ink-soft); display: inline-block; min-height: 40px; line-height: 40px; }
+.m-foot__mark {
+  font-family: var(--serif);
+  font-size: 21vw;
+  line-height: 0.8;
+  letter-spacing: -0.04em;
+  margin: 22px 0 -0.1em;
+  overflow: hidden;
+}
+
+/* ---------- reveal ----------
+   Same principle the desktop site had to learn: the resting state is
+   VISIBLE, and .is-in plays a keyframe with NO fill-mode. A throttled or
+   failed animation leaves the archive on screen rather than blank. */
+@media (prefers-reduced-motion: no-preference) {
+  .m-in.is-in { animation: m-rise 620ms cubic-bezier(0.19, 1, 0.22, 1); }
+}
+@keyframes m-rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
