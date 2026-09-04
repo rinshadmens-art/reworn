@@ -108,11 +108,27 @@
   top: auto; left: auto;
   opacity: 1;
   will-change: transform;
-  /* on a near-black ground a photograph with dark edges dissolves into
-     the page — a hairline gives each survivor an edge to sit on */
-  outline: 1px solid var(--hairline);
-  outline-offset: 0;
+  /* A cut-out needs no hairline: it has no rectangle to define. The
+     outline existed to stop a dark-edged PHOTOGRAPH dissolving into the
+     page, and it is exactly the "boxy border" once the plate is gone. */
+  outline: none;
 }
+/* A cut-out must contain at EVERY size, not only once stacked. These three
+   frames are full-bleed for a beat during the intro before they collapse
+   into the corner, and covering there would blow one garment up to fill the
+   screen with transparency around it. Contained and centred, the same frame
+   reads as the piece standing alone in the room. */
+.img.is-cut {
+  background: radial-gradient(120% 90% at 50% 45%,
+              var(--parchment) 0%, var(--linen) 72%);
+}
+.img.is-cut img { object-fit: contain; padding: 8vh 12vw; }
+
+/* the tile is a lit alcove the garment stands in, not a picture frame */
+.img.stacked.is-cut {
+  background: linear-gradient(to bottom, var(--card) 0%, var(--parchment) 100%);
+}
+.img.stacked.is-cut img { object-fit: contain; padding: 10% 12% 12%; }
 
 /* --- hero copy --- */
 .hero-content {

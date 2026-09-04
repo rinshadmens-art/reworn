@@ -1,8 +1,8 @@
-import * as THREE from "../../assets/vendor/three.module.js?v=1788478779";
+import * as THREE from "../../assets/vendor/three.module.js?v=1788495782";
 import {
   fragment,
   vertex
-} from "./shaders.js?v=1788478779";
+} from "./shaders.js?v=1788495782";
 
 function GLManager(data) {
   this.totalEntries = data.length;
@@ -15,7 +15,11 @@ function GLManager(data) {
 
   const renderer = new THREE.WebGLRenderer({
     alpha: true,
-    antialias: true
+    antialias: true,
+    /* TextureLoader hands back straight (un-premultiplied) alpha, so the
+       renderer must not assume otherwise or every soft edge picks up a
+       dark halo against the theatre ground. */
+    premultipliedAlpha: false
   });
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.setPixelRatio(window.devicePixelRatio);
@@ -61,14 +65,24 @@ GLManager.prototype.calculateAspectRatioFactor = function (index, texture) {
   const rectRatio = (plane.width / plane.height) * windowRatio;
   const imageRatio = texture.image.width / texture.image.height;
 
+  /* CONTAIN, not cover. The reference filled its plane with landscape
+     photographs; ours carries a cut-out portrait garment, and covering a
+     1.5:1 plane with a 0.8:1 garment crops it to a band of torso — which
+     is exactly the "zoomed, doesn't fit" result. Factors above 1 widen the
+     sampled UV range so the whole garment lands inside the plane.
+     AIR is breathing room. At 1.18 the garment still ran off the bottom of
+     the viewport; 1.5 seats a full-length coat inside the frame with air
+     above and below it, which is what makes it read as a lit object in a
+     room rather than something cropped by the window. */
+  const AIR = 1.5;
   let factorX = 1;
   let factorY = 1;
   if (rectRatio > imageRatio) {
-    factorX = 1;
-    factorY = (1 / rectRatio) * imageRatio;
+    factorX = (rectRatio / imageRatio) * AIR;
+    factorY = AIR;
   } else {
-    factorX = (1 * rectRatio) / imageRatio;
-    factorY = 1;
+    factorX = AIR;
+    factorY = (imageRatio / rectRatio) * AIR;
   }
 
   this.factors[index] = new THREE.Vector2(factorX, factorY);
@@ -165,7 +179,14 @@ GLManager.prototype.createPlane = function () {
     },
     vertexShader: vertex,
     fragmentShader: fragment,
-    side: THREE.DoubleSide
+    side: THREE.DoubleSide,
+    /* The slides are cut-out garments with a real alpha channel now, not
+       opaque plates. ShaderMaterial defaults to transparent:false, which
+       makes the renderer discard that alpha and draw the whole quad —
+       the cut-out would come back as a rectangle, which is the exact
+       problem it exists to solve. */
+    transparent: true,
+    depthWrite: false
   });
   const mesh = new THREE.Mesh(geometry, material);
   this.scene.add(mesh);

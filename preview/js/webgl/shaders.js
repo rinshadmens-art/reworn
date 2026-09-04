@@ -15,6 +15,14 @@ varying vec2 vUv;
 vec2 centeredAspectRatio(vec2 uvs, vec2 factor){
     return uvs * factor - factor /2. + 0.5;
 }
+/* The slides are cut-out garments now, so the plane has to letterbox them
+   rather than fill itself. A contain fit samples a UV range wider than
+   0..1, and outside that range ClampToEdge would smear the edge pixels
+   into a streak — this returns 0 there so the surround stays empty. */
+float inBounds(vec2 uv){
+    vec2 s = step(vec2(0.0), uv) * step(uv, vec2(1.0));
+    return s.x * s.y;
+}
 void main(){
     // On THREE 102 The image is has Y backwards
     // vec2 flipedUV = vec2(vUv.x,1.-vUv.y);
@@ -58,7 +66,16 @@ void main(){
 
     vec4 fulltex1 = texture2D(u_texture, centeredAspectRatio(vUv, u_textureFactor) );
     vec4 fulltex2 = texture2D(u_texture2, centeredAspectRatio(vUv, u_texture2Factor));
-    
+
+    /* tex1/tex2 start life as vec4(1.) and only ever get .r .g .b assigned
+       from the three chromatically-split samples, so alpha stayed pinned at
+       1 and every cut-out drew as a solid rectangle. Alpha is taken from the
+       un-split UV — splitting it too would fringe the garment's edge. */
+    vec2 auv1 = centeredAspectRatio(vUv, u_textureFactor);
+    vec2 auv2 = centeredAspectRatio(vUv, u_texture2Factor);
+    tex1.a = fulltex1.a * inBounds(auv1);
+    tex2.a = fulltex2.a * inBounds(auv2);
+
     vec4 mixedTextures =  mix(tex1,tex2,u_textureProgress);
 
     gl_FragColor = mixedTextures;

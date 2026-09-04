@@ -151,3 +151,10 @@
 @media (max-width: 620px) {
   .spot-stage.is-static .spot-imgs { grid-template-columns: 1fr; }
 }
+
+/* ---- cut-out cards ----
+   The two stock cards carry an isolated garment rather than a plate. It is
+   contained, not covered, and the card's own ground shows through — so
+   there is no studio-cloth rectangle inside the frame. */
+.spot-img--cut { background: linear-gradient(to bottom, var(--card) 0%, var(--linen) 100%); }
+.spot-img--cut img { object-fit: contain; padding: 7% 10% 12%; }

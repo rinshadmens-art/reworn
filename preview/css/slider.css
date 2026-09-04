@@ -77,7 +77,13 @@
   letter-spacing: var(--track-micro);
 }
 
-.char, .line { display: inline-block; will-change: transform; position: relative; }
+/* Scoped to .slider. As a bare selector this leaked the moment slider.css
+   was added to the index for the ripple: the hero's .address rows are also
+   <div class="line">, so display:inline-block laid "21 pieces" and
+   "20 brands" side by side on one row instead of stacking them.
+   Three components use .line — hero, menu and this one — and only the
+   hero's rules happened to be namespaced by a parent. */
+.slider .char, .slider .line { display: inline-block; will-change: transform; position: relative; }
 
 /* affordance — the reference relies on the visitor guessing */
 .slider__cue {

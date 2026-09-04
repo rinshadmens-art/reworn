@@ -61,6 +61,7 @@ window.REWORN = {
     "assets/img/editorial/rl-linen-olive-8.jpg",
     "assets/img/editorial/rl-linen-olive-9.jpg"
    ],
+   "cutout": "assets/img/cutout/rl-linen-olive.webp",
    "proof": [
     "assets/img/products/rl-linen-olive-2.jpg",
     "assets/img/products/rl-linen-olive-3.jpg"
@@ -109,6 +110,7 @@ window.REWORN = {
     "assets/img/editorial/rare-rabbit-kufa-8.jpg",
     "assets/img/editorial/rare-rabbit-kufa-9.jpg"
    ],
+   "cutout": "assets/img/cutout/rare-rabbit-kufa.webp",
    "proof": [
     "assets/img/products/rare-rabbit-kufa-2.jpg",
     "assets/img/products/rare-rabbit-kufa-3.jpg"
@@ -154,6 +156,7 @@ window.REWORN = {
     "assets/img/editorial/pepe-linen-ecru-8.jpg",
     "assets/img/editorial/pepe-linen-ecru-9.jpg"
    ],
+   "cutout": "assets/img/cutout/pepe-linen-ecru.webp",
    "proof": [
     "assets/img/products/pepe-linen-ecru-2.jpg"
    ]
@@ -199,6 +202,7 @@ window.REWORN = {
     "assets/img/editorial/pepe-denim-8.jpg",
     "assets/img/editorial/pepe-denim-9.jpg"
    ],
+   "cutout": "assets/img/cutout/pepe-denim.webp",
    "proof": [
     "assets/img/products/pepe-denim-2.jpg",
     "assets/img/products/pepe-denim-3.jpg"
@@ -246,6 +250,7 @@ window.REWORN = {
     "assets/img/editorial/uspa-stripe-8.jpg",
     "assets/img/editorial/uspa-stripe-9.jpg"
    ],
+   "cutout": "assets/img/cutout/uspa-stripe.webp",
    "proof": [
     "assets/img/products/uspa-stripe-2.jpg",
     "assets/img/products/uspa-stripe-3.jpg"
@@ -292,6 +297,7 @@ window.REWORN = {
     "assets/img/editorial/vanheusen-brown-8.jpg",
     "assets/img/editorial/vanheusen-brown-9.jpg"
    ],
+   "cutout": "assets/img/cutout/vanheusen-brown.webp",
    "proof": [
     "assets/img/products/vanheusen-brown-2.jpg",
     "assets/img/products/vanheusen-brown-3.jpg"
@@ -338,6 +344,7 @@ window.REWORN = {
     "assets/img/editorial/lp-polo-black-8.jpg",
     "assets/img/editorial/lp-polo-black-9.jpg"
    ],
+   "cutout": "assets/img/cutout/lp-polo-black.webp",
    "proof": [
     "assets/img/products/lp-polo-black-2.jpg"
    ]
@@ -382,6 +389,7 @@ window.REWORN = {
     "assets/img/editorial/pan-america-navy-8.jpg",
     "assets/img/editorial/pan-america-navy-9.jpg"
    ],
+   "cutout": "assets/img/cutout/pan-america-navy.webp",
    "proof": [
     "assets/img/products/pan-america-navy-2.jpg"
    ]
@@ -426,6 +434,7 @@ window.REWORN = {
     "assets/img/editorial/chambray-blue-8.jpg",
     "assets/img/editorial/chambray-blue-9.jpg"
    ],
+   "cutout": "assets/img/cutout/chambray-blue.webp",
    "proof": [
     "assets/img/products/chambray-blue-2.jpg"
    ]
@@ -473,6 +482,7 @@ window.REWORN = {
     "assets/img/editorial/nike-padded-8.jpg",
     "assets/img/editorial/nike-padded-9.jpg"
    ],
+   "cutout": "assets/img/cutout/nike-padded.webp",
    "proof": [
     "assets/img/products/nike-padded-2.jpg",
     "assets/img/products/nike-padded-3.jpg"
@@ -519,6 +529,7 @@ window.REWORN = {
     "assets/img/editorial/lilang-trench-8.jpg",
     "assets/img/editorial/lilang-trench-9.jpg"
    ],
+   "cutout": "assets/img/cutout/lilang-trench.webp",
    "proof": [
     "assets/img/products/lilang-trench-2.jpg",
     "assets/img/products/lilang-trench-3.jpg"
@@ -565,6 +576,7 @@ window.REWORN = {
     "assets/img/editorial/sourepose-chore-8.jpg",
     "assets/img/editorial/sourepose-chore-9.jpg"
    ],
+   "cutout": "assets/img/cutout/sourepose-chore.webp",
    "proof": [
     "assets/img/products/sourepose-chore-2.jpg",
     "assets/img/products/sourepose-chore-3.jpg"
@@ -611,6 +623,7 @@ window.REWORN = {
     "assets/img/editorial/angn-utility-8.jpg",
     "assets/img/editorial/angn-utility-9.jpg"
    ],
+   "cutout": "assets/img/cutout/angn-utility.webp",
    "proof": [
     "assets/img/products/angn-utility-2.jpg",
     "assets/img/products/angn-utility-3.jpg"
@@ -657,6 +670,7 @@ window.REWORN = {
     "assets/img/editorial/wuhuan-plaid-8.jpg",
     "assets/img/editorial/wuhuan-plaid-9.jpg"
    ],
+   "cutout": "assets/img/cutout/wuhuan-plaid.webp",
    "proof": [
     "assets/img/products/wuhuan-plaid-2.jpg",
     "assets/img/products/wuhuan-plaid-3.jpg"
@@ -703,6 +717,7 @@ window.REWORN = {
     "assets/img/editorial/hongdou-harrington-8.jpg",
     "assets/img/editorial/hongdou-harrington-9.jpg"
    ],
+   "cutout": "assets/img/cutout/hongdou-harrington.webp",
    "proof": [
     "assets/img/products/hongdou-harrington-2.jpg",
     "assets/img/products/hongdou-harrington-3.jpg"
@@ -749,6 +764,7 @@ window.REWORN = {
     "assets/img/editorial/tries-coated-8.jpg",
     "assets/img/editorial/tries-coated-9.jpg"
    ],
+   "cutout": "assets/img/cutout/tries-coated.webp",
    "proof": [
     "assets/img/products/tries-coated-2.jpg",
     "assets/img/products/tries-coated-3.jpg"
@@ -794,6 +810,7 @@ window.REWORN = {
     "assets/img/editorial/jinlong-carcoat-8.jpg",
     "assets/img/editorial/jinlong-carcoat-9.jpg"
    ],
+   "cutout": "assets/img/cutout/jinlong-carcoat.webp",
    "proof": [
     "assets/img/products/jinlong-carcoat-2.jpg",
     "assets/img/products/jinlong-carcoat-3.jpg"
@@ -835,6 +852,7 @@ window.REWORN = {
     "assets/img/editorial/greymarl-mockneck-8.jpg",
     "assets/img/editorial/greymarl-mockneck-9.jpg"
    ],
+   "cutout": "assets/img/cutout/greymarl-mockneck.webp",
    "proof": []
   },
   {
@@ -877,6 +895,7 @@ window.REWORN = {
     "assets/img/editorial/xint-henley-8.jpg",
     "assets/img/editorial/xint-henley-9.jpg"
    ],
+   "cutout": "assets/img/cutout/xint-henley.webp",
    "proof": [
     "assets/img/products/xint-henley-2.jpg",
     "assets/img/products/xint-henley-3.jpg"
@@ -922,6 +941,7 @@ window.REWORN = {
     "assets/img/editorial/onward-furcollar-8.jpg",
     "assets/img/editorial/onward-furcollar-9.jpg"
    ],
+   "cutout": "assets/img/cutout/onward-furcollar.webp",
    "proof": [
     "assets/img/products/onward-furcollar-2.jpg",
     "assets/img/products/onward-furcollar-3.jpg"
@@ -965,6 +985,7 @@ window.REWORN = {
     "assets/img/editorial/cable-knit-grey-8.jpg",
     "assets/img/editorial/cable-knit-grey-9.jpg"
    ],
+   "cutout": "assets/img/cutout/cable-knit-grey.webp",
    "proof": [
     "assets/img/products/cable-knit-grey-2.jpg"
    ]
@@ -993,21 +1014,21 @@ window.REWORN = {
     "alt": "Four pairs of trousers and shoes, lined up"
    },
    {
-    "src": "assets/img/editorial/rl-linen-olive-1.jpg",
+    "src": "assets/img/editorial/rl-linen-olive-2.jpg",
     "id": "rl-linen-olive",
     "brand": "Polo Ralph Lauren",
     "name": "Olive Linen Shirt",
     "alt": "Polo Ralph Lauren Olive Linen Shirt"
    },
    {
-    "src": "assets/img/editorial/rare-rabbit-kufa-1.jpg",
+    "src": "assets/img/editorial/rare-rabbit-kufa-2.jpg",
     "id": "rare-rabbit-kufa",
     "brand": "Rare Rabbit",
     "name": "KUFA Print Shirt",
     "alt": "Rare Rabbit KUFA Print Shirt"
    },
    {
-    "src": "assets/img/editorial/nike-padded-1.jpg",
+    "src": "assets/img/editorial/nike-padded-2.jpg",
     "id": "nike-padded",
     "brand": "Nike Sportswear",
     "name": "Lightweight Padded Jacket",
@@ -1021,9 +1042,10 @@ window.REWORN = {
     "alt": "Hands at rest inside a camel coat"
    },
    {
-    "src": "assets/img/editorial/rl-linen-olive-1.jpg",
+    "src": "assets/img/cutout/rl-linen-olive.webp",
     "id": "rl-linen-olive",
     "brand": "Polo Ralph Lauren",
+    "fit": "contain",
     "alt": "Polo Ralph Lauren Olive Linen Shirt"
    },
    {
@@ -1031,9 +1053,10 @@ window.REWORN = {
     "alt": "Four pairs of trousers and shoes, lined up"
    },
    {
-    "src": "assets/img/editorial/lilang-trench-1.jpg",
+    "src": "assets/img/cutout/lilang-trench.webp",
     "id": "lilang-trench",
     "brand": "Lilang (利郎)",
+    "fit": "contain",
     "alt": "Lilang (利郎) Grey-Taupe Car Coat"
    }
   ],
@@ -1152,31 +1175,31 @@ window.REWORN = {
   ],
   "sticky": [
    {
-    "image": "assets/img/editorial/rl-linen-olive-1.jpg",
+    "image": "assets/img/cutout/rl-linen-olive.webp",
     "title": "Olive Linen Shirt",
     "id": "rl-linen-olive",
     "meta": "Polo Ralph Lauren — ₹2,400"
    },
    {
-    "image": "assets/img/editorial/rare-rabbit-kufa-1.jpg",
+    "image": "assets/img/cutout/rare-rabbit-kufa.webp",
     "title": "KUFA Print Shirt",
     "id": "rare-rabbit-kufa",
     "meta": "Rare Rabbit — ₹1,800"
    },
    {
-    "image": "assets/img/editorial/nike-padded-1.jpg",
+    "image": "assets/img/cutout/nike-padded.webp",
     "title": "Lightweight Padded Jacket",
     "id": "nike-padded",
     "meta": "Nike Sportswear — ₹2,900"
    },
    {
-    "image": "assets/img/editorial/lilang-trench-1.jpg",
+    "image": "assets/img/cutout/lilang-trench.webp",
     "title": "Grey-Taupe Car Coat",
     "id": "lilang-trench",
     "meta": "Lilang (利郎) — ₹1,900"
    },
    {
-    "image": "assets/img/editorial/wuhuan-plaid-1.jpg",
+    "image": "assets/img/cutout/wuhuan-plaid.webp",
     "title": "Vintage Plaid Harrington",
     "id": "wuhuan-plaid",
     "meta": "Wuhuan (五环) — Shanghai, 1990s — ₹2,200"

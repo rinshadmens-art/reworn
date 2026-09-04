@@ -40,8 +40,12 @@
       ? '<figcaption><span>' + esc(s.brand || '') + '</span>' +
         '<span class="stock">In archive</span></figcaption>'
       : '';
-    return '<figure class="spot-img">' +
-             '<img src="' + esc(s.src) + '" alt="' + esc(s.alt) + '" loading="lazy" decoding="async">' +
+    /* A cut-out has to be CONTAINed — cover would crop the garment back
+       out of its own frame, which is the thing this is fixing. Mood
+       frames still cover, because filling the card is their whole job. */
+    var fit = s.fit === 'contain' ? ' class="is-contain"' : '';
+    return '<figure class="spot-img' + (s.fit === 'contain' ? ' spot-img--cut' : '') + '">' +
+             '<img' + fit + ' src="' + esc(s.src) + '" alt="' + esc(s.alt) + '" loading="lazy" decoding="async">' +
              cap +
            '</figure>';
   }).join('');

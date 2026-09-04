@@ -1,5 +1,5 @@
-@import url('../assets/fonts/fonts.css?v=1788478779');
-@import url('tokens.css?v=1788478779');
+@import url('../assets/fonts/fonts.css?v=1788495782');
+@import url('tokens.css?v=1788495782');
 
 /* ============================================================
    RESET
@@ -113,9 +113,11 @@ body {
 .card { display: block; }
 .card__media {
   display: block; position: relative; overflow: hidden;
-  /* vertical, not 168deg: the reference's tile is lit from above like a
-     studio wall, and a diagonal reads as a gradient rather than as light */
-  background: linear-gradient(to bottom, var(--plate-top) 0%, var(--plate-bot) 100%);
+  /* Back to the original warm card gradient. The Louis Vuitton grey was
+     right for Louis Vuitton and wrong here — this archive's whole palette
+     is warm, and a neutral grey plate under warm photography reads as a
+     colour mistake rather than as restraint. */
+  background: linear-gradient(168deg, var(--card) 0%, var(--card-deep) 100%);
   aspect-ratio: 4/5;
 }
 .card__media img {
@@ -138,7 +140,9 @@ body {
    "Piece of the drop" and it stopped meaning anything. It still earns
    its place on the collection page, where hero pieces sit among core. */
 [data-grid="home"] .card__flag:not(.card__flag--sold) { display: none; }
-.card__flag--sold { background: var(--signal); color: var(--linen); }
+/* light on the red, always — as var(--linen) this printed near-black text
+   on the accent once the page went dark */
+.card__flag--sold { background: var(--signal); color: #FFF8F5; }
 .card__meta { padding-top: 18px; display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: baseline; }
 .card__brand { display: block; margin-bottom: 3px; }
 .card__name  { font-size: var(--fs-small); }

@@ -83,9 +83,12 @@
 .menu-hamburger-icon.active span:nth-child(1) { transform: translateY(0) rotate(45deg) scaleX(1.05); }
 .menu-hamburger-icon.active span:nth-child(2) { transform: translateY(0) rotate(-45deg) scaleX(1.05); }
 
-/* the bar sits above the ink overlay and inverts over it */
-.menu-open .menu-bar { color: var(--linen); }
-.menu-open .menu-logo a { color: var(--linen); }
+/* The bar sits above the overlay's dark plate and inverts over it. Stated
+   absolutely for the same reason the plate is: as var(--linen) this turned
+   the wordmark and the MENU label near-black the moment the menu opened,
+   on exactly the page states where the ground behind them is darkest. */
+.menu-open .menu-bar { color: #EDEAE3; }
+.menu-open .menu-logo a { color: #EDEAE3; }
 .menu-open .menu-hamburger-icon { border-color: rgba(242, 241, 234, 0.25); }
 
 /* --- overlay --- */
@@ -167,7 +170,9 @@
   transition: color var(--dur-fast) var(--ease-out);
 }
 .menu-tag a:hover { color: #EDEAE3; }
-.line { position: relative; will-change: transform; }
+/* likewise namespaced — this is the overlay's own line mask, and as a bare
+   selector it reaches the hero and the slider too */
+.menu-overlay .line { position: relative; will-change: transform; }
 
 html.no-scroll, body.no-scroll { overflow: hidden; }
 

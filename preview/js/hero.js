@@ -33,7 +33,10 @@
       var main = i >= shots.length - 3 ? ' main' : '';
       /* every frame is on screen within ~3s, so none of them are lazy —
          a lazy frame decodes mid-animation and shows as a blur */
-      return '<figure class="img' + main + '"><img src="' + esc(s.src) +
+      /* the survivors are cut-outs, so they contain rather than cover —
+         covering would crop the garment back out of the tile */
+      var cut = s.fit === 'contain' ? ' is-cut' : '';
+      return '<figure class="img' + main + cut + '"><img src="' + esc(s.src) +
              '" alt="' + esc(s.alt) + '" decoding="async"' +
              (i === 0 ? ' fetchpriority="high"' : '') + '></figure>';
     }).join('');
