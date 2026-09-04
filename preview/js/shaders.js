@@ -30,14 +30,25 @@ export const fragmentShader = `
     float boxAspect = boxSize.x / boxSize.y;
     float imgAspect = imgRes.x / imgRes.y;
 
+    /* CONTAIN, not cover. The reference filled its box with a landscape
+       photograph; the slides are cut-out garments now, and covering the
+       box cropped the collar off the top and the hem off the bottom.
+       Swapping which axis is scaled letterboxes instead of cropping. */
     vec2 scale = vec2(1.0);
     if (boxAspect > imgAspect) {
-      scale.y = imgAspect / boxAspect;
-    } else {
       scale.x = boxAspect / imgAspect;
+    } else {
+      scale.y = imgAspect / boxAspect;
     }
 
     return (boxUv - 0.5) * scale + 0.5;
+  }
+
+  /* Containing samples outside 0..1, where ClampToEdge would smear the
+     edge pixels into streaks. Zero there instead. */
+  float inImage(vec2 uv){
+    vec2 s = step(vec2(0.0), uv) * step(uv, vec2(1.0));
+    return s.x * s.y;
   }
 
   bool isInsideBox(vec2 uv, vec2 boxMin, vec2 boxMax) {
@@ -80,8 +91,11 @@ export const fragmentShader = `
     vec2 finalUv = vec2(displaced.x, displaced.y / aspectRatio);
     vec2 imageUv = getImageUv(finalUv, uResolution, uImageRes, boxMin, boxMax);
 
+    float inside = inImage(imageUv);
     vec4 currentColor = texture2D(uTexCurrent, imageUv);
     vec4 nextColor = texture2D(uTexNext, imageUv);
+    currentColor.a *= inside;
+    nextColor.a *= inside;
 
     vec4 color = mix(currentColor, nextColor, blend);
     color.rgb += color.rgb * brightness;

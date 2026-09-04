@@ -86,7 +86,11 @@ if (slider && window.gsap) {
     const camera = new THREE.OrthographicCamera(-0.5, 0.5, 0.5, -0.5, 0.01, 10);
     camera.position.z = 1;
 
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    /* premultipliedAlpha:false — TextureLoader gives straight alpha, and
+       assuming otherwise haloes every cut-out edge against the dark. */
+    const renderer = new THREE.WebGLRenderer({
+      antialias: true, alpha: true, premultipliedAlpha: false
+    });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setClearColor(0x000000, 0);
     slider.prepend(renderer.domElement);
@@ -120,8 +124,16 @@ if (slider && window.gsap) {
       uTexNext: { value: textures[1] },
       uProgress: { value: 0.0 },
       uResolution: { value: new THREE.Vector2() },
-      /* our archive frames are portrait 1289x1600, not the reference's 1920x1280 */
-      uImageRes: { value: new THREE.Vector2(1289, 1600) },
+      /* Read off the texture rather than hardcoded. It used to say
+         1289x1600 — the archive plate's size — but the slides are cut-outs
+         now and every one of those is trimmed to its own garment, so a
+         fixed ratio stretched each piece by a different amount. */
+      uImageRes: {
+        value: new THREE.Vector2(
+          (textures[0] && textures[0].image && textures[0].image.width) || 1289,
+          (textures[0] && textures[0].image && textures[0].image.height) || 1600
+        )
+      },
       uWaveFreq: { value: rippleConfig.waveFreq },
       uWavePow: { value: rippleConfig.wavePow },
       uWaveWidth: { value: rippleConfig.waveWidth },

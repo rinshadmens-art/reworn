@@ -59,7 +59,8 @@ window.REWORN = {
     "assets/img/editorial/rl-linen-olive-6.jpg",
     "assets/img/editorial/rl-linen-olive-7.jpg",
     "assets/img/editorial/rl-linen-olive-8.jpg",
-    "assets/img/editorial/rl-linen-olive-9.jpg"
+    "assets/img/editorial/rl-linen-olive-9.jpg",
+    "assets/img/editorial/rl-linen-olive-20.jpg"
    ],
    "cutout": "assets/img/cutout/rl-linen-olive.webp",
    "proof": [
@@ -108,7 +109,8 @@ window.REWORN = {
     "assets/img/editorial/rare-rabbit-kufa-6.jpg",
     "assets/img/editorial/rare-rabbit-kufa-7.jpg",
     "assets/img/editorial/rare-rabbit-kufa-8.jpg",
-    "assets/img/editorial/rare-rabbit-kufa-9.jpg"
+    "assets/img/editorial/rare-rabbit-kufa-9.jpg",
+    "assets/img/editorial/rare-rabbit-kufa-20.jpg"
    ],
    "cutout": "assets/img/cutout/rare-rabbit-kufa.webp",
    "proof": [
@@ -480,7 +482,8 @@ window.REWORN = {
     "assets/img/editorial/nike-padded-6.jpg",
     "assets/img/editorial/nike-padded-7.jpg",
     "assets/img/editorial/nike-padded-8.jpg",
-    "assets/img/editorial/nike-padded-9.jpg"
+    "assets/img/editorial/nike-padded-9.jpg",
+    "assets/img/editorial/nike-padded-20.jpg"
    ],
    "cutout": "assets/img/cutout/nike-padded.webp",
    "proof": [
@@ -527,7 +530,8 @@ window.REWORN = {
     "assets/img/editorial/lilang-trench-6.jpg",
     "assets/img/editorial/lilang-trench-7.jpg",
     "assets/img/editorial/lilang-trench-8.jpg",
-    "assets/img/editorial/lilang-trench-9.jpg"
+    "assets/img/editorial/lilang-trench-9.jpg",
+    "assets/img/editorial/lilang-trench-20.jpg"
    ],
    "cutout": "assets/img/cutout/lilang-trench.webp",
    "proof": [
@@ -668,7 +672,8 @@ window.REWORN = {
     "assets/img/editorial/wuhuan-plaid-6.jpg",
     "assets/img/editorial/wuhuan-plaid-7.jpg",
     "assets/img/editorial/wuhuan-plaid-8.jpg",
-    "assets/img/editorial/wuhuan-plaid-9.jpg"
+    "assets/img/editorial/wuhuan-plaid-9.jpg",
+    "assets/img/editorial/wuhuan-plaid-20.jpg"
    ],
    "cutout": "assets/img/cutout/wuhuan-plaid.webp",
    "proof": [
@@ -808,7 +813,8 @@ window.REWORN = {
     "assets/img/editorial/jinlong-carcoat-6.jpg",
     "assets/img/editorial/jinlong-carcoat-7.jpg",
     "assets/img/editorial/jinlong-carcoat-8.jpg",
-    "assets/img/editorial/jinlong-carcoat-9.jpg"
+    "assets/img/editorial/jinlong-carcoat-9.jpg",
+    "assets/img/editorial/jinlong-carcoat-20.jpg"
    ],
    "cutout": "assets/img/cutout/jinlong-carcoat.webp",
    "proof": [
@@ -939,7 +945,8 @@ window.REWORN = {
     "assets/img/editorial/onward-furcollar-6.jpg",
     "assets/img/editorial/onward-furcollar-7.jpg",
     "assets/img/editorial/onward-furcollar-8.jpg",
-    "assets/img/editorial/onward-furcollar-9.jpg"
+    "assets/img/editorial/onward-furcollar-9.jpg",
+    "assets/img/editorial/onward-furcollar-20.jpg"
    ],
    "cutout": "assets/img/cutout/onward-furcollar.webp",
    "proof": [
@@ -1042,10 +1049,9 @@ window.REWORN = {
     "alt": "Hands at rest inside a camel coat"
    },
    {
-    "src": "assets/img/cutout/rl-linen-olive.webp",
+    "src": "assets/img/editorial/rl-linen-olive-20.jpg",
     "id": "rl-linen-olive",
     "brand": "Polo Ralph Lauren",
-    "fit": "contain",
     "alt": "Polo Ralph Lauren Olive Linen Shirt"
    },
    {
@@ -1053,10 +1059,9 @@ window.REWORN = {
     "alt": "Four pairs of trousers and shoes, lined up"
    },
    {
-    "src": "assets/img/cutout/lilang-trench.webp",
+    "src": "assets/img/editorial/lilang-trench-20.jpg",
     "id": "lilang-trench",
     "brand": "Lilang (利郎)",
-    "fit": "contain",
     "alt": "Lilang (利郎) Grey-Taupe Car Coat"
    }
   ],
@@ -1251,28 +1256,28 @@ window.REWORN = {
     "title": "Olive Linen Shirt",
     "description": "The green that works in every season. Classic Fit Polo linen — the quiet flex.",
     "meta": "Polo Ralph Lauren · M · Classic Fit · ₹2,400",
-    "image": "assets/img/editorial/rl-linen-olive-1.jpg",
+    "image": "assets/img/cutout/rl-linen-olive.webp",
     "id": "rl-linen-olive"
    },
    {
     "title": "KUFA Print Shirt",
     "description": "An artwork with buttons. Red-and-ink sketch print — worn when you want the room to look.",
     "meta": "Rare Rabbit · M · ₹1,800",
-    "image": "assets/img/editorial/rare-rabbit-kufa-1.jpg",
+    "image": "assets/img/cutout/rare-rabbit-kufa.webp",
     "id": "rare-rabbit-kufa"
    },
    {
     "title": "Lightweight Padded Jacket",
     "description": "A 2012 Nike Sportswear piece — glossy black quilting you can't buy new anymore.",
     "meta": "Nike Sportswear · Oversized fit (style 477139-010, FA12) · ₹2,900",
-    "image": "assets/img/editorial/nike-padded-1.jpg",
+    "image": "assets/img/cutout/nike-padded.webp",
     "id": "nike-padded"
    },
    {
     "title": "Grey-Taupe Car Coat",
     "description": "A Fujian-tailored car coat with throat-latch detail. Detective-film energy.",
     "meta": "Lilang (利郎) · 165/84A (Asia M) — oversized on most · ₹1,900",
-    "image": "assets/img/editorial/lilang-trench-1.jpg",
+    "image": "assets/img/cutout/lilang-trench.webp",
     "id": "lilang-trench"
    }
   ],
