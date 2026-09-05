@@ -70,6 +70,21 @@
   /* The first tiles are in the opening viewport, so they load eagerly —
      lazy-loading something already on screen just delays the largest
      paint. Everything past the fold stays lazy. */
+  /* Where the piece came from, printed only where the archive knows. Seven
+     of the archive pieces have no recorded place; inventing a city for them
+     is the one thing this brand cannot afford. Mirrors app.js. */
+  function originOf(p) {
+    var o = p.origin;
+    if (!o || !o.place) return '';
+    return o.era ? o.place + ', ' + o.era : o.place;
+  }
+
+  /* Silent until catalog.json carries a verified figure. */
+  function retailLine(p) {
+    if (!p.retail_inr) return '';
+    return '<p class="m-pdp__retail m-micro">Retails around ' + inr(p.retail_inr) + ' new</p>';
+  }
+
   function tile(p, i) {
     var eager = i != null && i < 4;
     return '<a class="m-in" href="product.html?id=' + encodeURIComponent(p.id) + '">' +
@@ -82,6 +97,13 @@
           '<span class="m-meta__name">' + esc(p.name) + '</span>' +
           '<span class="m-meta__price">' + inr(p.price_inr) + '</span>' +
         '</span>' +
+        /* The condition score is the fact that most decides whether someone
+           trusts a second-hand garment. On the phone it was not on the card
+           at all. */
+        '<span class="m-meta__health m-micro">Product health <b>' +
+          esc(p.condition) + '%</b></span>' +
+        '<span class="m-meta__bar"><i style="width:' + Number(p.condition) + '%"' +
+          (p.condition < 90 ? ' data-low="true"' : '') + '></i></span>' +
       '</span></a>';
   }
 
@@ -98,11 +120,30 @@
     }
   }
 
-  /* The bar only earns its hairline once something has scrolled under it. */
+  /* The bar earns its hairline once something scrolls under it, and gets out
+     of the way entirely while you are travelling down.
+
+     Same reasoning as the desktop band: a phone screen is short, the bar and
+     the WhatsApp strip already own the top and bottom of it, and returning
+     from a product restores the scroll to the middle of a card — which put
+     the bar over the photograph and left its caption stranded underneath.
+     Retreating on the way down gives the garment the whole screen. */
   function stickyBar() {
     var bar = document.querySelector('.m-bar');
     if (!bar) return;
-    var sync = function () { bar.classList.toggle('is-stuck', window.scrollY > 8); };
+    var lastY = window.scrollY;
+    var HIDE_AFTER = 180;   /* never retract inside the first screen */
+    var DEADZONE = 8;       /* ignore momentum jitter and rubber-banding */
+
+    var sync = function () {
+      var y = window.scrollY;
+      bar.classList.toggle('is-stuck', y > 8);
+      var dy = y - lastY;
+      if (Math.abs(dy) < DEADZONE) return;
+      lastY = y;
+      /* iOS rubber-banding reports negative scrollY at the top; never hide there. */
+      bar.classList.toggle('is-away', dy > 0 && y > HIDE_AFTER);
+    };
     sync();
     window.addEventListener('scroll', sync, { passive: true });
   }
@@ -233,13 +274,16 @@
       '<div class="m-pdp__head">' +
         '<p class="m-micro m-meta__brand">' + esc(p.brand) + '</p>' +
         '<h1 class="m-pdp__name">' + esc(p.name) + '</h1>' +
-        '<p class="m-pdp__price">' + inr(p.price_inr) + '</p>' +
+        '<p class="m-pdp__price' + (p.retail_inr ? ' has-retail' : '') + '">' +
+          inr(p.price_inr) + '</p>' +
+        retailLine(p) +
         '<p class="m-pdp__story">' + esc(p.story || '') + '</p>' +
       '</div>' +
 
       '<div class="m-health">' +
         '<p class="m-micro">Product health &middot; ' + esc(p.condition) + '%</p>' +
-        '<div class="m-health__bar"><i style="width:' + Number(p.condition) + '%"></i></div>' +
+        '<div class="m-health__bar"><i style="width:' + Number(p.condition) + '%"' +
+          (p.condition < 90 ? ' data-low="true"' : '') + '></i></div>' +
         (p.condition_note ? '<p class="m-health__note">' + esc(p.condition_note) + '</p>' : '') +
       '</div>' +
 
@@ -247,6 +291,7 @@
         '<tr><th>Size</th><td>' + esc(p.size) + '</td></tr>' +
         '<tr><th>Material</th><td>' + esc(p.material) + '</td></tr>' +
         '<tr><th>Category</th><td>' + esc(cap(p.category)) + '</td></tr>' +
+        (originOf(p) ? '<tr><th>Origin</th><td>' + esc(originOf(p)) + '</td></tr>' : '') +
         '<tr><th>Pieces</th><td>1 of 1 &mdash; no restock</td></tr>' +
       '</table>';
 

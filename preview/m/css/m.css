@@ -12,8 +12,8 @@
    what the desktop one does.
    ============================================================ */
 
-@import url('../../assets/fonts/fonts.css?v=1788624259');
-@import url('../../css/tokens.css?v=1788624259');
+@import url('../../assets/fonts/fonts.css?v=1788624829');
+@import url('../../css/tokens.css?v=1788624829');
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -74,9 +74,15 @@ a, button { -webkit-tap-highlight-color: transparent; }
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid transparent;
-  transition: border-color 300ms ease;
+  transition: border-color 300ms ease, transform 360ms cubic-bezier(.22,1,.36,1);
+  will-change: transform;
 }
 .m-bar.is-stuck { border-bottom-color: var(--hairline); }
+/* Out of the way while travelling down. A stated length, not translateY(-100%)
+   — the percentage form resolved to zero translation on the desktop band and
+   there is no reason to trust it here either. */
+.m-bar.is-away { transform: translateY(-72px); }
+@media (prefers-reduced-motion: reduce) { .m-bar { transition: border-color 300ms ease; } }
 .m-bar__mark { font-family: var(--serif); font-size: 19px; letter-spacing: -0.02em; }
 .m-bar__back { display: flex; align-items: center; gap: 8px; min-height: 44px; }
 
@@ -350,3 +356,25 @@ a, button { -webkit-tap-highlight-color: transparent; }
   from { opacity: 0; transform: translateY(14px); }
   to   { opacity: 1; transform: none; }
 }
+
+
+/* ---- Product Health on the card ----
+   Rams 4: a product should explain itself. On the phone the condition score
+   was not on the card at all, only on the product page. */
+.m-meta__health { display: block; margin-top: 10px; color: var(--ink-faint); }
+.m-meta__health b { font-weight: inherit; color: var(--ink); }
+.m-meta__bar {
+  display: block; height: 2px; margin-top: 5px;
+  background: var(--hairline); position: relative;
+}
+.m-meta__bar i { position: absolute; inset: 0 auto 0 0; background: var(--ink); }
+/* Anything under 90 is marked rather than quietly blended in — the honesty is
+   the point of publishing a score at all. Same rule as the desktop card. */
+.m-meta__bar i[data-low="true"],
+.m-health__bar i[data-low="true"] { background: var(--signal); }
+
+/* ---- the retail anchor ----
+   Only ever rendered when catalog.json carries a verified figure, so this
+   styles a line that is simply absent on every unchecked piece. */
+.m-pdp__price.has-retail { margin-bottom: 4px; }
+.m-pdp__retail { color: var(--ink-faint); margin-bottom: 18px; }
