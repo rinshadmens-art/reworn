@@ -37,7 +37,15 @@
     /* Clicking a second filter before the first transition settles aborts it,
        and an aborted .ready with nothing attached surfaces as an unhandled
        InvalidStateError. Only .finished was being caught. */
+    /* A view transition exposes three promises and any of them can reject on
+       its own — .ready when a second transition aborts this one, and
+       .updateCallbackDone when the transition is skipped outright (navigating
+       away mid-flight does it). Catching only one still surfaces the others
+       as unhandled rejections in the console. */
     if (t.ready && t.ready.catch) t.ready.catch(function () {});
+    if (t.updateCallbackDone && t.updateCallbackDone.catch) {
+      t.updateCallbackDone.catch(function () {});
+    }
     t.finished.then(done, done);
   }
 
@@ -72,32 +80,28 @@
            p.tier === 'hero' ? '<span class="card__flag micro">Piece of the drop</span>' : '';
   }
 
-  /* The plate variant is the collection grid's tile: the garment cut out and
-     re-centred on one shared canvas (tools/plate.py), floating on the card
-     ground rather than filling it.
-
-     It deliberately has no is-main/is-alt swap. The alt frame is a photograph
-     WITH its studio background, and cross-fading that under a cut-out shows
-     a pale rectangle appearing from nowhere. The hover lives in CSS instead —
-     the garment lifts and the plate deepens, which works for all 21 without
-     depending on any second asset existing. */
-  function plateCard(p) {
+  /* The collection grid's tile. It borrows the reference's DENSITY — four
+     across, edge to edge, meta inside the cell — and none of its photography.
+     The cut-out-on-a-grey-plate look was Louis Vuitton's component, not this
+     archive's: every piece here was shot on a stool against a warm wall, and
+     that IS the brand. Reusing .card__media means the hover swap between the
+     two real frames comes back for free. */
+  function tileCard(p) {
+    var im = imgs(p);
+    var alt = im[1] || im[0];
     return '' +
-      '<a class="card card--plate reveal' + (p.sold ? ' is-sold' : '') +
+      '<a class="card card--tile reveal' + (p.sold ? ' is-sold' : '') +
         '" href="product.html?id=' + encodeURIComponent(p.id) + '">' +
-        '<span class="card__plate">' +
+        '<span class="card__media">' +
           flag(p) +
-          '<img class="card__cut" src="' + esc(p.plate || imgs(p)[0]) + '" alt="' +
+          '<img class="is-main" src="' + im[0] + '" alt="' +
             esc(p.brand + ' ' + p.name) + '" loading="lazy" decoding="async">' +
+          '<img class="is-alt" src="' + alt + '" alt="" aria-hidden="true" loading="lazy">' +
         '</span>' +
         '<span class="card__meta">' +
           '<span class="card__brand micro faint">' + esc(p.brand) + '</span>' +
           '<span class="card__name">' + esc(p.name) + '</span>' +
           '<span class="card__price">' + inr(p.price_inr) + '</span>' +
-          /* The bar used to be a bare 1px rule. It encodes the single fact that
-             most decides whether someone trusts a second-hand garment, and it
-             said so nowhere — a shopper scanning the grid saw a thin line and
-             had no reason to read it as anything. It carries its number now. */
           '<span class="card__health micro faint">Product health <b>' +
             p.condition + '%</b></span>' +
           '<span class="card__bar"><i style="width:' + p.condition + '%"' +
@@ -154,7 +158,7 @@
 
   function renderGrid(el, items, opts) {
     opts = opts || {};
-    var build = opts.plate ? plateCard : card;
+    var build = opts.tile ? tileCard : card;
 
     if (!items.length) {
       el.innerHTML = '<p class="empty">Nothing in this category yet.</p>';
@@ -208,7 +212,7 @@
 
     var draw = function () {
       var route = ROUTES[active] || ROUTES.all;
-      renderGrid(colGrid, D.products.filter(route.test), { plate: true, breaks: true });
+      renderGrid(colGrid, D.products.filter(route.test), { tile: true, breaks: true });
       document.querySelectorAll('[data-filter]').forEach(function (b) {
         b.classList.toggle('is-on', b.dataset.filter === active);
       });
@@ -265,7 +269,12 @@
 
     /* Gallery rhythm: lead frame, then pairs, with one full-width plate every
        third position so the column never becomes a monotonous ladder. */
-    var rest = im.slice(1, 6).concat(p.proof || []);
+    /* Was slice(1, 6), which quietly dropped every frame past the sixth —
+       including the two Rinshad specifically asked to see (the Lilang collar
+       plate and the Nike flat-lay). A cap that hides the newest photography
+       is worse than a long page, and this is an archive: more of the garment
+       is the point. */
+    var rest = im.slice(1, 10).concat(p.proof || []);
     var strip = rest.map(function (src, i) {
       var wide = (i % 3 === 2);
       return '<figure class="' + (wide ? 'is-wide' : '') + '">' +

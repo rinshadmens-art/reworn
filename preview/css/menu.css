@@ -241,3 +241,26 @@ html.no-scroll, body.no-scroll { overflow: hidden; }
 .scrolled .menu-bar::before { opacity: 1; }
 /* over the fullscreen menu the bar has the overlay behind it already */
 .menu-open .menu-bar::before { opacity: 0; }
+
+/* ---- the collection page's header band ----
+   The blur above is right everywhere the bar floats over full-bleed
+   photography: it takes whatever is underneath and softens it, so the
+   wordmark separates without the page gaining a stripe.
+
+   It is wrong over an edge-to-edge product grid. There the thing being
+   softened is the top of a garment, and the result was a row of blurred,
+   chopped shoulders sitting above the filter rail — the bar read as broken
+   rather than as floating.
+
+   So on the grid page the band goes solid and butts up against the rail
+   beneath it. Header and filters become one block, which is what the
+   reference does and what the eye expects above a dense grid. */
+.is-grid .menu-bar::before {
+  height: 100%;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  mask-image: none;
+  -webkit-mask-image: none;
+  background: var(--linen);
+  opacity: 1;
+}

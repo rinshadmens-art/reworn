@@ -591,7 +591,8 @@ window.REWORN = {
     "assets/img/editorial/nike-padded-7.jpg",
     "assets/img/editorial/nike-padded-8.jpg",
     "assets/img/editorial/nike-padded-9.jpg",
-    "assets/img/editorial/nike-padded-20.jpg"
+    "assets/img/editorial/nike-padded-20.jpg",
+    "assets/img/editorial/nike-padded-21.jpg"
    ],
    "cutout": "assets/img/cutout/nike-padded.webp",
    "plate": "assets/img/plate/nike-padded.webp",
