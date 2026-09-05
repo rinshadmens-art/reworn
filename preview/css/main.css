@@ -1,5 +1,5 @@
-@import url('../assets/fonts/fonts.css?v=1788503539');
-@import url('tokens.css?v=1788503539');
+@import url('../assets/fonts/fonts.css?v=1788599752');
+@import url('tokens.css?v=1788599752');
 
 /* ============================================================
    RESET
@@ -290,14 +290,17 @@ section.ground { padding-top: var(--sect); padding-bottom: var(--sect); }
    onto it. */
 .foot__mark {
   font-family: var(--serif);
-  font-size: clamp(64px, 20vw, 300px);
-  line-height: 0.78;
-  letter-spacing: -0.04em;
+  /* Was clamp(64px, 20vw, 300px) — a 300px billboard across the page foot.
+     The reference closes on a small centred mark instead, and at this size
+     the old baseline clip (line-height .78 + negative margin + overflow
+     hidden) stops reading as a deliberate crop and starts reading as a bug,
+     so it goes with it. */
+  font-size: clamp(22px, 2.2vw, 32px);
+  line-height: 1;
+  letter-spacing: 0.08em;
   text-align: center;
   color: var(--ink);
-  padding-top: clamp(20px, 3vw, 44px);
-  margin-bottom: -0.16em;
-  overflow: hidden;
+  padding: clamp(30px, 5vw, 56px) 0 clamp(26px, 4vw, 44px);
   user-select: none;
 }
 .foot__mark .dot { color: var(--signal); }
@@ -611,3 +614,116 @@ p, .measure, .measure-tight { text-wrap: pretty; }
 .pdp__back { margin: 0 0 30px; padding-top: 1.4rem; }
 .pdp__back a { border-bottom: 1px solid transparent; padding-bottom: 3px; }
 .pdp__back a:hover { color: var(--ink); border-bottom-color: var(--signal); }
+
+
+/* ============================================================
+   COLLECTION GRID — the archive laid out as a shop floor.
+
+   Two things separate this from the .card used on the index. The tile runs
+   edge to edge, cell touching cell, so the grid IS the page rather than
+   sitting inside its margins. And the garment is a cut-out re-centred on a
+   shared canvas (tools/plate.py), floating on the plate with air around it
+   instead of cropped to fill.
+
+   Scoped entirely to [data-grid="collection"]. The index hero row and the
+   product page's related items still render the original photo card.
+   ============================================================ */
+.grid[data-grid="collection"] {
+  /* Cancel the .wrap gutter so the grid reaches both page edges. */
+  margin-inline: calc(var(--gutter) * -1);
+  /* Not a true zero gap: the reference keeps a hairline between cells, and
+     letting the page ground show through 1px of gap is that hairline —
+     no border to double up at shared edges, and it inverts with the theme
+     for free because it IS the theme's ground. */
+  gap: 1px;
+  background: var(--linen);
+  grid-template-columns: repeat(4, 1fr);
+}
+.grid[data-grid="collection"][data-cols="2"] { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 1100px) {
+  .grid[data-grid="collection"][data-cols="4"] { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 760px) {
+  .grid[data-grid="collection"][data-cols="4"] { grid-template-columns: repeat(2, 1fr); }
+}
+
+.card--plate {
+  background: var(--card);
+  transition: background var(--dur) var(--ease-out);
+}
+.card--plate .card__plate {
+  display: block; position: relative; overflow: hidden;
+  aspect-ratio: 4/5;
+  background: transparent;   /* the card carries the ground now, not the media */
+}
+/* Every plate file is 1000x1250 with the garment centred inside a fixed 82%
+   box, so cover and contain agree and there is no fit maths to get wrong. */
+.card--plate .card__cut {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 1.1s var(--ease-out);
+}
+.card--plate:hover { background: var(--card-deep); }
+.card--plate:hover .card__cut { transform: scale(1.035); }
+.card--plate:active { transform: none; }
+.card--plate:active .card__cut { transform: scale(1.01); transition: transform 100ms var(--ease-out); }
+
+/* The meta continues the plate rather than sitting below it on the page. */
+.card--plate .card__meta {
+  display: block;
+  padding: 0 clamp(14px, 1.4vw, 22px) clamp(18px, 1.8vw, 26px);
+}
+.card--plate .card__brand { display: block; margin-bottom: 6px; }
+.card--plate .card__name  { display: block; font-size: var(--fs-small); }
+.card--plate .card__price {
+  display: block; margin-top: 4px;
+  font-family: var(--mono); font-size: var(--fs-small);
+}
+/* Product Health keeps the slot the reference gives to colour swatches —
+   it is the thing this archive has that a boutique does not. */
+.card--plate .card__bar {
+  margin-top: 14px; height: 1px; background: var(--hairline); position: relative;
+}
+.card--plate .card__bar i { position: absolute; inset: 0 auto 0 0; background: var(--ink); }
+
+/* Editorial interruptions — a lookbook page dropped into the shop floor. */
+.grid__break {
+  grid-column: span var(--span, 1);
+  position: relative; overflow: hidden;
+  background: var(--card);
+  margin: 0;
+}
+/* A ratio spacer rather than aspect-ratio on the box itself. aspect-ratio
+   fixes the height, so the break stopped short of the row its neighbours
+   set — a 459px photo in a 551px row, leaving a strip of bare grid beside
+   it. This gives the same intrinsic ratio as a FLOOR while still letting
+   the box stretch to the row, and the absolute image fills whatever the box
+   ends up being. */
+.grid__break::before { content: ''; display: block; padding-top: 125%; }
+.grid__break[style*="--span:2"]::before { padding-top: 62.5%; }
+.grid__break img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover;
+}
+@media (max-width: 760px) {
+  .grid__break { grid-column: 1 / -1; }
+  .grid__break::before,
+  .grid__break[style*="--span:2"]::before { padding-top: 62.5%; }
+}
+
+/* ---- the filter rail ---- */
+.rail {
+  position: sticky; top: var(--bar-h); z-index: 5;
+  display: flex; align-items: center; justify-content: space-between; gap: 20px;
+  margin-inline: calc(var(--gutter) * -1);
+  padding: 14px var(--gutter);
+  background: var(--linen);
+  border-bottom: 1px solid var(--hairline);
+}
+.rail .filters {
+  padding-bottom: 0; flex-wrap: nowrap; overflow-x: auto;
+  scrollbar-width: none; -ms-overflow-style: none;
+}
+.rail .filters::-webkit-scrollbar { display: none; }
+.rail .filters button { white-space: nowrap; }
+@media (max-width: 700px) { .rail .density { display: none; } }

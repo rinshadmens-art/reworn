@@ -98,6 +98,10 @@
   --track-sans: -0.011em;
 
   /* -- GRID: 12 columns, one gutter everywhere -- */
+  /* The fixed .menu-bar is 2rem padding around a 1.5rem mark and a 3rem
+     toggle — a constant 7rem, not a viewport function. Anything that has to
+     clear it or stick beneath it measures from here. */
+  --bar-h: 7rem;
   --gutter: clamp(16px, 3.4vw, 56px);
   --col-gap: clamp(10px, 1.6vw, 26px);
   --sect: clamp(88px, 15vh, 220px);

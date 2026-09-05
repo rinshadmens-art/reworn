@@ -34,6 +34,10 @@
       update(); done(); return;
     }
     var t = document.startViewTransition(update);
+    /* Clicking a second filter before the first transition settles aborts it,
+       and an aborted .ready with nothing attached surfaces as an unhandled
+       InvalidStateError. Only .finished was being caught. */
+    if (t.ready && t.ready.catch) t.ready.catch(function () {});
     t.finished.then(done, done);
   }
 
@@ -45,14 +49,44 @@
     return String(s || '').replace(/^./, function (c) { return c.toUpperCase(); });
   }
 
+  function flag(p) {
+    return p.sold ? '<span class="card__flag card__flag--sold micro">Sold</span>' :
+           p.tier === 'hero' ? '<span class="card__flag micro">Piece of the drop</span>' : '';
+  }
+
+  /* The plate variant is the collection grid's tile: the garment cut out and
+     re-centred on one shared canvas (tools/plate.py), floating on the card
+     ground rather than filling it.
+
+     It deliberately has no is-main/is-alt swap. The alt frame is a photograph
+     WITH its studio background, and cross-fading that under a cut-out shows
+     a pale rectangle appearing from nowhere. The hover lives in CSS instead —
+     the garment lifts and the plate deepens, which works for all 21 without
+     depending on any second asset existing. */
+  function plateCard(p) {
+    return '' +
+      '<a class="card card--plate reveal" href="product.html?id=' + encodeURIComponent(p.id) + '">' +
+        '<span class="card__plate">' +
+          flag(p) +
+          '<img class="card__cut" src="' + esc(p.plate || imgs(p)[0]) + '" alt="' +
+            esc(p.brand + ' ' + p.name) + '" loading="lazy" decoding="async">' +
+        '</span>' +
+        '<span class="card__meta">' +
+          '<span class="card__brand micro faint">' + esc(p.brand) + '</span>' +
+          '<span class="card__name">' + esc(p.name) + '</span>' +
+          '<span class="card__price">' + inr(p.price_inr) + '</span>' +
+          '<span class="card__bar"><i style="width:' + p.condition + '%"></i></span>' +
+        '</span>' +
+      '</a>';
+  }
+
   function card(p) {
     var im = imgs(p);
     var alt = im[1] || im[0];
     return '' +
       '<a class="card reveal" href="product.html?id=' + encodeURIComponent(p.id) + '">' +
         '<span class="card__media">' +
-          (p.sold ? '<span class="card__flag card__flag--sold micro">Sold</span>' :
-           p.tier === 'hero' ? '<span class="card__flag micro">Piece of the drop</span>' : '') +
+          flag(p) +
           '<img class="is-main" src="' + im[0] + '" alt="' + esc(p.brand + ' ' + p.name) + '" loading="lazy">' +
           '<img class="is-alt" src="' + alt + '" alt="" aria-hidden="true" loading="lazy">' +
         '</span>' +
@@ -67,9 +101,48 @@
       '</a>';
   }
 
-  function renderGrid(el, items) {
-    el.innerHTML = items.length ? items.map(card).join('') :
-      '<p class="empty">Nothing in this category yet.</p>';
+  /* Full-bleed frames that interrupt the product rhythm, the way a lookbook
+     page does in a printed catalogue. Fixed list, fixed order — placement has
+     to be the same on every visit or the page stops feeling designed.
+
+     The dark-room frames are all 1500x1862 (ratio 0.806, near enough 4:5 that
+     they drop into a single cell uncropped); the two landscapes span two. */
+  var BREAKS = [
+    { src: 'assets/img/mood/hero-panel.jpg', span: 2, alt: 'The archive, shot warm' },
+    { src: 'assets/img/editorial/onward-furcollar-20.jpg', span: 1, alt: 'Fur-collar coat, lit low' },
+    { src: 'assets/img/mood/lineup-bw.jpg', span: 2, alt: 'The line-up' },
+    { src: 'assets/img/editorial/lilang-trench-20.jpg', span: 1, alt: 'Trench, lit low' }
+  ];
+
+  /* One break per EVERY cards. Below MIN_FOR_BREAK the set is too short to
+     interrupt — filter to Knitwear, get four pieces, and a single editorial
+     cell would be a third of the page. */
+  var EVERY = 8;
+  var MIN_FOR_BREAK = 8;
+
+  function breakCell(b) {
+    return '<figure class="grid__break" style="--span:' + b.span + '">' +
+             '<img src="' + esc(b.src) + '" alt="' + esc(b.alt) + '" loading="lazy" decoding="async">' +
+           '</figure>';
+  }
+
+  function renderGrid(el, items, opts) {
+    opts = opts || {};
+    var build = opts.plate ? plateCard : card;
+
+    if (!items.length) {
+      el.innerHTML = '<p class="empty">Nothing in this category yet.</p>';
+    } else {
+      var out = [], bi = 0;
+      items.forEach(function (p, i) {
+        if (opts.breaks && i && i % EVERY === 0 && items.length >= MIN_FOR_BREAK) {
+          out.push(breakCell(BREAKS[bi % BREAKS.length]));
+          bi++;
+        }
+        out.push(build(p));
+      });
+      el.innerHTML = out.join('');
+    }
     /* motion.js owns the reveal; tell it fresh cards exist. */
     window.dispatchEvent(new CustomEvent('reworn:grid', { detail: el }));
   }
@@ -88,13 +161,28 @@
   /* ---------- collection ---------- */
   var colGrid = document.querySelector('[data-grid="collection"]');
   if (colGrid) {
+    /* Six routes, not three. motion.hoverGroups and the folder tabs have
+       always linked to ?max=1500 and ?health=100, but this page only ever
+       read ?c= — so two of the six tabs quietly landed on the unfiltered
+       grid. Each route now owns its predicate and its query string. */
+    var ROUTES = {
+      all:       { q: null,          test: function () { return true; } },
+      shirts:    { q: 'c=shirts',    test: function (p) { return p.category === 'shirts'; } },
+      outerwear: { q: 'c=outerwear', test: function (p) { return p.category === 'outerwear'; } },
+      knitwear:  { q: 'c=knitwear',  test: function (p) { return p.category === 'knitwear'; } },
+      under1500: { q: 'max=1500',    test: function (p) { return p.price_inr <= 1500; } },
+      full:      { q: 'health=100',  test: function (p) { return p.condition === 100; } }
+    };
+
     var params = new URLSearchParams(location.search);
-    var active = params.get('c') || 'all';
+    var active =
+      params.get('health') === '100' ? 'full' :
+      params.get('max')    === '1500' ? 'under1500' :
+      (ROUTES[params.get('c')] ? params.get('c') : 'all');
 
     var draw = function () {
-      renderGrid(colGrid, D.products.filter(function (p) {
-        return active === 'all' || p.category === active;
-      }));
+      var route = ROUTES[active] || ROUTES.all;
+      renderGrid(colGrid, D.products.filter(route.test), { plate: true, breaks: true });
       document.querySelectorAll('[data-filter]').forEach(function (b) {
         b.classList.toggle('is-on', b.dataset.filter === active);
       });
@@ -102,8 +190,10 @@
 
     document.querySelectorAll('[data-filter]').forEach(function (b) {
       b.addEventListener('click', function () {
+        if (!ROUTES[b.dataset.filter]) return;
         active = b.dataset.filter;
-        history.replaceState(null, '', active === 'all' ? 'collection.html' : '?c=' + active);
+        var q = ROUTES[active].q;
+        history.replaceState(null, '', q ? '?' + q : 'collection.html');
         withTransition(draw);
       });
     });

@@ -63,6 +63,7 @@ window.REWORN = {
     "assets/img/editorial/rl-linen-olive-20.jpg"
    ],
    "cutout": "assets/img/cutout/rl-linen-olive.webp",
+   "plate": "assets/img/plate/rl-linen-olive.webp",
    "m": {
     "card": "assets/img/m/editorial__rl-linen-olive-1-card.webp",
     "gallery": [
@@ -124,6 +125,7 @@ window.REWORN = {
     "assets/img/editorial/rare-rabbit-kufa-20.jpg"
    ],
    "cutout": "assets/img/cutout/rare-rabbit-kufa.webp",
+   "plate": "assets/img/plate/rare-rabbit-kufa.webp",
    "m": {
     "card": "assets/img/m/editorial__rare-rabbit-kufa-1-card.webp",
     "gallery": [
@@ -181,6 +183,7 @@ window.REWORN = {
     "assets/img/editorial/pepe-linen-ecru-9.jpg"
    ],
    "cutout": "assets/img/cutout/pepe-linen-ecru.webp",
+   "plate": "assets/img/plate/pepe-linen-ecru.webp",
    "m": {
     "card": "assets/img/m/editorial__pepe-linen-ecru-1-card.webp",
     "gallery": [
@@ -238,6 +241,7 @@ window.REWORN = {
     "assets/img/editorial/pepe-denim-9.jpg"
    ],
    "cutout": "assets/img/cutout/pepe-denim.webp",
+   "plate": "assets/img/plate/pepe-denim.webp",
    "m": {
     "card": "assets/img/m/editorial__pepe-denim-1-card.webp",
     "gallery": [
@@ -297,6 +301,7 @@ window.REWORN = {
     "assets/img/editorial/uspa-stripe-9.jpg"
    ],
    "cutout": "assets/img/cutout/uspa-stripe.webp",
+   "plate": "assets/img/plate/uspa-stripe.webp",
    "m": {
     "card": "assets/img/m/editorial__uspa-stripe-1-card.webp",
     "gallery": [
@@ -355,6 +360,7 @@ window.REWORN = {
     "assets/img/editorial/vanheusen-brown-9.jpg"
    ],
    "cutout": "assets/img/cutout/vanheusen-brown.webp",
+   "plate": "assets/img/plate/vanheusen-brown.webp",
    "m": {
     "card": "assets/img/m/editorial__vanheusen-brown-1-card.webp",
     "gallery": [
@@ -413,6 +419,7 @@ window.REWORN = {
     "assets/img/editorial/lp-polo-black-9.jpg"
    ],
    "cutout": "assets/img/cutout/lp-polo-black.webp",
+   "plate": "assets/img/plate/lp-polo-black.webp",
    "m": {
     "card": "assets/img/m/editorial__lp-polo-black-1-card.webp",
     "gallery": [
@@ -469,6 +476,7 @@ window.REWORN = {
     "assets/img/editorial/pan-america-navy-9.jpg"
    ],
    "cutout": "assets/img/cutout/pan-america-navy.webp",
+   "plate": "assets/img/plate/pan-america-navy.webp",
    "m": {
     "card": "assets/img/m/editorial__pan-america-navy-1-card.webp",
     "gallery": [
@@ -525,6 +533,7 @@ window.REWORN = {
     "assets/img/editorial/chambray-blue-9.jpg"
    ],
    "cutout": "assets/img/cutout/chambray-blue.webp",
+   "plate": "assets/img/plate/chambray-blue.webp",
    "m": {
     "card": "assets/img/m/editorial__chambray-blue-1-card.webp",
     "gallery": [
@@ -585,6 +594,7 @@ window.REWORN = {
     "assets/img/editorial/nike-padded-20.jpg"
    ],
    "cutout": "assets/img/cutout/nike-padded.webp",
+   "plate": "assets/img/plate/nike-padded.webp",
    "m": {
     "card": "assets/img/m/editorial__nike-padded-1-card.webp",
     "gallery": [
@@ -644,6 +654,7 @@ window.REWORN = {
     "assets/img/editorial/lilang-trench-20.jpg"
    ],
    "cutout": "assets/img/cutout/lilang-trench.webp",
+   "plate": "assets/img/plate/lilang-trench.webp",
    "m": {
     "card": "assets/img/m/editorial__lilang-trench-1-card.webp",
     "gallery": [
@@ -702,6 +713,7 @@ window.REWORN = {
     "assets/img/editorial/sourepose-chore-9.jpg"
    ],
    "cutout": "assets/img/cutout/sourepose-chore.webp",
+   "plate": "assets/img/plate/sourepose-chore.webp",
    "m": {
     "card": "assets/img/m/editorial__sourepose-chore-1-card.webp",
     "gallery": [
@@ -760,6 +772,7 @@ window.REWORN = {
     "assets/img/editorial/angn-utility-9.jpg"
    ],
    "cutout": "assets/img/cutout/angn-utility.webp",
+   "plate": "assets/img/plate/angn-utility.webp",
    "m": {
     "card": "assets/img/m/editorial__angn-utility-1-card.webp",
     "gallery": [
@@ -819,6 +832,7 @@ window.REWORN = {
     "assets/img/editorial/wuhuan-plaid-20.jpg"
    ],
    "cutout": "assets/img/cutout/wuhuan-plaid.webp",
+   "plate": "assets/img/plate/wuhuan-plaid.webp",
    "m": {
     "card": "assets/img/m/editorial__wuhuan-plaid-1-card.webp",
     "gallery": [
@@ -877,6 +891,7 @@ window.REWORN = {
     "assets/img/editorial/hongdou-harrington-9.jpg"
    ],
    "cutout": "assets/img/cutout/hongdou-harrington.webp",
+   "plate": "assets/img/plate/hongdou-harrington.webp",
    "m": {
     "card": "assets/img/m/editorial__hongdou-harrington-1-card.webp",
     "gallery": [
@@ -935,6 +950,7 @@ window.REWORN = {
     "assets/img/editorial/tries-coated-9.jpg"
    ],
    "cutout": "assets/img/cutout/tries-coated.webp",
+   "plate": "assets/img/plate/tries-coated.webp",
    "m": {
     "card": "assets/img/m/editorial__tries-coated-1-card.webp",
     "gallery": [
@@ -993,6 +1009,7 @@ window.REWORN = {
     "assets/img/editorial/jinlong-carcoat-20.jpg"
    ],
    "cutout": "assets/img/cutout/jinlong-carcoat.webp",
+   "plate": "assets/img/plate/jinlong-carcoat.webp",
    "m": {
     "card": "assets/img/m/editorial__jinlong-carcoat-1-card.webp",
     "gallery": [
@@ -1046,6 +1063,7 @@ window.REWORN = {
     "assets/img/editorial/greymarl-mockneck-9.jpg"
    ],
    "cutout": "assets/img/cutout/greymarl-mockneck.webp",
+   "plate": "assets/img/plate/greymarl-mockneck.webp",
    "m": {
     "card": "assets/img/m/editorial__greymarl-mockneck-1-card.webp",
     "gallery": [
@@ -1100,6 +1118,7 @@ window.REWORN = {
     "assets/img/editorial/xint-henley-9.jpg"
    ],
    "cutout": "assets/img/cutout/xint-henley.webp",
+   "plate": "assets/img/plate/xint-henley.webp",
    "m": {
     "card": "assets/img/m/editorial__xint-henley-1-card.webp",
     "gallery": [
@@ -1158,6 +1177,7 @@ window.REWORN = {
     "assets/img/editorial/onward-furcollar-20.jpg"
    ],
    "cutout": "assets/img/cutout/onward-furcollar.webp",
+   "plate": "assets/img/plate/onward-furcollar.webp",
    "m": {
     "card": "assets/img/m/editorial__onward-furcollar-1-card.webp",
     "gallery": [
@@ -1213,6 +1233,7 @@ window.REWORN = {
     "assets/img/editorial/cable-knit-grey-9.jpg"
    ],
    "cutout": "assets/img/cutout/cable-knit-grey.webp",
+   "plate": "assets/img/plate/cable-knit-grey.webp",
    "m": {
     "card": "assets/img/m/editorial__cable-knit-grey-1-card.webp",
     "gallery": [
