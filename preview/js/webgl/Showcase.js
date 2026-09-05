@@ -1,16 +1,16 @@
 import {
   GLManager
-} from "./GLManager.js?v=1788603497";
+} from "./GLManager.js?v=1788618855";
 /* popmotion 8.6.4 (the version this reference pins) ships ESM that pulls
    seven sub-packages; its UMD build is self-contained, so it is loaded as
    a classic script in the page and read off the global here. */
 const { spring, parallel } = window.popmotion;
 import {
   Grab
-} from "./Grab.js?v=1788603497";
+} from "./Grab.js?v=1788618855";
 import {
   reach
-} from "./reach.js?v=1788603497";
+} from "./reach.js?v=1788618855";
 
 // onFullscreenStart
 // onFullscreenFinish

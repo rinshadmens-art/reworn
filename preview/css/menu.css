@@ -66,8 +66,10 @@
   align-items: center;
   width: 3rem; height: 3rem;
   gap: 0.3rem;
-  border-radius: 62.4375rem;
-  border: 1px solid var(--hairline);
+  /* No ring. The circle was the reference's, and it put a second shape around
+     a mark that already reads as a button — the two rules and the MENU label
+     beside them are the whole control. The 3rem box stays so the tap target
+     does not shrink to the width of two 15px lines. */
 }
 .menu-hamburger-icon span {
   position: absolute;

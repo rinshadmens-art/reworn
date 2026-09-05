@@ -116,12 +116,11 @@ window.REWORN = {
    "editorial": [
     "assets/img/editorial/rare-rabbit-kufa-1.jpg",
     "assets/img/editorial/rare-rabbit-kufa-2.jpg",
+    "assets/img/editorial/rare-rabbit-kufa-3.jpg",
     "assets/img/editorial/rare-rabbit-kufa-4.jpg",
     "assets/img/editorial/rare-rabbit-kufa-5.jpg",
     "assets/img/editorial/rare-rabbit-kufa-6.jpg",
     "assets/img/editorial/rare-rabbit-kufa-7.jpg",
-    "assets/img/editorial/rare-rabbit-kufa-8.jpg",
-    "assets/img/editorial/rare-rabbit-kufa-9.jpg",
     "assets/img/editorial/rare-rabbit-kufa-20.jpg"
    ],
    "cutout": "assets/img/cutout/rare-rabbit-kufa.webp",
@@ -131,10 +130,10 @@ window.REWORN = {
     "gallery": [
      "assets/img/m/editorial__rare-rabbit-kufa-1-view.webp",
      "assets/img/m/editorial__rare-rabbit-kufa-2-view.webp",
+     "assets/img/editorial/rare-rabbit-kufa-3.jpg",
      "assets/img/m/editorial__rare-rabbit-kufa-4-view.webp",
      "assets/img/m/editorial__rare-rabbit-kufa-5-view.webp",
-     "assets/img/m/editorial__rare-rabbit-kufa-6-view.webp",
-     "assets/img/m/editorial__rare-rabbit-kufa-7-view.webp"
+     "assets/img/m/editorial__rare-rabbit-kufa-6-view.webp"
     ]
    },
    "proof": [
@@ -233,12 +232,10 @@ window.REWORN = {
    "editorial": [
     "assets/img/editorial/pepe-denim-1.jpg",
     "assets/img/editorial/pepe-denim-2.jpg",
+    "assets/img/editorial/pepe-denim-3.jpg",
     "assets/img/editorial/pepe-denim-4.jpg",
     "assets/img/editorial/pepe-denim-5.jpg",
-    "assets/img/editorial/pepe-denim-6.jpg",
-    "assets/img/editorial/pepe-denim-7.jpg",
-    "assets/img/editorial/pepe-denim-8.jpg",
-    "assets/img/editorial/pepe-denim-9.jpg"
+    "assets/img/editorial/pepe-denim-6.jpg"
    ],
    "cutout": "assets/img/cutout/pepe-denim.webp",
    "plate": "assets/img/plate/pepe-denim.webp",
@@ -247,10 +244,10 @@ window.REWORN = {
     "gallery": [
      "assets/img/m/editorial__pepe-denim-1-view.webp",
      "assets/img/m/editorial__pepe-denim-2-view.webp",
+     "assets/img/editorial/pepe-denim-3.jpg",
      "assets/img/m/editorial__pepe-denim-4-view.webp",
      "assets/img/m/editorial__pepe-denim-5-view.webp",
-     "assets/img/m/editorial__pepe-denim-6-view.webp",
-     "assets/img/m/editorial__pepe-denim-7-view.webp"
+     "assets/img/m/editorial__pepe-denim-6-view.webp"
     ]
    },
    "proof": [
@@ -293,12 +290,10 @@ window.REWORN = {
    "editorial": [
     "assets/img/editorial/uspa-stripe-1.jpg",
     "assets/img/editorial/uspa-stripe-2.jpg",
+    "assets/img/editorial/uspa-stripe-3.jpg",
     "assets/img/editorial/uspa-stripe-4.jpg",
     "assets/img/editorial/uspa-stripe-5.jpg",
-    "assets/img/editorial/uspa-stripe-6.jpg",
-    "assets/img/editorial/uspa-stripe-7.jpg",
-    "assets/img/editorial/uspa-stripe-8.jpg",
-    "assets/img/editorial/uspa-stripe-9.jpg"
+    "assets/img/editorial/uspa-stripe-6.jpg"
    ],
    "cutout": "assets/img/cutout/uspa-stripe.webp",
    "plate": "assets/img/plate/uspa-stripe.webp",
@@ -307,10 +302,10 @@ window.REWORN = {
     "gallery": [
      "assets/img/m/editorial__uspa-stripe-1-view.webp",
      "assets/img/m/editorial__uspa-stripe-2-view.webp",
+     "assets/img/editorial/uspa-stripe-3.jpg",
      "assets/img/m/editorial__uspa-stripe-4-view.webp",
      "assets/img/m/editorial__uspa-stripe-5-view.webp",
-     "assets/img/m/editorial__uspa-stripe-6-view.webp",
-     "assets/img/m/editorial__uspa-stripe-7-view.webp"
+     "assets/img/m/editorial__uspa-stripe-6-view.webp"
     ]
    },
    "proof": [
@@ -352,12 +347,11 @@ window.REWORN = {
    "editorial": [
     "assets/img/editorial/vanheusen-brown-1.jpg",
     "assets/img/editorial/vanheusen-brown-2.jpg",
+    "assets/img/editorial/vanheusen-brown-3.jpg",
     "assets/img/editorial/vanheusen-brown-4.jpg",
     "assets/img/editorial/vanheusen-brown-5.jpg",
     "assets/img/editorial/vanheusen-brown-6.jpg",
-    "assets/img/editorial/vanheusen-brown-7.jpg",
-    "assets/img/editorial/vanheusen-brown-8.jpg",
-    "assets/img/editorial/vanheusen-brown-9.jpg"
+    "assets/img/editorial/vanheusen-brown-7.jpg"
    ],
    "cutout": "assets/img/cutout/vanheusen-brown.webp",
    "plate": "assets/img/plate/vanheusen-brown.webp",
@@ -366,10 +360,10 @@ window.REWORN = {
     "gallery": [
      "assets/img/m/editorial__vanheusen-brown-1-view.webp",
      "assets/img/m/editorial__vanheusen-brown-2-view.webp",
+     "assets/img/editorial/vanheusen-brown-3.jpg",
      "assets/img/m/editorial__vanheusen-brown-4-view.webp",
      "assets/img/m/editorial__vanheusen-brown-5-view.webp",
-     "assets/img/m/editorial__vanheusen-brown-6-view.webp",
-     "assets/img/m/editorial__vanheusen-brown-7-view.webp"
+     "assets/img/m/editorial__vanheusen-brown-6-view.webp"
     ]
    },
    "proof": [
@@ -438,10 +432,10 @@ window.REWORN = {
   {
    "id": "pan-america-navy",
    "tier": "core",
-   "brand": "Pan America",
+   "brand": "U.S. Lee",
    "name": "Navy Short-Sleeve Shirt",
    "category": "shirts",
-   "size": "Fits M · measured on request",
+   "size": "XL · 42 cm · Slim Fit",
    "material": "Textured cotton",
    "condition": 100,
    "condition_note": "Original. No flaws.",
@@ -493,63 +487,6 @@ window.REWORN = {
    ]
   },
   {
-   "id": "chambray-blue",
-   "tier": "core",
-   "brand": "Unbranded archive",
-   "name": "Blue Chambray Shirt",
-   "category": "shirts",
-   "size": "Measured on request",
-   "material": "Cotton chambray",
-   "condition": 100,
-   "condition_note": "Original. No flaws.",
-   "story": "Faded-sky chambray. Softens every outfit it enters.",
-   "price_inr": 900,
-   "source_dir": "Products/shirts/pan america and other",
-   "hero_photo": "IMG_9762.jpg",
-   "outfit": {
-    "concept": "Washed blue + white",
-    "pieces": [
-     "chambray shirt sleeves rolled",
-     "white straight trousers",
-     "white leather sneakers",
-     "canvas belt"
-    ],
-    "mood": "Candid laugh, looking off-frame"
-   },
-   "surface": "weathered white-painted board",
-   "props": "a coiled canvas belt, one white leather sneaker, a folded denim swatch",
-   "photos": [
-    "assets/img/products/chambray-blue-1.jpg",
-    "assets/img/products/chambray-blue-2.jpg"
-   ],
-   "editorial": [
-    "assets/img/editorial/chambray-blue-1.jpg",
-    "assets/img/editorial/chambray-blue-2.jpg",
-    "assets/img/editorial/chambray-blue-4.jpg",
-    "assets/img/editorial/chambray-blue-5.jpg",
-    "assets/img/editorial/chambray-blue-6.jpg",
-    "assets/img/editorial/chambray-blue-7.jpg",
-    "assets/img/editorial/chambray-blue-8.jpg",
-    "assets/img/editorial/chambray-blue-9.jpg"
-   ],
-   "cutout": "assets/img/cutout/chambray-blue.webp",
-   "plate": "assets/img/plate/chambray-blue.webp",
-   "m": {
-    "card": "assets/img/m/editorial__chambray-blue-1-card.webp",
-    "gallery": [
-     "assets/img/m/editorial__chambray-blue-1-view.webp",
-     "assets/img/m/editorial__chambray-blue-2-view.webp",
-     "assets/img/m/editorial__chambray-blue-4-view.webp",
-     "assets/img/m/editorial__chambray-blue-5-view.webp",
-     "assets/img/m/editorial__chambray-blue-6-view.webp",
-     "assets/img/m/editorial__chambray-blue-7-view.webp"
-    ]
-   },
-   "proof": [
-    "assets/img/products/chambray-blue-2.jpg"
-   ]
-  },
-  {
    "id": "nike-padded",
    "tier": "hero",
    "brand": "Nike Sportswear",
@@ -585,14 +522,13 @@ window.REWORN = {
    "editorial": [
     "assets/img/editorial/nike-padded-1.jpg",
     "assets/img/editorial/nike-padded-2.jpg",
+    "assets/img/editorial/nike-padded-3.jpg",
     "assets/img/editorial/nike-padded-4.jpg",
     "assets/img/editorial/nike-padded-5.jpg",
     "assets/img/editorial/nike-padded-6.jpg",
     "assets/img/editorial/nike-padded-7.jpg",
     "assets/img/editorial/nike-padded-8.jpg",
-    "assets/img/editorial/nike-padded-9.jpg",
-    "assets/img/editorial/nike-padded-20.jpg",
-    "assets/img/editorial/nike-padded-21.jpg"
+    "assets/img/editorial/nike-padded-20.jpg"
    ],
    "cutout": "assets/img/cutout/nike-padded.webp",
    "plate": "assets/img/plate/nike-padded.webp",
@@ -601,10 +537,10 @@ window.REWORN = {
     "gallery": [
      "assets/img/m/editorial__nike-padded-1-view.webp",
      "assets/img/m/editorial__nike-padded-2-view.webp",
+     "assets/img/editorial/nike-padded-3.jpg",
      "assets/img/m/editorial__nike-padded-4-view.webp",
      "assets/img/m/editorial__nike-padded-5-view.webp",
-     "assets/img/m/editorial__nike-padded-6-view.webp",
-     "assets/img/m/editorial__nike-padded-7-view.webp"
+     "assets/img/m/editorial__nike-padded-6-view.webp"
     ]
    },
    "proof": [
@@ -649,12 +585,12 @@ window.REWORN = {
    "editorial": [
     "assets/img/editorial/lilang-trench-1.jpg",
     "assets/img/editorial/lilang-trench-2.jpg",
+    "assets/img/editorial/lilang-trench-3.jpg",
     "assets/img/editorial/lilang-trench-4.jpg",
     "assets/img/editorial/lilang-trench-5.jpg",
     "assets/img/editorial/lilang-trench-6.jpg",
     "assets/img/editorial/lilang-trench-7.jpg",
     "assets/img/editorial/lilang-trench-8.jpg",
-    "assets/img/editorial/lilang-trench-9.jpg",
     "assets/img/editorial/lilang-trench-20.jpg"
    ],
    "cutout": "assets/img/cutout/lilang-trench.webp",
@@ -664,10 +600,10 @@ window.REWORN = {
     "gallery": [
      "assets/img/m/editorial__lilang-trench-1-view.webp",
      "assets/img/m/editorial__lilang-trench-2-view.webp",
+     "assets/img/editorial/lilang-trench-3.jpg",
      "assets/img/m/editorial__lilang-trench-4-view.webp",
      "assets/img/m/editorial__lilang-trench-5-view.webp",
-     "assets/img/m/editorial__lilang-trench-6-view.webp",
-     "assets/img/m/editorial__lilang-trench-7-view.webp"
+     "assets/img/m/editorial__lilang-trench-6-view.webp"
     ]
    },
    "proof": [
@@ -709,12 +645,12 @@ window.REWORN = {
    "editorial": [
     "assets/img/editorial/sourepose-chore-1.jpg",
     "assets/img/editorial/sourepose-chore-2.jpg",
+    "assets/img/editorial/sourepose-chore-3.jpg",
     "assets/img/editorial/sourepose-chore-4.jpg",
     "assets/img/editorial/sourepose-chore-5.jpg",
     "assets/img/editorial/sourepose-chore-6.jpg",
     "assets/img/editorial/sourepose-chore-7.jpg",
-    "assets/img/editorial/sourepose-chore-8.jpg",
-    "assets/img/editorial/sourepose-chore-9.jpg"
+    "assets/img/editorial/sourepose-chore-8.jpg"
    ],
    "cutout": "assets/img/cutout/sourepose-chore.webp",
    "plate": "assets/img/plate/sourepose-chore.webp",
@@ -723,10 +659,10 @@ window.REWORN = {
     "gallery": [
      "assets/img/m/editorial__sourepose-chore-1-view.webp",
      "assets/img/m/editorial__sourepose-chore-2-view.webp",
+     "assets/img/editorial/sourepose-chore-3.jpg",
      "assets/img/m/editorial__sourepose-chore-4-view.webp",
      "assets/img/m/editorial__sourepose-chore-5-view.webp",
-     "assets/img/m/editorial__sourepose-chore-6-view.webp",
-     "assets/img/m/editorial__sourepose-chore-7-view.webp"
+     "assets/img/m/editorial__sourepose-chore-6-view.webp"
     ]
    },
    "proof": [
@@ -1124,12 +1060,12 @@ window.REWORN = {
    "editorial": [
     "assets/img/editorial/xint-henley-1.jpg",
     "assets/img/editorial/xint-henley-2.jpg",
+    "assets/img/editorial/xint-henley-3.jpg",
     "assets/img/editorial/xint-henley-4.jpg",
     "assets/img/editorial/xint-henley-5.jpg",
     "assets/img/editorial/xint-henley-6.jpg",
     "assets/img/editorial/xint-henley-7.jpg",
-    "assets/img/editorial/xint-henley-8.jpg",
-    "assets/img/editorial/xint-henley-9.jpg"
+    "assets/img/editorial/xint-henley-8.jpg"
    ],
    "cutout": "assets/img/cutout/xint-henley.webp",
    "plate": "assets/img/plate/xint-henley.webp",
@@ -1138,10 +1074,10 @@ window.REWORN = {
     "gallery": [
      "assets/img/m/editorial__xint-henley-1-view.webp",
      "assets/img/m/editorial__xint-henley-2-view.webp",
+     "assets/img/editorial/xint-henley-3.jpg",
      "assets/img/m/editorial__xint-henley-4-view.webp",
      "assets/img/m/editorial__xint-henley-5-view.webp",
-     "assets/img/m/editorial__xint-henley-6-view.webp",
-     "assets/img/m/editorial__xint-henley-7-view.webp"
+     "assets/img/m/editorial__xint-henley-6-view.webp"
     ]
    },
    "proof": [
@@ -1153,13 +1089,13 @@ window.REWORN = {
    "id": "onward-furcollar",
    "tier": "hero",
    "brand": "Clothing 9 to 5 by Onward Kashiyama (Tokyo)",
-   "name": "Faux-Fur Collar Jacket",
+   "name": "Burgundy Faux-Fur Collar Jacket",
    "category": "outerwear",
    "size": "Japanese M · measured on request",
    "material": "Nylon shell, quilted red interior, YKK hardware",
    "condition": 90,
    "condition_note": "Pre-owned; hardware perfect.",
-   "story": "Japanese archive piece — red quilted inside like a secret. Open it slow.",
+   "story": "Japanese archive piece — deep burgundy shell, dark brown fur collar, quilted through. Open it slow.",
    "price_inr": 2400,
    "source_dir": "Products/11",
    "hero_photo": "IMG_9814.JPG",
@@ -1185,12 +1121,12 @@ window.REWORN = {
    "editorial": [
     "assets/img/editorial/onward-furcollar-1.jpg",
     "assets/img/editorial/onward-furcollar-2.jpg",
+    "assets/img/editorial/onward-furcollar-3.jpg",
     "assets/img/editorial/onward-furcollar-4.jpg",
     "assets/img/editorial/onward-furcollar-5.jpg",
     "assets/img/editorial/onward-furcollar-6.jpg",
     "assets/img/editorial/onward-furcollar-7.jpg",
     "assets/img/editorial/onward-furcollar-8.jpg",
-    "assets/img/editorial/onward-furcollar-9.jpg",
     "assets/img/editorial/onward-furcollar-20.jpg"
    ],
    "cutout": "assets/img/cutout/onward-furcollar.webp",
@@ -1200,10 +1136,10 @@ window.REWORN = {
     "gallery": [
      "assets/img/m/editorial__onward-furcollar-1-view.webp",
      "assets/img/m/editorial__onward-furcollar-2-view.webp",
+     "assets/img/editorial/onward-furcollar-3.jpg",
      "assets/img/m/editorial__onward-furcollar-4-view.webp",
      "assets/img/m/editorial__onward-furcollar-5-view.webp",
-     "assets/img/m/editorial__onward-furcollar-6-view.webp",
-     "assets/img/m/editorial__onward-furcollar-7-view.webp"
+     "assets/img/m/editorial__onward-furcollar-6-view.webp"
     ]
    },
    "proof": [
@@ -1341,7 +1277,7 @@ window.REWORN = {
     "key": "shirts",
     "label": "Shirts",
     "href": "collection.html?c=shirts",
-    "count": 9,
+    "count": 8,
     "shots": [
      "assets/img/editorial/rl-linen-olive-1.jpg",
      "assets/img/editorial/rare-rabbit-kufa-1.jpg",
@@ -1374,18 +1310,18 @@ window.REWORN = {
     "key": "under1500",
     "label": "Under ₹1,500",
     "href": "collection.html?max=1500",
-    "count": 11,
+    "count": 10,
     "shots": [
      "assets/img/editorial/pan-america-navy-1.jpg",
-     "assets/img/editorial/chambray-blue-1.jpg",
-     "assets/img/editorial/greymarl-mockneck-1.jpg"
+     "assets/img/editorial/greymarl-mockneck-1.jpg",
+     "assets/img/editorial/lp-polo-black-1.jpg"
     ]
    },
    {
     "key": "full",
     "label": "Full health",
     "href": "collection.html?health=100",
-    "count": 10,
+    "count": 9,
     "shots": [
      "assets/img/editorial/rl-linen-olive-1.jpg",
      "assets/img/editorial/rare-rabbit-kufa-1.jpg",
@@ -1593,7 +1529,7 @@ window.REWORN = {
     "src": "assets/img/editorial/onward-furcollar-1.jpg",
     "id": "onward-furcollar",
     "brand": "Clothing 9 to 5 by Onward Kashiyama (Tokyo)",
-    "name": "Faux-Fur Collar Jacket"
+    "name": "Burgundy Faux-Fur Collar Jacket"
    }
   ],
   "marquee": [
@@ -1649,15 +1585,8 @@ window.REWORN = {
    {
     "src": "assets/img/editorial/pan-america-navy-1.jpg",
     "id": "pan-america-navy",
-    "brand": "Pan America",
+    "brand": "U.S. Lee",
     "name": "Navy Short-Sleeve Shirt",
-    "pin": false
-   },
-   {
-    "src": "assets/img/editorial/chambray-blue-1.jpg",
-    "id": "chambray-blue",
-    "brand": "Unbranded archive",
-    "name": "Blue Chambray Shirt",
     "pin": false
    },
    {
@@ -1734,7 +1663,7 @@ window.REWORN = {
     "src": "assets/img/editorial/onward-furcollar-1.jpg",
     "id": "onward-furcollar",
     "brand": "Clothing 9 to 5 by Onward Kashiyama (Tokyo)",
-    "name": "Faux-Fur Collar Jacket",
+    "name": "Burgundy Faux-Fur Collar Jacket",
     "pin": false
    },
    {
@@ -1767,7 +1696,7 @@ window.REWORN = {
    {
     "key": "shirts",
     "label": "Shirts",
-    "count": 9,
+    "count": 8,
     "shots": [
      "assets/img/editorial/rl-linen-olive-1.jpg",
      "assets/img/editorial/rare-rabbit-kufa-1.jpg",
