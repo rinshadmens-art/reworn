@@ -28,7 +28,7 @@ window.REWORN = {
    "condition": 100,
    "condition_note": "Original. No flaws.",
    "story": "The green that works in every season. Classic Fit Polo linen — the quiet flex.",
-   "price_inr": 2400,
+   "price_inr": 1199,
    "source_dir": "Products/shirts/ralph lauren",
    "hero_photo": "IMG_9796.JPG",
    "outfit": {
@@ -91,7 +91,7 @@ window.REWORN = {
    "condition": 100,
    "condition_note": "Original. No flaws.",
    "story": "An artwork with buttons. Red-and-ink sketch print — worn when you want the room to look.",
-   "price_inr": 1800,
+   "price_inr": 1799,
    "source_dir": "Products/shirts/rare rabit",
    "hero_photo": "IMG_9780.jpg",
    "outfit": {
@@ -130,7 +130,7 @@ window.REWORN = {
     "gallery": [
      "assets/img/m/editorial__rare-rabbit-kufa-1-view.webp",
      "assets/img/m/editorial__rare-rabbit-kufa-2-view.webp",
-     "assets/img/editorial/rare-rabbit-kufa-3.jpg",
+     "assets/img/m/editorial__rare-rabbit-kufa-3-view.webp",
      "assets/img/m/editorial__rare-rabbit-kufa-4-view.webp",
      "assets/img/m/editorial__rare-rabbit-kufa-5-view.webp",
      "assets/img/m/editorial__rare-rabbit-kufa-6-view.webp"
@@ -152,7 +152,7 @@ window.REWORN = {
    "condition": 100,
    "condition_note": "Original. No flaws.",
    "story": "Off-white linen that photographs like sunlight.",
-   "price_inr": 1400,
+   "price_inr": 2000,
    "source_dir": "Products/shirts/pepe",
    "hero_photo": "IMG_9774.jpg",
    "outfit": {
@@ -209,7 +209,7 @@ window.REWORN = {
    "condition": 100,
    "condition_note": "Original. No flaws.",
    "story": "The overshirt-shirt. Wear it open over white or alone, buttoned to the neck.",
-   "price_inr": 1500,
+   "price_inr": 999,
    "source_dir": "Products/shirts/pepe",
    "hero_photo": "IMG_9807.JPG",
    "outfit": {
@@ -244,7 +244,7 @@ window.REWORN = {
     "gallery": [
      "assets/img/m/editorial__pepe-denim-1-view.webp",
      "assets/img/m/editorial__pepe-denim-2-view.webp",
-     "assets/img/editorial/pepe-denim-3.jpg",
+     "assets/img/m/editorial__pepe-denim-3-view.webp",
      "assets/img/m/editorial__pepe-denim-4-view.webp",
      "assets/img/m/editorial__pepe-denim-5-view.webp",
      "assets/img/m/editorial__pepe-denim-6-view.webp"
@@ -266,7 +266,7 @@ window.REWORN = {
    "condition": 100,
    "condition_note": "Original. No flaws.",
    "story": "Banker stripes, weekend attitude.",
-   "price_inr": 1300,
+   "price_inr": 1199,
    "source_dir": "Products/shirts/usp",
    "hero_photo": "IMG_9786.JPG",
    "outfit": {
@@ -302,7 +302,7 @@ window.REWORN = {
     "gallery": [
      "assets/img/m/editorial__uspa-stripe-1-view.webp",
      "assets/img/m/editorial__uspa-stripe-2-view.webp",
-     "assets/img/editorial/uspa-stripe-3.jpg",
+     "assets/img/m/editorial__uspa-stripe-3-view.webp",
      "assets/img/m/editorial__uspa-stripe-4-view.webp",
      "assets/img/m/editorial__uspa-stripe-5-view.webp",
      "assets/img/m/editorial__uspa-stripe-6-view.webp"
@@ -324,7 +324,7 @@ window.REWORN = {
    "condition": 98,
    "condition_note": "Small thread pull near chest pocket seam",
    "story": "Espresso tones. The shirt that makes gold jewellery louder.",
-   "price_inr": 1100,
+   "price_inr": 1499,
    "source_dir": "Products/shirts/van huesen",
    "hero_photo": "IMG_9800.JPG",
    "outfit": {
@@ -360,7 +360,7 @@ window.REWORN = {
     "gallery": [
      "assets/img/m/editorial__vanheusen-brown-1-view.webp",
      "assets/img/m/editorial__vanheusen-brown-2-view.webp",
-     "assets/img/editorial/vanheusen-brown-3.jpg",
+     "assets/img/m/editorial__vanheusen-brown-3-view.webp",
      "assets/img/m/editorial__vanheusen-brown-4-view.webp",
      "assets/img/m/editorial__vanheusen-brown-5-view.webp",
      "assets/img/m/editorial__vanheusen-brown-6-view.webp"
@@ -382,7 +382,7 @@ window.REWORN = {
    "condition": 100,
    "condition_note": "Original. No flaws.",
    "story": "The polo that reads tailored. Mint collar detail keeps it modern.",
-   "price_inr": 1000,
+   "price_inr": 899,
    "source_dir": "Products/shirts/lp",
    "hero_photo": "IMG_9794.JPG",
    "needs_front_photo": true,
@@ -440,7 +440,7 @@ window.REWORN = {
    "condition": 100,
    "condition_note": "Original. No flaws.",
    "story": "Boxy navy short-sleeve — the summer uniform.",
-   "price_inr": 800,
+   "price_inr": 499,
    "source_dir": "Products/shirts/pan america and other",
    "hero_photo": "IMG_9750.JPG",
    "outfit": {
@@ -494,10 +494,10 @@ window.REWORN = {
    "category": "outerwear",
    "size": "Oversized fit (style 477139-010, FA12)",
    "material": "Nylon shell, synthetic fill",
-   "condition": 92,
+   "condition": 90,
    "condition_note": "Pre-owned, good condition. Verified style code 477139-010 (Fall 2012).",
    "story": "A 2012 Nike Sportswear piece — glossy black quilting you can't buy new anymore.",
-   "price_inr": 2900,
+   "price_inr": 2199,
    "source_dir": "Products/1",
    "hero_photo": "IMG_9656.jpg",
    "outfit": {
@@ -537,7 +537,7 @@ window.REWORN = {
     "gallery": [
      "assets/img/m/editorial__nike-padded-1-view.webp",
      "assets/img/m/editorial__nike-padded-2-view.webp",
-     "assets/img/editorial/nike-padded-3.jpg",
+     "assets/img/m/editorial__nike-padded-3-view.webp",
      "assets/img/m/editorial__nike-padded-4-view.webp",
      "assets/img/m/editorial__nike-padded-5-view.webp",
      "assets/img/m/editorial__nike-padded-6-view.webp"
@@ -556,10 +556,10 @@ window.REWORN = {
    "category": "outerwear",
    "size": "165/84A (Asia M) — oversized on most",
    "material": "50% Polyester · 50% Nylon, quilted lining",
-   "condition": 90,
+   "condition": 98,
    "condition_note": "Pre-owned; light crease wear (steams out).",
    "story": "A Fujian-tailored car coat with throat-latch detail. Detective-film energy.",
-   "price_inr": 1900,
+   "price_inr": 1499,
    "source_dir": "Products/2",
    "hero_photo": "IMG_9672.jpg",
    "outfit": {
@@ -600,7 +600,7 @@ window.REWORN = {
     "gallery": [
      "assets/img/m/editorial__lilang-trench-1-view.webp",
      "assets/img/m/editorial__lilang-trench-2-view.webp",
-     "assets/img/editorial/lilang-trench-3.jpg",
+     "assets/img/m/editorial__lilang-trench-3-view.webp",
      "assets/img/m/editorial__lilang-trench-4-view.webp",
      "assets/img/m/editorial__lilang-trench-5-view.webp",
      "assets/img/m/editorial__lilang-trench-6-view.webp"
@@ -619,10 +619,10 @@ window.REWORN = {
    "category": "outerwear",
    "size": "175/96A (Men's L)",
    "material": "100% Cotton, poly lining (art. 6HW128)",
-   "condition": 90,
+   "condition": 98,
    "condition_note": "Pre-owned; honest wear.",
    "story": "Military olive chore jacket — four-pocket utility, drapes like workwear should.",
-   "price_inr": 1600,
+   "price_inr": 1499,
    "source_dir": "Products/3",
    "hero_photo": "IMG_9680.JPG",
    "outfit": {
@@ -659,7 +659,7 @@ window.REWORN = {
     "gallery": [
      "assets/img/m/editorial__sourepose-chore-1-view.webp",
      "assets/img/m/editorial__sourepose-chore-2-view.webp",
-     "assets/img/editorial/sourepose-chore-3.jpg",
+     "assets/img/m/editorial__sourepose-chore-3-view.webp",
      "assets/img/m/editorial__sourepose-chore-4-view.webp",
      "assets/img/m/editorial__sourepose-chore-5-view.webp",
      "assets/img/m/editorial__sourepose-chore-6-view.webp"
@@ -678,10 +678,10 @@ window.REWORN = {
    "category": "outerwear",
    "size": "XL",
    "material": "100% Cotton",
-   "condition": 92,
-   "condition_note": "Pre-owned, good condition.",
+   "condition": 100,
+   "condition_note": "Original. No flaws.",
    "story": "Four flap pockets, boxy cut — the layer that carries everything.",
-   "price_inr": 1500,
+   "price_inr": 1699,
    "source_dir": "Products/4",
    "hero_photo": "IMG_9688.JPG",
    "outfit": {
@@ -737,10 +737,10 @@ window.REWORN = {
    "category": "outerwear",
    "size": "Boxy vintage fit",
    "material": "Plaid weave, ribbed collar/hem, smooth lining",
-   "condition": 88,
-   "condition_note": "True vintage (90s state-factory Shanghai). Wear consistent with age.",
+   "condition": 100,
+   "condition_note": "Original. No flaws.",
    "story": "1990s Shanghai factory bomber. Nobody else on campus will have this. Fact.",
-   "price_inr": 2200,
+   "price_inr": 1999,
    "source_dir": "Products/5",
    "hero_photo": "IMG_9665.jpg",
    "outfit": {
@@ -801,10 +801,10 @@ window.REWORN = {
    "category": "outerwear",
    "size": "Relaxed fit",
    "material": "Cotton blend, jacquard-branded lining",
-   "condition": 92,
-   "condition_note": "Pre-owned, good condition.",
+   "condition": 100,
+   "condition_note": "Original. No flaws.",
    "story": "The black dad-jacket — quiet, correct, goes over everything.",
-   "price_inr": 1700,
+   "price_inr": 1999,
    "source_dir": "Products/6",
    "hero_photo": "IMG_9730.jpg",
    "outfit": {
@@ -860,10 +860,10 @@ window.REWORN = {
    "category": "outerwear",
    "size": "Art. 222615472",
    "material": "Coated textured finish, asymmetric zip",
-   "condition": 90,
-   "condition_note": "Pre-owned; coating intact.",
+   "condition": 100,
+   "condition_note": "Original. No flaws.",
    "story": "Leather-look without the leather price. Asymmetric zip does the talking.",
-   "price_inr": 1800,
+   "price_inr": 1499,
    "source_dir": "Products/7",
    "hero_photo": "IMG_9726.jpg",
    "outfit": {
@@ -919,10 +919,10 @@ window.REWORN = {
    "category": "outerwear",
    "size": "190/105A (fits tall XL–XXL, oversized on M)",
    "material": "Wool blend, tailored single-breasted",
-   "condition": 92,
+   "condition": 95,
    "condition_note": "Pre-owned, excellent drape.",
    "story": "Hong Kong-tailored topcoat. Wear it oversized — that's the point.",
-   "price_inr": 2000,
+   "price_inr": 1599,
    "source_dir": "Products/8",
    "hero_photo": "IMG_9716.jpg",
    "outfit": {
@@ -981,10 +981,10 @@ window.REWORN = {
    "category": "knitwear",
    "size": "Relaxed",
    "material": "Ribbed knit",
-   "condition": 90,
+   "condition": 98,
    "condition_note": "Unbranded factory-surplus piece — sold for the fabric and the fit, not the tag.",
    "story": "The under-layer that makes every jacket on this page work.",
-   "price_inr": 900,
+   "price_inr": 499,
    "source_dir": "Products/9",
    "hero_photo": " .jpg",
    "outfit": {
@@ -1032,10 +1032,10 @@ window.REWORN = {
    "category": "knitwear",
    "size": "M",
    "material": "80% Cotton · 20% Elastane (Beige Melange)",
-   "condition": 95,
-   "condition_note": "Pre-owned, excellent.",
+   "condition": 100,
+   "condition_note": "Original. No flaws.",
    "story": "Turkish-made fine-gauge henley — the smart-casual cheat code.",
-   "price_inr": 1400,
+   "price_inr": 799,
    "source_dir": "Products/10",
    "hero_photo": "IMG_9818.JPG",
    "outfit": {
@@ -1074,7 +1074,7 @@ window.REWORN = {
     "gallery": [
      "assets/img/m/editorial__xint-henley-1-view.webp",
      "assets/img/m/editorial__xint-henley-2-view.webp",
-     "assets/img/editorial/xint-henley-3.jpg",
+     "assets/img/m/editorial__xint-henley-3-view.webp",
      "assets/img/m/editorial__xint-henley-4-view.webp",
      "assets/img/m/editorial__xint-henley-5-view.webp",
      "assets/img/m/editorial__xint-henley-6-view.webp"
@@ -1093,10 +1093,10 @@ window.REWORN = {
    "category": "outerwear",
    "size": "Japanese M · measured on request",
    "material": "Nylon shell, quilted red interior, YKK hardware",
-   "condition": 90,
-   "condition_note": "Pre-owned; hardware perfect.",
+   "condition": 100,
+   "condition_note": "Original. No flaws.",
    "story": "Japanese archive piece — deep burgundy shell, dark brown fur collar, quilted through. Open it slow.",
-   "price_inr": 2400,
+   "price_inr": 2199,
    "source_dir": "Products/11",
    "hero_photo": "IMG_9814.JPG",
    "outfit": {
@@ -1136,7 +1136,7 @@ window.REWORN = {
     "gallery": [
      "assets/img/m/editorial__onward-furcollar-1-view.webp",
      "assets/img/m/editorial__onward-furcollar-2-view.webp",
-     "assets/img/editorial/onward-furcollar-3.jpg",
+     "assets/img/m/editorial__onward-furcollar-3-view.webp",
      "assets/img/m/editorial__onward-furcollar-4-view.webp",
      "assets/img/m/editorial__onward-furcollar-5-view.webp",
      "assets/img/m/editorial__onward-furcollar-6-view.webp"
@@ -1155,10 +1155,10 @@ window.REWORN = {
    "category": "knitwear",
    "size": "Measured on request",
    "material": "Cable knit",
-   "condition": 85,
-   "condition_note": "Small snag on knit (visible in photos) — priced accordingly.",
+   "condition": 100,
+   "condition_note": "Original. No flaws.",
    "story": "Fisherman cables, archive grey. Honest wear, honest price.",
-   "price_inr": 1000,
+   "price_inr": 499,
    "source_dir": "Products/shirts/pan america and other",
    "hero_photo": "IMG_9761.jpg",
    "outfit": {
@@ -1310,18 +1310,18 @@ window.REWORN = {
     "key": "under1500",
     "label": "Under ₹1,500",
     "href": "collection.html?max=1500",
-    "count": 10,
+    "count": 12,
     "shots": [
      "assets/img/editorial/pan-america-navy-1.jpg",
      "assets/img/editorial/greymarl-mockneck-1.jpg",
-     "assets/img/editorial/lp-polo-black-1.jpg"
+     "assets/img/editorial/cable-knit-grey-1.jpg"
     ]
    },
    {
     "key": "full",
     "label": "Full health",
     "href": "collection.html?health=100",
-    "count": 9,
+    "count": 19,
     "shots": [
      "assets/img/editorial/rl-linen-olive-1.jpg",
      "assets/img/editorial/rare-rabbit-kufa-1.jpg",
@@ -1370,7 +1370,7 @@ window.REWORN = {
     "label": "Under ₹1500",
     "href": "collection.html",
     "shots": [
-     "assets/img/editorial/pepe-linen-ecru-1.jpg",
+     "assets/img/editorial/rl-linen-olive-1.jpg",
      "assets/img/editorial/pepe-denim-1.jpg",
      "assets/img/editorial/uspa-stripe-1.jpg"
     ]
@@ -1390,31 +1390,31 @@ window.REWORN = {
     "image": "assets/img/cutout/rl-linen-olive.webp",
     "title": "Olive Linen Shirt",
     "id": "rl-linen-olive",
-    "meta": "Polo Ralph Lauren — ₹2,400"
+    "meta": "Polo Ralph Lauren — ₹1,199"
    },
    {
     "image": "assets/img/cutout/rare-rabbit-kufa.webp",
     "title": "KUFA Print Shirt",
     "id": "rare-rabbit-kufa",
-    "meta": "Rare Rabbit — ₹1,800"
+    "meta": "Rare Rabbit — ₹1,799"
    },
    {
     "image": "assets/img/cutout/nike-padded.webp",
     "title": "Lightweight Padded Jacket",
     "id": "nike-padded",
-    "meta": "Nike Sportswear — ₹2,900"
+    "meta": "Nike Sportswear — ₹2,199"
    },
    {
     "image": "assets/img/cutout/lilang-trench.webp",
     "title": "Grey-Taupe Car Coat",
     "id": "lilang-trench",
-    "meta": "Lilang (利郎) — ₹1,900"
+    "meta": "Lilang (利郎) — ₹1,499"
    },
    {
     "image": "assets/img/cutout/wuhuan-plaid.webp",
     "title": "Vintage Plaid Harrington",
     "id": "wuhuan-plaid",
-    "meta": "Wuhuan (五环) — Shanghai, 1990s — ₹2,200"
+    "meta": "Wuhuan (五环) — Shanghai, 1990s — ₹1,999"
    }
   ],
   "svgPanes": [
@@ -1429,7 +1429,7 @@ window.REWORN = {
     "id": "rl-linen-olive",
     "w": 1289,
     "h": 1600,
-    "text": "Polo Ralph Lauren · M · Classic Fit · ₹2,400"
+    "text": "Polo Ralph Lauren · M · Classic Fit · ₹1,199"
    },
    {
     "titleUp": "Wanted",
@@ -1442,7 +1442,7 @@ window.REWORN = {
     "id": "rare-rabbit-kufa",
     "w": 1289,
     "h": 1600,
-    "text": "Rare Rabbit · M · ₹1,800"
+    "text": "Rare Rabbit · M · ₹1,799"
    },
    {
     "titleUp": "One",
@@ -1455,35 +1455,35 @@ window.REWORN = {
     "id": "nike-padded",
     "w": 1289,
     "h": 1600,
-    "text": "Nike Sportswear · Oversized fit (style 477139-010, FA12) · ₹2,900"
+    "text": "Nike Sportswear · Oversized fit (style 477139-010, FA12) · ₹2,199"
    }
   ],
   "slides": [
    {
     "title": "Olive Linen Shirt",
     "description": "The green that works in every season. Classic Fit Polo linen — the quiet flex.",
-    "meta": "Polo Ralph Lauren · M · Classic Fit · ₹2,400",
+    "meta": "Polo Ralph Lauren · M · Classic Fit · ₹1,199",
     "image": "assets/img/cutout/rl-linen-olive.webp",
     "id": "rl-linen-olive"
    },
    {
     "title": "KUFA Print Shirt",
     "description": "An artwork with buttons. Red-and-ink sketch print — worn when you want the room to look.",
-    "meta": "Rare Rabbit · M · ₹1,800",
+    "meta": "Rare Rabbit · M · ₹1,799",
     "image": "assets/img/cutout/rare-rabbit-kufa.webp",
     "id": "rare-rabbit-kufa"
    },
    {
     "title": "Lightweight Padded Jacket",
     "description": "A 2012 Nike Sportswear piece — glossy black quilting you can't buy new anymore.",
-    "meta": "Nike Sportswear · Oversized fit (style 477139-010, FA12) · ₹2,900",
+    "meta": "Nike Sportswear · Oversized fit (style 477139-010, FA12) · ₹2,199",
     "image": "assets/img/cutout/nike-padded.webp",
     "id": "nike-padded"
    },
    {
     "title": "Grey-Taupe Car Coat",
     "description": "A Fujian-tailored car coat with throat-latch detail. Detective-film energy.",
-    "meta": "Lilang (利郎) · 165/84A (Asia M) — oversized on most · ₹1,900",
+    "meta": "Lilang (利郎) · 165/84A (Asia M) — oversized on most · ₹1,499",
     "image": "assets/img/cutout/lilang-trench.webp",
     "id": "lilang-trench"
    }
@@ -1680,7 +1680,7 @@ window.REWORN = {
     "id": "rl-linen-olive",
     "brand": "Polo Ralph Lauren",
     "name": "Olive Linen Shirt",
-    "price": 2400,
+    "price": 1199,
     "story": "The green that works in every season. Classic Fit Polo linen — the quiet flex."
    },
    {
@@ -1688,7 +1688,7 @@ window.REWORN = {
     "id": "rare-rabbit-kufa",
     "brand": "Rare Rabbit",
     "name": "KUFA Print Shirt",
-    "price": 1800,
+    "price": 1799,
     "story": "An artwork with buttons. Red-and-ink sketch print — worn when you want the room to look."
    }
   ],

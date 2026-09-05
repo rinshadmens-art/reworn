@@ -274,7 +274,12 @@
        plate and the Nike flat-lay). A cap that hides the newest photography
        is worse than a long page, and this is an archive: more of the garment
        is the point. */
-    var rest = im.slice(1, 10).concat(p.proof || []);
+    /* No proof strip. p.proof is assets/img/products/ — the hand-held phone
+       shots of care labels and hangers that Rinshad took himself, and he does
+       not want his own photographs on the site. The brand claim that used to
+       justify them ("tag photographs are unretouched originals") goes with
+       them rather than standing over an empty promise. */
+    var rest = im.slice(1, 10);
     var strip = rest.map(function (src, i) {
       var wide = (i % 3 === 2);
       return '<figure class="' + (wide ? 'is-wide' : '') + '">' +
@@ -318,7 +323,7 @@
           '<p class="faint" style="font-size:var(--fs-small);margin-top:8px">' + esc(p.condition_note) + '</p>' +
         '</div>' +
 
-        '<p class="micro faint" style="margin:-14px 0 22px">Tag photographs are unretouched originals.</p>' +
+
         '<table class="spec"><tbody>' +
           '<tr><th>Size</th><td>' + esc(p.size) + '</td></tr>' +
           '<tr><th>Material</th><td>' + esc(p.material) + '</td></tr>' +

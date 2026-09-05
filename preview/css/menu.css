@@ -266,3 +266,28 @@ html.no-scroll, body.no-scroll { overflow: hidden; }
   background: var(--linen);
   opacity: 1;
 }
+
+/* ---- the retreating header band ----
+   Both the bar and the grid page's filter rail travel up out of the way on
+   the way down, and come back the moment you scroll up. Transform only, so
+   nothing reflows and the sticky rail keeps its normal behaviour underneath. */
+.menu-bar,
+.rail {
+  transition: transform 420ms var(--ease-out);
+  will-change: transform;
+}
+/* Explicit lengths, not percentages. translateY(-100%) resolved to zero
+   translation on these two — measured: computed transform came back as
+   matrix(1,0,0,1,0,0) with the class applied, and the bar never moved. The
+   same element accepts a pixel value immediately, so the offsets are stated
+   against --bar-h instead of against the box's own height. */
+.nav-hidden .menu-bar { transform: translateY(calc(var(--bar-h) * -1)); }
+/* The rail is stuck at --bar-h and stands about 4rem tall, so clearing the
+   viewport takes both. */
+.nav-hidden .rail { transform: translateY(calc((var(--bar-h) + 4.5rem) * -1)); }
+/* An open overlay outranks all of it. */
+.menu-open .menu-bar,
+.menu-open .rail { transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .menu-bar, .rail { transition: none; }
+}

@@ -171,6 +171,32 @@
     }
   };
 
+  /* Hide the whole header band while travelling DOWN, bring it back on the
+     way up. Two complaints turned out to be one bug: coming back from a
+     product restores the scroll to the middle of a row, and a fixed bar plus
+     a sticky rail then covered that row's photographs while leaving its
+     captions showing — an orphaned "Olive Linen Shirt / Rs 2,400" sitting
+     under the bar with nothing above it. Measured at scrollY 615: the row's
+     images ended at y105, the rail ended at y167.
+
+     Retreating on the way down fixes the reading of the grid AND the thing it
+     looked like, and it is what a dense catalogue wants anyway — the filters
+     are for arriving, not for scrolling past. */
+  var lastY = window.scrollY;
+  var HIDE_AFTER = 240;   /* never retract inside the first screen */
+  var DEADZONE = 6;       /* ignore trackpad jitter and rubber-banding */
+
+  var band = function () {
+    var y = window.scrollY;
+    var dy = y - lastY;
+    if (Math.abs(dy) < DEADZONE) return;
+    lastY = y;
+    /* An open menu owns the screen; never retract the bar out from under it. */
+    if (document.body.classList.contains('menu-open')) return;
+    document.body.classList.toggle('nav-hidden', dy > 0 && y > HIDE_AFTER);
+  };
+
   mark();
-  window.addEventListener('scroll', mark, { passive: true });
+  band();
+  window.addEventListener('scroll', function () { mark(); band(); }, { passive: true });
 })();
