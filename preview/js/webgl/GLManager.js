@@ -1,8 +1,8 @@
-import * as THREE from "../../assets/vendor/three.module.js?v=1788599752";
+import * as THREE from "../../assets/vendor/three.module.js?v=1788601956";
 import {
   fragment,
   vertex
-} from "./shaders.js?v=1788599752";
+} from "./shaders.js?v=1788601956";
 
 function GLManager(data) {
   this.totalEntries = data.length;

@@ -1,5 +1,5 @@
-@import url('../assets/fonts/fonts.css?v=1788599752');
-@import url('tokens.css?v=1788599752');
+@import url('../assets/fonts/fonts.css?v=1788601956');
+@import url('tokens.css?v=1788601956');
 
 /* ============================================================
    RESET
@@ -727,3 +727,31 @@ p, .measure, .measure-tight { text-wrap: pretty; }
 .rail .filters::-webkit-scrollbar { display: none; }
 .rail .filters button { white-space: nowrap; }
 @media (max-width: 700px) { .rail .density { display: none; } }
+
+/* ---- the retail anchor ----
+   Only ever rendered when catalog.json carries a real figure, so this rule
+   styles a line that is simply absent on every unverified piece. "Retails
+   around" — never a struck-through original price, which is the resale trick
+   this brand's whole credibility depends on not playing. */
+.pdp__price.has-retail { margin-bottom: 6px; }
+.pdp__retail { margin-bottom: 24px; }
+
+/* ---- Product Health on the card ----
+   Rams 4: a product should explain itself. The bar alone did not. */
+.card--plate .card__health { display: block; margin-top: 16px; }
+.card--plate .card__health b { font-weight: inherit; color: var(--ink); }
+.card--plate .card__bar { margin-top: 6px; }
+/* Same signal the product page uses for a piece under 90 — the honesty is the
+   point, so a lower score is marked rather than quietly blended in. */
+.card--plate .card__bar i[data-low="true"] { background: var(--signal); }
+
+/* ---- sold, and still on the shelf ----
+   A sold piece is never removed from the grid. Scarcity that you can SEE having
+   happened is evidence; scarcity you are merely told about is a claim. This is
+   also the only honest way to show a one-of-one archive filling up. */
+.card--plate.is-sold .card__cut { opacity: 0.38; filter: grayscale(1); }
+.card--plate.is-sold .card__name,
+.card--plate.is-sold .card__price { color: var(--ink-faint); }
+.card--plate.is-sold .card__price { text-decoration: line-through; }
+.card--plate.is-sold:hover { background: var(--card); }
+.card--plate.is-sold:hover .card__cut { transform: none; }

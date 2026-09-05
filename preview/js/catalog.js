@@ -637,6 +637,9 @@ window.REWORN = {
    },
    "surface": "dark walnut wood",
    "props": "a pair of brown leather driving gloves, a folded broadsheet newspaper, a brass door key",
+   "origin": {
+    "place": "Fujian"
+   },
    "photos": [
     "assets/img/products/lilang-trench-1.jpg",
     "assets/img/products/lilang-trench-2.jpg",
@@ -815,6 +818,10 @@ window.REWORN = {
    },
    "surface": "faded kraft paper",
    "props": "a vintage chrome film camera, an audio cassette, a worn paperback with cracked spine",
+   "origin": {
+    "place": "Shanghai",
+    "era": "1990s"
+   },
    "photos": [
     "assets/img/products/wuhuan-plaid-1.jpg",
     "assets/img/products/wuhuan-plaid-2.jpg",
@@ -992,6 +999,9 @@ window.REWORN = {
    },
    "surface": "black slate",
    "props": "a pair of black leather gloves, a silver cigarette case, a folded charcoal silk scarf",
+   "origin": {
+    "place": "Hong Kong"
+   },
    "photos": [
     "assets/img/products/jinlong-carcoat-1.jpg",
     "assets/img/products/jinlong-carcoat-2.jpg",
@@ -1102,6 +1112,9 @@ window.REWORN = {
    },
    "surface": "oatmeal wool blanket",
    "props": "a stoneware mug, a pair of thick wool socks, an open hardback book",
+   "origin": {
+    "place": "Turkey"
+   },
    "photos": [
     "assets/img/products/xint-henley-1.jpg",
     "assets/img/products/xint-henley-2.jpg",
@@ -1160,6 +1173,9 @@ window.REWORN = {
    },
    "surface": "deep red lacquered tray",
    "props": "a crimson silk pocket square, a brushed steel lighter, a Japanese paperback",
+   "origin": {
+    "place": "Tokyo"
+   },
    "photos": [
     "assets/img/products/onward-furcollar-1.jpg",
     "assets/img/products/onward-furcollar-2.jpg",
@@ -1250,6 +1266,7 @@ window.REWORN = {
    ]
   }
  ],
+ "retail_note": "retail_inr is the approximate price of the piece NEW in India. It renders on the product page as 'Retails around Rs X new' and is SILENT while null. Only fill it where you actually know the figure - a wrong number here is a false claim to a buyer. Archive pieces are deliberately left out: they are carried by origin, not by a comparison to a retail price the buyer has never seen.",
  "motion": {
   "heroSequence": [
    {

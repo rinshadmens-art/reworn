@@ -49,6 +49,24 @@
     return String(s || '').replace(/^./, function (c) { return c.toUpperCase(); });
   }
 
+  /* Where the piece came from, printed only where the archive actually knows.
+     Seven of the twelve archive pieces have no recorded place; inventing a city
+     for them would be the one thing this brand cannot afford to do. */
+  function originOf(p) {
+    var o = p.origin;
+    if (!o || !o.place) return '';
+    return o.era ? o.place + ', ' + o.era : o.place;
+  }
+
+  /* The anchor, for the nine brands the buyer already prices in their head.
+     Absent retail_inr renders NOTHING — no element, no margin — so a piece
+     without a verified figure simply never makes the claim. */
+  function retailLine(p) {
+    if (!p.retail_inr) return '';
+    return '<p class="pdp__retail micro faint">Retails around ' +
+           inr(p.retail_inr) + ' new</p>';
+  }
+
   function flag(p) {
     return p.sold ? '<span class="card__flag card__flag--sold micro">Sold</span>' :
            p.tier === 'hero' ? '<span class="card__flag micro">Piece of the drop</span>' : '';
@@ -65,7 +83,8 @@
      depending on any second asset existing. */
   function plateCard(p) {
     return '' +
-      '<a class="card card--plate reveal" href="product.html?id=' + encodeURIComponent(p.id) + '">' +
+      '<a class="card card--plate reveal' + (p.sold ? ' is-sold' : '') +
+        '" href="product.html?id=' + encodeURIComponent(p.id) + '">' +
         '<span class="card__plate">' +
           flag(p) +
           '<img class="card__cut" src="' + esc(p.plate || imgs(p)[0]) + '" alt="' +
@@ -75,7 +94,14 @@
           '<span class="card__brand micro faint">' + esc(p.brand) + '</span>' +
           '<span class="card__name">' + esc(p.name) + '</span>' +
           '<span class="card__price">' + inr(p.price_inr) + '</span>' +
-          '<span class="card__bar"><i style="width:' + p.condition + '%"></i></span>' +
+          /* The bar used to be a bare 1px rule. It encodes the single fact that
+             most decides whether someone trusts a second-hand garment, and it
+             said so nowhere — a shopper scanning the grid saw a thin line and
+             had no reason to read it as anything. It carries its number now. */
+          '<span class="card__health micro faint">Product health <b>' +
+            p.condition + '%</b></span>' +
+          '<span class="card__bar"><i style="width:' + p.condition + '%"' +
+            (p.condition < 90 ? ' data-low="true"' : '') + '></i></span>' +
         '</span>' +
       '</a>';
   }
@@ -271,7 +297,9 @@
         '<p class="pdp__idx mono">' + pad(idx) + ' <span class="dot">/</span> ' + pad(D.products.length) + '</p>' +
         '<p class="micro faint">' + esc(p.brand) + '</p>' +
         '<h1 class="pdp__title">' + esc(p.name) + '</h1>' +
-        '<p class="pdp__price">' + inr(p.price_inr) + '</p>' +
+        '<p class="pdp__price' + (p.retail_inr ? ' has-retail' : '') + '">' +
+          inr(p.price_inr) + '</p>' +
+        retailLine(p) +
         '<p class="pdp__story">' + esc(p.story) + '</p>' +
 
         '<div class="health">' +
@@ -286,6 +314,7 @@
           '<tr><th>Size</th><td>' + esc(p.size) + '</td></tr>' +
           '<tr><th>Material</th><td>' + esc(p.material) + '</td></tr>' +
           '<tr><th>Category</th><td>' + esc(cap(p.category)) + '</td></tr>' +
+          (originOf(p) ? '<tr><th>Origin</th><td>' + esc(originOf(p)) + '</td></tr>' : '') +
           '<tr><th>Pieces</th><td>1 of 1 — no restock</td></tr>' +
         '</tbody></table>' +
 

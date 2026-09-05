@@ -257,3 +257,21 @@
   transition: color var(--dur-fast) var(--ease-out);
 }
 .pa-cta a:hover { color: var(--signal); }
+
+/* The founder signs the origin section. Set quietly — a signature that shouts
+   is a logo, and this is meant to read as a person rather than a brand mark. */
+.pa-text .pa-sign {
+  margin-top: 18px;
+  font-family: var(--serif);
+  font-size: var(--fs-small);
+  color: var(--ink-faint);
+}
+/* The closing callback to the page's opening line. It gets serif and scale
+   because it is the payoff of the whole page, not another paragraph. */
+.pa-text .pa-loop {
+  margin-top: 26px;
+  font-family: var(--serif);
+  font-size: clamp(20px, 2vw, 28px);
+  line-height: 1.25;
+  color: var(--ink);
+}
