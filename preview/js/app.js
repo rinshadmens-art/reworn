@@ -15,7 +15,12 @@
 
   /* pick the best image: editorial first, real photo as fallback */
   function imgs(p) {
-    var list = (p.editorial || []).concat(p.photos || []);
+    /* Editorial only. This used to concat p.photos — assets/img/products/,
+       Rinshad's own phone shots — as a fallback, and since every product has
+       fewer than ten editorial frames the gallery reached straight into them.
+       Thirty-five of his photographs were rendering because of this one line.
+       build-catalog no longer emits the key at all; this is the second lock. */
+    var list = (p.editorial || []);
     return list.length ? list : ['assets/img/brand/placeholder.jpg'];
   }
 

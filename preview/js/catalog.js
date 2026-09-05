@@ -45,11 +45,6 @@ window.REWORN = {
    },
    "surface": "warm sand-toned paper",
    "props": "a pair of tortoiseshell sunglasses, a slim steel-bracelet watch, a sprig of dried olive branch",
-   "photos": [
-    "assets/img/products/rl-linen-olive-1.jpg",
-    "assets/img/products/rl-linen-olive-2.jpg",
-    "assets/img/products/rl-linen-olive-3.jpg"
-   ],
    "editorial": [
     "assets/img/editorial/rl-linen-olive-1.jpg",
     "assets/img/editorial/rl-linen-olive-2.jpg",
@@ -74,11 +69,7 @@ window.REWORN = {
      "assets/img/m/editorial__rl-linen-olive-5-view.webp",
      "assets/img/m/editorial__rl-linen-olive-6-view.webp"
     ]
-   },
-   "proof": [
-    "assets/img/products/rl-linen-olive-2.jpg",
-    "assets/img/products/rl-linen-olive-3.jpg"
-   ]
+   }
   },
   {
    "id": "rare-rabbit-kufa",
@@ -108,11 +99,6 @@ window.REWORN = {
    "label_text": "Rare · STATEMENT · MMXVI",
    "surface": "matte charcoal-grey slate",
    "props": "a pair of black oval sunglasses, a fine silver chain, a black ceramic incense holder",
-   "photos": [
-    "assets/img/products/rare-rabbit-kufa-1.jpg",
-    "assets/img/products/rare-rabbit-kufa-2.jpg",
-    "assets/img/products/rare-rabbit-kufa-3.jpg"
-   ],
    "editorial": [
     "assets/img/editorial/rare-rabbit-kufa-1.jpg",
     "assets/img/editorial/rare-rabbit-kufa-2.jpg",
@@ -135,11 +121,7 @@ window.REWORN = {
      "assets/img/m/editorial__rare-rabbit-kufa-5-view.webp",
      "assets/img/m/editorial__rare-rabbit-kufa-6-view.webp"
     ]
-   },
-   "proof": [
-    "assets/img/products/rare-rabbit-kufa-2.jpg",
-    "assets/img/products/rare-rabbit-kufa-3.jpg"
-   ]
+   }
   },
   {
    "id": "pepe-linen-ecru",
@@ -167,10 +149,6 @@ window.REWORN = {
    },
    "surface": "bleached driftwood",
    "props": "a woven raffia hat brim, a small white espresso cup, a linen napkin loosely folded",
-   "photos": [
-    "assets/img/products/pepe-linen-ecru-1.jpg",
-    "assets/img/products/pepe-linen-ecru-2.jpg"
-   ],
    "editorial": [
     "assets/img/editorial/pepe-linen-ecru-1.jpg",
     "assets/img/editorial/pepe-linen-ecru-2.jpg",
@@ -193,10 +171,7 @@ window.REWORN = {
      "assets/img/m/editorial__pepe-linen-ecru-6-view.webp",
      "assets/img/m/editorial__pepe-linen-ecru-7-view.webp"
     ]
-   },
-   "proof": [
-    "assets/img/products/pepe-linen-ecru-2.jpg"
-   ]
+   }
   },
   {
    "id": "pepe-denim",
@@ -224,11 +199,6 @@ window.REWORN = {
    },
    "surface": "raw indigo canvas",
    "props": "a coiled bandana, two chunky silver rings, a worn brown leather belt coiled",
-   "photos": [
-    "assets/img/products/pepe-denim-1.jpg",
-    "assets/img/products/pepe-denim-2.jpg",
-    "assets/img/products/pepe-denim-3.jpg"
-   ],
    "editorial": [
     "assets/img/editorial/pepe-denim-1.jpg",
     "assets/img/editorial/pepe-denim-2.jpg",
@@ -249,11 +219,7 @@ window.REWORN = {
      "assets/img/m/editorial__pepe-denim-5-view.webp",
      "assets/img/m/editorial__pepe-denim-6-view.webp"
     ]
-   },
-   "proof": [
-    "assets/img/products/pepe-denim-2.jpg",
-    "assets/img/products/pepe-denim-3.jpg"
-   ]
+   }
   },
   {
    "id": "uspa-stripe",
@@ -282,11 +248,6 @@ window.REWORN = {
    },
    "surface": "cream cotton twill",
    "props": "a coiled navy knit tie, a leather-strap watch, a single tennis ball",
-   "photos": [
-    "assets/img/products/uspa-stripe-1.jpg",
-    "assets/img/products/uspa-stripe-2.jpg",
-    "assets/img/products/uspa-stripe-3.jpg"
-   ],
    "editorial": [
     "assets/img/editorial/uspa-stripe-1.jpg",
     "assets/img/editorial/uspa-stripe-2.jpg",
@@ -307,11 +268,7 @@ window.REWORN = {
      "assets/img/m/editorial__uspa-stripe-5-view.webp",
      "assets/img/m/editorial__uspa-stripe-6-view.webp"
     ]
-   },
-   "proof": [
-    "assets/img/products/uspa-stripe-2.jpg",
-    "assets/img/products/uspa-stripe-3.jpg"
-   ]
+   }
   },
   {
    "id": "vanheusen-brown",
@@ -339,11 +296,6 @@ window.REWORN = {
    },
    "surface": "dark terracotta tile",
    "props": "a gold-tone watch, a string of sandalwood beads, a tan leather card holder",
-   "photos": [
-    "assets/img/products/vanheusen-brown-1.jpg",
-    "assets/img/products/vanheusen-brown-2.jpg",
-    "assets/img/products/vanheusen-brown-3.jpg"
-   ],
    "editorial": [
     "assets/img/editorial/vanheusen-brown-1.jpg",
     "assets/img/editorial/vanheusen-brown-2.jpg",
@@ -365,11 +317,7 @@ window.REWORN = {
      "assets/img/m/editorial__vanheusen-brown-5-view.webp",
      "assets/img/m/editorial__vanheusen-brown-6-view.webp"
     ]
-   },
-   "proof": [
-    "assets/img/products/vanheusen-brown-2.jpg",
-    "assets/img/products/vanheusen-brown-3.jpg"
-   ]
+   }
   },
   {
    "id": "lp-polo-black",
@@ -398,10 +346,6 @@ window.REWORN = {
    },
    "surface": "pale grey linen",
    "props": "a folded pair of white ribbed socks, one black leather loafer, a steel diver's watch",
-   "photos": [
-    "assets/img/products/lp-polo-black-1.jpg",
-    "assets/img/products/lp-polo-black-2.jpg"
-   ],
    "editorial": [
     "assets/img/editorial/lp-polo-black-1.jpg",
     "assets/img/editorial/lp-polo-black-2.jpg",
@@ -424,10 +368,7 @@ window.REWORN = {
      "assets/img/m/editorial__lp-polo-black-6-view.webp",
      "assets/img/m/editorial__lp-polo-black-7-view.webp"
     ]
-   },
-   "proof": [
-    "assets/img/products/lp-polo-black-2.jpg"
-   ]
+   }
   },
   {
    "id": "pan-america-navy",
@@ -455,10 +396,6 @@ window.REWORN = {
    },
    "surface": "sun-bleached teak",
    "props": "a pair of woven leather sandals, a tin of sunscreen, a length of natural rope",
-   "photos": [
-    "assets/img/products/pan-america-navy-1.jpg",
-    "assets/img/products/pan-america-navy-2.jpg"
-   ],
    "editorial": [
     "assets/img/editorial/pan-america-navy-1.jpg",
     "assets/img/editorial/pan-america-navy-2.jpg",
@@ -481,10 +418,7 @@ window.REWORN = {
      "assets/img/m/editorial__pan-america-navy-6-view.webp",
      "assets/img/m/editorial__pan-america-navy-7-view.webp"
     ]
-   },
-   "proof": [
-    "assets/img/products/pan-america-navy-2.jpg"
-   ]
+   }
   },
   {
    "id": "nike-padded",
@@ -513,12 +447,6 @@ window.REWORN = {
    },
    "surface": "brushed concrete",
    "props": "a black aluminium carabiner, coiled black wired earphones, a rolled black nylon strap",
-   "photos": [
-    "assets/img/products/nike-padded-1.jpg",
-    "assets/img/products/nike-padded-2.jpg",
-    "assets/img/products/nike-padded-3.jpg",
-    "assets/img/products/nike-padded-4.jpg"
-   ],
    "editorial": [
     "assets/img/editorial/nike-padded-1.jpg",
     "assets/img/editorial/nike-padded-2.jpg",
@@ -542,11 +470,7 @@ window.REWORN = {
      "assets/img/m/editorial__nike-padded-5-view.webp",
      "assets/img/m/editorial__nike-padded-6-view.webp"
     ]
-   },
-   "proof": [
-    "assets/img/products/nike-padded-2.jpg",
-    "assets/img/products/nike-padded-3.jpg"
-   ]
+   }
   },
   {
    "id": "lilang-trench",
@@ -577,11 +501,6 @@ window.REWORN = {
    "origin": {
     "place": "Fujian"
    },
-   "photos": [
-    "assets/img/products/lilang-trench-1.jpg",
-    "assets/img/products/lilang-trench-2.jpg",
-    "assets/img/products/lilang-trench-3.jpg"
-   ],
    "editorial": [
     "assets/img/editorial/lilang-trench-1.jpg",
     "assets/img/editorial/lilang-trench-2.jpg",
@@ -605,11 +524,7 @@ window.REWORN = {
      "assets/img/m/editorial__lilang-trench-5-view.webp",
      "assets/img/m/editorial__lilang-trench-6-view.webp"
     ]
-   },
-   "proof": [
-    "assets/img/products/lilang-trench-2.jpg",
-    "assets/img/products/lilang-trench-3.jpg"
-   ]
+   }
   },
   {
    "id": "sourepose-chore",
@@ -637,11 +552,6 @@ window.REWORN = {
    },
    "surface": "rough workbench oak",
    "props": "a pair of canvas work gloves, a flat carpenter's pencil, a folded canvas tote",
-   "photos": [
-    "assets/img/products/sourepose-chore-1.jpg",
-    "assets/img/products/sourepose-chore-2.jpg",
-    "assets/img/products/sourepose-chore-3.jpg"
-   ],
    "editorial": [
     "assets/img/editorial/sourepose-chore-1.jpg",
     "assets/img/editorial/sourepose-chore-2.jpg",
@@ -664,11 +574,7 @@ window.REWORN = {
      "assets/img/m/editorial__sourepose-chore-5-view.webp",
      "assets/img/m/editorial__sourepose-chore-6-view.webp"
     ]
-   },
-   "proof": [
-    "assets/img/products/sourepose-chore-2.jpg",
-    "assets/img/products/sourepose-chore-3.jpg"
-   ]
+   }
   },
   {
    "id": "angn-utility",
@@ -696,11 +602,6 @@ window.REWORN = {
    },
    "surface": "cold rolled steel",
    "props": "a folded multi-tool, a creased paper map, a heavy brass keyring",
-   "photos": [
-    "assets/img/products/angn-utility-1.jpg",
-    "assets/img/products/angn-utility-2.jpg",
-    "assets/img/products/angn-utility-3.jpg"
-   ],
    "editorial": [
     "assets/img/editorial/angn-utility-1.jpg",
     "assets/img/editorial/angn-utility-2.jpg",
@@ -723,11 +624,7 @@ window.REWORN = {
      "assets/img/m/editorial__angn-utility-6-view.webp",
      "assets/img/m/editorial__angn-utility-7-view.webp"
     ]
-   },
-   "proof": [
-    "assets/img/products/angn-utility-2.jpg",
-    "assets/img/products/angn-utility-3.jpg"
-   ]
+   }
   },
   {
    "id": "wuhuan-plaid",
@@ -759,11 +656,6 @@ window.REWORN = {
     "place": "Shanghai",
     "era": "1990s"
    },
-   "photos": [
-    "assets/img/products/wuhuan-plaid-1.jpg",
-    "assets/img/products/wuhuan-plaid-2.jpg",
-    "assets/img/products/wuhuan-plaid-3.jpg"
-   ],
    "editorial": [
     "assets/img/editorial/wuhuan-plaid-1.jpg",
     "assets/img/editorial/wuhuan-plaid-2.jpg",
@@ -787,11 +679,7 @@ window.REWORN = {
      "assets/img/m/editorial__wuhuan-plaid-6-view.webp",
      "assets/img/m/editorial__wuhuan-plaid-7-view.webp"
     ]
-   },
-   "proof": [
-    "assets/img/products/wuhuan-plaid-2.jpg",
-    "assets/img/products/wuhuan-plaid-3.jpg"
-   ]
+   }
   },
   {
    "id": "hongdou-harrington",
@@ -819,11 +707,6 @@ window.REWORN = {
    },
    "surface": "charcoal felt",
    "props": "a stainless steel watch, a small bunch of keys, a matte black lighter",
-   "photos": [
-    "assets/img/products/hongdou-harrington-1.jpg",
-    "assets/img/products/hongdou-harrington-2.jpg",
-    "assets/img/products/hongdou-harrington-3.jpg"
-   ],
    "editorial": [
     "assets/img/editorial/hongdou-harrington-1.jpg",
     "assets/img/editorial/hongdou-harrington-2.jpg",
@@ -846,11 +729,7 @@ window.REWORN = {
      "assets/img/m/editorial__hongdou-harrington-6-view.webp",
      "assets/img/m/editorial__hongdou-harrington-7-view.webp"
     ]
-   },
-   "proof": [
-    "assets/img/products/hongdou-harrington-2.jpg",
-    "assets/img/products/hongdou-harrington-3.jpg"
-   ]
+   }
   },
   {
    "id": "tries-coated",
@@ -878,11 +757,6 @@ window.REWORN = {
    },
    "surface": "black textured leather",
    "props": "three heavy silver rings, a curb-link chain, a pair of black leather gloves",
-   "photos": [
-    "assets/img/products/tries-coated-1.jpg",
-    "assets/img/products/tries-coated-2.jpg",
-    "assets/img/products/tries-coated-3.jpg"
-   ],
    "editorial": [
     "assets/img/editorial/tries-coated-1.jpg",
     "assets/img/editorial/tries-coated-2.jpg",
@@ -905,11 +779,7 @@ window.REWORN = {
      "assets/img/m/editorial__tries-coated-6-view.webp",
      "assets/img/m/editorial__tries-coated-7-view.webp"
     ]
-   },
-   "proof": [
-    "assets/img/products/tries-coated-2.jpg",
-    "assets/img/products/tries-coated-3.jpg"
-   ]
+   }
   },
   {
    "id": "jinlong-carcoat",
@@ -939,11 +809,6 @@ window.REWORN = {
    "origin": {
     "place": "Hong Kong"
    },
-   "photos": [
-    "assets/img/products/jinlong-carcoat-1.jpg",
-    "assets/img/products/jinlong-carcoat-2.jpg",
-    "assets/img/products/jinlong-carcoat-3.jpg"
-   ],
    "editorial": [
     "assets/img/editorial/jinlong-carcoat-1.jpg",
     "assets/img/editorial/jinlong-carcoat-2.jpg",
@@ -967,11 +832,7 @@ window.REWORN = {
      "assets/img/m/editorial__jinlong-carcoat-6-view.webp",
      "assets/img/m/editorial__jinlong-carcoat-7-view.webp"
     ]
-   },
-   "proof": [
-    "assets/img/products/jinlong-carcoat-2.jpg",
-    "assets/img/products/jinlong-carcoat-3.jpg"
-   ]
+   }
   },
   {
    "id": "greymarl-mockneck",
@@ -996,9 +857,6 @@ window.REWORN = {
    },
    "surface": "pale birch wood",
    "props": "a folded grey scarf, a pair of clear-framed glasses, a ceramic dish",
-   "photos": [
-    "assets/img/products/greymarl-mockneck-1.jpg"
-   ],
    "editorial": [
     "assets/img/editorial/greymarl-mockneck-1.jpg",
     "assets/img/editorial/greymarl-mockneck-2.jpg",
@@ -1021,8 +879,7 @@ window.REWORN = {
      "assets/img/m/editorial__greymarl-mockneck-6-view.webp",
      "assets/img/m/editorial__greymarl-mockneck-7-view.webp"
     ]
-   },
-   "proof": []
+   }
   },
   {
    "id": "xint-henley",
@@ -1052,11 +909,6 @@ window.REWORN = {
    "origin": {
     "place": "Turkey"
    },
-   "photos": [
-    "assets/img/products/xint-henley-1.jpg",
-    "assets/img/products/xint-henley-2.jpg",
-    "assets/img/products/xint-henley-3.jpg"
-   ],
    "editorial": [
     "assets/img/editorial/xint-henley-1.jpg",
     "assets/img/editorial/xint-henley-2.jpg",
@@ -1079,11 +931,7 @@ window.REWORN = {
      "assets/img/m/editorial__xint-henley-5-view.webp",
      "assets/img/m/editorial__xint-henley-6-view.webp"
     ]
-   },
-   "proof": [
-    "assets/img/products/xint-henley-2.jpg",
-    "assets/img/products/xint-henley-3.jpg"
-   ]
+   }
   },
   {
    "id": "onward-furcollar",
@@ -1113,11 +961,6 @@ window.REWORN = {
    "origin": {
     "place": "Tokyo"
    },
-   "photos": [
-    "assets/img/products/onward-furcollar-1.jpg",
-    "assets/img/products/onward-furcollar-2.jpg",
-    "assets/img/products/onward-furcollar-3.jpg"
-   ],
    "editorial": [
     "assets/img/editorial/onward-furcollar-1.jpg",
     "assets/img/editorial/onward-furcollar-2.jpg",
@@ -1141,11 +984,7 @@ window.REWORN = {
      "assets/img/m/editorial__onward-furcollar-5-view.webp",
      "assets/img/m/editorial__onward-furcollar-6-view.webp"
     ]
-   },
-   "proof": [
-    "assets/img/products/onward-furcollar-2.jpg",
-    "assets/img/products/onward-furcollar-3.jpg"
-   ]
+   }
   },
   {
    "id": "cable-knit-grey",
@@ -1171,10 +1010,6 @@ window.REWORN = {
    },
    "surface": "undyed hessian",
    "props": "a battered steel thermos, a wooden comb, a coil of natural twine",
-   "photos": [
-    "assets/img/products/cable-knit-grey-1.jpg",
-    "assets/img/products/cable-knit-grey-2.jpg"
-   ],
    "editorial": [
     "assets/img/editorial/cable-knit-grey-1.jpg",
     "assets/img/editorial/cable-knit-grey-2.jpg",
@@ -1197,10 +1032,7 @@ window.REWORN = {
      "assets/img/m/editorial__cable-knit-grey-6-view.webp",
      "assets/img/m/editorial__cable-knit-grey-7-view.webp"
     ]
-   },
-   "proof": [
-    "assets/img/products/cable-knit-grey-2.jpg"
-   ]
+   }
   }
  ],
  "retail_note": "retail_inr is the approximate price of the piece NEW in India. It renders on the product page as 'Retails around Rs X new' and is SILENT while null. Only fill it where you actually know the figure - a wrong number here is a false claim to a buyer. Archive pieces are deliberately left out: they are carried by origin, not by a comparison to a retail price the buyer has never seen.",
