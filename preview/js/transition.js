@@ -44,15 +44,45 @@
     enter();
   }
 
-  window.addEventListener('pageshow', function (e) {
-    if (e.persisted) {
-      document.documentElement.classList.remove('is-entering');
-      gsap.set(shell, { clearProps: 'all' });
-    }
-  });
-
   /* ---------- leave ---------- */
   var leaving = false;
+
+  /* ---------- coming back ----------
+     This is the bug Rinshad reported for days: leave the collection for a
+     product, press back, and the grid returns with its first row sliced off
+     and the filter rail missing entirely.
+
+     The leave timeline tweens TWO elements — .page-shell, and its first
+     child, which on the collection page IS the <section>. Navigation fires
+     while both are still mid-tween, so the browser restores the page with
+     those inline transforms frozen at whatever value they had reached.
+     Measured on a real back-navigation: the section stuck at
+     translate(0%, -4.1382%) and the shell at scale(0.9992)/opacity 0.7724.
+
+     The section's transform is the whole story. A transformed ancestor
+     becomes the containing block for position:sticky, so the rail stopped
+     resolving against the viewport — it sat at -46px instead of pinning at
+     its 112px offset, i.e. just above the fold, invisible. The sliced row
+     was the same transform shifting the grid up by 160px.
+
+     The old handler cleared only the shell, and only when e.persisted was
+     true. A back-navigation that misses bfcache — which is most of them
+     here, since this site opts into cross-document view transitions —
+     restored the page with everything still stuck.
+
+     Reset both elements, on every pageshow, persisted or not. */
+  function resetShell() {
+    leaving = false;
+    document.documentElement.classList.remove('is-entering');
+    var content = shell.firstElementChild;
+    gsap.killTweensOf(content ? [shell, content] : [shell]);
+    gsap.set(shell, { clearProps: 'all' });
+    if (content) gsap.set(content, { clearProps: 'all' });
+  }
+
+  window.addEventListener('pageshow', resetShell);
+  /* Safari can restore without firing a useful pageshow on history moves. */
+  window.addEventListener('popstate', resetShell);
 
   function samePage(url) {
     return url.pathname === location.pathname && url.search === location.search;
@@ -97,7 +127,7 @@
 
     /* If the navigation is ever blocked, don't strand the page shrunken. */
     setTimeout(function () {
-      if (leaving) { leaving = false; gsap.set(shell, { clearProps: 'all' }); }
+      if (leaving) resetShell();
     }, 4000);
   });
 })();

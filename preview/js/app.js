@@ -13,15 +13,28 @@
     });
   };
 
+  /* Detect WebP support synchronously via Canvas probe */
+  var hasWebp = false;
+  try {
+    var c = document.createElement('canvas');
+    if (c && c.getContext && c.getContext('2d')) {
+      hasWebp = c.toDataURL('image/webp').indexOf('data:image/webp') === 0;
+    }
+  } catch (e) { hasWebp = false; }
+
+  function optImg(src) {
+    if (!src || typeof src !== 'string') return src;
+    if (hasWebp && (src.indexOf('assets/img/editorial/') === 0 || src.indexOf('assets/img/mood/') === 0) && src.endsWith('.jpg')) {
+      return src.slice(0, -4) + '.webp';
+    }
+    return src;
+  }
+
   /* pick the best image: editorial first, real photo as fallback */
   function imgs(p) {
-    /* Editorial only. This used to concat p.photos — assets/img/products/,
-       Rinshad's own phone shots — as a fallback, and since every product has
-       fewer than ten editorial frames the gallery reached straight into them.
-       Thirty-five of his photographs were rendering because of this one line.
-       build-catalog no longer emits the key at all; this is the second lock. */
     var list = (p.editorial || []);
-    return list.length ? list : ['assets/img/brand/placeholder.jpg'];
+    if (!list.length) return ['assets/img/brand/placeholder.jpg'];
+    return list.map(optImg);
   }
 
   function waLink(p) {
@@ -100,8 +113,8 @@
         '<span class="card__media">' +
           flag(p) +
           '<img class="is-main" src="' + im[0] + '" alt="' +
-            esc(p.brand + ' ' + p.name) + '" loading="lazy" decoding="async">' +
-          '<img class="is-alt" src="' + alt + '" alt="" aria-hidden="true" loading="lazy">' +
+            esc(p.brand + ' ' + p.name) + '" width="500" height="625" loading="lazy" decoding="async">' +
+          '<img class="is-alt" src="' + alt + '" alt="" width="500" height="625" aria-hidden="true" loading="lazy" decoding="async">' +
         '</span>' +
         '<span class="card__meta">' +
           '<span class="card__brand micro faint">' + esc(p.brand) + '</span>' +
@@ -122,8 +135,8 @@
       '<a class="card reveal" href="product.html?id=' + encodeURIComponent(p.id) + '">' +
         '<span class="card__media">' +
           flag(p) +
-          '<img class="is-main" src="' + im[0] + '" alt="' + esc(p.brand + ' ' + p.name) + '" loading="lazy">' +
-          '<img class="is-alt" src="' + alt + '" alt="" aria-hidden="true" loading="lazy">' +
+          '<img class="is-main" src="' + im[0] + '" alt="' + esc(p.brand + ' ' + p.name) + '" width="500" height="625" loading="lazy" decoding="async">' +
+          '<img class="is-alt" src="' + alt + '" alt="" width="500" height="625" aria-hidden="true" loading="lazy" decoding="async">' +
         '</span>' +
         '<span class="card__meta">' +
           '<span class="card__name">' +
@@ -156,8 +169,9 @@
   var MIN_FOR_BREAK = 8;
 
   function breakCell(b) {
+    var src = optImg(b.src);
     return '<figure class="grid__break" style="--span:' + b.span + '">' +
-             '<img src="' + esc(b.src) + '" alt="' + esc(b.alt) + '" loading="lazy" decoding="async">' +
+             '<img src="' + esc(src) + '" alt="' + esc(b.alt) + '" width="700" height="875" loading="lazy" decoding="async">' +
            '</figure>';
   }
 
@@ -268,27 +282,58 @@
     var im = imgs(p);
     document.title = p.brand + ' ' + p.name + ' — REWORN.';
 
+    /* Update dynamic SEO meta tags and Schema for the loaded product */
+    try {
+      var metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) metaDesc.content = p.brand + ' ' + p.name + '. ' + (p.story || 'Pre-owned authenticated menswear from REWORN Archive 01.');
+      var can = document.querySelector('link[rel="canonical"]');
+      if (can) can.href = 'https://reworn.store/product.html?id=' + encodeURIComponent(p.id);
+      var ogTitle = document.querySelector('meta[property="og:title"]');
+      if (ogTitle) ogTitle.content = p.brand + ' ' + p.name + ' — REWORN.';
+      var ogDesc = document.querySelector('meta[property="og:description"]');
+      if (ogDesc) ogDesc.content = (p.story || (p.brand + ' ' + p.name)) + ' · ' + inr(p.price_inr);
+      var ogUrl = document.querySelector('meta[property="og:url"]');
+      if (ogUrl) ogUrl.content = 'https://reworn.store/product.html?id=' + encodeURIComponent(p.id);
+      var ogImg = document.querySelector('meta[property="og:image"]');
+      if (ogImg && im[0]) ogImg.content = 'https://reworn.store/' + im[0];
+      var twTitle = document.querySelector('meta[name="twitter:title"]');
+      if (twTitle) twTitle.content = p.brand + ' ' + p.name + ' — REWORN.';
+      var twDesc = document.querySelector('meta[name="twitter:description"]');
+      if (twDesc) twDesc.content = (p.story || (p.brand + ' ' + p.name)) + ' · ' + inr(p.price_inr);
+      var twImg = document.querySelector('meta[name="twitter:image"]');
+      if (twImg && im[0]) twImg.content = 'https://reworn.store/' + im[0];
+
+      var schemaEl = document.getElementById('pdp-schema');
+      if (schemaEl) {
+        schemaEl.textContent = JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'Product',
+          'name': p.brand + ' ' + p.name,
+          'brand': { '@type': 'Brand', 'name': p.brand },
+          'description': p.story || (p.brand + ' ' + p.name),
+          'image': 'https://reworn.store/' + (im[0] || ''),
+          'offers': {
+            '@type': 'Offer',
+            'price': String(p.price_inr || ''),
+            'priceCurrency': 'INR',
+            'availability': p.sold ? 'https://schema.org/SoldOut' : 'https://schema.org/InStock',
+            'itemCondition': 'https://schema.org/UsedCondition'
+          }
+        });
+      }
+    } catch (e) {}
+
     // editorial frames, then the real tag photos as authenticity proof
     var idx = D.products.indexOf(p) + 1;
     var pad = function (n) { return (n < 10 ? '0' : '') + n; };
 
     /* Gallery rhythm: lead frame, then pairs, with one full-width plate every
        third position so the column never becomes a monotonous ladder. */
-    /* Was slice(1, 6), which quietly dropped every frame past the sixth —
-       including the two Rinshad specifically asked to see (the Lilang collar
-       plate and the Nike flat-lay). A cap that hides the newest photography
-       is worse than a long page, and this is an archive: more of the garment
-       is the point. */
-    /* No proof strip. p.proof is assets/img/products/ — the hand-held phone
-       shots of care labels and hangers that Rinshad took himself, and he does
-       not want his own photographs on the site. The brand claim that used to
-       justify them ("tag photographs are unretouched originals") goes with
-       them rather than standing over an empty promise. */
     var rest = im.slice(1, 10);
     var strip = rest.map(function (src, i) {
       var wide = (i % 3 === 2);
       return '<figure class="' + (wide ? 'is-wide' : '') + '">' +
-             '<img src="' + src + '" alt="" loading="lazy"></figure>';
+             '<img src="' + src + '" alt="" width="1289" height="1600" loading="lazy" decoding="async"></figure>';
     }).join('');
 
     var health = p.condition;
@@ -303,7 +348,8 @@
             return '<img class="scrub' + (i ? '' : ' is-on') + '"' +
                    (i ? '' : ' style="view-transition-name:vt-hero"') +
                    ' src="' + src + '" alt="' + (i ? '' : esc(p.brand + ' ' + p.name)) + '"' +
-                   (i ? ' loading="lazy"' : '') + '>';
+                   ' width="1289" height="1600"' +
+                   (i ? ' loading="lazy"' : ' fetchpriority="high"') + ' decoding="async">';
           }).join('') +
           '<span class="scrub__hint micro">Drag to turn</span>' +
           '<span class="scrub__dots">' + im.slice(0, 4).map(function (_, i) {

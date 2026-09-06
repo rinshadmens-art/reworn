@@ -48,7 +48,8 @@
   width: max-content;
   color: #fff;
 }
-.slide-title h1 {
+.slide-title h1,
+.slide-title h2 {
   font-family: var(--serif);
   font-size: clamp(2rem, 4vw, 6rem);
   font-weight: 400;
@@ -102,7 +103,8 @@
 
 @media (max-width: 1000px) {
   .slide-title { top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; }
-  .slide-title h1 { max-width: none; }
+  .slide-title h1,
+  .slide-title h2 { max-width: none; }
   .slide-description {
     width: 75%;
     text-align: center;

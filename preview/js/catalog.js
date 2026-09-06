@@ -1059,14 +1059,14 @@ window.REWORN = {
     "alt": "Four pairs of trousers and shoes, lined up"
    },
    {
-    "src": "assets/img/editorial/rl-linen-olive-2.jpg",
+    "src": "assets/img/editorial/rl-linen-olive-20.jpg",
     "id": "rl-linen-olive",
     "brand": "Polo Ralph Lauren",
     "name": "Olive Linen Shirt",
     "alt": "Polo Ralph Lauren Olive Linen Shirt"
    },
    {
-    "src": "assets/img/editorial/rare-rabbit-kufa-2.jpg",
+    "src": "assets/img/editorial/rare-rabbit-kufa-4.jpg",
     "id": "rare-rabbit-kufa",
     "brand": "Rare Rabbit",
     "name": "KUFA Print Shirt",

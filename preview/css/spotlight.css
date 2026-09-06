@@ -28,7 +28,8 @@
   overflow: hidden;
 }
 
-.spot h1 {
+.spot h1,
+.spot h2 {
   font-family: var(--serif);
   font-size: clamp(2rem, 7.5vw, 5rem);
   font-weight: 400;
