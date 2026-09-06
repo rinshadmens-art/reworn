@@ -85,12 +85,33 @@
     return '<p class="m-pdp__retail m-micro">Retails around ' + inr(p.retail_inr) + ' new</p>';
   }
 
+  /* A dropped image on a phone stays dropped: the browser does not retry, and
+     iOS paints its broken-file glyph in a tile that will never recover. On
+     patchy mobile data that is most of the reason the grid looks half-built.
+     One retry with a cache-buster costs nothing and fixes the common case. */
+  function retryOnce(img) {
+    if (img.dataset.retried) return;
+    img.dataset.retried = '1';
+    var src = img.getAttribute('src');
+    setTimeout(function () {
+      img.src = src + (src.indexOf('?') > -1 ? '&' : '?') + 'r=1';
+    }, 600);
+  }
+  document.addEventListener('error', function (e) {
+    var t = e.target;
+    if (t && t.tagName === 'IMG') retryOnce(t);
+  }, true);   /* capture — error does not bubble */
+
   function tile(p, i) {
-    var eager = i != null && i < 4;
+    /* Two columns, so the first screen of a phone holds about six tiles —
+       four left the last row of the fold arriving late on every visit. */
+    var eager = i != null && i < 6;
     return '<a class="m-in" href="product.html?id=' + encodeURIComponent(p.id) + '">' +
+      /* Stated box: the CSS aspect-ratio already reserves the space, but the
+         attributes let the browser schedule the decode before layout. */
       '<img src="' + esc(card(p)) + '" alt="' + esc(p.brand + ' ' + p.name) +
-        '" decoding="async"' +
-        (eager ? ' fetchpriority="high"' : ' loading="lazy"') + '>' +
+        '" width="600" height="750" decoding="async"' +
+        (eager ? (i < 2 ? ' fetchpriority="high"' : '') : ' loading="lazy"') + '>' +
       '<span class="m-meta">' +
         '<span class="m-meta__brand m-micro">' + esc(p.brand) + '</span>' +
         '<span class="m-meta__row">' +
@@ -120,30 +141,13 @@
     }
   }
 
-  /* The bar earns its hairline once something scrolls under it, and gets out
-     of the way entirely while you are travelling down.
-
-     Same reasoning as the desktop band: a phone screen is short, the bar and
-     the WhatsApp strip already own the top and bottom of it, and returning
-     from a product restores the scroll to the middle of a card — which put
-     the bar over the photograph and left its caption stranded underneath.
-     Retreating on the way down gives the garment the whole screen. */
+  /* The bar only earns its hairline once something has scrolled under it.
+     It stays put otherwise — Rinshad wants the mark visible the whole way
+     down, and on a phone the wordmark is the only way back. */
   function stickyBar() {
     var bar = document.querySelector('.m-bar');
     if (!bar) return;
-    var lastY = window.scrollY;
-    var HIDE_AFTER = 180;   /* never retract inside the first screen */
-    var DEADZONE = 8;       /* ignore momentum jitter and rubber-banding */
-
-    var sync = function () {
-      var y = window.scrollY;
-      bar.classList.toggle('is-stuck', y > 8);
-      var dy = y - lastY;
-      if (Math.abs(dy) < DEADZONE) return;
-      lastY = y;
-      /* iOS rubber-banding reports negative scrollY at the top; never hide there. */
-      bar.classList.toggle('is-away', dy > 0 && y > HIDE_AFTER);
-    };
+    var sync = function () { bar.classList.toggle('is-stuck', window.scrollY > 8); };
     sync();
     window.addEventListener('scroll', sync, { passive: true });
   }

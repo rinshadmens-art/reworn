@@ -12,8 +12,8 @@
    what the desktop one does.
    ============================================================ */
 
-@import url('../../assets/fonts/fonts.css?v=1788624829');
-@import url('../../css/tokens.css?v=1788624829');
+@import url('../../assets/fonts/fonts.css?v=1788657686');
+@import url('../../css/tokens.css?v=1788657686');
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -74,15 +74,9 @@ a, button { -webkit-tap-highlight-color: transparent; }
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid transparent;
-  transition: border-color 300ms ease, transform 360ms cubic-bezier(.22,1,.36,1);
-  will-change: transform;
+  transition: border-color 300ms ease;
 }
 .m-bar.is-stuck { border-bottom-color: var(--hairline); }
-/* Out of the way while travelling down. A stated length, not translateY(-100%)
-   — the percentage form resolved to zero translation on the desktop band and
-   there is no reason to trust it here either. */
-.m-bar.is-away { transform: translateY(-72px); }
-@media (prefers-reduced-motion: reduce) { .m-bar { transition: border-color 300ms ease; } }
 .m-bar__mark { font-family: var(--serif); font-size: 19px; letter-spacing: -0.02em; }
 .m-bar__back { display: flex; align-items: center; gap: 8px; min-height: 44px; }
 
