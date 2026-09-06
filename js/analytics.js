@@ -41,8 +41,18 @@
     } catch (e) { /* analytics must never break the page */ }
   }
 
-  /* ---- the page ---- */
-  send(location.pathname + location.search, document.title);
+  /* ---- the page ----
+     A product view is recorded as /piece/<id> rather than
+     product.html?id=<id>. GoatCounter can be configured to drop query
+     strings, and if it ever is, every one of twenty pieces would collapse
+     into a single "product.html" row — which would destroy the one report
+     this shop actually needs. A path segment cannot be stripped. */
+  var path = location.pathname + location.search;
+  try {
+    var pid = new URLSearchParams(location.search).get('id');
+    if (pid && /product\.html$/.test(location.pathname)) path = '/piece/' + pid;
+  } catch (e) { /* keep the raw path */ }
+  send(path, document.title);
 
   /* ---- the intent ----
      A WhatsApp click is the closest thing this site has to a checkout. It is
