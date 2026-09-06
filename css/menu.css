@@ -66,8 +66,10 @@
   align-items: center;
   width: 3rem; height: 3rem;
   gap: 0.3rem;
-  border-radius: 62.4375rem;
-  border: 1px solid var(--hairline);
+  /* No ring. The circle was the reference's, and it put a second shape around
+     a mark that already reads as a button — the two rules and the MENU label
+     beside them are the whole control. The 3rem box stays so the tap target
+     does not shrink to the width of two 15px lines. */
 }
 .menu-hamburger-icon span {
   position: absolute;
@@ -83,9 +85,12 @@
 .menu-hamburger-icon.active span:nth-child(1) { transform: translateY(0) rotate(45deg) scaleX(1.05); }
 .menu-hamburger-icon.active span:nth-child(2) { transform: translateY(0) rotate(-45deg) scaleX(1.05); }
 
-/* the bar sits above the ink overlay and inverts over it */
-.menu-open .menu-bar { color: var(--linen); }
-.menu-open .menu-logo a { color: var(--linen); }
+/* The bar sits above the overlay's dark plate and inverts over it. Stated
+   absolutely for the same reason the plate is: as var(--linen) this turned
+   the wordmark and the MENU label near-black the moment the menu opened,
+   on exactly the page states where the ground behind them is darkest. */
+.menu-open .menu-bar { color: #EDEAE3; }
+.menu-open .menu-logo a { color: #EDEAE3; }
 .menu-open .menu-hamburger-icon { border-color: rgba(242, 241, 234, 0.25); }
 
 /* --- overlay --- */
@@ -95,10 +100,16 @@
   overflow: hidden;
   z-index: 1;
   width: 100vw; height: 100svh;
-  color: var(--linen);
+  /* Absolute, not tokenised. This overlay is a full-screen dark plate on
+     EVERY page, so it is themed by itself and not by the page under it.
+     As tokens it was background:var(--ink) + color:var(--linen), which
+     inside .theme-dark means a bone background with near-black type —
+     the whole menu rendered light-on-light and the tag column and footer
+     were effectively invisible. */
+  color: #EDEAE3;
 }
 .menu-overlay {
-  background-color: var(--ink);
+  background-color: #14120F;
   clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
   will-change: clip-path;
 }
@@ -118,33 +129,52 @@
   top: 50%; left: 50%;
   transform: translate(-50%, -50%);
 }
-.menu-footer { margin: 0 auto; }
+.menu-footer {
+  /* pinned to the bottom of the panel rather than floated in the middle,
+     so the panel reads as a composed page and not a centred list */
+  position: absolute;
+  bottom: 0; left: 50%;
+  transform: translateX(-50%);
+}
 .menu-content-main, .menu-footer {
   display: flex;
   align-items: flex-end;
-  width: 75%;
-  padding: 2rem;
-  gap: 2rem;
+  width: min(82%, 620px);
+  padding: 2.4rem 2rem;
+  gap: 3rem;
 }
-.menu-col { display: flex; flex-direction: column; gap: 0.5rem; }
+.menu-footer {
+  border-top: 1px solid rgba(237, 234, 227, 0.14);
+  padding-bottom: 2.8rem;
+}
+.menu-col { display: flex; flex-direction: column; gap: 0.65rem; }
 .menu-col:nth-child(1) { flex: 3; }
 .menu-col:nth-child(2) { flex: 2; }
+/* the secondary column is a list of routes, not a paragraph — it needs
+   its own top alignment against the tall serif links beside it */
+.menu-content-main .menu-col:nth-child(2) { align-self: flex-end; padding-bottom: 0.6rem; }
 
 .menu-link a {
   font-family: var(--serif);
   font-size: 3.5rem;
   font-weight: 400;
   line-height: 1.2;
-  letter-spacing: -0.02em;
-  color: var(--linen);
+  letter-spacing: -0.025em;
+  color: #EDEAE3;
+  transition: color var(--dur-fast) var(--ease-out);
 }
-.menu-link a:hover { color: var(--signal); }
+.menu-link a:hover { color: #F0523A; }
 .menu-tag a, .menu-footer p {
-  color: rgba(242, 241, 234, 0.5);
+  /* was 0.5 alpha of the linen literal, which read as invisible once the
+     plate was fixed — 0.68 is legible without competing with the links */
+  color: rgba(237, 234, 227, 0.68);
   font-size: var(--fs-small);
+  transition: color var(--dur-fast) var(--ease-out);
 }
-.menu-tag a:hover { color: var(--linen); }
-.line { position: relative; will-change: transform; }
+.menu-tag a:hover { color: #EDEAE3; }
+/* likewise namespaced — this is the overlay's own line mask, and as a bare
+   selector it reaches the hero and the slider too */
+.menu-overlay .line { position: relative; will-change: transform; }
 
 html.no-scroll, body.no-scroll { overflow: hidden; }
 
@@ -180,4 +210,61 @@ html.no-scroll, body.no-scroll { overflow: hidden; }
 }
 @media (prefers-reduced-motion: reduce) {
   .js.is-entering .page-shell { clip-path: none; transform: none; }
+}
+
+/* ---- the bar's backdrop -------------------------------------------
+   The bar is transparent and fixed, so anything that scrolls beneath it
+   collides with the wordmark — most visibly on browse, where the frame's
+   tagline sits in the same top-left corner as the mark.
+
+   A soft gradient rather than a solid plate: a hard bar would cut the
+   full-bleed photography in half, which is the opposite of what this
+   page is for. It fades in only once content is actually passing under. */
+.menu-bar::before {
+  content: '';
+  position: absolute;
+  inset: -1px 0 auto 0;
+  height: 190%;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0;
+  /* Not a colour. The bar floats over the dark narrative AND over the
+     linen product island on the same page, so any tinted gradient is
+     wrong on one of them — as var(--linen) it painted a dark smear
+     across the top of the light grid. A blur is ground-agnostic: it
+     takes whatever is underneath and softens it, so the wordmark gets
+     separation without the page getting a stripe. */
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 38%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 38%, transparent 100%);
+  transition: opacity 420ms var(--ease-out);
+}
+.scrolled .menu-bar::before { opacity: 1; }
+/* over the fullscreen menu the bar has the overlay behind it already */
+.menu-open .menu-bar::before { opacity: 0; }
+
+/* ---- the collection page's header band ----
+   The blur above is right everywhere the bar floats over full-bleed
+   photography: it takes whatever is underneath and softens it, so the
+   wordmark separates without the page gaining a stripe.
+
+   It is wrong over an edge-to-edge product grid. There the thing being
+   softened is the top of a garment, and the result was a row of blurred,
+   chopped shoulders sitting above the filter rail — the bar read as broken
+   rather than as floating.
+
+   So on the grid page the band goes solid and butts up against the rail
+   beneath it. Header and filters become one block, which is what the
+   reference does and what the eye expects above a dense grid. */
+.is-grid .menu-bar::before {
+  height: 100%;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  mask-image: none;
+  -webkit-mask-image: none;
+  background: var(--linen);
+  opacity: 1;
+}
+
 }

@@ -94,20 +94,23 @@
   transition: background-color 550ms var(--ease-out);
 }
 
-/* REWORN's three tab tones, standing in for the reference's yellows */
+/* REWORN's three tab tones, standing in for the reference's yellows.
+   variant-1 used to be a full --signal plate, which on a six-tab stack
+   meant two solid red slabs — an accent held at 10% of the palette does
+   not get to be the background of a third of a section. The red is now
+   the index block only, which is where the eye enters each tab anyway. */
 .folder.variant-1 .folder-index,
-.folder.variant-1 .folder-index::after,
-.folder.variant-1 .folder-name { background-color: var(--signal); }
-.folder.variant-1 .folder-name h1,
-.folder.variant-1 .folder-index p { color: var(--linen); }
+.folder.variant-1 .folder-index::after { background-color: var(--signal); }
+.folder.variant-1 .folder-name { background-color: var(--tab-1); }
+.folder.variant-1 .folder-index p { color: #FFF8F5; }
 
 .folder.variant-2 .folder-index,
 .folder.variant-2 .folder-index::after,
-.folder.variant-2 .folder-name { background-color: var(--card); }
+.folder.variant-2 .folder-name { background-color: var(--tab-2); }
 
 .folder.variant-3 .folder-index,
 .folder.variant-3 .folder-index::after,
-.folder.variant-3 .folder-name { background-color: var(--card-deep); }
+.folder.variant-3 .folder-name { background-color: var(--tab-3); }
 
 .folder.disabled .folder-index,
 .folder.disabled .folder-index::after,
@@ -120,10 +123,35 @@
 .folders .row:nth-child(3) { bottom: -2rem; }
 
 @media (max-width: 62.5rem) {
-  .folder-name h1 { font-size: 2rem; }
+  .folder-name h1 { font-size: 1.6rem; }
   .folders .row { flex-direction: column; bottom: 0 !important; }
-  .folder { margin-bottom: -0.5rem; }
   .folder-preview { display: none; }
-  .folder-name { padding: 0 2rem 2rem; }
   .folders { height: auto; padding-bottom: 3rem; }
+
+  /* The tabs kept their 12.5rem desktop height once stacked, so six of
+     them ran to 1200px of near-empty plates. At this size a tab is a row
+     in a list, and it is sized like one. */
+  .folder {
+    height: auto;
+    margin-bottom: 0;
+    flex: none !important;
+  }
+  .folder-wrapper { height: auto; }
+  .folder-index {
+    width: auto;
+    padding: 0.7rem 0.9rem;
+    display: flex;
+    align-items: center;
+  }
+  /* The diagonal is a square as tall as the tab, anchored at left:99% —
+     at 200px tall that pushed a 200px triangle straight off the right
+     edge of a 500px screen. It is a desktop flourish only. */
+  .folder-index::after { display: none; }
+  .folder-name {
+    padding: 0.85rem 1.1rem 1rem;
+    align-items: center;
+  }
+  .folder-wrapper { display: flex; align-items: stretch; }
+  .folder-name { flex: 1; }
+  .folder-name h1 { line-height: 1.15; }
 }

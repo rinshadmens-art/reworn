@@ -1,7 +1,7 @@
 window.REWORN = {
  "brand": {
   "name": "REWORN.",
-  "slogan": "Worn once. Wanted twice.",
+  "slogan": "Second-hand. First choice.",
   "sublines": [
    "Not new. Better.",
    "A second life, styled first.",
@@ -28,7 +28,7 @@ window.REWORN = {
    "condition": 100,
    "condition_note": "Original. No flaws.",
    "story": "The green that works in every season. Classic Fit Polo linen — the quiet flex.",
-   "price_inr": 2400,
+   "price_inr": 1199,
    "source_dir": "Products/shirts/ralph lauren",
    "hero_photo": "IMG_9796.JPG",
    "outfit": {
@@ -45,26 +45,31 @@ window.REWORN = {
    },
    "surface": "warm sand-toned paper",
    "props": "a pair of tortoiseshell sunglasses, a slim steel-bracelet watch, a sprig of dried olive branch",
-   "photos": [
-    "assets/img/products/rl-linen-olive-1.jpg",
-    "assets/img/products/rl-linen-olive-2.jpg",
-    "assets/img/products/rl-linen-olive-3.jpg"
-   ],
    "editorial": [
-    "assets/img/editorial/rl-linen-olive-1.jpg",
-    "assets/img/editorial/rl-linen-olive-2.jpg",
-    "assets/img/editorial/rl-linen-olive-3.jpg",
-    "assets/img/editorial/rl-linen-olive-4.jpg",
-    "assets/img/editorial/rl-linen-olive-5.jpg",
-    "assets/img/editorial/rl-linen-olive-6.jpg",
-    "assets/img/editorial/rl-linen-olive-7.jpg",
-    "assets/img/editorial/rl-linen-olive-8.jpg",
-    "assets/img/editorial/rl-linen-olive-9.jpg"
+    "assets/img/editorial/rl-linen-olive-1.webp",
+    "assets/img/editorial/rl-linen-olive-2.webp",
+    "assets/img/editorial/rl-linen-olive-3.webp",
+    "assets/img/editorial/rl-linen-olive-4.webp",
+    "assets/img/editorial/rl-linen-olive-5.webp",
+    "assets/img/editorial/rl-linen-olive-6.webp",
+    "assets/img/editorial/rl-linen-olive-7.webp",
+    "assets/img/editorial/rl-linen-olive-8.webp",
+    "assets/img/editorial/rl-linen-olive-9.webp",
+    "assets/img/editorial/rl-linen-olive-20.webp"
    ],
-   "proof": [
-    "assets/img/products/rl-linen-olive-2.jpg",
-    "assets/img/products/rl-linen-olive-3.jpg"
-   ]
+   "cutout": "assets/img/cutout/rl-linen-olive.webp",
+   "plate": "assets/img/plate/rl-linen-olive.webp",
+   "m": {
+    "card": "assets/img/m/editorial__rl-linen-olive-1-card.webp",
+    "gallery": [
+     "assets/img/m/editorial__rl-linen-olive-1-view.webp",
+     "assets/img/m/editorial__rl-linen-olive-2-view.webp",
+     "assets/img/m/editorial__rl-linen-olive-3-view.webp",
+     "assets/img/m/editorial__rl-linen-olive-4-view.webp",
+     "assets/img/m/editorial__rl-linen-olive-5-view.webp",
+     "assets/img/m/editorial__rl-linen-olive-6-view.webp"
+    ]
+   }
   },
   {
    "id": "rare-rabbit-kufa",
@@ -77,7 +82,7 @@ window.REWORN = {
    "condition": 100,
    "condition_note": "Original. No flaws.",
    "story": "An artwork with buttons. Red-and-ink sketch print — worn when you want the room to look.",
-   "price_inr": 1800,
+   "price_inr": 1799,
    "source_dir": "Products/shirts/rare rabit",
    "hero_photo": "IMG_9780.jpg",
    "outfit": {
@@ -94,25 +99,29 @@ window.REWORN = {
    "label_text": "Rare · STATEMENT · MMXVI",
    "surface": "matte charcoal-grey slate",
    "props": "a pair of black oval sunglasses, a fine silver chain, a black ceramic incense holder",
-   "photos": [
-    "assets/img/products/rare-rabbit-kufa-1.jpg",
-    "assets/img/products/rare-rabbit-kufa-2.jpg",
-    "assets/img/products/rare-rabbit-kufa-3.jpg"
-   ],
    "editorial": [
-    "assets/img/editorial/rare-rabbit-kufa-1.jpg",
-    "assets/img/editorial/rare-rabbit-kufa-2.jpg",
-    "assets/img/editorial/rare-rabbit-kufa-4.jpg",
-    "assets/img/editorial/rare-rabbit-kufa-5.jpg",
-    "assets/img/editorial/rare-rabbit-kufa-6.jpg",
-    "assets/img/editorial/rare-rabbit-kufa-7.jpg",
-    "assets/img/editorial/rare-rabbit-kufa-8.jpg",
-    "assets/img/editorial/rare-rabbit-kufa-9.jpg"
+    "assets/img/editorial/rare-rabbit-kufa-1.webp",
+    "assets/img/editorial/rare-rabbit-kufa-2.webp",
+    "assets/img/editorial/rare-rabbit-kufa-3.webp",
+    "assets/img/editorial/rare-rabbit-kufa-4.webp",
+    "assets/img/editorial/rare-rabbit-kufa-5.webp",
+    "assets/img/editorial/rare-rabbit-kufa-6.webp",
+    "assets/img/editorial/rare-rabbit-kufa-7.webp",
+    "assets/img/editorial/rare-rabbit-kufa-20.webp"
    ],
-   "proof": [
-    "assets/img/products/rare-rabbit-kufa-2.jpg",
-    "assets/img/products/rare-rabbit-kufa-3.jpg"
-   ]
+   "cutout": "assets/img/cutout/rare-rabbit-kufa.webp",
+   "plate": "assets/img/plate/rare-rabbit-kufa.webp",
+   "m": {
+    "card": "assets/img/m/editorial__rare-rabbit-kufa-1-card.webp",
+    "gallery": [
+     "assets/img/m/editorial__rare-rabbit-kufa-1-view.webp",
+     "assets/img/m/editorial__rare-rabbit-kufa-2-view.webp",
+     "assets/img/m/editorial__rare-rabbit-kufa-3-view.webp",
+     "assets/img/m/editorial__rare-rabbit-kufa-4-view.webp",
+     "assets/img/m/editorial__rare-rabbit-kufa-5-view.webp",
+     "assets/img/m/editorial__rare-rabbit-kufa-6-view.webp"
+    ]
+   }
   },
   {
    "id": "pepe-linen-ecru",
@@ -125,7 +134,7 @@ window.REWORN = {
    "condition": 100,
    "condition_note": "Original. No flaws.",
    "story": "Off-white linen that photographs like sunlight.",
-   "price_inr": 1400,
+   "price_inr": 2000,
    "source_dir": "Products/shirts/pepe",
    "hero_photo": "IMG_9774.jpg",
    "outfit": {
@@ -140,23 +149,29 @@ window.REWORN = {
    },
    "surface": "bleached driftwood",
    "props": "a woven raffia hat brim, a small white espresso cup, a linen napkin loosely folded",
-   "photos": [
-    "assets/img/products/pepe-linen-ecru-1.jpg",
-    "assets/img/products/pepe-linen-ecru-2.jpg"
-   ],
    "editorial": [
-    "assets/img/editorial/pepe-linen-ecru-1.jpg",
-    "assets/img/editorial/pepe-linen-ecru-2.jpg",
-    "assets/img/editorial/pepe-linen-ecru-4.jpg",
-    "assets/img/editorial/pepe-linen-ecru-5.jpg",
-    "assets/img/editorial/pepe-linen-ecru-6.jpg",
-    "assets/img/editorial/pepe-linen-ecru-7.jpg",
-    "assets/img/editorial/pepe-linen-ecru-8.jpg",
-    "assets/img/editorial/pepe-linen-ecru-9.jpg"
+    "assets/img/editorial/pepe-linen-ecru-1.webp",
+    "assets/img/editorial/pepe-linen-ecru-2.webp",
+    "assets/img/editorial/pepe-linen-ecru-4.webp",
+    "assets/img/editorial/pepe-linen-ecru-5.webp",
+    "assets/img/editorial/pepe-linen-ecru-6.webp",
+    "assets/img/editorial/pepe-linen-ecru-7.webp",
+    "assets/img/editorial/pepe-linen-ecru-8.webp",
+    "assets/img/editorial/pepe-linen-ecru-9.webp"
    ],
-   "proof": [
-    "assets/img/products/pepe-linen-ecru-2.jpg"
-   ]
+   "cutout": "assets/img/cutout/pepe-linen-ecru.webp",
+   "plate": "assets/img/plate/pepe-linen-ecru.webp",
+   "m": {
+    "card": "assets/img/m/editorial__pepe-linen-ecru-1-card.webp",
+    "gallery": [
+     "assets/img/m/editorial__pepe-linen-ecru-1-view.webp",
+     "assets/img/m/editorial__pepe-linen-ecru-2-view.webp",
+     "assets/img/m/editorial__pepe-linen-ecru-4-view.webp",
+     "assets/img/m/editorial__pepe-linen-ecru-5-view.webp",
+     "assets/img/m/editorial__pepe-linen-ecru-6-view.webp",
+     "assets/img/m/editorial__pepe-linen-ecru-7-view.webp"
+    ]
+   }
   },
   {
    "id": "pepe-denim",
@@ -169,7 +184,7 @@ window.REWORN = {
    "condition": 100,
    "condition_note": "Original. No flaws.",
    "story": "The overshirt-shirt. Wear it open over white or alone, buttoned to the neck.",
-   "price_inr": 1500,
+   "price_inr": 999,
    "source_dir": "Products/shirts/pepe",
    "hero_photo": "IMG_9807.JPG",
    "outfit": {
@@ -184,25 +199,27 @@ window.REWORN = {
    },
    "surface": "raw indigo canvas",
    "props": "a coiled bandana, two chunky silver rings, a worn brown leather belt coiled",
-   "photos": [
-    "assets/img/products/pepe-denim-1.jpg",
-    "assets/img/products/pepe-denim-2.jpg",
-    "assets/img/products/pepe-denim-3.jpg"
-   ],
    "editorial": [
-    "assets/img/editorial/pepe-denim-1.jpg",
-    "assets/img/editorial/pepe-denim-2.jpg",
-    "assets/img/editorial/pepe-denim-4.jpg",
-    "assets/img/editorial/pepe-denim-5.jpg",
-    "assets/img/editorial/pepe-denim-6.jpg",
-    "assets/img/editorial/pepe-denim-7.jpg",
-    "assets/img/editorial/pepe-denim-8.jpg",
-    "assets/img/editorial/pepe-denim-9.jpg"
+    "assets/img/editorial/pepe-denim-1.webp",
+    "assets/img/editorial/pepe-denim-2.webp",
+    "assets/img/editorial/pepe-denim-3.webp",
+    "assets/img/editorial/pepe-denim-4.webp",
+    "assets/img/editorial/pepe-denim-5.webp",
+    "assets/img/editorial/pepe-denim-6.webp"
    ],
-   "proof": [
-    "assets/img/products/pepe-denim-2.jpg",
-    "assets/img/products/pepe-denim-3.jpg"
-   ]
+   "cutout": "assets/img/cutout/pepe-denim.webp",
+   "plate": "assets/img/plate/pepe-denim.webp",
+   "m": {
+    "card": "assets/img/m/editorial__pepe-denim-1-card.webp",
+    "gallery": [
+     "assets/img/m/editorial__pepe-denim-1-view.webp",
+     "assets/img/m/editorial__pepe-denim-2-view.webp",
+     "assets/img/m/editorial__pepe-denim-3-view.webp",
+     "assets/img/m/editorial__pepe-denim-4-view.webp",
+     "assets/img/m/editorial__pepe-denim-5-view.webp",
+     "assets/img/m/editorial__pepe-denim-6-view.webp"
+    ]
+   }
   },
   {
    "id": "uspa-stripe",
@@ -215,7 +232,7 @@ window.REWORN = {
    "condition": 100,
    "condition_note": "Original. No flaws.",
    "story": "Banker stripes, weekend attitude.",
-   "price_inr": 1300,
+   "price_inr": 1199,
    "source_dir": "Products/shirts/usp",
    "hero_photo": "IMG_9786.JPG",
    "outfit": {
@@ -231,25 +248,27 @@ window.REWORN = {
    },
    "surface": "cream cotton twill",
    "props": "a coiled navy knit tie, a leather-strap watch, a single tennis ball",
-   "photos": [
-    "assets/img/products/uspa-stripe-1.jpg",
-    "assets/img/products/uspa-stripe-2.jpg",
-    "assets/img/products/uspa-stripe-3.jpg"
-   ],
    "editorial": [
-    "assets/img/editorial/uspa-stripe-1.jpg",
-    "assets/img/editorial/uspa-stripe-2.jpg",
-    "assets/img/editorial/uspa-stripe-4.jpg",
-    "assets/img/editorial/uspa-stripe-5.jpg",
-    "assets/img/editorial/uspa-stripe-6.jpg",
-    "assets/img/editorial/uspa-stripe-7.jpg",
-    "assets/img/editorial/uspa-stripe-8.jpg",
-    "assets/img/editorial/uspa-stripe-9.jpg"
+    "assets/img/editorial/uspa-stripe-1.webp",
+    "assets/img/editorial/uspa-stripe-2.webp",
+    "assets/img/editorial/uspa-stripe-3.webp",
+    "assets/img/editorial/uspa-stripe-4.webp",
+    "assets/img/editorial/uspa-stripe-5.webp",
+    "assets/img/editorial/uspa-stripe-6.webp"
    ],
-   "proof": [
-    "assets/img/products/uspa-stripe-2.jpg",
-    "assets/img/products/uspa-stripe-3.jpg"
-   ]
+   "cutout": "assets/img/cutout/uspa-stripe.webp",
+   "plate": "assets/img/plate/uspa-stripe.webp",
+   "m": {
+    "card": "assets/img/m/editorial__uspa-stripe-1-card.webp",
+    "gallery": [
+     "assets/img/m/editorial__uspa-stripe-1-view.webp",
+     "assets/img/m/editorial__uspa-stripe-2-view.webp",
+     "assets/img/m/editorial__uspa-stripe-3-view.webp",
+     "assets/img/m/editorial__uspa-stripe-4-view.webp",
+     "assets/img/m/editorial__uspa-stripe-5-view.webp",
+     "assets/img/m/editorial__uspa-stripe-6-view.webp"
+    ]
+   }
   },
   {
    "id": "vanheusen-brown",
@@ -262,7 +281,7 @@ window.REWORN = {
    "condition": 98,
    "condition_note": "Small thread pull near chest pocket seam",
    "story": "Espresso tones. The shirt that makes gold jewellery louder.",
-   "price_inr": 1100,
+   "price_inr": 1499,
    "source_dir": "Products/shirts/van huesen",
    "hero_photo": "IMG_9800.JPG",
    "outfit": {
@@ -277,25 +296,28 @@ window.REWORN = {
    },
    "surface": "dark terracotta tile",
    "props": "a gold-tone watch, a string of sandalwood beads, a tan leather card holder",
-   "photos": [
-    "assets/img/products/vanheusen-brown-1.jpg",
-    "assets/img/products/vanheusen-brown-2.jpg",
-    "assets/img/products/vanheusen-brown-3.jpg"
-   ],
    "editorial": [
-    "assets/img/editorial/vanheusen-brown-1.jpg",
-    "assets/img/editorial/vanheusen-brown-2.jpg",
-    "assets/img/editorial/vanheusen-brown-4.jpg",
-    "assets/img/editorial/vanheusen-brown-5.jpg",
-    "assets/img/editorial/vanheusen-brown-6.jpg",
-    "assets/img/editorial/vanheusen-brown-7.jpg",
-    "assets/img/editorial/vanheusen-brown-8.jpg",
-    "assets/img/editorial/vanheusen-brown-9.jpg"
+    "assets/img/editorial/vanheusen-brown-1.webp",
+    "assets/img/editorial/vanheusen-brown-2.webp",
+    "assets/img/editorial/vanheusen-brown-3.webp",
+    "assets/img/editorial/vanheusen-brown-4.webp",
+    "assets/img/editorial/vanheusen-brown-5.webp",
+    "assets/img/editorial/vanheusen-brown-6.webp",
+    "assets/img/editorial/vanheusen-brown-7.webp"
    ],
-   "proof": [
-    "assets/img/products/vanheusen-brown-2.jpg",
-    "assets/img/products/vanheusen-brown-3.jpg"
-   ]
+   "cutout": "assets/img/cutout/vanheusen-brown.webp",
+   "plate": "assets/img/plate/vanheusen-brown.webp",
+   "m": {
+    "card": "assets/img/m/editorial__vanheusen-brown-1-card.webp",
+    "gallery": [
+     "assets/img/m/editorial__vanheusen-brown-1-view.webp",
+     "assets/img/m/editorial__vanheusen-brown-2-view.webp",
+     "assets/img/m/editorial__vanheusen-brown-3-view.webp",
+     "assets/img/m/editorial__vanheusen-brown-4-view.webp",
+     "assets/img/m/editorial__vanheusen-brown-5-view.webp",
+     "assets/img/m/editorial__vanheusen-brown-6-view.webp"
+    ]
+   }
   },
   {
    "id": "lp-polo-black",
@@ -308,7 +330,7 @@ window.REWORN = {
    "condition": 100,
    "condition_note": "Original. No flaws.",
    "story": "The polo that reads tailored. Mint collar detail keeps it modern.",
-   "price_inr": 1000,
+   "price_inr": 899,
    "source_dir": "Products/shirts/lp",
    "hero_photo": "IMG_9794.JPG",
    "needs_front_photo": true,
@@ -324,36 +346,42 @@ window.REWORN = {
    },
    "surface": "pale grey linen",
    "props": "a folded pair of white ribbed socks, one black leather loafer, a steel diver's watch",
-   "photos": [
-    "assets/img/products/lp-polo-black-1.jpg",
-    "assets/img/products/lp-polo-black-2.jpg"
-   ],
    "editorial": [
-    "assets/img/editorial/lp-polo-black-1.jpg",
-    "assets/img/editorial/lp-polo-black-2.jpg",
-    "assets/img/editorial/lp-polo-black-4.jpg",
-    "assets/img/editorial/lp-polo-black-5.jpg",
-    "assets/img/editorial/lp-polo-black-6.jpg",
-    "assets/img/editorial/lp-polo-black-7.jpg",
-    "assets/img/editorial/lp-polo-black-8.jpg",
-    "assets/img/editorial/lp-polo-black-9.jpg"
+    "assets/img/editorial/lp-polo-black-1.webp",
+    "assets/img/editorial/lp-polo-black-2.webp",
+    "assets/img/editorial/lp-polo-black-4.webp",
+    "assets/img/editorial/lp-polo-black-5.webp",
+    "assets/img/editorial/lp-polo-black-6.webp",
+    "assets/img/editorial/lp-polo-black-7.webp",
+    "assets/img/editorial/lp-polo-black-8.webp",
+    "assets/img/editorial/lp-polo-black-9.webp"
    ],
-   "proof": [
-    "assets/img/products/lp-polo-black-2.jpg"
-   ]
+   "cutout": "assets/img/cutout/lp-polo-black.webp",
+   "plate": "assets/img/plate/lp-polo-black.webp",
+   "m": {
+    "card": "assets/img/m/editorial__lp-polo-black-1-card.webp",
+    "gallery": [
+     "assets/img/m/editorial__lp-polo-black-1-view.webp",
+     "assets/img/m/editorial__lp-polo-black-2-view.webp",
+     "assets/img/m/editorial__lp-polo-black-4-view.webp",
+     "assets/img/m/editorial__lp-polo-black-5-view.webp",
+     "assets/img/m/editorial__lp-polo-black-6-view.webp",
+     "assets/img/m/editorial__lp-polo-black-7-view.webp"
+    ]
+   }
   },
   {
    "id": "pan-america-navy",
    "tier": "core",
-   "brand": "Pan America",
+   "brand": "U.S. Lee",
    "name": "Navy Short-Sleeve Shirt",
    "category": "shirts",
-   "size": "Fits M · measured on request",
+   "size": "XL · 42 cm · Slim Fit",
    "material": "Textured cotton",
    "condition": 100,
    "condition_note": "Original. No flaws.",
    "story": "Boxy navy short-sleeve — the summer uniform.",
-   "price_inr": 800,
+   "price_inr": 499,
    "source_dir": "Products/shirts/pan america and other",
    "hero_photo": "IMG_9750.JPG",
    "outfit": {
@@ -368,67 +396,29 @@ window.REWORN = {
    },
    "surface": "sun-bleached teak",
    "props": "a pair of woven leather sandals, a tin of sunscreen, a length of natural rope",
-   "photos": [
-    "assets/img/products/pan-america-navy-1.jpg",
-    "assets/img/products/pan-america-navy-2.jpg"
-   ],
    "editorial": [
-    "assets/img/editorial/pan-america-navy-1.jpg",
-    "assets/img/editorial/pan-america-navy-2.jpg",
-    "assets/img/editorial/pan-america-navy-4.jpg",
-    "assets/img/editorial/pan-america-navy-5.jpg",
-    "assets/img/editorial/pan-america-navy-6.jpg",
-    "assets/img/editorial/pan-america-navy-7.jpg",
-    "assets/img/editorial/pan-america-navy-8.jpg",
-    "assets/img/editorial/pan-america-navy-9.jpg"
+    "assets/img/editorial/pan-america-navy-1.webp",
+    "assets/img/editorial/pan-america-navy-2.webp",
+    "assets/img/editorial/pan-america-navy-4.webp",
+    "assets/img/editorial/pan-america-navy-5.webp",
+    "assets/img/editorial/pan-america-navy-6.webp",
+    "assets/img/editorial/pan-america-navy-7.webp",
+    "assets/img/editorial/pan-america-navy-8.webp",
+    "assets/img/editorial/pan-america-navy-9.webp"
    ],
-   "proof": [
-    "assets/img/products/pan-america-navy-2.jpg"
-   ]
-  },
-  {
-   "id": "chambray-blue",
-   "tier": "core",
-   "brand": "Unbranded archive",
-   "name": "Blue Chambray Shirt",
-   "category": "shirts",
-   "size": "Measured on request",
-   "material": "Cotton chambray",
-   "condition": 100,
-   "condition_note": "Original. No flaws.",
-   "story": "Faded-sky chambray. Softens every outfit it enters.",
-   "price_inr": 900,
-   "source_dir": "Products/shirts/pan america and other",
-   "hero_photo": "IMG_9762.jpg",
-   "outfit": {
-    "concept": "Washed blue + white",
-    "pieces": [
-     "chambray shirt sleeves rolled",
-     "white straight trousers",
-     "white leather sneakers",
-     "canvas belt"
-    ],
-    "mood": "Candid laugh, looking off-frame"
-   },
-   "surface": "weathered white-painted board",
-   "props": "a coiled canvas belt, one white leather sneaker, a folded denim swatch",
-   "photos": [
-    "assets/img/products/chambray-blue-1.jpg",
-    "assets/img/products/chambray-blue-2.jpg"
-   ],
-   "editorial": [
-    "assets/img/editorial/chambray-blue-1.jpg",
-    "assets/img/editorial/chambray-blue-2.jpg",
-    "assets/img/editorial/chambray-blue-4.jpg",
-    "assets/img/editorial/chambray-blue-5.jpg",
-    "assets/img/editorial/chambray-blue-6.jpg",
-    "assets/img/editorial/chambray-blue-7.jpg",
-    "assets/img/editorial/chambray-blue-8.jpg",
-    "assets/img/editorial/chambray-blue-9.jpg"
-   ],
-   "proof": [
-    "assets/img/products/chambray-blue-2.jpg"
-   ]
+   "cutout": "assets/img/cutout/pan-america-navy.webp",
+   "plate": "assets/img/plate/pan-america-navy.webp",
+   "m": {
+    "card": "assets/img/m/editorial__pan-america-navy-1-card.webp",
+    "gallery": [
+     "assets/img/m/editorial__pan-america-navy-1-view.webp",
+     "assets/img/m/editorial__pan-america-navy-2-view.webp",
+     "assets/img/m/editorial__pan-america-navy-4-view.webp",
+     "assets/img/m/editorial__pan-america-navy-5-view.webp",
+     "assets/img/m/editorial__pan-america-navy-6-view.webp",
+     "assets/img/m/editorial__pan-america-navy-7-view.webp"
+    ]
+   }
   },
   {
    "id": "nike-padded",
@@ -438,10 +428,10 @@ window.REWORN = {
    "category": "outerwear",
    "size": "Oversized fit (style 477139-010, FA12)",
    "material": "Nylon shell, synthetic fill",
-   "condition": 92,
+   "condition": 90,
    "condition_note": "Pre-owned, good condition. Verified style code 477139-010 (Fall 2012).",
    "story": "A 2012 Nike Sportswear piece — glossy black quilting you can't buy new anymore.",
-   "price_inr": 2900,
+   "price_inr": 2199,
    "source_dir": "Products/1",
    "hero_photo": "IMG_9656.jpg",
    "outfit": {
@@ -457,26 +447,30 @@ window.REWORN = {
    },
    "surface": "brushed concrete",
    "props": "a black aluminium carabiner, coiled black wired earphones, a rolled black nylon strap",
-   "photos": [
-    "assets/img/products/nike-padded-1.jpg",
-    "assets/img/products/nike-padded-2.jpg",
-    "assets/img/products/nike-padded-3.jpg",
-    "assets/img/products/nike-padded-4.jpg"
-   ],
    "editorial": [
-    "assets/img/editorial/nike-padded-1.jpg",
-    "assets/img/editorial/nike-padded-2.jpg",
-    "assets/img/editorial/nike-padded-4.jpg",
-    "assets/img/editorial/nike-padded-5.jpg",
-    "assets/img/editorial/nike-padded-6.jpg",
-    "assets/img/editorial/nike-padded-7.jpg",
-    "assets/img/editorial/nike-padded-8.jpg",
-    "assets/img/editorial/nike-padded-9.jpg"
+    "assets/img/editorial/nike-padded-1.webp",
+    "assets/img/editorial/nike-padded-2.webp",
+    "assets/img/editorial/nike-padded-3.webp",
+    "assets/img/editorial/nike-padded-4.webp",
+    "assets/img/editorial/nike-padded-5.webp",
+    "assets/img/editorial/nike-padded-6.webp",
+    "assets/img/editorial/nike-padded-7.webp",
+    "assets/img/editorial/nike-padded-8.webp",
+    "assets/img/editorial/nike-padded-20.webp"
    ],
-   "proof": [
-    "assets/img/products/nike-padded-2.jpg",
-    "assets/img/products/nike-padded-3.jpg"
-   ]
+   "cutout": "assets/img/cutout/nike-padded.webp",
+   "plate": "assets/img/plate/nike-padded.webp",
+   "m": {
+    "card": "assets/img/m/editorial__nike-padded-1-card.webp",
+    "gallery": [
+     "assets/img/m/editorial__nike-padded-1-view.webp",
+     "assets/img/m/editorial__nike-padded-2-view.webp",
+     "assets/img/m/editorial__nike-padded-3-view.webp",
+     "assets/img/m/editorial__nike-padded-4-view.webp",
+     "assets/img/m/editorial__nike-padded-5-view.webp",
+     "assets/img/m/editorial__nike-padded-6-view.webp"
+    ]
+   }
   },
   {
    "id": "lilang-trench",
@@ -486,10 +480,10 @@ window.REWORN = {
    "category": "outerwear",
    "size": "165/84A (Asia M) — oversized on most",
    "material": "50% Polyester · 50% Nylon, quilted lining",
-   "condition": 90,
+   "condition": 98,
    "condition_note": "Pre-owned; light crease wear (steams out).",
    "story": "A Fujian-tailored car coat with throat-latch detail. Detective-film energy.",
-   "price_inr": 1900,
+   "price_inr": 1499,
    "source_dir": "Products/2",
    "hero_photo": "IMG_9672.jpg",
    "outfit": {
@@ -504,25 +498,33 @@ window.REWORN = {
    },
    "surface": "dark walnut wood",
    "props": "a pair of brown leather driving gloves, a folded broadsheet newspaper, a brass door key",
-   "photos": [
-    "assets/img/products/lilang-trench-1.jpg",
-    "assets/img/products/lilang-trench-2.jpg",
-    "assets/img/products/lilang-trench-3.jpg"
-   ],
+   "origin": {
+    "place": "Fujian"
+   },
    "editorial": [
-    "assets/img/editorial/lilang-trench-1.jpg",
-    "assets/img/editorial/lilang-trench-2.jpg",
-    "assets/img/editorial/lilang-trench-4.jpg",
-    "assets/img/editorial/lilang-trench-5.jpg",
-    "assets/img/editorial/lilang-trench-6.jpg",
-    "assets/img/editorial/lilang-trench-7.jpg",
-    "assets/img/editorial/lilang-trench-8.jpg",
-    "assets/img/editorial/lilang-trench-9.jpg"
+    "assets/img/editorial/lilang-trench-1.webp",
+    "assets/img/editorial/lilang-trench-2.webp",
+    "assets/img/editorial/lilang-trench-3.webp",
+    "assets/img/editorial/lilang-trench-4.webp",
+    "assets/img/editorial/lilang-trench-5.webp",
+    "assets/img/editorial/lilang-trench-6.webp",
+    "assets/img/editorial/lilang-trench-7.webp",
+    "assets/img/editorial/lilang-trench-8.webp",
+    "assets/img/editorial/lilang-trench-20.webp"
    ],
-   "proof": [
-    "assets/img/products/lilang-trench-2.jpg",
-    "assets/img/products/lilang-trench-3.jpg"
-   ]
+   "cutout": "assets/img/cutout/lilang-trench.webp",
+   "plate": "assets/img/plate/lilang-trench.webp",
+   "m": {
+    "card": "assets/img/m/editorial__lilang-trench-1-card.webp",
+    "gallery": [
+     "assets/img/m/editorial__lilang-trench-1-view.webp",
+     "assets/img/m/editorial__lilang-trench-2-view.webp",
+     "assets/img/m/editorial__lilang-trench-3-view.webp",
+     "assets/img/m/editorial__lilang-trench-4-view.webp",
+     "assets/img/m/editorial__lilang-trench-5-view.webp",
+     "assets/img/m/editorial__lilang-trench-6-view.webp"
+    ]
+   }
   },
   {
    "id": "sourepose-chore",
@@ -532,10 +534,10 @@ window.REWORN = {
    "category": "outerwear",
    "size": "175/96A (Men's L)",
    "material": "100% Cotton, poly lining (art. 6HW128)",
-   "condition": 90,
+   "condition": 98,
    "condition_note": "Pre-owned; honest wear.",
    "story": "Military olive chore jacket — four-pocket utility, drapes like workwear should.",
-   "price_inr": 1600,
+   "price_inr": 1499,
    "source_dir": "Products/3",
    "hero_photo": "IMG_9680.JPG",
    "outfit": {
@@ -550,25 +552,29 @@ window.REWORN = {
    },
    "surface": "rough workbench oak",
    "props": "a pair of canvas work gloves, a flat carpenter's pencil, a folded canvas tote",
-   "photos": [
-    "assets/img/products/sourepose-chore-1.jpg",
-    "assets/img/products/sourepose-chore-2.jpg",
-    "assets/img/products/sourepose-chore-3.jpg"
-   ],
    "editorial": [
-    "assets/img/editorial/sourepose-chore-1.jpg",
-    "assets/img/editorial/sourepose-chore-2.jpg",
-    "assets/img/editorial/sourepose-chore-4.jpg",
-    "assets/img/editorial/sourepose-chore-5.jpg",
-    "assets/img/editorial/sourepose-chore-6.jpg",
-    "assets/img/editorial/sourepose-chore-7.jpg",
-    "assets/img/editorial/sourepose-chore-8.jpg",
-    "assets/img/editorial/sourepose-chore-9.jpg"
+    "assets/img/editorial/sourepose-chore-1.webp",
+    "assets/img/editorial/sourepose-chore-2.webp",
+    "assets/img/editorial/sourepose-chore-3.webp",
+    "assets/img/editorial/sourepose-chore-4.webp",
+    "assets/img/editorial/sourepose-chore-5.webp",
+    "assets/img/editorial/sourepose-chore-6.webp",
+    "assets/img/editorial/sourepose-chore-7.webp",
+    "assets/img/editorial/sourepose-chore-8.webp"
    ],
-   "proof": [
-    "assets/img/products/sourepose-chore-2.jpg",
-    "assets/img/products/sourepose-chore-3.jpg"
-   ]
+   "cutout": "assets/img/cutout/sourepose-chore.webp",
+   "plate": "assets/img/plate/sourepose-chore.webp",
+   "m": {
+    "card": "assets/img/m/editorial__sourepose-chore-1-card.webp",
+    "gallery": [
+     "assets/img/m/editorial__sourepose-chore-1-view.webp",
+     "assets/img/m/editorial__sourepose-chore-2-view.webp",
+     "assets/img/m/editorial__sourepose-chore-3-view.webp",
+     "assets/img/m/editorial__sourepose-chore-4-view.webp",
+     "assets/img/m/editorial__sourepose-chore-5-view.webp",
+     "assets/img/m/editorial__sourepose-chore-6-view.webp"
+    ]
+   }
   },
   {
    "id": "angn-utility",
@@ -578,10 +584,10 @@ window.REWORN = {
    "category": "outerwear",
    "size": "XL",
    "material": "100% Cotton",
-   "condition": 92,
-   "condition_note": "Pre-owned, good condition.",
+   "condition": 100,
+   "condition_note": "Original. No flaws.",
    "story": "Four flap pockets, boxy cut — the layer that carries everything.",
-   "price_inr": 1500,
+   "price_inr": 1699,
    "source_dir": "Products/4",
    "hero_photo": "IMG_9688.JPG",
    "outfit": {
@@ -596,25 +602,29 @@ window.REWORN = {
    },
    "surface": "cold rolled steel",
    "props": "a folded multi-tool, a creased paper map, a heavy brass keyring",
-   "photos": [
-    "assets/img/products/angn-utility-1.jpg",
-    "assets/img/products/angn-utility-2.jpg",
-    "assets/img/products/angn-utility-3.jpg"
-   ],
    "editorial": [
-    "assets/img/editorial/angn-utility-1.jpg",
-    "assets/img/editorial/angn-utility-2.jpg",
-    "assets/img/editorial/angn-utility-4.jpg",
-    "assets/img/editorial/angn-utility-5.jpg",
-    "assets/img/editorial/angn-utility-6.jpg",
-    "assets/img/editorial/angn-utility-7.jpg",
-    "assets/img/editorial/angn-utility-8.jpg",
-    "assets/img/editorial/angn-utility-9.jpg"
+    "assets/img/editorial/angn-utility-1.webp",
+    "assets/img/editorial/angn-utility-2.webp",
+    "assets/img/editorial/angn-utility-4.webp",
+    "assets/img/editorial/angn-utility-5.webp",
+    "assets/img/editorial/angn-utility-6.webp",
+    "assets/img/editorial/angn-utility-7.webp",
+    "assets/img/editorial/angn-utility-8.webp",
+    "assets/img/editorial/angn-utility-9.webp"
    ],
-   "proof": [
-    "assets/img/products/angn-utility-2.jpg",
-    "assets/img/products/angn-utility-3.jpg"
-   ]
+   "cutout": "assets/img/cutout/angn-utility.webp",
+   "plate": "assets/img/plate/angn-utility.webp",
+   "m": {
+    "card": "assets/img/m/editorial__angn-utility-1-card.webp",
+    "gallery": [
+     "assets/img/m/editorial__angn-utility-1-view.webp",
+     "assets/img/m/editorial__angn-utility-2-view.webp",
+     "assets/img/m/editorial__angn-utility-4-view.webp",
+     "assets/img/m/editorial__angn-utility-5-view.webp",
+     "assets/img/m/editorial__angn-utility-6-view.webp",
+     "assets/img/m/editorial__angn-utility-7-view.webp"
+    ]
+   }
   },
   {
    "id": "wuhuan-plaid",
@@ -624,10 +634,10 @@ window.REWORN = {
    "category": "outerwear",
    "size": "Boxy vintage fit",
    "material": "Plaid weave, ribbed collar/hem, smooth lining",
-   "condition": 88,
-   "condition_note": "True vintage (90s state-factory Shanghai). Wear consistent with age.",
+   "condition": 100,
+   "condition_note": "Original. No flaws.",
    "story": "1990s Shanghai factory bomber. Nobody else on campus will have this. Fact.",
-   "price_inr": 2200,
+   "price_inr": 1999,
    "source_dir": "Products/5",
    "hero_photo": "IMG_9665.jpg",
    "outfit": {
@@ -642,25 +652,33 @@ window.REWORN = {
    },
    "surface": "faded kraft paper",
    "props": "a vintage chrome film camera, an audio cassette, a worn paperback with cracked spine",
-   "photos": [
-    "assets/img/products/wuhuan-plaid-1.jpg",
-    "assets/img/products/wuhuan-plaid-2.jpg",
-    "assets/img/products/wuhuan-plaid-3.jpg"
-   ],
+   "origin": {
+    "place": "Shanghai",
+    "era": "1990s"
+   },
    "editorial": [
-    "assets/img/editorial/wuhuan-plaid-1.jpg",
-    "assets/img/editorial/wuhuan-plaid-2.jpg",
-    "assets/img/editorial/wuhuan-plaid-4.jpg",
-    "assets/img/editorial/wuhuan-plaid-5.jpg",
-    "assets/img/editorial/wuhuan-plaid-6.jpg",
-    "assets/img/editorial/wuhuan-plaid-7.jpg",
-    "assets/img/editorial/wuhuan-plaid-8.jpg",
-    "assets/img/editorial/wuhuan-plaid-9.jpg"
+    "assets/img/editorial/wuhuan-plaid-1.webp",
+    "assets/img/editorial/wuhuan-plaid-2.webp",
+    "assets/img/editorial/wuhuan-plaid-4.webp",
+    "assets/img/editorial/wuhuan-plaid-5.webp",
+    "assets/img/editorial/wuhuan-plaid-6.webp",
+    "assets/img/editorial/wuhuan-plaid-7.webp",
+    "assets/img/editorial/wuhuan-plaid-9.webp",
+    "assets/img/editorial/wuhuan-plaid-20.webp"
    ],
-   "proof": [
-    "assets/img/products/wuhuan-plaid-2.jpg",
-    "assets/img/products/wuhuan-plaid-3.jpg"
-   ]
+   "cutout": "assets/img/cutout/wuhuan-plaid.webp",
+   "plate": "assets/img/plate/wuhuan-plaid.webp",
+   "m": {
+    "card": "assets/img/m/editorial__wuhuan-plaid-1-card.webp",
+    "gallery": [
+     "assets/img/m/editorial__wuhuan-plaid-1-view.webp",
+     "assets/img/m/editorial__wuhuan-plaid-2-view.webp",
+     "assets/img/m/editorial__wuhuan-plaid-4-view.webp",
+     "assets/img/m/editorial__wuhuan-plaid-5-view.webp",
+     "assets/img/m/editorial__wuhuan-plaid-6-view.webp",
+     "assets/img/m/editorial__wuhuan-plaid-7-view.webp"
+    ]
+   }
   },
   {
    "id": "hongdou-harrington",
@@ -670,10 +688,10 @@ window.REWORN = {
    "category": "outerwear",
    "size": "Relaxed fit",
    "material": "Cotton blend, jacquard-branded lining",
-   "condition": 92,
-   "condition_note": "Pre-owned, good condition.",
+   "condition": 100,
+   "condition_note": "Original. No flaws.",
    "story": "The black dad-jacket — quiet, correct, goes over everything.",
-   "price_inr": 1700,
+   "price_inr": 1999,
    "source_dir": "Products/6",
    "hero_photo": "IMG_9730.jpg",
    "outfit": {
@@ -688,25 +706,29 @@ window.REWORN = {
    },
    "surface": "charcoal felt",
    "props": "a stainless steel watch, a small bunch of keys, a matte black lighter",
-   "photos": [
-    "assets/img/products/hongdou-harrington-1.jpg",
-    "assets/img/products/hongdou-harrington-2.jpg",
-    "assets/img/products/hongdou-harrington-3.jpg"
-   ],
    "editorial": [
-    "assets/img/editorial/hongdou-harrington-1.jpg",
-    "assets/img/editorial/hongdou-harrington-2.jpg",
-    "assets/img/editorial/hongdou-harrington-4.jpg",
-    "assets/img/editorial/hongdou-harrington-5.jpg",
-    "assets/img/editorial/hongdou-harrington-6.jpg",
-    "assets/img/editorial/hongdou-harrington-7.jpg",
-    "assets/img/editorial/hongdou-harrington-8.jpg",
-    "assets/img/editorial/hongdou-harrington-9.jpg"
+    "assets/img/editorial/hongdou-harrington-1.webp",
+    "assets/img/editorial/hongdou-harrington-2.webp",
+    "assets/img/editorial/hongdou-harrington-4.webp",
+    "assets/img/editorial/hongdou-harrington-5.webp",
+    "assets/img/editorial/hongdou-harrington-6.webp",
+    "assets/img/editorial/hongdou-harrington-7.webp",
+    "assets/img/editorial/hongdou-harrington-8.webp",
+    "assets/img/editorial/hongdou-harrington-9.webp"
    ],
-   "proof": [
-    "assets/img/products/hongdou-harrington-2.jpg",
-    "assets/img/products/hongdou-harrington-3.jpg"
-   ]
+   "cutout": "assets/img/cutout/hongdou-harrington.webp",
+   "plate": "assets/img/plate/hongdou-harrington.webp",
+   "m": {
+    "card": "assets/img/m/editorial__hongdou-harrington-1-card.webp",
+    "gallery": [
+     "assets/img/m/editorial__hongdou-harrington-1-view.webp",
+     "assets/img/m/editorial__hongdou-harrington-2-view.webp",
+     "assets/img/m/editorial__hongdou-harrington-4-view.webp",
+     "assets/img/m/editorial__hongdou-harrington-5-view.webp",
+     "assets/img/m/editorial__hongdou-harrington-6-view.webp",
+     "assets/img/m/editorial__hongdou-harrington-7-view.webp"
+    ]
+   }
   },
   {
    "id": "tries-coated",
@@ -716,10 +738,10 @@ window.REWORN = {
    "category": "outerwear",
    "size": "Art. 222615472",
    "material": "Coated textured finish, asymmetric zip",
-   "condition": 90,
-   "condition_note": "Pre-owned; coating intact.",
+   "condition": 100,
+   "condition_note": "Original. No flaws.",
    "story": "Leather-look without the leather price. Asymmetric zip does the talking.",
-   "price_inr": 1800,
+   "price_inr": 1499,
    "source_dir": "Products/7",
    "hero_photo": "IMG_9726.jpg",
    "outfit": {
@@ -734,25 +756,29 @@ window.REWORN = {
    },
    "surface": "black textured leather",
    "props": "three heavy silver rings, a curb-link chain, a pair of black leather gloves",
-   "photos": [
-    "assets/img/products/tries-coated-1.jpg",
-    "assets/img/products/tries-coated-2.jpg",
-    "assets/img/products/tries-coated-3.jpg"
-   ],
    "editorial": [
-    "assets/img/editorial/tries-coated-1.jpg",
-    "assets/img/editorial/tries-coated-2.jpg",
-    "assets/img/editorial/tries-coated-4.jpg",
-    "assets/img/editorial/tries-coated-5.jpg",
-    "assets/img/editorial/tries-coated-6.jpg",
-    "assets/img/editorial/tries-coated-7.jpg",
-    "assets/img/editorial/tries-coated-8.jpg",
-    "assets/img/editorial/tries-coated-9.jpg"
+    "assets/img/editorial/tries-coated-1.webp",
+    "assets/img/editorial/tries-coated-2.webp",
+    "assets/img/editorial/tries-coated-4.webp",
+    "assets/img/editorial/tries-coated-5.webp",
+    "assets/img/editorial/tries-coated-6.webp",
+    "assets/img/editorial/tries-coated-7.webp",
+    "assets/img/editorial/tries-coated-8.webp",
+    "assets/img/editorial/tries-coated-9.webp"
    ],
-   "proof": [
-    "assets/img/products/tries-coated-2.jpg",
-    "assets/img/products/tries-coated-3.jpg"
-   ]
+   "cutout": "assets/img/cutout/tries-coated.webp",
+   "plate": "assets/img/plate/tries-coated.webp",
+   "m": {
+    "card": "assets/img/m/editorial__tries-coated-1-card.webp",
+    "gallery": [
+     "assets/img/m/editorial__tries-coated-1-view.webp",
+     "assets/img/m/editorial__tries-coated-2-view.webp",
+     "assets/img/m/editorial__tries-coated-4-view.webp",
+     "assets/img/m/editorial__tries-coated-5-view.webp",
+     "assets/img/m/editorial__tries-coated-6-view.webp",
+     "assets/img/m/editorial__tries-coated-7-view.webp"
+    ]
+   }
   },
   {
    "id": "jinlong-carcoat",
@@ -762,10 +788,10 @@ window.REWORN = {
    "category": "outerwear",
    "size": "190/105A (fits tall XL–XXL, oversized on M)",
    "material": "Wool blend, tailored single-breasted",
-   "condition": 92,
+   "condition": 95,
    "condition_note": "Pre-owned, excellent drape.",
    "story": "Hong Kong-tailored topcoat. Wear it oversized — that's the point.",
-   "price_inr": 2000,
+   "price_inr": 1599,
    "source_dir": "Products/8",
    "hero_photo": "IMG_9716.jpg",
    "outfit": {
@@ -779,25 +805,33 @@ window.REWORN = {
    },
    "surface": "black slate",
    "props": "a pair of black leather gloves, a silver cigarette case, a folded charcoal silk scarf",
-   "photos": [
-    "assets/img/products/jinlong-carcoat-1.jpg",
-    "assets/img/products/jinlong-carcoat-2.jpg",
-    "assets/img/products/jinlong-carcoat-3.jpg"
-   ],
+   "origin": {
+    "place": "Hong Kong"
+   },
    "editorial": [
-    "assets/img/editorial/jinlong-carcoat-1.jpg",
-    "assets/img/editorial/jinlong-carcoat-2.jpg",
-    "assets/img/editorial/jinlong-carcoat-4.jpg",
-    "assets/img/editorial/jinlong-carcoat-5.jpg",
-    "assets/img/editorial/jinlong-carcoat-6.jpg",
-    "assets/img/editorial/jinlong-carcoat-7.jpg",
-    "assets/img/editorial/jinlong-carcoat-8.jpg",
-    "assets/img/editorial/jinlong-carcoat-9.jpg"
+    "assets/img/editorial/jinlong-carcoat-1.webp",
+    "assets/img/editorial/jinlong-carcoat-2.webp",
+    "assets/img/editorial/jinlong-carcoat-4.webp",
+    "assets/img/editorial/jinlong-carcoat-5.webp",
+    "assets/img/editorial/jinlong-carcoat-6.webp",
+    "assets/img/editorial/jinlong-carcoat-7.webp",
+    "assets/img/editorial/jinlong-carcoat-8.webp",
+    "assets/img/editorial/jinlong-carcoat-9.webp",
+    "assets/img/editorial/jinlong-carcoat-20.webp"
    ],
-   "proof": [
-    "assets/img/products/jinlong-carcoat-2.jpg",
-    "assets/img/products/jinlong-carcoat-3.jpg"
-   ]
+   "cutout": "assets/img/cutout/jinlong-carcoat.webp",
+   "plate": "assets/img/plate/jinlong-carcoat.webp",
+   "m": {
+    "card": "assets/img/m/editorial__jinlong-carcoat-1-card.webp",
+    "gallery": [
+     "assets/img/m/editorial__jinlong-carcoat-1-view.webp",
+     "assets/img/m/editorial__jinlong-carcoat-2-view.webp",
+     "assets/img/m/editorial__jinlong-carcoat-4-view.webp",
+     "assets/img/m/editorial__jinlong-carcoat-5-view.webp",
+     "assets/img/m/editorial__jinlong-carcoat-6-view.webp",
+     "assets/img/m/editorial__jinlong-carcoat-7-view.webp"
+    ]
+   }
   },
   {
    "id": "greymarl-mockneck",
@@ -807,10 +841,10 @@ window.REWORN = {
    "category": "knitwear",
    "size": "Relaxed",
    "material": "Ribbed knit",
-   "condition": 90,
+   "condition": 98,
    "condition_note": "Unbranded factory-surplus piece — sold for the fabric and the fit, not the tag.",
    "story": "The under-layer that makes every jacket on this page work.",
-   "price_inr": 900,
+   "price_inr": 499,
    "source_dir": "Products/9",
    "hero_photo": " .jpg",
    "outfit": {
@@ -822,20 +856,29 @@ window.REWORN = {
    },
    "surface": "pale birch wood",
    "props": "a folded grey scarf, a pair of clear-framed glasses, a ceramic dish",
-   "photos": [
-    "assets/img/products/greymarl-mockneck-1.jpg"
-   ],
    "editorial": [
-    "assets/img/editorial/greymarl-mockneck-1.jpg",
-    "assets/img/editorial/greymarl-mockneck-2.jpg",
-    "assets/img/editorial/greymarl-mockneck-4.jpg",
-    "assets/img/editorial/greymarl-mockneck-5.jpg",
-    "assets/img/editorial/greymarl-mockneck-6.jpg",
-    "assets/img/editorial/greymarl-mockneck-7.jpg",
-    "assets/img/editorial/greymarl-mockneck-8.jpg",
-    "assets/img/editorial/greymarl-mockneck-9.jpg"
+    "assets/img/editorial/greymarl-mockneck-1.webp",
+    "assets/img/editorial/greymarl-mockneck-2.webp",
+    "assets/img/editorial/greymarl-mockneck-4.webp",
+    "assets/img/editorial/greymarl-mockneck-5.webp",
+    "assets/img/editorial/greymarl-mockneck-6.webp",
+    "assets/img/editorial/greymarl-mockneck-7.webp",
+    "assets/img/editorial/greymarl-mockneck-8.webp",
+    "assets/img/editorial/greymarl-mockneck-9.webp"
    ],
-   "proof": []
+   "cutout": "assets/img/cutout/greymarl-mockneck.webp",
+   "plate": "assets/img/plate/greymarl-mockneck.webp",
+   "m": {
+    "card": "assets/img/m/editorial__greymarl-mockneck-1-card.webp",
+    "gallery": [
+     "assets/img/m/editorial__greymarl-mockneck-1-view.webp",
+     "assets/img/m/editorial__greymarl-mockneck-2-view.webp",
+     "assets/img/m/editorial__greymarl-mockneck-4-view.webp",
+     "assets/img/m/editorial__greymarl-mockneck-5-view.webp",
+     "assets/img/m/editorial__greymarl-mockneck-6-view.webp",
+     "assets/img/m/editorial__greymarl-mockneck-7-view.webp"
+    ]
+   }
   },
   {
    "id": "xint-henley",
@@ -845,10 +888,10 @@ window.REWORN = {
    "category": "knitwear",
    "size": "M",
    "material": "80% Cotton · 20% Elastane (Beige Melange)",
-   "condition": 95,
-   "condition_note": "Pre-owned, excellent.",
+   "condition": 100,
+   "condition_note": "Original. No flaws.",
    "story": "Turkish-made fine-gauge henley — the smart-casual cheat code.",
-   "price_inr": 1400,
+   "price_inr": 799,
    "source_dir": "Products/10",
    "hero_photo": "IMG_9818.JPG",
    "outfit": {
@@ -862,38 +905,45 @@ window.REWORN = {
    },
    "surface": "oatmeal wool blanket",
    "props": "a stoneware mug, a pair of thick wool socks, an open hardback book",
-   "photos": [
-    "assets/img/products/xint-henley-1.jpg",
-    "assets/img/products/xint-henley-2.jpg",
-    "assets/img/products/xint-henley-3.jpg"
-   ],
+   "origin": {
+    "place": "Turkey"
+   },
    "editorial": [
-    "assets/img/editorial/xint-henley-1.jpg",
-    "assets/img/editorial/xint-henley-2.jpg",
-    "assets/img/editorial/xint-henley-4.jpg",
-    "assets/img/editorial/xint-henley-5.jpg",
-    "assets/img/editorial/xint-henley-6.jpg",
-    "assets/img/editorial/xint-henley-7.jpg",
-    "assets/img/editorial/xint-henley-8.jpg",
-    "assets/img/editorial/xint-henley-9.jpg"
+    "assets/img/editorial/xint-henley-1.webp",
+    "assets/img/editorial/xint-henley-2.webp",
+    "assets/img/editorial/xint-henley-3.webp",
+    "assets/img/editorial/xint-henley-4.webp",
+    "assets/img/editorial/xint-henley-5.webp",
+    "assets/img/editorial/xint-henley-6.webp",
+    "assets/img/editorial/xint-henley-7.webp",
+    "assets/img/editorial/xint-henley-8.webp"
    ],
-   "proof": [
-    "assets/img/products/xint-henley-2.jpg",
-    "assets/img/products/xint-henley-3.jpg"
-   ]
+   "cutout": "assets/img/cutout/xint-henley.webp",
+   "plate": "assets/img/plate/xint-henley.webp",
+   "m": {
+    "card": "assets/img/m/editorial__xint-henley-1-card.webp",
+    "gallery": [
+     "assets/img/m/editorial__xint-henley-1-view.webp",
+     "assets/img/m/editorial__xint-henley-2-view.webp",
+     "assets/img/m/editorial__xint-henley-3-view.webp",
+     "assets/img/m/editorial__xint-henley-4-view.webp",
+     "assets/img/m/editorial__xint-henley-5-view.webp",
+     "assets/img/m/editorial__xint-henley-6-view.webp"
+    ]
+   }
   },
   {
    "id": "onward-furcollar",
    "tier": "hero",
    "brand": "Clothing 9 to 5 by Onward Kashiyama (Tokyo)",
-   "name": "Faux-Fur Collar Jacket",
+   "name": "Burgundy Faux-Fur Collar Jacket",
    "category": "outerwear",
    "size": "Japanese M · measured on request",
    "material": "Nylon shell, quilted red interior, YKK hardware",
-   "condition": 90,
-   "condition_note": "Pre-owned; hardware perfect.",
-   "story": "Japanese archive piece — red quilted inside like a secret. Open it slow.",
-   "price_inr": 2400,
+   "condition": 100,
+   "condition_note": "Original. No flaws.",
+   "story": "Japanese archive piece — deep burgundy shell, dark brown fur collar, quilted through. Open it slow.",
+   "price_inr": 2199,
    "source_dir": "Products/11",
    "hero_photo": "IMG_9814.JPG",
    "outfit": {
@@ -907,25 +957,33 @@ window.REWORN = {
    },
    "surface": "deep red lacquered tray",
    "props": "a crimson silk pocket square, a brushed steel lighter, a Japanese paperback",
-   "photos": [
-    "assets/img/products/onward-furcollar-1.jpg",
-    "assets/img/products/onward-furcollar-2.jpg",
-    "assets/img/products/onward-furcollar-3.jpg"
-   ],
+   "origin": {
+    "place": "Tokyo"
+   },
    "editorial": [
-    "assets/img/editorial/onward-furcollar-1.jpg",
-    "assets/img/editorial/onward-furcollar-2.jpg",
-    "assets/img/editorial/onward-furcollar-4.jpg",
-    "assets/img/editorial/onward-furcollar-5.jpg",
-    "assets/img/editorial/onward-furcollar-6.jpg",
-    "assets/img/editorial/onward-furcollar-7.jpg",
-    "assets/img/editorial/onward-furcollar-8.jpg",
-    "assets/img/editorial/onward-furcollar-9.jpg"
+    "assets/img/editorial/onward-furcollar-1.webp",
+    "assets/img/editorial/onward-furcollar-2.webp",
+    "assets/img/editorial/onward-furcollar-3.webp",
+    "assets/img/editorial/onward-furcollar-4.webp",
+    "assets/img/editorial/onward-furcollar-5.webp",
+    "assets/img/editorial/onward-furcollar-6.webp",
+    "assets/img/editorial/onward-furcollar-7.webp",
+    "assets/img/editorial/onward-furcollar-8.webp",
+    "assets/img/editorial/onward-furcollar-20.webp"
    ],
-   "proof": [
-    "assets/img/products/onward-furcollar-2.jpg",
-    "assets/img/products/onward-furcollar-3.jpg"
-   ]
+   "cutout": "assets/img/cutout/onward-furcollar.webp",
+   "plate": "assets/img/plate/onward-furcollar.webp",
+   "m": {
+    "card": "assets/img/m/editorial__onward-furcollar-1-card.webp",
+    "gallery": [
+     "assets/img/m/editorial__onward-furcollar-1-view.webp",
+     "assets/img/m/editorial__onward-furcollar-2-view.webp",
+     "assets/img/m/editorial__onward-furcollar-3-view.webp",
+     "assets/img/m/editorial__onward-furcollar-4-view.webp",
+     "assets/img/m/editorial__onward-furcollar-5-view.webp",
+     "assets/img/m/editorial__onward-furcollar-6-view.webp"
+    ]
+   }
   },
   {
    "id": "cable-knit-grey",
@@ -935,10 +993,10 @@ window.REWORN = {
    "category": "knitwear",
    "size": "Measured on request",
    "material": "Cable knit",
-   "condition": 85,
-   "condition_note": "Small snag on knit (visible in photos) — priced accordingly.",
+   "condition": 100,
+   "condition_note": "Original. No flaws.",
    "story": "Fisherman cables, archive grey. Honest wear, honest price.",
-   "price_inr": 1000,
+   "price_inr": 499,
    "source_dir": "Products/shirts/pan america and other",
    "hero_photo": "IMG_9761.jpg",
    "outfit": {
@@ -951,105 +1009,154 @@ window.REWORN = {
    },
    "surface": "undyed hessian",
    "props": "a battered steel thermos, a wooden comb, a coil of natural twine",
-   "photos": [
-    "assets/img/products/cable-knit-grey-1.jpg",
-    "assets/img/products/cable-knit-grey-2.jpg"
-   ],
    "editorial": [
-    "assets/img/editorial/cable-knit-grey-1.jpg",
-    "assets/img/editorial/cable-knit-grey-2.jpg",
-    "assets/img/editorial/cable-knit-grey-4.jpg",
-    "assets/img/editorial/cable-knit-grey-5.jpg",
-    "assets/img/editorial/cable-knit-grey-6.jpg",
-    "assets/img/editorial/cable-knit-grey-7.jpg",
-    "assets/img/editorial/cable-knit-grey-8.jpg",
-    "assets/img/editorial/cable-knit-grey-9.jpg"
+    "assets/img/editorial/cable-knit-grey-1.webp",
+    "assets/img/editorial/cable-knit-grey-2.webp",
+    "assets/img/editorial/cable-knit-grey-4.webp",
+    "assets/img/editorial/cable-knit-grey-5.webp",
+    "assets/img/editorial/cable-knit-grey-6.webp",
+    "assets/img/editorial/cable-knit-grey-7.webp",
+    "assets/img/editorial/cable-knit-grey-8.webp",
+    "assets/img/editorial/cable-knit-grey-9.webp"
    ],
-   "proof": [
-    "assets/img/products/cable-knit-grey-2.jpg"
-   ]
+   "cutout": "assets/img/cutout/cable-knit-grey.webp",
+   "plate": "assets/img/plate/cable-knit-grey.webp",
+   "m": {
+    "card": "assets/img/m/editorial__cable-knit-grey-1-card.webp",
+    "gallery": [
+     "assets/img/m/editorial__cable-knit-grey-1-view.webp",
+     "assets/img/m/editorial__cable-knit-grey-2-view.webp",
+     "assets/img/m/editorial__cable-knit-grey-4-view.webp",
+     "assets/img/m/editorial__cable-knit-grey-5-view.webp",
+     "assets/img/m/editorial__cable-knit-grey-6-view.webp",
+     "assets/img/m/editorial__cable-knit-grey-7-view.webp"
+    ]
+   }
   }
  ],
+ "retail_note": "retail_inr is the approximate price of the piece NEW in India. It renders on the product page as 'Retails around Rs X new' and is SILENT while null. Only fill it where you actually know the figure - a wrong number here is a false claim to a buyer. Archive pieces are deliberately left out: they are carried by origin, not by a comparison to a retail price the buyer has never seen.",
  "motion": {
   "heroSequence": [
    {
-    "src": "assets/img/editorial/rl-linen-olive-1.jpg",
+    "src": "assets/img/editorial/onward-furcollar-20.webp",
+    "alt": "Burgundy faux-fur collar jacket under a warm lamp"
+   },
+   {
+    "src": "assets/img/editorial/nike-padded-5.webp",
+    "alt": "Nike padded jacket folded on linen"
+   },
+   {
+    "src": "assets/img/editorial/jinlong-carcoat-20.webp",
+    "alt": "Hong Kong tailored wool car coat under a warm lamp"
+   },
+   {
+    "src": "assets/img/editorial/rare-rabbit-kufa-2.webp",
+    "alt": "Rare Rabbit KUFA print shirt on charcoal"
+   },
+   {
+    "src": "assets/img/editorial/lilang-trench-20.webp",
+    "alt": "Grey-taupe car coat under a warm lamp"
+   },
+   {
+    "src": "assets/img/editorial/rl-linen-olive-20.webp",
     "id": "rl-linen-olive",
     "brand": "Polo Ralph Lauren",
-    "name": "Olive Linen Shirt"
+    "name": "Olive Linen Shirt",
+    "alt": "Polo Ralph Lauren Olive Linen Shirt"
    },
    {
-    "src": "assets/img/editorial/rare-rabbit-kufa-1.jpg",
+    "src": "assets/img/editorial/rare-rabbit-kufa-4.webp",
     "id": "rare-rabbit-kufa",
     "brand": "Rare Rabbit",
-    "name": "KUFA Print Shirt"
+    "name": "KUFA Print Shirt",
+    "alt": "Rare Rabbit KUFA Print Shirt"
    },
    {
-    "src": "assets/img/editorial/nike-padded-1.jpg",
+    "src": "assets/img/editorial/nike-padded-2.webp",
     "id": "nike-padded",
     "brand": "Nike Sportswear",
-    "name": "Lightweight Padded Jacket"
+    "name": "Lightweight Padded Jacket",
+    "alt": "Nike Sportswear Lightweight Padded Jacket"
+   }
+  ],
+  "heroAmbient": "assets/img/mood/rack-warm.jpg",
+  "heroAmbientM": "assets/img/m/mood__rack-warm-view.webp",
+  "spotlight": [
+   {
+    "src": "assets/img/mood/camel-hands.jpg",
+    "alt": "Hands at rest inside a camel coat"
    },
    {
-    "src": "assets/img/editorial/lilang-trench-1.jpg",
+    "src": "assets/img/editorial/rl-linen-olive-20.webp",
+    "id": "rl-linen-olive",
+    "brand": "Polo Ralph Lauren",
+    "alt": "Polo Ralph Lauren Olive Linen Shirt"
+   },
+   {
+    "src": "assets/img/mood/lineup-bw.jpg",
+    "alt": "Four pairs of trousers and shoes, lined up"
+   },
+   {
+    "src": "assets/img/editorial/lilang-trench-20.webp",
     "id": "lilang-trench",
     "brand": "Lilang (利郎)",
-    "name": "Grey-Taupe Car Coat"
-   },
-   {
-    "src": "assets/img/editorial/wuhuan-plaid-1.jpg",
-    "id": "wuhuan-plaid",
-    "brand": "Wuhuan (五环) — Shanghai, 1990s",
-    "name": "Vintage Plaid Harrington"
-   },
-   {
-    "src": "assets/img/editorial/jinlong-carcoat-1.jpg",
-    "id": "jinlong-carcoat",
-    "brand": "Jin Long (金龍) — Hong Kong tailoring",
-    "name": "Charcoal Wool Car Coat"
-   },
-   {
-    "src": "assets/img/editorial/onward-furcollar-1.jpg",
-    "id": "onward-furcollar",
-    "brand": "Clothing 9 to 5 by Onward Kashiyama (Tokyo)",
-    "name": "Faux-Fur Collar Jacket"
-   },
-   {
-    "src": "assets/img/editorial/pepe-linen-ecru-1.jpg",
-    "id": "pepe-linen-ecru",
-    "brand": "Pepe Jeans London",
-    "name": "Ecru Linen Shirt"
+    "alt": "Lilang (利郎) Grey-Taupe Car Coat"
    }
   ],
   "hoverGroups": [
    {
     "key": "shirts",
     "label": "Shirts",
-    "count": 9,
+    "href": "collection.html?c=shirts",
+    "count": 8,
     "shots": [
-     "assets/img/editorial/rl-linen-olive-1.jpg",
-     "assets/img/editorial/rare-rabbit-kufa-1.jpg",
-     "assets/img/editorial/pepe-linen-ecru-1.jpg"
+     "assets/img/editorial/rl-linen-olive-1.webp",
+     "assets/img/editorial/rare-rabbit-kufa-1.webp",
+     "assets/img/editorial/pepe-linen-ecru-1.webp"
     ]
    },
    {
     "key": "outerwear",
     "label": "Outerwear",
+    "href": "collection.html?c=outerwear",
     "count": 9,
     "shots": [
-     "assets/img/editorial/nike-padded-1.jpg",
-     "assets/img/editorial/lilang-trench-1.jpg",
-     "assets/img/editorial/sourepose-chore-1.jpg"
+     "assets/img/editorial/nike-padded-1.webp",
+     "assets/img/editorial/lilang-trench-1.webp",
+     "assets/img/editorial/sourepose-chore-1.webp"
     ]
    },
    {
     "key": "knitwear",
     "label": "Knitwear",
+    "href": "collection.html?c=knitwear",
     "count": 3,
     "shots": [
-     "assets/img/editorial/greymarl-mockneck-1.jpg",
-     "assets/img/editorial/xint-henley-1.jpg",
-     "assets/img/editorial/cable-knit-grey-1.jpg"
+     "assets/img/editorial/greymarl-mockneck-1.webp",
+     "assets/img/editorial/xint-henley-1.webp",
+     "assets/img/editorial/cable-knit-grey-1.webp"
+    ]
+   },
+   {
+    "key": "under1500",
+    "label": "Under ₹1,500",
+    "href": "collection.html?max=1500",
+    "count": 12,
+    "shots": [
+     "assets/img/editorial/pan-america-navy-1.webp",
+     "assets/img/editorial/greymarl-mockneck-1.webp",
+     "assets/img/editorial/cable-knit-grey-1.webp"
+    ]
+   },
+   {
+    "key": "full",
+    "label": "Full health",
+    "href": "collection.html?health=100",
+    "count": 19,
+    "shots": [
+     "assets/img/editorial/rl-linen-olive-1.webp",
+     "assets/img/editorial/rare-rabbit-kufa-1.webp",
+     "assets/img/editorial/pepe-linen-ecru-1.webp"
     ]
    }
   ],
@@ -1058,87 +1165,81 @@ window.REWORN = {
     "label": "Shirts",
     "href": "collection.html?c=shirts",
     "shots": [
-     "assets/img/editorial/rl-linen-olive-1.jpg",
-     "assets/img/editorial/rare-rabbit-kufa-1.jpg",
-     "assets/img/editorial/pepe-linen-ecru-1.jpg"
+     "assets/img/editorial/rl-linen-olive-1.webp",
+     "assets/img/editorial/rare-rabbit-kufa-1.webp",
+     "assets/img/editorial/pepe-linen-ecru-1.webp"
     ]
    },
    {
     "label": "Outerwear",
     "href": "collection.html?c=outerwear",
     "shots": [
-     "assets/img/editorial/nike-padded-1.jpg",
-     "assets/img/editorial/lilang-trench-1.jpg",
-     "assets/img/editorial/sourepose-chore-1.jpg"
+     "assets/img/editorial/nike-padded-1.webp",
+     "assets/img/editorial/lilang-trench-1.webp",
+     "assets/img/editorial/sourepose-chore-1.webp"
     ]
    },
    {
     "label": "Knitwear",
     "href": "collection.html?c=knitwear",
     "shots": [
-     "assets/img/editorial/greymarl-mockneck-1.jpg",
-     "assets/img/editorial/xint-henley-1.jpg",
-     "assets/img/editorial/cable-knit-grey-1.jpg"
+     "assets/img/editorial/greymarl-mockneck-1.webp",
+     "assets/img/editorial/xint-henley-1.webp",
+     "assets/img/editorial/cable-knit-grey-1.webp"
     ]
    },
    {
     "label": "Archive",
     "href": "collection.html",
     "shots": [
-     "assets/img/editorial/rl-linen-olive-1.jpg",
-     "assets/img/editorial/rare-rabbit-kufa-1.jpg",
-     "assets/img/editorial/nike-padded-1.jpg"
+     "assets/img/editorial/rl-linen-olive-1.webp",
+     "assets/img/editorial/rare-rabbit-kufa-1.webp",
+     "assets/img/editorial/nike-padded-1.webp"
     ]
    },
    {
     "label": "Under ₹1500",
     "href": "collection.html",
     "shots": [
-     "assets/img/editorial/pepe-linen-ecru-1.jpg",
-     "assets/img/editorial/pepe-denim-1.jpg",
-     "assets/img/editorial/uspa-stripe-1.jpg"
+     "assets/img/editorial/rl-linen-olive-1.webp",
+     "assets/img/editorial/pepe-denim-1.webp",
+     "assets/img/editorial/uspa-stripe-1.webp"
     ]
    },
    {
     "label": "Full health",
     "href": "collection.html",
     "shots": [
-     "assets/img/editorial/rl-linen-olive-1.jpg",
-     "assets/img/editorial/rare-rabbit-kufa-1.jpg",
-     "assets/img/editorial/pepe-linen-ecru-1.jpg"
+     "assets/img/editorial/rl-linen-olive-1.webp",
+     "assets/img/editorial/rare-rabbit-kufa-1.webp",
+     "assets/img/editorial/pepe-linen-ecru-1.webp"
     ]
    }
   ],
   "sticky": [
    {
-    "image": "assets/img/editorial/rl-linen-olive-1.jpg",
+    "image": "assets/img/cutout/rl-linen-olive.webp",
     "title": "Olive Linen Shirt",
     "id": "rl-linen-olive",
-    "meta": "Polo Ralph Lauren — ₹2,400"
+    "meta": "Polo Ralph Lauren — ₹1,199"
    },
    {
-    "image": "assets/img/editorial/rare-rabbit-kufa-1.jpg",
+    "image": "assets/img/cutout/rare-rabbit-kufa.webp",
     "title": "KUFA Print Shirt",
     "id": "rare-rabbit-kufa",
-    "meta": "Rare Rabbit — ₹1,800"
+    "meta": "Rare Rabbit — ₹1,799"
    },
    {
-    "image": "assets/img/editorial/nike-padded-1.jpg",
+    "image": "assets/img/cutout/nike-padded.webp",
     "title": "Lightweight Padded Jacket",
     "id": "nike-padded",
-    "meta": "Nike Sportswear — ₹2,900"
+    "meta": "Nike Sportswear — ₹2,199"
    },
    {
-    "image": "assets/img/editorial/lilang-trench-1.jpg",
+    "image": "assets/img/cutout/lilang-trench.webp",
     "title": "Grey-Taupe Car Coat",
     "id": "lilang-trench",
-    "meta": "Lilang (利郎) — ₹1,900"
-   },
-   {
-    "image": "assets/img/editorial/wuhuan-plaid-1.jpg",
-    "title": "Vintage Plaid Harrington",
-    "id": "wuhuan-plaid",
-    "meta": "Wuhuan (五环) — Shanghai, 1990s — ₹2,200"
+    "meta": "Lilang (利郎) — ₹1,499"
    }
   ],
   "svgPanes": [
@@ -1149,11 +1250,11 @@ window.REWORN = {
     "octaves": "3",
     "scale": "50",
     "final": "1500",
-    "src": "assets/img/editorial/rl-linen-olive-1.jpg",
+    "src": "assets/img/editorial/rl-linen-olive-1.webp",
     "id": "rl-linen-olive",
     "w": 1289,
     "h": 1600,
-    "text": "Polo Ralph Lauren · M · Classic Fit · ₹2,400"
+    "text": "Polo Ralph Lauren · M · Classic Fit · ₹1,199"
    },
    {
     "titleUp": "Wanted",
@@ -1162,11 +1263,11 @@ window.REWORN = {
     "octaves": "1",
     "scale": "100",
     "final": "1600",
-    "src": "assets/img/editorial/rare-rabbit-kufa-1.jpg",
+    "src": "assets/img/editorial/rare-rabbit-kufa-1.webp",
     "id": "rare-rabbit-kufa",
     "w": 1289,
     "h": 1600,
-    "text": "Rare Rabbit · M · ₹1,800"
+    "text": "Rare Rabbit · M · ₹1,799"
    },
    {
     "titleUp": "One",
@@ -1175,230 +1276,223 @@ window.REWORN = {
     "octaves": "3",
     "scale": "80",
     "final": "1500",
-    "src": "assets/img/editorial/nike-padded-1.jpg",
+    "src": "assets/img/editorial/nike-padded-1.webp",
     "id": "nike-padded",
     "w": 1289,
     "h": 1600,
-    "text": "Nike Sportswear · Oversized fit (style 477139-010, FA12) · ₹2,900"
+    "text": "Nike Sportswear · Oversized fit (style 477139-010, FA12) · ₹2,199"
    }
   ],
   "slides": [
    {
     "title": "Olive Linen Shirt",
     "description": "The green that works in every season. Classic Fit Polo linen — the quiet flex.",
-    "meta": "Polo Ralph Lauren · M · Classic Fit · ₹2,400",
-    "image": "assets/img/editorial/rl-linen-olive-1.jpg",
+    "meta": "Polo Ralph Lauren · M · Classic Fit · ₹1,199",
+    "image": "assets/img/cutout/rl-linen-olive.webp",
     "id": "rl-linen-olive"
    },
    {
     "title": "KUFA Print Shirt",
     "description": "An artwork with buttons. Red-and-ink sketch print — worn when you want the room to look.",
-    "meta": "Rare Rabbit · M · ₹1,800",
-    "image": "assets/img/editorial/rare-rabbit-kufa-1.jpg",
+    "meta": "Rare Rabbit · M · ₹1,799",
+    "image": "assets/img/cutout/rare-rabbit-kufa.webp",
     "id": "rare-rabbit-kufa"
    },
    {
     "title": "Lightweight Padded Jacket",
     "description": "A 2012 Nike Sportswear piece — glossy black quilting you can't buy new anymore.",
-    "meta": "Nike Sportswear · Oversized fit (style 477139-010, FA12) · ₹2,900",
-    "image": "assets/img/editorial/nike-padded-1.jpg",
+    "meta": "Nike Sportswear · Oversized fit (style 477139-010, FA12) · ₹2,199",
+    "image": "assets/img/cutout/nike-padded.webp",
     "id": "nike-padded"
    },
    {
     "title": "Grey-Taupe Car Coat",
     "description": "A Fujian-tailored car coat with throat-latch detail. Detective-film energy.",
-    "meta": "Lilang (利郎) · 165/84A (Asia M) — oversized on most · ₹1,900",
-    "image": "assets/img/editorial/lilang-trench-1.jpg",
+    "meta": "Lilang (利郎) · 165/84A (Asia M) — oversized on most · ₹1,499",
+    "image": "assets/img/cutout/lilang-trench.webp",
     "id": "lilang-trench"
    }
   ],
   "heroStack": [
    {
-    "src": "assets/img/editorial/rl-linen-olive-1.jpg",
+    "src": "assets/img/editorial/rl-linen-olive-1.webp",
     "id": "rl-linen-olive",
     "brand": "Polo Ralph Lauren",
     "name": "Olive Linen Shirt"
    },
    {
-    "src": "assets/img/editorial/rare-rabbit-kufa-1.jpg",
+    "src": "assets/img/editorial/rare-rabbit-kufa-1.webp",
     "id": "rare-rabbit-kufa",
     "brand": "Rare Rabbit",
     "name": "KUFA Print Shirt"
    },
    {
-    "src": "assets/img/editorial/nike-padded-1.jpg",
+    "src": "assets/img/editorial/nike-padded-1.webp",
     "id": "nike-padded",
     "brand": "Nike Sportswear",
     "name": "Lightweight Padded Jacket"
    },
    {
-    "src": "assets/img/editorial/lilang-trench-1.jpg",
+    "src": "assets/img/editorial/lilang-trench-1.webp",
     "id": "lilang-trench",
     "brand": "Lilang (利郎)",
     "name": "Grey-Taupe Car Coat"
    },
    {
-    "src": "assets/img/editorial/wuhuan-plaid-1.jpg",
+    "src": "assets/img/editorial/wuhuan-plaid-1.webp",
     "id": "wuhuan-plaid",
     "brand": "Wuhuan (五环) — Shanghai, 1990s",
     "name": "Vintage Plaid Harrington"
    },
    {
-    "src": "assets/img/editorial/jinlong-carcoat-1.jpg",
+    "src": "assets/img/editorial/jinlong-carcoat-1.webp",
     "id": "jinlong-carcoat",
     "brand": "Jin Long (金龍) — Hong Kong tailoring",
     "name": "Charcoal Wool Car Coat"
    },
    {
-    "src": "assets/img/editorial/onward-furcollar-1.jpg",
+    "src": "assets/img/editorial/onward-furcollar-1.webp",
     "id": "onward-furcollar",
     "brand": "Clothing 9 to 5 by Onward Kashiyama (Tokyo)",
-    "name": "Faux-Fur Collar Jacket"
+    "name": "Burgundy Faux-Fur Collar Jacket"
    }
   ],
   "marquee": [
    {
-    "src": "assets/img/editorial/rl-linen-olive-1.jpg",
+    "src": "assets/img/editorial/rl-linen-olive-1.webp",
     "id": "rl-linen-olive",
     "brand": "Polo Ralph Lauren",
     "name": "Olive Linen Shirt",
     "pin": false
    },
    {
-    "src": "assets/img/editorial/rare-rabbit-kufa-1.jpg",
+    "src": "assets/img/editorial/rare-rabbit-kufa-1.webp",
     "id": "rare-rabbit-kufa",
     "brand": "Rare Rabbit",
     "name": "KUFA Print Shirt",
     "pin": false
    },
    {
-    "src": "assets/img/editorial/pepe-linen-ecru-1.jpg",
+    "src": "assets/img/editorial/pepe-linen-ecru-1.webp",
     "id": "pepe-linen-ecru",
     "brand": "Pepe Jeans London",
     "name": "Ecru Linen Shirt",
     "pin": false
    },
    {
-    "src": "assets/img/editorial/pepe-denim-1.jpg",
+    "src": "assets/img/editorial/pepe-denim-1.webp",
     "id": "pepe-denim",
     "brand": "Pepe Jeans London",
     "name": "Denim Shirt",
     "pin": false
    },
    {
-    "src": "assets/img/editorial/uspa-stripe-1.jpg",
+    "src": "assets/img/editorial/uspa-stripe-1.webp",
     "id": "uspa-stripe",
     "brand": "USPA Denim Co.",
     "name": "Navy Stripe Shirt",
     "pin": false
    },
    {
-    "src": "assets/img/editorial/vanheusen-brown-1.jpg",
+    "src": "assets/img/editorial/vanheusen-brown-1.webp",
     "id": "vanheusen-brown",
     "brand": "Van Heusen",
     "name": "Brown Cotton-Linen Shirt",
     "pin": false
    },
    {
-    "src": "assets/img/editorial/lp-polo-black-1.jpg",
+    "src": "assets/img/editorial/lp-polo-black-1.webp",
     "id": "lp-polo-black",
     "brand": "Louis Philippe",
     "name": "Black Knit Polo, Mint Tipping",
     "pin": false
    },
    {
-    "src": "assets/img/editorial/pan-america-navy-1.jpg",
+    "src": "assets/img/editorial/pan-america-navy-1.webp",
     "id": "pan-america-navy",
-    "brand": "Pan America",
+    "brand": "U.S. Lee",
     "name": "Navy Short-Sleeve Shirt",
     "pin": false
    },
    {
-    "src": "assets/img/editorial/chambray-blue-1.jpg",
-    "id": "chambray-blue",
-    "brand": "Unbranded archive",
-    "name": "Blue Chambray Shirt",
-    "pin": false
-   },
-   {
-    "src": "assets/img/editorial/nike-padded-1.jpg",
+    "src": "assets/img/editorial/nike-padded-1.webp",
     "id": "nike-padded",
     "brand": "Nike Sportswear",
     "name": "Lightweight Padded Jacket",
     "pin": false
    },
    {
-    "src": "assets/img/editorial/lilang-trench-1.jpg",
+    "src": "assets/img/editorial/lilang-trench-1.webp",
     "id": "lilang-trench",
     "brand": "Lilang (利郎)",
     "name": "Grey-Taupe Car Coat",
     "pin": false
    },
    {
-    "src": "assets/img/editorial/sourepose-chore-1.jpg",
+    "src": "assets/img/editorial/sourepose-chore-1.webp",
     "id": "sourepose-chore",
     "brand": "Sourepose (奢步士)",
     "name": "Olive Chore Overshirt",
     "pin": false
    },
    {
-    "src": "assets/img/editorial/angn-utility-1.jpg",
+    "src": "assets/img/editorial/angn-utility-1.webp",
     "id": "angn-utility",
     "brand": "ANGN / Artisan Gratification",
     "name": "Charcoal Utility Overshirt",
     "pin": false
    },
    {
-    "src": "assets/img/editorial/wuhuan-plaid-1.jpg",
+    "src": "assets/img/editorial/wuhuan-plaid-1.webp",
     "id": "wuhuan-plaid",
     "brand": "Wuhuan (五环) — Shanghai, 1990s",
     "name": "Vintage Plaid Harrington",
     "pin": false
    },
    {
-    "src": "assets/img/editorial/hongdou-harrington-1.jpg",
+    "src": "assets/img/editorial/hongdou-harrington-1.webp",
     "id": "hongdou-harrington",
     "brand": "Hongdou (红豆)",
     "name": "Black Zip Harrington",
     "pin": false
    },
    {
-    "src": "assets/img/editorial/tries-coated-1.jpg",
+    "src": "assets/img/editorial/tries-coated-1.webp",
     "id": "tries-coated",
     "brand": "TRIES / Caizi (才子)",
     "name": "Black Coated Biker Jacket",
     "pin": false
    },
    {
-    "src": "assets/img/editorial/jinlong-carcoat-1.jpg",
+    "src": "assets/img/editorial/jinlong-carcoat-1.webp",
     "id": "jinlong-carcoat",
     "brand": "Jin Long (金龍) — Hong Kong tailoring",
     "name": "Charcoal Wool Car Coat",
     "pin": true
    },
    {
-    "src": "assets/img/editorial/greymarl-mockneck-1.jpg",
+    "src": "assets/img/editorial/greymarl-mockneck-1.webp",
     "id": "greymarl-mockneck",
     "brand": "No-label (archive surplus)",
     "name": "Grey Marl Mock-Neck Knit",
     "pin": false
    },
    {
-    "src": "assets/img/editorial/xint-henley-1.jpg",
+    "src": "assets/img/editorial/xint-henley-1.webp",
     "id": "xint-henley",
     "brand": "XINT (Turkey)",
     "name": "Beige Henley Knit",
     "pin": false
    },
    {
-    "src": "assets/img/editorial/onward-furcollar-1.jpg",
+    "src": "assets/img/editorial/onward-furcollar-1.webp",
     "id": "onward-furcollar",
     "brand": "Clothing 9 to 5 by Onward Kashiyama (Tokyo)",
-    "name": "Faux-Fur Collar Jacket",
+    "name": "Burgundy Faux-Fur Collar Jacket",
     "pin": false
    },
    {
-    "src": "assets/img/editorial/cable-knit-grey-1.jpg",
+    "src": "assets/img/editorial/cable-knit-grey-1.webp",
     "id": "cable-knit-grey",
     "brand": "No-label (archive)",
     "name": "Grey Cable-Knit Sweater",
@@ -1407,19 +1501,19 @@ window.REWORN = {
   ],
   "horizontal": [
    {
-    "src": "assets/img/editorial/rl-linen-olive-2.jpg",
+    "src": "assets/img/editorial/rl-linen-olive-2.webp",
     "id": "rl-linen-olive",
     "brand": "Polo Ralph Lauren",
     "name": "Olive Linen Shirt",
-    "price": 2400,
+    "price": 1199,
     "story": "The green that works in every season. Classic Fit Polo linen — the quiet flex."
    },
    {
-    "src": "assets/img/editorial/rare-rabbit-kufa-2.jpg",
+    "src": "assets/img/editorial/rare-rabbit-kufa-2.webp",
     "id": "rare-rabbit-kufa",
     "brand": "Rare Rabbit",
     "name": "KUFA Print Shirt",
-    "price": 1800,
+    "price": 1799,
     "story": "An artwork with buttons. Red-and-ink sketch print — worn when you want the room to look."
    }
   ],
@@ -1427,11 +1521,11 @@ window.REWORN = {
    {
     "key": "shirts",
     "label": "Shirts",
-    "count": 9,
+    "count": 8,
     "shots": [
-     "assets/img/editorial/rl-linen-olive-1.jpg",
-     "assets/img/editorial/rare-rabbit-kufa-1.jpg",
-     "assets/img/editorial/pepe-linen-ecru-1.jpg"
+     "assets/img/editorial/rl-linen-olive-1.webp",
+     "assets/img/editorial/rare-rabbit-kufa-1.webp",
+     "assets/img/editorial/pepe-linen-ecru-1.webp"
     ]
    },
    {
@@ -1439,9 +1533,9 @@ window.REWORN = {
     "label": "Outerwear",
     "count": 9,
     "shots": [
-     "assets/img/editorial/nike-padded-1.jpg",
-     "assets/img/editorial/lilang-trench-1.jpg",
-     "assets/img/editorial/sourepose-chore-1.jpg"
+     "assets/img/editorial/nike-padded-1.webp",
+     "assets/img/editorial/lilang-trench-1.webp",
+     "assets/img/editorial/sourepose-chore-1.webp"
     ]
    },
    {
@@ -1449,9 +1543,9 @@ window.REWORN = {
     "label": "Knitwear",
     "count": 3,
     "shots": [
-     "assets/img/editorial/greymarl-mockneck-1.jpg",
-     "assets/img/editorial/xint-henley-1.jpg",
-     "assets/img/editorial/cable-knit-grey-1.jpg"
+     "assets/img/editorial/greymarl-mockneck-1.webp",
+     "assets/img/editorial/xint-henley-1.webp",
+     "assets/img/editorial/cable-knit-grey-1.webp"
     ]
    }
   ]

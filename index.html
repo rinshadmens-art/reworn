@@ -1,22 +1,101 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="theme-dark">
 <head>
+<script>
+/* Phones go to the separate mobile site at /m/. Deliberately narrow:
+   coarse pointer AND a small viewport, so a narrow desktop window is
+   never hijacked. ?full=1 opts out and is remembered for the session,
+   which is what the "View full site" link in m/ carries. */
+(function(){
+  try{
+    var q = location.search.indexOf('full=1') > -1;
+    if (q) { sessionStorage.setItem('reworn-full','1'); return; }
+    if (sessionStorage.getItem('reworn-full')) return;
+    if (!navigator.maxTouchPoints) return;                 /* crawlers, desktops */
+    if (!matchMedia('(pointer: coarse)').matches) return;
+    if (window.innerWidth > 820) return;
+    var map = {'index':'index','collection':'collection','product':'product','about':'about'};
+    var name = (location.pathname.split('/').pop() || 'index.html').replace('.html','');
+    var to = map[name] || 'index';
+    location.replace('m/' + to + '.html' + location.search);
+  }catch(e){}
+})();
+</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>REWORN. — Worn once. Wanted twice.</title>
+<title>REWORN. — Second-hand. First choice.</title>
 <meta name="description" content="A short, curated archive of pre-owned branded menswear — restyled, photographed properly and priced honestly. One of each. No restock.">
-<meta property="og:title" content="REWORN.">
-<meta property="og:description" content="Worn once. Wanted twice.">
+<link rel="canonical" href="https://rinshadmens-art.github.io/reworn/">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#0B0A09">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:site_name" content="REWORN.">
+<meta property="og:title" content="REWORN. — Second-hand. First choice.">
+<meta property="og:description" content="A short, curated archive of pre-owned branded menswear — restyled, photographed properly and priced honestly. One of each. No restock.">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#F2F1EA">
+<meta property="og:url" content="https://rinshadmens-art.github.io/reworn/">
+<meta property="og:image" content="https://rinshadmens-art.github.io/reworn/assets/img/mood/hero-panel.jpg">
+<meta property="og:image:width" content="1400">
+<meta property="og:image:height" content="933">
+<meta property="og:image:alt" content="REWORN menswear archive collection">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="REWORN. — Second-hand. First choice.">
+<meta name="twitter:description" content="A short, curated archive of pre-owned branded menswear — restyled, photographed properly and priced honestly.">
+<meta name="twitter:image" content="https://rinshadmens-art.github.io/reworn/assets/img/mood/hero-panel.jpg">
+
+<!-- Preload critical fonts and hero image -->
+<link rel="preload" href="assets/fonts/InstrumentSerif-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/Switzer-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/img/mood/hero-panel.webp" as="image" type="image/webp">
+
+<!-- Structured Data (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://rinshadmens-art.github.io/reworn/#organization",
+      "name": "REWORN.",
+      "url": "https://rinshadmens-art.github.io/reworn/",
+      "logo": "https://rinshadmens-art.github.io/reworn/apple-touch-icon.png",
+      "slogan": "Second-hand. First choice.",
+      "description": "A curated archive of pre-owned branded menswear — restyled, photographed properly, and priced honestly.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+39-389-433-8878",
+        "contactType": "customer service",
+        "email": "rinshadmens@gmail.com"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://rinshadmens-art.github.io/reworn/#website",
+      "url": "https://rinshadmens-art.github.io/reworn/",
+      "name": "REWORN.",
+      "publisher": { "@id": "https://rinshadmens-art.github.io/reworn/#organization" }
+    }
+  ]
+}
+</script>
+
 <script>document.documentElement.classList.add('js','is-entering');setTimeout(function(){document.documentElement.classList.remove('is-entering')},1200)</script>
-<link rel="stylesheet" href="css/menu.css?v=1788441381">
-<link rel="stylesheet" href="css/hero.css?v=1788441381">
-<link rel="stylesheet" href="css/seq.css?v=1788441381">
-<link rel="stylesheet" href="css/svgfilter.css?v=1788441381">
-<link rel="stylesheet" href="css/main.css?v=1788441381">
+<link rel="stylesheet" href="css/menu.css?v=1788677517">
+<link rel="stylesheet" href="css/hero.css?v=1788677517">
+<link rel="stylesheet" href="css/spotlight.css?v=1788677517">
+<link rel="stylesheet" href="css/slider.css?v=1788677517">
+<link rel="stylesheet" href="css/svgpath.css?v=1788677517">
+<link rel="stylesheet" href="css/main.css?v=1788677517">
 </head>
 <body class="is-home">
+<a class="skip" href="#main">Skip to content</a>
 
 <!-- ===== NAV + OVERLAY MENU ===== -->
 <nav class="site-nav">
@@ -30,7 +109,7 @@
   <div class="menu-overlay" id="menu-overlay">
     <div class="menu-overlay-content">
       <div class="menu-media-wrapper">
-        <img src="assets/img/editorial/jinlong-carcoat-1.jpg" alt="">
+        <img src="assets/img/mood/menu-media.jpg" alt="" loading="lazy">
       </div>
       <div class="menu-content-wrapper">
         <div class="menu-content-main">
@@ -47,7 +126,7 @@
           </div>
         </div>
         <div class="menu-footer">
-          <div class="menu-col"><p>Archive 01 — 21 pieces</p></div>
+          <div class="menu-col"><p>Archive 01 — 20 pieces</p></div>
           <div class="menu-col">
             <p>+39 389 433 8878</p>
             <p>rinshadmens@gmail.com</p>
@@ -58,7 +137,7 @@
   </div>
 </nav>
 
-<div class="page-shell">
+<div class="page-shell" id="main" tabindex="-1">
 
 <!-- ===== HERO ===== -->
 <div class="revealers">
@@ -67,16 +146,20 @@
 </div>
 
 <div class="hero-stage-wrap">
+  <div class="hero-amb" aria-hidden="true"></div>
   <div class="images"></div>
 
   <div class="hero-content">
-    <div class="site-logo">
-      <div class="word"><h1>REWORN</h1></div>
-      <div class="word"><h1>Archive<sup>&copy;</sup></h1></div>
-    </div>
+    <h1 class="site-logo">
+      <span class="word">REWORN</span>
+      <span class="word">Archive<sup>&copy;</sup></span>
+    </h1>
 
     <div class="team-img">
-      <img src="assets/img/editorial/wuhuan-plaid-1.jpg" alt="Vintage plaid harrington">
+      <picture style="display:block;width:100%;height:100%">
+        <source srcset="assets/img/mood/hero-panel.webp" type="image/webp">
+        <img src="assets/img/mood/hero-panel.jpg" alt="A wool overcoat and leather gloves" width="1400" height="933" fetchpriority="high">
+      </picture>
     </div>
 
     <div class="site-info">
@@ -86,8 +169,7 @@
         </div>
         <div class="col">
           <h2>
-            REWORN is a short archive of pre-owned branded menswear — chosen one
-            piece at a time, restyled, and listed with every flaw written down.
+            Someone wore it first. That is the only thing wrong with it.
           </h2>
         </div>
       </div>
@@ -96,10 +178,10 @@
         <div class="col"></div>
         <div class="col">
           <div class="address">
-            <div class="line"><p>21 pieces</p></div>
-            <div class="line"><p>One of each</p></div>
-            <div class="line"><p>- No restock</p></div>
-            <div class="line"><p>From ₹800</p></div>
+            <div class="line"><p>20 pieces</p></div>
+            <div class="line"><p>19 brands</p></div>
+            <div class="line"><p>- One of each</p></div>
+            <div class="line"><p>₹499 — ₹2,199</p></div>
           </div>
 
           <div class="socials">
@@ -114,67 +196,137 @@
   </div>
 </div>
 
-<!-- ===== SCROLL SEQUENCE ===== -->
-<div class="seq-container">
-  <section class="seq-hero">
-    <h1 data-copy>
-      Most second-hand clothing is sold badly. A flat photo on a bed, a brand
-      name, a price. This archive is the opposite.
-    </h1>
+<!-- ===== SPOTLIGHT SCROLL =====
+     Problem, claim, terms — in that order, with the claim hidden behind
+     the cards until they clear out of the way. -->
+<div class="spot">
+  <section class="spot-intro">
+    <h2 data-copy>
+      The clothes were never the problem with second-hand.
+      The photographs were.
+    </h2>
   </section>
 
-  <section class="marquee-sec">
-    <div class="marquee-wrapper">
-      <div class="marquee-images"></div>
+  <section class="spot-stage">
+    <div class="spot-header">
+      <h2>You&rsquo;ll see every flaw before you see the price<span class="dot">.</span></h2>
     </div>
+    <div class="spot-imgs"></div>
   </section>
 
-  <section class="horizontal-scroll">
-    <div class="horizontal-scroll-wrapper"></div>
-  </section>
-
-  <section class="seq-outro">
-    <h1 data-copy>
+  <section class="spot-outro">
+    <h2 data-copy>
       One of each. No restock. When it's gone, that's the end of it<span class="dot">.</span>
-    </h1>
+    </h2>
   </section>
 </div>
 
 
-<!-- ===== SVG ON-SCROLL FILTER ===== -->
-<section class="sf-section"></section>
-
-<!-- ===== THE DROP ===== -->
-<section class="section wrap">
-  <div style="display:flex;justify-content:space-between;align-items:baseline;gap:20px;margin-bottom:34px">
-    <p class="micro faint">The pieces of this drop</p>
-    <a class="micro" href="collection.html" style="border-bottom:1px solid var(--signal);padding-bottom:3px">All 21 →</a>
+<!-- ===== RIPPLE SLIDER =====
+     Moved here from browse. The index now reads story (spotlight), then
+     pieces (this), then the archive grid — and browse leads with the
+     WebGL showcase instead of opening on a second slider. -->
+<section class="slider" role="button" aria-label="Next piece">
+  <div class="slide-content">
+    <div class="slide-title"><h2>Olive Linen Shirt</h2></div>
+    <div class="slide-description">
+      <p>The green that works in every season. Classic Fit Polo linen — the quiet flex.</p>
+      <p class="slide-meta">Polo Ralph Lauren · M · ₹2,400</p>
+    </div>
   </div>
-  <div class="grid" data-grid="home"></div>
+  <p class="slider__cue">Click to ripple — <span class="slider__count">01 / 04</span></p>
+</section>
+
+<!-- ===== SVG PATH ANIMATIONS =====
+     Replaces the feTurbulence filter section. Every path.pa morphs its
+     own `d` toward data-path-to, scrubbed by its SVG's trip through the
+     viewport — separators, clip shapes and line drawings all on one
+     mechanic. Kept to a single block here; about.html runs the long form. -->
+<div class="pa-page">
+  <section class="pa-sec">
+    <div class="pa-sides">
+      <div class="pa-text pa-text--left">
+        <h2>Nothing hidden</h2>
+        <p>The collar, the lining, the label, the wear. A snag is photographed as carefully as a sleeve, and the score beside it says so in plain numbers.</p>
+        <!-- The reader appears here and nowhere else on the site. Every other
+             line is about the archive; this one is about the person reading it
+             and what they are actually trying to do. -->
+        <p>You already know what you want to look like — the interview, the presentation, the first day that counts. Buying it new is what makes it wait.</p>
+        <p class="pa-cta"><a href="about.html">How the archive works &rarr;</a></p>
+      </div>
+      <svg class="pa-clip" width="500" height="750" viewBox="0 0 500 750" role="img" aria-label="Fur-collar jacket lit in a dark room">
+        <defs>
+          <clipPath id="ixShape1">
+            <path class="pa" data-path-to="M 0 0 L 500 0 C 331 608 485 551 500 750 L 0 750 C 120 281 7 296 0 0 Z" d="M 0 0 L 500 0 C 500 599.6 500 677.1 500 750 L 0 750 C 0 205 0 105 0 0 Z" />
+          </clipPath>
+        </defs>
+        <image clip-path="url(#ixShape1)" href="assets/img/editorial/onward-furcollar-20.jpg" x="0" y="0" width="500" height="750" preserveAspectRatio="xMidYMid slice" />
+      </svg>
+    </div>
+  </section>
+</div>
+
+<!-- ===== THE DROP =====
+     A linen island inside the dark page. The product plates were shot on
+     light grounds, so dropping them straight onto near-black would leave
+     twenty-one glowing white rectangles floating in a void. Theatre for
+     the story, gallery for the goods. -->
+<section class="section wrap theme-light ground">
+  <div class="drop__head">
+    <p class="micro faint">The pieces of this drop</p>
+    <a class="micro drop__all" href="collection.html">All 20 &rarr;</a>
+  </div>
+  <div class="grid" data-grid="home" data-limit="4"></div>
+
+  <!-- The index shows four; this is the door to the other seventeen.
+       A centred pill rather than the full-width editorial band it was:
+       quieter is what reads as luxury here, and it is the pattern the
+       reference uses. -->
+  <div class="discover-wrap">
+    <a class="discover" href="collection.html">Discover the selection</a>
+  </div>
 </section>
 
 <!-- ===== FOOTER ===== -->
 <footer class="foot" id="contact">
-  <h2 class="foot__pitch" data-copy>Take the piece.<br>Or take the website<span class="dot">.</span></h2>
-  <div class="foot__grid">
+  <div class="foot__cols">
     <div class="foot__col">
-      <p class="micro" style="color:var(--linen);margin-bottom:12px">The other offer</p>
-      <p>You're looking at a site built end-to-end — brand, type, photography direction, code. If you want one like it for your label, your startup or your portfolio, that's the second thing I sell.</p>
-    </div>
-    <div class="foot__col">
-      <p class="micro" style="color:var(--linen);margin-bottom:12px">Talk</p>
-      <p><a href="https://wa.me/393894338878">WhatsApp +39 389 433 8878</a><br>
+      <p class="foot__h">Help</p>
+      <p>Every piece is one of one. Ask anything before you buy &mdash; measurements, extra photos, the exact flaw.</p>
+      <p><a href="https://wa.me/393894338878">WhatsApp +39&#8239;389&#8239;433&#8239;8878</a><br>
          <a href="mailto:rinshadmens@gmail.com">rinshadmens@gmail.com</a></p>
     </div>
     <div class="foot__col">
-      <p class="micro" style="color:var(--linen);margin-bottom:12px">Archive</p>
-      <p><a href="collection.html">Collection</a><br><a href="about.html">About</a></p>
+      <p class="foot__h">The archive</p>
+      <p><a href="collection.html">All 20 pieces</a></p>
+      <p><a href="collection.html?c=shirts">Shirts</a></p>
+      <p><a href="collection.html?c=outerwear">Outerwear</a></p>
+      <p><a href="collection.html?c=knitwear">Knitwear</a></p>
+      <p><a href="browse.html">Browse</a></p>
+    </div>
+    <div class="foot__col">
+      <p class="foot__h">How it works</p>
+      <p><a href="about.html">Product Health</a></p>
+      <p><a href="about.html">Care &amp; shipping</a></p>
+      <p><a href="about.html">About REWORN</a></p>
+    </div>
+    <div class="foot__col">
+      <p class="foot__h">The other offer</p>
+      <p>This site was built end to end &mdash; brand, type, photography direction, code. If you want one like it for your label or your portfolio, that is the second thing I sell.</p>
+      <p><a href="https://wa.me/393894338878">Talk about a site &rarr;</a></p>
     </div>
   </div>
-  <div class="foot__bottom micro">
-    <span>REWORN. — Archive 01</span>
-    <span>Designed &amp; built by Rinshad</span>
+
+  <div class="foot__bottom">
+    <span>Archive 01 &mdash; 20 pieces, one of each</span>
+    <span class="foot__legal">
+      <a href="about.html">About</a>
+      <a href="collection.html">Collection</a>
+      <span>Designed &amp; built by Rinshad</span>
+    </span>
   </div>
+
+  <div class="foot__mark">REWORN<span class="dot">.</span></div>
 </footer>
 
 </div><!-- /page-shell -->
@@ -185,13 +337,14 @@
 <script src="assets/vendor/CustomEase.min.js"></script>
 <script src="assets/vendor/SplitText.min.js"></script>
 <script src="assets/vendor/split-type.min.js"></script>
-<script src="js/catalog.js?v=1788441381"></script>
-<script src="js/menu.js?v=1788441381"></script>
-<script src="js/transition.js?v=1788441381"></script>
-<script src="js/copy.js?v=1788441381"></script>
-<script src="js/hero.js?v=1788441381"></script>
-<script src="js/seq.js?v=1788441381"></script>
-<script src="js/svgfilter.js?v=1788441381"></script>
-<script src="js/app.js?v=1788441381"></script>
+<script src="js/catalog.js?v=1788677517"></script>
+<script src="js/menu.js?v=1788677517"></script>
+<script src="js/transition.js?v=1788677517"></script>
+<script src="js/copy.js?v=1788677517"></script>
+<script src="js/hero.js?v=1788677517"></script>
+<script src="js/spotlight.js?v=1788677517"></script>
+<script src="js/svgpath.js?v=1788677517"></script>
+<script type="module" src="js/slider.js?v=1788677517"></script>
+<script src="js/app.js?v=1788677517"></script>
 </body>
 </html>

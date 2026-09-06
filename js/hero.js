@@ -21,19 +21,35 @@
   /* ---------- build the image sequence from the archive ---------- */
   var shots = (M.heroSequence || []).slice(0, 8);
   var wrap  = stage.querySelector('.images');
+
+  function esc(s) {
+    return String(s || '').replace(/&/g, '&amp;').replace(/"/g, '&quot;')
+                          .replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
   if (wrap && shots.length) {
     wrap.innerHTML = shots.map(function (s, i) {
       /* the last three survive the sequence and become the stack */
       var main = i >= shots.length - 3 ? ' main' : '';
       /* every frame is on screen within ~3s, so none of them are lazy —
          a lazy frame decodes mid-animation and shows as a blur */
-      return '<figure class="img' + main + '"><img src="' + s.src +
-             '" alt="" decoding="async"' +
+      /* the survivors are cut-outs, so they contain rather than cover —
+         covering would crop the garment back out of the tile */
+      var cut = s.fit === 'contain' ? ' is-cut' : '';
+      return '<figure class="img' + main + cut + '"><img src="' + esc(s.src) +
+             '" alt="' + esc(s.alt) + '" decoding="async"' +
              (i === 0 ? ' fetchpriority="high"' : '') + '></figure>';
     }).join('');
   }
 
+  /* The ambient frame is decorative, so it is painted as a background and
+     never enters the accessibility tree. It is also set from JS rather than
+     CSS so it is not fetched at all when the sequence never runs. */
+  var amb = stage.querySelector('.hero-amb');
+  if (amb && M.heroAmbient) amb.style.backgroundImage = 'url("' + M.heroAmbient + '")';
+
   if (REDUCED) {
+    stage.classList.add('hero-lit');
     gsap.set('.img', { opacity: 1, scale: 1 });
     gsap.set('.word h1, .nav-item p, .nav-item a, .line p, .site-info h2 .line span', { y: 0 });
     gsap.set('.team-img', { clipPath: 'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)' });
@@ -45,8 +61,15 @@
      Starting the timeline earlier is what caused the first seconds to look
      blurry: the browser was still progressively decoding full-size JPEGs
      while they were already on screen at scale(1.5). */
+  /* Only the frames that are actually on screen in the first beat are worth
+     blocking on. Waiting for all eight meant a visitor on a slow connection
+     stared at a shut curtain until the 2.5s timeout fired and then watched
+     the whole sequence stutter in. The later frames get a ~1s head start
+     from the earlier ones' airtime, which is all they need. */
+  var GATE = 3;
+
   function framesReady() {
-    var imgs = [].slice.call(wrap ? wrap.querySelectorAll('img') : []);
+    var imgs = [].slice.call(wrap ? wrap.querySelectorAll('img') : []).slice(0, GATE);
     if (!imgs.length) return Promise.resolve();
     return Promise.all(imgs.map(function (img) {
       if (img.decode) {
@@ -64,7 +87,13 @@
   if (window.SplitType) {
     var splitH2 = new SplitType('.site-info h2', { types: 'lines' });
     splitH2.lines.forEach(function (line) {
-      var text = line.textContent;
+      /* SplitType hands back each line without the space that separated
+         it from the next one. Rebuilt as block spans it still LOOKS right,
+         but the element's text becomes "That isthe only thing" — which is
+         what a screen reader announces and what a copy-paste produces.
+         The space is restored here; it collapses visually because each
+         span is display:block. */
+      var text = line.textContent.replace(/\s+$/, '') + ' ';
       var wrapper = document.createElement('div');
       wrapper.className = 'line';
       var span = document.createElement('span');
@@ -101,6 +130,9 @@
     .add(revealerTl)
     .add(scaleTl, '-=1.25')
     .add(function () {
+      /* the full-bleed frames are leaving, so the ambient plate comes up
+         behind the copy — without it the ground is simply empty */
+      stage.classList.add('hero-lit');
       document.querySelectorAll('.img:not(.main)').forEach(function (img) { img.remove(); });
 
       var state = Flip.getState('.main');
@@ -140,6 +172,7 @@
   /* Failsafe on a real timer — gsap.delayedCall shares the throttled
      rAF ticker, so it would stall exactly when the rescue is needed. */
   setTimeout(function () {
+    stage.classList.add('hero-lit');
     var stacked = document.querySelector('.images.stacked-container');
     if (!stacked) {
       document.querySelectorAll('.img:not(.main)').forEach(function (n) { n.remove(); });

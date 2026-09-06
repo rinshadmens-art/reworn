@@ -287,21 +287,21 @@
       var metaDesc = document.querySelector('meta[name="description"]');
       if (metaDesc) metaDesc.content = p.brand + ' ' + p.name + '. ' + (p.story || 'Pre-owned authenticated menswear from REWORN Archive 01.');
       var can = document.querySelector('link[rel="canonical"]');
-      if (can) can.href = 'https://reworn.store/product.html?id=' + encodeURIComponent(p.id);
+      if (can) can.href = 'https://rinshadmens-art.github.io/reworn/product.html?id=' + encodeURIComponent(p.id);
       var ogTitle = document.querySelector('meta[property="og:title"]');
       if (ogTitle) ogTitle.content = p.brand + ' ' + p.name + ' — REWORN.';
       var ogDesc = document.querySelector('meta[property="og:description"]');
       if (ogDesc) ogDesc.content = (p.story || (p.brand + ' ' + p.name)) + ' · ' + inr(p.price_inr);
       var ogUrl = document.querySelector('meta[property="og:url"]');
-      if (ogUrl) ogUrl.content = 'https://reworn.store/product.html?id=' + encodeURIComponent(p.id);
+      if (ogUrl) ogUrl.content = 'https://rinshadmens-art.github.io/reworn/product.html?id=' + encodeURIComponent(p.id);
       var ogImg = document.querySelector('meta[property="og:image"]');
-      if (ogImg && im[0]) ogImg.content = 'https://reworn.store/' + im[0];
+      if (ogImg && im[0]) ogImg.content = 'https://rinshadmens-art.github.io/reworn/' + im[0];
       var twTitle = document.querySelector('meta[name="twitter:title"]');
       if (twTitle) twTitle.content = p.brand + ' ' + p.name + ' — REWORN.';
       var twDesc = document.querySelector('meta[name="twitter:description"]');
       if (twDesc) twDesc.content = (p.story || (p.brand + ' ' + p.name)) + ' · ' + inr(p.price_inr);
       var twImg = document.querySelector('meta[name="twitter:image"]');
-      if (twImg && im[0]) twImg.content = 'https://reworn.store/' + im[0];
+      if (twImg && im[0]) twImg.content = 'https://rinshadmens-art.github.io/reworn/' + im[0];
 
       var schemaEl = document.getElementById('pdp-schema');
       if (schemaEl) {
@@ -311,7 +311,7 @@
           'name': p.brand + ' ' + p.name,
           'brand': { '@type': 'Brand', 'name': p.brand },
           'description': p.story || (p.brand + ' ' + p.name),
-          'image': 'https://reworn.store/' + (im[0] || ''),
+          'image': 'https://rinshadmens-art.github.io/reworn/' + (im[0] || ''),
           'offers': {
             '@type': 'Offer',
             'price': String(p.price_inr || ''),

@@ -134,10 +134,43 @@
 /* The index hero owns the wordmark in the top-left corner; the bar's mark
    fades in only once that hero has scrolled away. */
 (function () {
-  if (!document.body.classList.contains('is-home')) return;
+  /* Runs on every page, not just the index. The .scrolled flag drives two
+     separate things: the home hero's corner stack retiring, and the fixed
+     bar earning a backdrop once content starts passing beneath it. The
+     second one is needed everywhere — the bar is transparent, so on any
+     page a heading scrolling under it collides with the wordmark. */
+  var isHome = document.body.classList.contains('is-home');
+
+  /* The hero's corner stack is position:fixed, so "hidden" cannot be left
+     to a CSS transition. In a throttled or backgrounded tab the transition
+     simply stops advancing, and the pile sits frozen part-way — measured
+     at opacity 0.52 — on top of the archive grid.
+
+     Same lesson as the rAF failsafes elsewhere in this project: a real
+     timer keeps running when the compositor does not. The fade is a
+     nicety; .stack-retired is the guarantee behind it. */
+  var retire = null;
+  var wasScrolled = null;
+
   var mark = function () {
-    document.body.classList.toggle('scrolled', window.scrollY > window.innerHeight * 0.75);
+    var past = window.scrollY > (isHome ? window.innerHeight * 0.75 : 24);
+    if (past === wasScrolled) return;
+    wasScrolled = past;
+
+    document.body.classList.toggle('scrolled', past);
+
+    if (!isHome) return;
+
+    clearTimeout(retire);
+    if (past) {
+      retire = setTimeout(function () {
+        document.body.classList.add('stack-retired');
+      }, 520);
+    } else {
+      document.body.classList.remove('stack-retired');
+    }
   };
+
   mark();
   window.addEventListener('scroll', mark, { passive: true });
 })();

@@ -13,10 +13,28 @@
     });
   };
 
+  /* Detect WebP support synchronously via Canvas probe */
+  var hasWebp = false;
+  try {
+    var c = document.createElement('canvas');
+    if (c && c.getContext && c.getContext('2d')) {
+      hasWebp = c.toDataURL('image/webp').indexOf('data:image/webp') === 0;
+    }
+  } catch (e) { hasWebp = false; }
+
+  function optImg(src) {
+    if (!src || typeof src !== 'string') return src;
+    if (hasWebp && (src.indexOf('assets/img/editorial/') === 0 || src.indexOf('assets/img/mood/') === 0) && src.endsWith('.jpg')) {
+      return src.slice(0, -4) + '.webp';
+    }
+    return src;
+  }
+
   /* pick the best image: editorial first, real photo as fallback */
   function imgs(p) {
-    var list = (p.editorial || []).concat(p.photos || []);
-    return list.length ? list : ['assets/img/brand/placeholder.jpg'];
+    var list = (p.editorial || []);
+    if (!list.length) return ['assets/img/brand/placeholder.jpg'];
+    return list.map(optImg);
   }
 
   function waLink(p) {
@@ -34,20 +52,91 @@
       update(); done(); return;
     }
     var t = document.startViewTransition(update);
+    /* Clicking a second filter before the first transition settles aborts it,
+       and an aborted .ready with nothing attached surfaces as an unhandled
+       InvalidStateError. Only .finished was being caught. */
+    /* A view transition exposes three promises and any of them can reject on
+       its own — .ready when a second transition aborts this one, and
+       .updateCallbackDone when the transition is skipped outright (navigating
+       away mid-flight does it). Catching only one still surfaces the others
+       as unhandled rejections in the console. */
+    if (t.ready && t.ready.catch) t.ready.catch(function () {});
+    if (t.updateCallbackDone && t.updateCallbackDone.catch) {
+      t.updateCallbackDone.catch(function () {});
+    }
     t.finished.then(done, done);
   }
 
   /* ---------- product cards ---------- */
+  /* Categories are stored lowercase as filter keys; printed in a spec
+     table beside "Polo Ralph Lauren" and "Linen (Made in India)", a bare
+     "shirts" reads as a bug rather than as a value. */
+  function cap(s) {
+    return String(s || '').replace(/^./, function (c) { return c.toUpperCase(); });
+  }
+
+  /* Where the piece came from, printed only where the archive actually knows.
+     Seven of the twelve archive pieces have no recorded place; inventing a city
+     for them would be the one thing this brand cannot afford to do. */
+  function originOf(p) {
+    var o = p.origin;
+    if (!o || !o.place) return '';
+    return o.era ? o.place + ', ' + o.era : o.place;
+  }
+
+  /* The anchor, for the nine brands the buyer already prices in their head.
+     Absent retail_inr renders NOTHING — no element, no margin — so a piece
+     without a verified figure simply never makes the claim. */
+  function retailLine(p) {
+    if (!p.retail_inr) return '';
+    return '<p class="pdp__retail micro faint">Retails around ' +
+           inr(p.retail_inr) + ' new</p>';
+  }
+
+  function flag(p) {
+    return p.sold ? '<span class="card__flag card__flag--sold micro">Sold</span>' :
+           p.tier === 'hero' ? '<span class="card__flag micro">Piece of the drop</span>' : '';
+  }
+
+  /* The collection grid's tile. It borrows the reference's DENSITY — four
+     across, edge to edge, meta inside the cell — and none of its photography.
+     The cut-out-on-a-grey-plate look was Louis Vuitton's component, not this
+     archive's: every piece here was shot on a stool against a warm wall, and
+     that IS the brand. Reusing .card__media means the hover swap between the
+     two real frames comes back for free. */
+  function tileCard(p) {
+    var im = imgs(p);
+    var alt = im[1] || im[0];
+    return '' +
+      '<a class="card card--tile reveal' + (p.sold ? ' is-sold' : '') +
+        '" href="product.html?id=' + encodeURIComponent(p.id) + '">' +
+        '<span class="card__media">' +
+          flag(p) +
+          '<img class="is-main" src="' + im[0] + '" alt="' +
+            esc(p.brand + ' ' + p.name) + '" width="500" height="625" loading="lazy" decoding="async">' +
+          '<img class="is-alt" src="' + alt + '" alt="" width="500" height="625" aria-hidden="true" loading="lazy" decoding="async">' +
+        '</span>' +
+        '<span class="card__meta">' +
+          '<span class="card__brand micro faint">' + esc(p.brand) + '</span>' +
+          '<span class="card__name">' + esc(p.name) + '</span>' +
+          '<span class="card__price">' + inr(p.price_inr) + '</span>' +
+          '<span class="card__health micro faint">Product health <b>' +
+            p.condition + '%</b></span>' +
+          '<span class="card__bar"><i style="width:' + p.condition + '%"' +
+            (p.condition < 90 ? ' data-low="true"' : '') + '></i></span>' +
+        '</span>' +
+      '</a>';
+  }
+
   function card(p) {
     var im = imgs(p);
     var alt = im[1] || im[0];
     return '' +
       '<a class="card reveal" href="product.html?id=' + encodeURIComponent(p.id) + '">' +
         '<span class="card__media">' +
-          (p.sold ? '<span class="card__flag card__flag--sold micro">Sold</span>' :
-           p.tier === 'hero' ? '<span class="card__flag micro">Piece of the drop</span>' : '') +
-          '<img class="is-main" src="' + im[0] + '" alt="' + esc(p.brand + ' ' + p.name) + '" loading="lazy">' +
-          '<img class="is-alt" src="' + alt + '" alt="" aria-hidden="true" loading="lazy">' +
+          flag(p) +
+          '<img class="is-main" src="' + im[0] + '" alt="' + esc(p.brand + ' ' + p.name) + '" width="500" height="625" loading="lazy" decoding="async">' +
+          '<img class="is-alt" src="' + alt + '" alt="" width="500" height="625" aria-hidden="true" loading="lazy" decoding="async">' +
         '</span>' +
         '<span class="card__meta">' +
           '<span class="card__name">' +
@@ -60,9 +149,49 @@
       '</a>';
   }
 
-  function renderGrid(el, items) {
-    el.innerHTML = items.length ? items.map(card).join('') :
-      '<p class="empty">Nothing in this category yet.</p>';
+  /* Full-bleed frames that interrupt the product rhythm, the way a lookbook
+     page does in a printed catalogue. Fixed list, fixed order — placement has
+     to be the same on every visit or the page stops feeling designed.
+
+     The dark-room frames are all 1500x1862 (ratio 0.806, near enough 4:5 that
+     they drop into a single cell uncropped); the two landscapes span two. */
+  var BREAKS = [
+    { src: 'assets/img/mood/hero-panel.jpg', span: 2, alt: 'The archive, shot warm' },
+    { src: 'assets/img/editorial/onward-furcollar-20.jpg', span: 1, alt: 'Fur-collar coat, lit low' },
+    { src: 'assets/img/mood/lineup-bw.jpg', span: 2, alt: 'The line-up' },
+    { src: 'assets/img/editorial/lilang-trench-20.jpg', span: 1, alt: 'Trench, lit low' }
+  ];
+
+  /* One break per EVERY cards. Below MIN_FOR_BREAK the set is too short to
+     interrupt — filter to Knitwear, get four pieces, and a single editorial
+     cell would be a third of the page. */
+  var EVERY = 8;
+  var MIN_FOR_BREAK = 8;
+
+  function breakCell(b) {
+    var src = optImg(b.src);
+    return '<figure class="grid__break" style="--span:' + b.span + '">' +
+             '<img src="' + esc(src) + '" alt="' + esc(b.alt) + '" width="700" height="875" loading="lazy" decoding="async">' +
+           '</figure>';
+  }
+
+  function renderGrid(el, items, opts) {
+    opts = opts || {};
+    var build = opts.tile ? tileCard : card;
+
+    if (!items.length) {
+      el.innerHTML = '<p class="empty">Nothing in this category yet.</p>';
+    } else {
+      var out = [], bi = 0;
+      items.forEach(function (p, i) {
+        if (opts.breaks && i && i % EVERY === 0 && items.length >= MIN_FOR_BREAK) {
+          out.push(breakCell(BREAKS[bi % BREAKS.length]));
+          bi++;
+        }
+        out.push(build(p));
+      });
+      el.innerHTML = out.join('');
+    }
     /* motion.js owns the reveal; tell it fresh cards exist. */
     window.dispatchEvent(new CustomEvent('reworn:grid', { detail: el }));
   }
@@ -70,19 +199,39 @@
   /* ---------- home ---------- */
   var homeGrid = document.querySelector('[data-grid="home"]');
   if (homeGrid) {
-    renderGrid(homeGrid, D.products.filter(function (p) { return p.tier === 'hero'; }));
+    /* Four, not all seven heroes. The index is a trailer, not the shop —
+       seven cards is most of a browsing page's worth of decisions to make
+       before anyone has been told what the archive is, and the row below
+       ("Discover the selection") is what should carry them onward. */
+    var n = parseInt(homeGrid.dataset.limit, 10) || 4;
+    renderGrid(homeGrid, D.products.filter(function (p) { return p.tier === 'hero'; }).slice(0, n));
   }
 
   /* ---------- collection ---------- */
   var colGrid = document.querySelector('[data-grid="collection"]');
   if (colGrid) {
+    /* Six routes, not three. motion.hoverGroups and the folder tabs have
+       always linked to ?max=1500 and ?health=100, but this page only ever
+       read ?c= — so two of the six tabs quietly landed on the unfiltered
+       grid. Each route now owns its predicate and its query string. */
+    var ROUTES = {
+      all:       { q: null,          test: function () { return true; } },
+      shirts:    { q: 'c=shirts',    test: function (p) { return p.category === 'shirts'; } },
+      outerwear: { q: 'c=outerwear', test: function (p) { return p.category === 'outerwear'; } },
+      knitwear:  { q: 'c=knitwear',  test: function (p) { return p.category === 'knitwear'; } },
+      under1500: { q: 'max=1500',    test: function (p) { return p.price_inr <= 1500; } },
+      full:      { q: 'health=100',  test: function (p) { return p.condition === 100; } }
+    };
+
     var params = new URLSearchParams(location.search);
-    var active = params.get('c') || 'all';
+    var active =
+      params.get('health') === '100' ? 'full' :
+      params.get('max')    === '1500' ? 'under1500' :
+      (ROUTES[params.get('c')] ? params.get('c') : 'all');
 
     var draw = function () {
-      renderGrid(colGrid, D.products.filter(function (p) {
-        return active === 'all' || p.category === active;
-      }));
+      var route = ROUTES[active] || ROUTES.all;
+      renderGrid(colGrid, D.products.filter(route.test), { tile: true, breaks: true });
       document.querySelectorAll('[data-filter]').forEach(function (b) {
         b.classList.toggle('is-on', b.dataset.filter === active);
       });
@@ -90,8 +239,10 @@
 
     document.querySelectorAll('[data-filter]').forEach(function (b) {
       b.addEventListener('click', function () {
+        if (!ROUTES[b.dataset.filter]) return;
         active = b.dataset.filter;
-        history.replaceState(null, '', active === 'all' ? 'collection.html' : '?c=' + active);
+        var q = ROUTES[active].q;
+        history.replaceState(null, '', q ? '?' + q : 'collection.html');
         withTransition(draw);
       });
     });
@@ -131,17 +282,58 @@
     var im = imgs(p);
     document.title = p.brand + ' ' + p.name + ' — REWORN.';
 
+    /* Update dynamic SEO meta tags and Schema for the loaded product */
+    try {
+      var metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) metaDesc.content = p.brand + ' ' + p.name + '. ' + (p.story || 'Pre-owned authenticated menswear from REWORN Archive 01.');
+      var can = document.querySelector('link[rel="canonical"]');
+      if (can) can.href = 'https://rinshadmens-art.github.io/reworn/product.html?id=' + encodeURIComponent(p.id);
+      var ogTitle = document.querySelector('meta[property="og:title"]');
+      if (ogTitle) ogTitle.content = p.brand + ' ' + p.name + ' — REWORN.';
+      var ogDesc = document.querySelector('meta[property="og:description"]');
+      if (ogDesc) ogDesc.content = (p.story || (p.brand + ' ' + p.name)) + ' · ' + inr(p.price_inr);
+      var ogUrl = document.querySelector('meta[property="og:url"]');
+      if (ogUrl) ogUrl.content = 'https://rinshadmens-art.github.io/reworn/product.html?id=' + encodeURIComponent(p.id);
+      var ogImg = document.querySelector('meta[property="og:image"]');
+      if (ogImg && im[0]) ogImg.content = 'https://rinshadmens-art.github.io/reworn/' + im[0];
+      var twTitle = document.querySelector('meta[name="twitter:title"]');
+      if (twTitle) twTitle.content = p.brand + ' ' + p.name + ' — REWORN.';
+      var twDesc = document.querySelector('meta[name="twitter:description"]');
+      if (twDesc) twDesc.content = (p.story || (p.brand + ' ' + p.name)) + ' · ' + inr(p.price_inr);
+      var twImg = document.querySelector('meta[name="twitter:image"]');
+      if (twImg && im[0]) twImg.content = 'https://rinshadmens-art.github.io/reworn/' + im[0];
+
+      var schemaEl = document.getElementById('pdp-schema');
+      if (schemaEl) {
+        schemaEl.textContent = JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'Product',
+          'name': p.brand + ' ' + p.name,
+          'brand': { '@type': 'Brand', 'name': p.brand },
+          'description': p.story || (p.brand + ' ' + p.name),
+          'image': 'https://rinshadmens-art.github.io/reworn/' + (im[0] || ''),
+          'offers': {
+            '@type': 'Offer',
+            'price': String(p.price_inr || ''),
+            'priceCurrency': 'INR',
+            'availability': p.sold ? 'https://schema.org/SoldOut' : 'https://schema.org/InStock',
+            'itemCondition': 'https://schema.org/UsedCondition'
+          }
+        });
+      }
+    } catch (e) {}
+
     // editorial frames, then the real tag photos as authenticity proof
     var idx = D.products.indexOf(p) + 1;
     var pad = function (n) { return (n < 10 ? '0' : '') + n; };
 
     /* Gallery rhythm: lead frame, then pairs, with one full-width plate every
        third position so the column never becomes a monotonous ladder. */
-    var rest = im.slice(1, 6).concat(p.proof || []);
+    var rest = im.slice(1, 10);
     var strip = rest.map(function (src, i) {
       var wide = (i % 3 === 2);
       return '<figure class="' + (wide ? 'is-wide' : '') + '">' +
-             '<img src="' + src + '" alt="" loading="lazy"></figure>';
+             '<img src="' + src + '" alt="" width="1289" height="1600" loading="lazy" decoding="async"></figure>';
     }).join('');
 
     var health = p.condition;
@@ -156,7 +348,8 @@
             return '<img class="scrub' + (i ? '' : ' is-on') + '"' +
                    (i ? '' : ' style="view-transition-name:vt-hero"') +
                    ' src="' + src + '" alt="' + (i ? '' : esc(p.brand + ' ' + p.name)) + '"' +
-                   (i ? ' loading="lazy"' : '') + '>';
+                   ' width="1289" height="1600"' +
+                   (i ? ' loading="lazy"' : ' fetchpriority="high"') + ' decoding="async">';
           }).join('') +
           '<span class="scrub__hint micro">Drag to turn</span>' +
           '<span class="scrub__dots">' + im.slice(0, 4).map(function (_, i) {
@@ -169,7 +362,9 @@
         '<p class="pdp__idx mono">' + pad(idx) + ' <span class="dot">/</span> ' + pad(D.products.length) + '</p>' +
         '<p class="micro faint">' + esc(p.brand) + '</p>' +
         '<h1 class="pdp__title">' + esc(p.name) + '</h1>' +
-        '<p class="pdp__price">' + inr(p.price_inr) + '</p>' +
+        '<p class="pdp__price' + (p.retail_inr ? ' has-retail' : '') + '">' +
+          inr(p.price_inr) + '</p>' +
+        retailLine(p) +
         '<p class="pdp__story">' + esc(p.story) + '</p>' +
 
         '<div class="health">' +
@@ -179,11 +374,12 @@
           '<p class="faint" style="font-size:var(--fs-small);margin-top:8px">' + esc(p.condition_note) + '</p>' +
         '</div>' +
 
-        '<p class="micro faint" style="margin:-14px 0 22px">Tag photographs are unretouched originals.</p>' +
+
         '<table class="spec"><tbody>' +
           '<tr><th>Size</th><td>' + esc(p.size) + '</td></tr>' +
           '<tr><th>Material</th><td>' + esc(p.material) + '</td></tr>' +
-          '<tr><th>Category</th><td>' + esc(p.category) + '</td></tr>' +
+          '<tr><th>Category</th><td>' + esc(cap(p.category)) + '</td></tr>' +
+          (originOf(p) ? '<tr><th>Origin</th><td>' + esc(originOf(p)) + '</td></tr>' : '') +
           '<tr><th>Pieces</th><td>1 of 1 — no restock</td></tr>' +
         '</tbody></table>' +
 

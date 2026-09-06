@@ -31,7 +31,17 @@ class Cursor {
         requestAnimationFrame(() => this.render());
     }
     initEvents() {
-        window.addEventListener('mousemove', ev => this.mousePos = getMousePos(ev));
+        window.addEventListener('mousemove', ev => {
+            this.mousePos = getMousePos(ev);
+            /* The cursor is drawn from 0,0 until it has a real position to
+               follow, which shows as a ring stranded in the page corner.
+               CSS keeps it invisible until this flag says the pointer is
+               somewhere the visitor actually put it. */
+            if (!this.seen) {
+                this.seen = true;
+                document.documentElement.classList.add('has-pointer');
+            }
+        });
     }
     render() {
         this.lastMousePos.dot.x = lerp(this.lastMousePos.dot.x, this.mousePos.x - this.bounds.dot.width/2, 1);

@@ -29,6 +29,18 @@
   z-index: 2;
 }
 
+/* difference-blending white text was how this stayed legible over a pale
+   product plate on a linen page. Against the theatre ground it inverts
+   into near-black on near-black — the title all but disappears wherever
+   it overhangs the image. On dark it is simply set in bone, with a soft
+   shadow for the stretch that does cross the photograph. */
+.theme-dark .slide-content {
+  mix-blend-mode: normal;
+  text-shadow: 0 2px 26px rgba(11, 10, 9, 0.65);
+}
+.theme-dark .slide-title,
+.theme-dark .slide-description { color: var(--ink); }
+
 .slide-title {
   position: absolute;
   top: 50%; left: 3rem;
@@ -36,7 +48,8 @@
   width: max-content;
   color: #fff;
 }
-.slide-title h1 {
+.slide-title h1,
+.slide-title h2 {
   font-family: var(--serif);
   font-size: clamp(2rem, 4vw, 6rem);
   font-weight: 400;
@@ -65,7 +78,13 @@
   letter-spacing: var(--track-micro);
 }
 
-.char, .line { display: inline-block; will-change: transform; position: relative; }
+/* Scoped to .slider. As a bare selector this leaked the moment slider.css
+   was added to the index for the ripple: the hero's .address rows are also
+   <div class="line">, so display:inline-block laid "21 pieces" and
+   "20 brands" side by side on one row instead of stacking them.
+   Three components use .line — hero, menu and this one — and only the
+   hero's rules happened to be namespaced by a parent. */
+.slider .char, .slider .line { display: inline-block; will-change: transform; position: relative; }
 
 /* affordance — the reference relies on the visitor guessing */
 .slider__cue {
@@ -84,7 +103,8 @@
 
 @media (max-width: 1000px) {
   .slide-title { top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; }
-  .slide-title h1 { max-width: none; }
+  .slide-title h1,
+  .slide-title h2 { max-width: none; }
   .slide-description {
     width: 75%;
     text-align: center;

@@ -86,7 +86,11 @@ if (slider && window.gsap) {
     const camera = new THREE.OrthographicCamera(-0.5, 0.5, 0.5, -0.5, 0.01, 10);
     camera.position.z = 1;
 
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    /* premultipliedAlpha:false — TextureLoader gives straight alpha, and
+       assuming otherwise haloes every cut-out edge against the dark. */
+    const renderer = new THREE.WebGLRenderer({
+      antialias: true, alpha: true, premultipliedAlpha: false
+    });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setClearColor(0x000000, 0);
     slider.prepend(renderer.domElement);
@@ -120,8 +124,16 @@ if (slider && window.gsap) {
       uTexNext: { value: textures[1] },
       uProgress: { value: 0.0 },
       uResolution: { value: new THREE.Vector2() },
-      /* our archive frames are portrait 1289x1600, not the reference's 1920x1280 */
-      uImageRes: { value: new THREE.Vector2(1289, 1600) },
+      /* Read off the texture rather than hardcoded. It used to say
+         1289x1600 — the archive plate's size — but the slides are cut-outs
+         now and every one of those is trimmed to its own garment, so a
+         fixed ratio stretched each piece by a different amount. */
+      uImageRes: {
+        value: new THREE.Vector2(
+          (textures[0] && textures[0].image && textures[0].image.width) || 1289,
+          (textures[0] && textures[0].image && textures[0].image.height) || 1600
+        )
+      },
       uWaveFreq: { value: rippleConfig.waveFreq },
       uWavePow: { value: rippleConfig.wavePow },
       uWaveWidth: { value: rippleConfig.waveWidth },
@@ -169,6 +181,40 @@ if (slider && window.gsap) {
     }
     gsap.fromTo(initialLines, { y: '100%' },
       { y: '0%', duration: 0.8, stagger: 0.025, ease: 'power2.out', delay: 0.2 });
+
+    /* This intro is a "from" animation behind a character mask, which is
+       the one shape the rest of this project has learned not to trust: if
+       the ticker stalls part-way — a throttled tab, a slow first paint —
+       the chars are left mid-travel and the mask simply eats the title.
+       Observed stuck at y:47px with everything else reporting healthy.
+
+       A real timer outlives a stalled rAF, so after the intro should long
+       since have finished, the text is put where it belongs. */
+    setTimeout(function () {
+      try {
+        /* splitTitle and splitDescription hand back array-likes, not
+           arrays — concat would nest a NodeList as a single item and the
+           filter below would then throw on it, silently taking the whole
+           failsafe down with it. A rescue that can fail is not a rescue. */
+        var toArr = function (v) { return v ? Array.prototype.slice.call(v) : []; };
+        var all = toArr(initialTitle && initialTitle.chars)
+          .concat(toArr(initialLines))
+          .filter(function (n) { return n && n.nodeType === 1 && n.parentNode; });
+        if (!all.length) return;
+
+        var stuck = all.some(function (n) {
+          return Math.abs(n.getBoundingClientRect().top -
+                          n.parentNode.getBoundingClientRect().top) > 1;
+        });
+        if (!stuck) return;
+
+        /* Killing first is the whole trick. A throttled tween is not dead,
+           it is crawling — set the value without killing and the tween's
+           next tick puts it straight back where it was. */
+        gsap.killTweensOf(all);
+        gsap.set(all, { y: '0%' });
+      } catch (e) { /* never let the failsafe be the thing that breaks */ }
+    }, 2600);
 
     function transition() {
       if (isTransitioning) return;

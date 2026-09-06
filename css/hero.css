@@ -12,6 +12,39 @@
   background: var(--linen);
 }
 
+/* --- ambient backdrop ------------------------------------------------
+   The reference is a one-screen landing, so when its frames collapse
+   into the corner stack it can afford to leave the ground bare. On a
+   near-black ground that reads as an empty room, not as restraint.
+
+   So one atmospheric frame stays behind everything at low opacity,
+   under a vignette. It is decorative only — it carries no product and
+   no information, which is why it is a background-image rather than an
+   <img>, and why it never announces itself to a screen reader. */
+.hero-amb {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0;
+  background-size: cover;
+  background-position: center 38%;
+  /* the photographs are already amber; this only deepens the corners */
+  filter: saturate(0.85) contrast(1.04);
+  transition: opacity 1600ms var(--ease-out);
+  pointer-events: none;
+}
+.hero-amb::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(120% 90% at 50% 42%, transparent 30%, var(--scrim-deep) 100%),
+    linear-gradient(to bottom, var(--scrim) 0%, transparent 26%, transparent 58%, var(--scrim-deep) 100%);
+}
+/* lit only once the sequence has handed off, so it never competes with
+   the full-bleed frames during the reveal */
+.hero-lit .hero-amb { opacity: 0.5; }
+
 /* --- revealers --- */
 .revealers {
   position: fixed;
@@ -66,12 +99,36 @@
 }
 .img.stacked {
   position: relative;
-  width: 150px; height: 100px;
+  /* The reference stacks landscape tiles because its source frames are
+     landscape. Every frame that survives ours is a garment shot at
+     1289x1600 — cropping that to 150x100 keeps a band of torso and
+     throws the clothes away. Portrait tiles, so the piece is legible. */
+  width: 104px; height: 140px;
   transform: none;
   top: auto; left: auto;
   opacity: 1;
   will-change: transform;
+  /* A cut-out needs no hairline: it has no rectangle to define. The
+     outline existed to stop a dark-edged PHOTOGRAPH dissolving into the
+     page, and it is exactly the "boxy border" once the plate is gone. */
+  outline: none;
 }
+/* A cut-out must contain at EVERY size, not only once stacked. These three
+   frames are full-bleed for a beat during the intro before they collapse
+   into the corner, and covering there would blow one garment up to fill the
+   screen with transparency around it. Contained and centred, the same frame
+   reads as the piece standing alone in the room. */
+.img.is-cut {
+  background: radial-gradient(120% 90% at 50% 45%,
+              var(--parchment) 0%, var(--linen) 72%);
+}
+.img.is-cut img { object-fit: contain; padding: 8vh 12vw; }
+
+/* the tile is a lit alcove the garment stands in, not a picture frame */
+.img.stacked.is-cut {
+  background: linear-gradient(to bottom, var(--card) 0%, var(--parchment) 100%);
+}
+.img.stacked.is-cut img { object-fit: contain; padding: 10% 12% 12%; }
 
 /* --- hero copy --- */
 .hero-content {
@@ -87,15 +144,25 @@
   top: 2em; left: 2em;
   display: flex;
   gap: 0.4em;
-}
-.site-logo h1 {
+  margin: 0;
   color: var(--ink);
   font-family: var(--serif);
   font-size: 5vw;
   font-weight: 400;
-  line-height: 1;
+  line-height: 0.78;
   letter-spacing: -0.02em;
 }
+.site-logo h1,
+.site-logo .word {
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  margin: 0;
+}
+.site-logo sup,
 .site-logo h1 sup {
   position: absolute;
   top: -0.125em;
@@ -129,10 +196,29 @@
   width: 40%; height: 50%;
   clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
   overflow: hidden;
+  z-index: 1;
 }
 .team-img img {
   width: 100%; height: 100%; object-fit: cover;
-  filter: saturate(0);
+  /* was saturate(0). Fully desaturating was the right call on linen,
+     where colour fought the paper. Against the theatre ground the amber
+     IS the light source, and greyscale throws away the only warmth on
+     the screen — so it is pulled back, not removed.
+     The brightness trim matters more than it looks: this frame is a
+     product plate shot on a pale ground, and at full strength it was the
+     brightest object on a near-black page — a lightbox stuck to a wall
+     rather than something standing in the same room. */
+  filter: saturate(0.7) contrast(1.06) brightness(0.82);
+}
+/* the room's light falls off towards the edges of this panel too */
+.team-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(105% 78% at 42% 34%, transparent 42%, rgba(11, 10, 9, 0.5) 100%),
+    linear-gradient(to top, rgba(11, 10, 9, 0.42), transparent 42%);
 }
 
 .site-info {
@@ -143,17 +229,23 @@
   flex-direction: column;
   justify-content: space-between;
   /* clear of the stacked pile in the corner */
-  padding-left: calc(150px + 2em);
+  padding-left: calc(104px + 3em);
 }
 .site-info .row { display: flex; gap: 2em; }
 .site-info .row .col { flex: 1; }
 .site-info h2 {
   font-family: var(--serif);
-  font-size: clamp(20px, 1.9vw, 28px);
+  /* the statement is the second thing read after the wordmark, so it is
+     allowed to be genuinely large — 28px was a caption pretending to be
+     a headline */
+  font-size: clamp(22px, 2.5vw, 38px);
   font-weight: 400;
-  line-height: 1.2;
-  letter-spacing: -0.01em;
+  line-height: 1.16;
+  letter-spacing: -0.018em;
   color: var(--ink);
+  max-width: 22ch;
+  /* no inline markup in here: hero.js runs SplitType over this element
+     and rebuilds each line from textContent, so tags would be dropped */
 }
 .site-info p {
   text-transform: uppercase;
@@ -193,29 +285,93 @@ html:not(.js) .img { opacity: 1; transform: translate(-50%, -50%); }
 html:not(.js) .revealers { display: none; }
 
 @media (max-width: 1000px) {
-  .site-logo h1 { font-size: 12vw; }
-  .team-img { width: 46%; height: 34%; }
+  /* The two words sat side by side at 12vw, which on a 500px screen is a
+     590px line — it ran under the MENU button and off the right edge.
+     Stacked and smaller, it fits and reads bigger, not smaller. */
+  .site-logo {
+    flex-direction: column;
+    gap: 0;
+    top: 1.25em; left: 1.25em;
+    /* never grow into the menu button's corner */
+    max-width: calc(100% - 8.5em);
+  }
+  .site-logo h1 { font-size: 13vw; line-height: 0.84; }
+  .site-logo h1 sup { font-size: 0.9rem; }
+
+  /* Lifted off the bottom edge. Sitting bottom-right it overlapped the
+     statement, which on a phone is the full width of the screen — the
+     sentence was legible for eight words and then ran under a jacket. */
+  .team-img {
+    width: 58%; height: 26%;
+    right: 0; bottom: auto; top: 34%;
+  }
+
   .site-info {
-    width: calc(100% - 4em);
+    width: calc(100% - 2.5em);
     height: auto;
-    bottom: 2em;
+    left: 1.25em;
+    bottom: 1.25em;
     padding-left: 0;
-    gap: 1.4em;
+    gap: 1.2em;
   }
   .site-info .row:nth-child(2) { display: none; }
-  .images.stacked-container { left: 1em; bottom: 1em; gap: 0.5em; }
-  .img.stacked { width: 84px; height: 56px; }
+  /* The rows are two flex columns side by side. On a phone that gave the
+     statement half of 500px and pushed it under the garment panel, so the
+     one sentence the hero exists to say was invisible. */
+  .site-info .row { flex-direction: column; gap: 0.75em; }
+  /* the copy sits over the ambient plate at this size, so it earns a
+     little ground of its own rather than relying on the vignette */
+  .site-info::before {
+    content: '';
+    position: absolute;
+    inset: -1.5em -1.25em -1.5em -1.25em;
+    background: linear-gradient(to top, var(--scrim-deep) 45%, transparent 100%);
+    pointer-events: none;
+    z-index: -1;
+  }
+  .site-info h2 { font-size: clamp(19px, 5.2vw, 30px); max-width: 20ch; }
+
+  /* The corner stack is decorative, and on a phone it was overlapping the
+     statement AND hanging off the left edge. The hero's job on a small
+     screen is the wordmark and the sentence; the pile is what gets cut. */
+  .images.stacked-container { display: none; }
+
   .hero-nav { display: none; }
+}
+
+/* Below the fold on a short screen the statement and the panel fight for
+   the same space, so the panel yields — the sentence is the thing that
+   has to survive. */
+@media (max-width: 1000px) and (max-height: 700px) {
+  .team-img { display: none; }
 }
 
 /* The reference is a single-screen landing, so its stack stays fixed
    forever. Ours sits above a long page, so it retires once the hero
    has scrolled away rather than covering the sections below. */
+/* Fading to opacity 0 is not enough for a position:fixed element. Any jump
+   that outruns the transition — a hash link, a restored scroll position, a
+   throttled tab — leaves it half-lit on top of the archive. visibility
+   takes it out of the page for real.
+
+   The delay is asymmetric on purpose: going out, visibility waits for the
+   fade to finish; coming back, it flips immediately so there is something
+   to fade in. */
 .images.stacked-container {
-  transition: opacity 500ms var(--ease-out), transform 500ms var(--ease-out);
+  visibility: visible;
+  transition: opacity 500ms var(--ease-out),
+              transform 500ms var(--ease-out),
+              visibility 0s;
 }
 .scrolled .images.stacked-container {
   opacity: 0;
   transform: translateY(20px);
   pointer-events: none;
+}
+/* Set by a real setTimeout in menu.js rather than by the transition
+   finishing, because a transition in a throttled tab never finishes.
+   This is the state that actually guarantees the pile is gone. */
+.stack-retired .images.stacked-container {
+  visibility: hidden;
+  opacity: 0;
 }
