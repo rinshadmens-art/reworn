@@ -1,7 +1,7 @@
 window.REWORN = {
  "brand": {
   "name": "REWORN.",
-  "slogan": "Worn once. Wanted twice.",
+  "slogan": "Second-hand. First choice.",
   "sublines": [
    "Not new. Better.",
    "A second life, styled first.",
@@ -46,16 +46,16 @@ window.REWORN = {
    "surface": "warm sand-toned paper",
    "props": "a pair of tortoiseshell sunglasses, a slim steel-bracelet watch, a sprig of dried olive branch",
    "editorial": [
-    "assets/img/editorial/rl-linen-olive-1.jpg",
-    "assets/img/editorial/rl-linen-olive-2.jpg",
-    "assets/img/editorial/rl-linen-olive-3.jpg",
-    "assets/img/editorial/rl-linen-olive-4.jpg",
-    "assets/img/editorial/rl-linen-olive-5.jpg",
-    "assets/img/editorial/rl-linen-olive-6.jpg",
-    "assets/img/editorial/rl-linen-olive-7.jpg",
-    "assets/img/editorial/rl-linen-olive-8.jpg",
-    "assets/img/editorial/rl-linen-olive-9.jpg",
-    "assets/img/editorial/rl-linen-olive-20.jpg"
+    "assets/img/editorial/rl-linen-olive-1.webp",
+    "assets/img/editorial/rl-linen-olive-2.webp",
+    "assets/img/editorial/rl-linen-olive-3.webp",
+    "assets/img/editorial/rl-linen-olive-4.webp",
+    "assets/img/editorial/rl-linen-olive-5.webp",
+    "assets/img/editorial/rl-linen-olive-6.webp",
+    "assets/img/editorial/rl-linen-olive-7.webp",
+    "assets/img/editorial/rl-linen-olive-8.webp",
+    "assets/img/editorial/rl-linen-olive-9.webp",
+    "assets/img/editorial/rl-linen-olive-20.webp"
    ],
    "cutout": "assets/img/cutout/rl-linen-olive.webp",
    "plate": "assets/img/plate/rl-linen-olive.webp",
@@ -100,14 +100,14 @@ window.REWORN = {
    "surface": "matte charcoal-grey slate",
    "props": "a pair of black oval sunglasses, a fine silver chain, a black ceramic incense holder",
    "editorial": [
-    "assets/img/editorial/rare-rabbit-kufa-1.jpg",
-    "assets/img/editorial/rare-rabbit-kufa-2.jpg",
-    "assets/img/editorial/rare-rabbit-kufa-3.jpg",
-    "assets/img/editorial/rare-rabbit-kufa-4.jpg",
-    "assets/img/editorial/rare-rabbit-kufa-5.jpg",
-    "assets/img/editorial/rare-rabbit-kufa-6.jpg",
-    "assets/img/editorial/rare-rabbit-kufa-7.jpg",
-    "assets/img/editorial/rare-rabbit-kufa-20.jpg"
+    "assets/img/editorial/rare-rabbit-kufa-1.webp",
+    "assets/img/editorial/rare-rabbit-kufa-2.webp",
+    "assets/img/editorial/rare-rabbit-kufa-3.webp",
+    "assets/img/editorial/rare-rabbit-kufa-4.webp",
+    "assets/img/editorial/rare-rabbit-kufa-5.webp",
+    "assets/img/editorial/rare-rabbit-kufa-6.webp",
+    "assets/img/editorial/rare-rabbit-kufa-7.webp",
+    "assets/img/editorial/rare-rabbit-kufa-20.webp"
    ],
    "cutout": "assets/img/cutout/rare-rabbit-kufa.webp",
    "plate": "assets/img/plate/rare-rabbit-kufa.webp",
@@ -150,14 +150,14 @@ window.REWORN = {
    "surface": "bleached driftwood",
    "props": "a woven raffia hat brim, a small white espresso cup, a linen napkin loosely folded",
    "editorial": [
-    "assets/img/editorial/pepe-linen-ecru-1.jpg",
-    "assets/img/editorial/pepe-linen-ecru-2.jpg",
-    "assets/img/editorial/pepe-linen-ecru-4.jpg",
-    "assets/img/editorial/pepe-linen-ecru-5.jpg",
-    "assets/img/editorial/pepe-linen-ecru-6.jpg",
-    "assets/img/editorial/pepe-linen-ecru-7.jpg",
-    "assets/img/editorial/pepe-linen-ecru-8.jpg",
-    "assets/img/editorial/pepe-linen-ecru-9.jpg"
+    "assets/img/editorial/pepe-linen-ecru-1.webp",
+    "assets/img/editorial/pepe-linen-ecru-2.webp",
+    "assets/img/editorial/pepe-linen-ecru-4.webp",
+    "assets/img/editorial/pepe-linen-ecru-5.webp",
+    "assets/img/editorial/pepe-linen-ecru-6.webp",
+    "assets/img/editorial/pepe-linen-ecru-7.webp",
+    "assets/img/editorial/pepe-linen-ecru-8.webp",
+    "assets/img/editorial/pepe-linen-ecru-9.webp"
    ],
    "cutout": "assets/img/cutout/pepe-linen-ecru.webp",
    "plate": "assets/img/plate/pepe-linen-ecru.webp",
@@ -200,12 +200,12 @@ window.REWORN = {
    "surface": "raw indigo canvas",
    "props": "a coiled bandana, two chunky silver rings, a worn brown leather belt coiled",
    "editorial": [
-    "assets/img/editorial/pepe-denim-1.jpg",
-    "assets/img/editorial/pepe-denim-2.jpg",
-    "assets/img/editorial/pepe-denim-3.jpg",
-    "assets/img/editorial/pepe-denim-4.jpg",
-    "assets/img/editorial/pepe-denim-5.jpg",
-    "assets/img/editorial/pepe-denim-6.jpg"
+    "assets/img/editorial/pepe-denim-1.webp",
+    "assets/img/editorial/pepe-denim-2.webp",
+    "assets/img/editorial/pepe-denim-3.webp",
+    "assets/img/editorial/pepe-denim-4.webp",
+    "assets/img/editorial/pepe-denim-5.webp",
+    "assets/img/editorial/pepe-denim-6.webp"
    ],
    "cutout": "assets/img/cutout/pepe-denim.webp",
    "plate": "assets/img/plate/pepe-denim.webp",
@@ -249,12 +249,12 @@ window.REWORN = {
    "surface": "cream cotton twill",
    "props": "a coiled navy knit tie, a leather-strap watch, a single tennis ball",
    "editorial": [
-    "assets/img/editorial/uspa-stripe-1.jpg",
-    "assets/img/editorial/uspa-stripe-2.jpg",
-    "assets/img/editorial/uspa-stripe-3.jpg",
-    "assets/img/editorial/uspa-stripe-4.jpg",
-    "assets/img/editorial/uspa-stripe-5.jpg",
-    "assets/img/editorial/uspa-stripe-6.jpg"
+    "assets/img/editorial/uspa-stripe-1.webp",
+    "assets/img/editorial/uspa-stripe-2.webp",
+    "assets/img/editorial/uspa-stripe-3.webp",
+    "assets/img/editorial/uspa-stripe-4.webp",
+    "assets/img/editorial/uspa-stripe-5.webp",
+    "assets/img/editorial/uspa-stripe-6.webp"
    ],
    "cutout": "assets/img/cutout/uspa-stripe.webp",
    "plate": "assets/img/plate/uspa-stripe.webp",
@@ -297,13 +297,13 @@ window.REWORN = {
    "surface": "dark terracotta tile",
    "props": "a gold-tone watch, a string of sandalwood beads, a tan leather card holder",
    "editorial": [
-    "assets/img/editorial/vanheusen-brown-1.jpg",
-    "assets/img/editorial/vanheusen-brown-2.jpg",
-    "assets/img/editorial/vanheusen-brown-3.jpg",
-    "assets/img/editorial/vanheusen-brown-4.jpg",
-    "assets/img/editorial/vanheusen-brown-5.jpg",
-    "assets/img/editorial/vanheusen-brown-6.jpg",
-    "assets/img/editorial/vanheusen-brown-7.jpg"
+    "assets/img/editorial/vanheusen-brown-1.webp",
+    "assets/img/editorial/vanheusen-brown-2.webp",
+    "assets/img/editorial/vanheusen-brown-3.webp",
+    "assets/img/editorial/vanheusen-brown-4.webp",
+    "assets/img/editorial/vanheusen-brown-5.webp",
+    "assets/img/editorial/vanheusen-brown-6.webp",
+    "assets/img/editorial/vanheusen-brown-7.webp"
    ],
    "cutout": "assets/img/cutout/vanheusen-brown.webp",
    "plate": "assets/img/plate/vanheusen-brown.webp",
@@ -347,14 +347,14 @@ window.REWORN = {
    "surface": "pale grey linen",
    "props": "a folded pair of white ribbed socks, one black leather loafer, a steel diver's watch",
    "editorial": [
-    "assets/img/editorial/lp-polo-black-1.jpg",
-    "assets/img/editorial/lp-polo-black-2.jpg",
-    "assets/img/editorial/lp-polo-black-4.jpg",
-    "assets/img/editorial/lp-polo-black-5.jpg",
-    "assets/img/editorial/lp-polo-black-6.jpg",
-    "assets/img/editorial/lp-polo-black-7.jpg",
-    "assets/img/editorial/lp-polo-black-8.jpg",
-    "assets/img/editorial/lp-polo-black-9.jpg"
+    "assets/img/editorial/lp-polo-black-1.webp",
+    "assets/img/editorial/lp-polo-black-2.webp",
+    "assets/img/editorial/lp-polo-black-4.webp",
+    "assets/img/editorial/lp-polo-black-5.webp",
+    "assets/img/editorial/lp-polo-black-6.webp",
+    "assets/img/editorial/lp-polo-black-7.webp",
+    "assets/img/editorial/lp-polo-black-8.webp",
+    "assets/img/editorial/lp-polo-black-9.webp"
    ],
    "cutout": "assets/img/cutout/lp-polo-black.webp",
    "plate": "assets/img/plate/lp-polo-black.webp",
@@ -397,14 +397,14 @@ window.REWORN = {
    "surface": "sun-bleached teak",
    "props": "a pair of woven leather sandals, a tin of sunscreen, a length of natural rope",
    "editorial": [
-    "assets/img/editorial/pan-america-navy-1.jpg",
-    "assets/img/editorial/pan-america-navy-2.jpg",
-    "assets/img/editorial/pan-america-navy-4.jpg",
-    "assets/img/editorial/pan-america-navy-5.jpg",
-    "assets/img/editorial/pan-america-navy-6.jpg",
-    "assets/img/editorial/pan-america-navy-7.jpg",
-    "assets/img/editorial/pan-america-navy-8.jpg",
-    "assets/img/editorial/pan-america-navy-9.jpg"
+    "assets/img/editorial/pan-america-navy-1.webp",
+    "assets/img/editorial/pan-america-navy-2.webp",
+    "assets/img/editorial/pan-america-navy-4.webp",
+    "assets/img/editorial/pan-america-navy-5.webp",
+    "assets/img/editorial/pan-america-navy-6.webp",
+    "assets/img/editorial/pan-america-navy-7.webp",
+    "assets/img/editorial/pan-america-navy-8.webp",
+    "assets/img/editorial/pan-america-navy-9.webp"
    ],
    "cutout": "assets/img/cutout/pan-america-navy.webp",
    "plate": "assets/img/plate/pan-america-navy.webp",
@@ -448,15 +448,15 @@ window.REWORN = {
    "surface": "brushed concrete",
    "props": "a black aluminium carabiner, coiled black wired earphones, a rolled black nylon strap",
    "editorial": [
-    "assets/img/editorial/nike-padded-1.jpg",
-    "assets/img/editorial/nike-padded-2.jpg",
-    "assets/img/editorial/nike-padded-3.jpg",
-    "assets/img/editorial/nike-padded-4.jpg",
-    "assets/img/editorial/nike-padded-5.jpg",
-    "assets/img/editorial/nike-padded-6.jpg",
-    "assets/img/editorial/nike-padded-7.jpg",
-    "assets/img/editorial/nike-padded-8.jpg",
-    "assets/img/editorial/nike-padded-20.jpg"
+    "assets/img/editorial/nike-padded-1.webp",
+    "assets/img/editorial/nike-padded-2.webp",
+    "assets/img/editorial/nike-padded-3.webp",
+    "assets/img/editorial/nike-padded-4.webp",
+    "assets/img/editorial/nike-padded-5.webp",
+    "assets/img/editorial/nike-padded-6.webp",
+    "assets/img/editorial/nike-padded-7.webp",
+    "assets/img/editorial/nike-padded-8.webp",
+    "assets/img/editorial/nike-padded-20.webp"
    ],
    "cutout": "assets/img/cutout/nike-padded.webp",
    "plate": "assets/img/plate/nike-padded.webp",
@@ -502,15 +502,15 @@ window.REWORN = {
     "place": "Fujian"
    },
    "editorial": [
-    "assets/img/editorial/lilang-trench-1.jpg",
-    "assets/img/editorial/lilang-trench-2.jpg",
-    "assets/img/editorial/lilang-trench-3.jpg",
-    "assets/img/editorial/lilang-trench-4.jpg",
-    "assets/img/editorial/lilang-trench-5.jpg",
-    "assets/img/editorial/lilang-trench-6.jpg",
-    "assets/img/editorial/lilang-trench-7.jpg",
-    "assets/img/editorial/lilang-trench-8.jpg",
-    "assets/img/editorial/lilang-trench-20.jpg"
+    "assets/img/editorial/lilang-trench-1.webp",
+    "assets/img/editorial/lilang-trench-2.webp",
+    "assets/img/editorial/lilang-trench-3.webp",
+    "assets/img/editorial/lilang-trench-4.webp",
+    "assets/img/editorial/lilang-trench-5.webp",
+    "assets/img/editorial/lilang-trench-6.webp",
+    "assets/img/editorial/lilang-trench-7.webp",
+    "assets/img/editorial/lilang-trench-8.webp",
+    "assets/img/editorial/lilang-trench-20.webp"
    ],
    "cutout": "assets/img/cutout/lilang-trench.webp",
    "plate": "assets/img/plate/lilang-trench.webp",
@@ -553,14 +553,14 @@ window.REWORN = {
    "surface": "rough workbench oak",
    "props": "a pair of canvas work gloves, a flat carpenter's pencil, a folded canvas tote",
    "editorial": [
-    "assets/img/editorial/sourepose-chore-1.jpg",
-    "assets/img/editorial/sourepose-chore-2.jpg",
-    "assets/img/editorial/sourepose-chore-3.jpg",
-    "assets/img/editorial/sourepose-chore-4.jpg",
-    "assets/img/editorial/sourepose-chore-5.jpg",
-    "assets/img/editorial/sourepose-chore-6.jpg",
-    "assets/img/editorial/sourepose-chore-7.jpg",
-    "assets/img/editorial/sourepose-chore-8.jpg"
+    "assets/img/editorial/sourepose-chore-1.webp",
+    "assets/img/editorial/sourepose-chore-2.webp",
+    "assets/img/editorial/sourepose-chore-3.webp",
+    "assets/img/editorial/sourepose-chore-4.webp",
+    "assets/img/editorial/sourepose-chore-5.webp",
+    "assets/img/editorial/sourepose-chore-6.webp",
+    "assets/img/editorial/sourepose-chore-7.webp",
+    "assets/img/editorial/sourepose-chore-8.webp"
    ],
    "cutout": "assets/img/cutout/sourepose-chore.webp",
    "plate": "assets/img/plate/sourepose-chore.webp",
@@ -603,14 +603,14 @@ window.REWORN = {
    "surface": "cold rolled steel",
    "props": "a folded multi-tool, a creased paper map, a heavy brass keyring",
    "editorial": [
-    "assets/img/editorial/angn-utility-1.jpg",
-    "assets/img/editorial/angn-utility-2.jpg",
-    "assets/img/editorial/angn-utility-4.jpg",
-    "assets/img/editorial/angn-utility-5.jpg",
-    "assets/img/editorial/angn-utility-6.jpg",
-    "assets/img/editorial/angn-utility-7.jpg",
-    "assets/img/editorial/angn-utility-8.jpg",
-    "assets/img/editorial/angn-utility-9.jpg"
+    "assets/img/editorial/angn-utility-1.webp",
+    "assets/img/editorial/angn-utility-2.webp",
+    "assets/img/editorial/angn-utility-4.webp",
+    "assets/img/editorial/angn-utility-5.webp",
+    "assets/img/editorial/angn-utility-6.webp",
+    "assets/img/editorial/angn-utility-7.webp",
+    "assets/img/editorial/angn-utility-8.webp",
+    "assets/img/editorial/angn-utility-9.webp"
    ],
    "cutout": "assets/img/cutout/angn-utility.webp",
    "plate": "assets/img/plate/angn-utility.webp",
@@ -657,15 +657,14 @@ window.REWORN = {
     "era": "1990s"
    },
    "editorial": [
-    "assets/img/editorial/wuhuan-plaid-1.jpg",
-    "assets/img/editorial/wuhuan-plaid-2.jpg",
-    "assets/img/editorial/wuhuan-plaid-4.jpg",
-    "assets/img/editorial/wuhuan-plaid-5.jpg",
-    "assets/img/editorial/wuhuan-plaid-6.jpg",
-    "assets/img/editorial/wuhuan-plaid-7.jpg",
-    "assets/img/editorial/wuhuan-plaid-8.jpg",
-    "assets/img/editorial/wuhuan-plaid-9.jpg",
-    "assets/img/editorial/wuhuan-plaid-20.jpg"
+    "assets/img/editorial/wuhuan-plaid-1.webp",
+    "assets/img/editorial/wuhuan-plaid-2.webp",
+    "assets/img/editorial/wuhuan-plaid-4.webp",
+    "assets/img/editorial/wuhuan-plaid-5.webp",
+    "assets/img/editorial/wuhuan-plaid-6.webp",
+    "assets/img/editorial/wuhuan-plaid-7.webp",
+    "assets/img/editorial/wuhuan-plaid-9.webp",
+    "assets/img/editorial/wuhuan-plaid-20.webp"
    ],
    "cutout": "assets/img/cutout/wuhuan-plaid.webp",
    "plate": "assets/img/plate/wuhuan-plaid.webp",
@@ -708,14 +707,14 @@ window.REWORN = {
    "surface": "charcoal felt",
    "props": "a stainless steel watch, a small bunch of keys, a matte black lighter",
    "editorial": [
-    "assets/img/editorial/hongdou-harrington-1.jpg",
-    "assets/img/editorial/hongdou-harrington-2.jpg",
-    "assets/img/editorial/hongdou-harrington-4.jpg",
-    "assets/img/editorial/hongdou-harrington-5.jpg",
-    "assets/img/editorial/hongdou-harrington-6.jpg",
-    "assets/img/editorial/hongdou-harrington-7.jpg",
-    "assets/img/editorial/hongdou-harrington-8.jpg",
-    "assets/img/editorial/hongdou-harrington-9.jpg"
+    "assets/img/editorial/hongdou-harrington-1.webp",
+    "assets/img/editorial/hongdou-harrington-2.webp",
+    "assets/img/editorial/hongdou-harrington-4.webp",
+    "assets/img/editorial/hongdou-harrington-5.webp",
+    "assets/img/editorial/hongdou-harrington-6.webp",
+    "assets/img/editorial/hongdou-harrington-7.webp",
+    "assets/img/editorial/hongdou-harrington-8.webp",
+    "assets/img/editorial/hongdou-harrington-9.webp"
    ],
    "cutout": "assets/img/cutout/hongdou-harrington.webp",
    "plate": "assets/img/plate/hongdou-harrington.webp",
@@ -758,14 +757,14 @@ window.REWORN = {
    "surface": "black textured leather",
    "props": "three heavy silver rings, a curb-link chain, a pair of black leather gloves",
    "editorial": [
-    "assets/img/editorial/tries-coated-1.jpg",
-    "assets/img/editorial/tries-coated-2.jpg",
-    "assets/img/editorial/tries-coated-4.jpg",
-    "assets/img/editorial/tries-coated-5.jpg",
-    "assets/img/editorial/tries-coated-6.jpg",
-    "assets/img/editorial/tries-coated-7.jpg",
-    "assets/img/editorial/tries-coated-8.jpg",
-    "assets/img/editorial/tries-coated-9.jpg"
+    "assets/img/editorial/tries-coated-1.webp",
+    "assets/img/editorial/tries-coated-2.webp",
+    "assets/img/editorial/tries-coated-4.webp",
+    "assets/img/editorial/tries-coated-5.webp",
+    "assets/img/editorial/tries-coated-6.webp",
+    "assets/img/editorial/tries-coated-7.webp",
+    "assets/img/editorial/tries-coated-8.webp",
+    "assets/img/editorial/tries-coated-9.webp"
    ],
    "cutout": "assets/img/cutout/tries-coated.webp",
    "plate": "assets/img/plate/tries-coated.webp",
@@ -810,15 +809,15 @@ window.REWORN = {
     "place": "Hong Kong"
    },
    "editorial": [
-    "assets/img/editorial/jinlong-carcoat-1.jpg",
-    "assets/img/editorial/jinlong-carcoat-2.jpg",
-    "assets/img/editorial/jinlong-carcoat-4.jpg",
-    "assets/img/editorial/jinlong-carcoat-5.jpg",
-    "assets/img/editorial/jinlong-carcoat-6.jpg",
-    "assets/img/editorial/jinlong-carcoat-7.jpg",
-    "assets/img/editorial/jinlong-carcoat-8.jpg",
-    "assets/img/editorial/jinlong-carcoat-9.jpg",
-    "assets/img/editorial/jinlong-carcoat-20.jpg"
+    "assets/img/editorial/jinlong-carcoat-1.webp",
+    "assets/img/editorial/jinlong-carcoat-2.webp",
+    "assets/img/editorial/jinlong-carcoat-4.webp",
+    "assets/img/editorial/jinlong-carcoat-5.webp",
+    "assets/img/editorial/jinlong-carcoat-6.webp",
+    "assets/img/editorial/jinlong-carcoat-7.webp",
+    "assets/img/editorial/jinlong-carcoat-8.webp",
+    "assets/img/editorial/jinlong-carcoat-9.webp",
+    "assets/img/editorial/jinlong-carcoat-20.webp"
    ],
    "cutout": "assets/img/cutout/jinlong-carcoat.webp",
    "plate": "assets/img/plate/jinlong-carcoat.webp",
@@ -858,14 +857,14 @@ window.REWORN = {
    "surface": "pale birch wood",
    "props": "a folded grey scarf, a pair of clear-framed glasses, a ceramic dish",
    "editorial": [
-    "assets/img/editorial/greymarl-mockneck-1.jpg",
-    "assets/img/editorial/greymarl-mockneck-2.jpg",
-    "assets/img/editorial/greymarl-mockneck-4.jpg",
-    "assets/img/editorial/greymarl-mockneck-5.jpg",
-    "assets/img/editorial/greymarl-mockneck-6.jpg",
-    "assets/img/editorial/greymarl-mockneck-7.jpg",
-    "assets/img/editorial/greymarl-mockneck-8.jpg",
-    "assets/img/editorial/greymarl-mockneck-9.jpg"
+    "assets/img/editorial/greymarl-mockneck-1.webp",
+    "assets/img/editorial/greymarl-mockneck-2.webp",
+    "assets/img/editorial/greymarl-mockneck-4.webp",
+    "assets/img/editorial/greymarl-mockneck-5.webp",
+    "assets/img/editorial/greymarl-mockneck-6.webp",
+    "assets/img/editorial/greymarl-mockneck-7.webp",
+    "assets/img/editorial/greymarl-mockneck-8.webp",
+    "assets/img/editorial/greymarl-mockneck-9.webp"
    ],
    "cutout": "assets/img/cutout/greymarl-mockneck.webp",
    "plate": "assets/img/plate/greymarl-mockneck.webp",
@@ -910,14 +909,14 @@ window.REWORN = {
     "place": "Turkey"
    },
    "editorial": [
-    "assets/img/editorial/xint-henley-1.jpg",
-    "assets/img/editorial/xint-henley-2.jpg",
-    "assets/img/editorial/xint-henley-3.jpg",
-    "assets/img/editorial/xint-henley-4.jpg",
-    "assets/img/editorial/xint-henley-5.jpg",
-    "assets/img/editorial/xint-henley-6.jpg",
-    "assets/img/editorial/xint-henley-7.jpg",
-    "assets/img/editorial/xint-henley-8.jpg"
+    "assets/img/editorial/xint-henley-1.webp",
+    "assets/img/editorial/xint-henley-2.webp",
+    "assets/img/editorial/xint-henley-3.webp",
+    "assets/img/editorial/xint-henley-4.webp",
+    "assets/img/editorial/xint-henley-5.webp",
+    "assets/img/editorial/xint-henley-6.webp",
+    "assets/img/editorial/xint-henley-7.webp",
+    "assets/img/editorial/xint-henley-8.webp"
    ],
    "cutout": "assets/img/cutout/xint-henley.webp",
    "plate": "assets/img/plate/xint-henley.webp",
@@ -962,15 +961,15 @@ window.REWORN = {
     "place": "Tokyo"
    },
    "editorial": [
-    "assets/img/editorial/onward-furcollar-1.jpg",
-    "assets/img/editorial/onward-furcollar-2.jpg",
-    "assets/img/editorial/onward-furcollar-3.jpg",
-    "assets/img/editorial/onward-furcollar-4.jpg",
-    "assets/img/editorial/onward-furcollar-5.jpg",
-    "assets/img/editorial/onward-furcollar-6.jpg",
-    "assets/img/editorial/onward-furcollar-7.jpg",
-    "assets/img/editorial/onward-furcollar-8.jpg",
-    "assets/img/editorial/onward-furcollar-20.jpg"
+    "assets/img/editorial/onward-furcollar-1.webp",
+    "assets/img/editorial/onward-furcollar-2.webp",
+    "assets/img/editorial/onward-furcollar-3.webp",
+    "assets/img/editorial/onward-furcollar-4.webp",
+    "assets/img/editorial/onward-furcollar-5.webp",
+    "assets/img/editorial/onward-furcollar-6.webp",
+    "assets/img/editorial/onward-furcollar-7.webp",
+    "assets/img/editorial/onward-furcollar-8.webp",
+    "assets/img/editorial/onward-furcollar-20.webp"
    ],
    "cutout": "assets/img/cutout/onward-furcollar.webp",
    "plate": "assets/img/plate/onward-furcollar.webp",
@@ -1011,14 +1010,14 @@ window.REWORN = {
    "surface": "undyed hessian",
    "props": "a battered steel thermos, a wooden comb, a coil of natural twine",
    "editorial": [
-    "assets/img/editorial/cable-knit-grey-1.jpg",
-    "assets/img/editorial/cable-knit-grey-2.jpg",
-    "assets/img/editorial/cable-knit-grey-4.jpg",
-    "assets/img/editorial/cable-knit-grey-5.jpg",
-    "assets/img/editorial/cable-knit-grey-6.jpg",
-    "assets/img/editorial/cable-knit-grey-7.jpg",
-    "assets/img/editorial/cable-knit-grey-8.jpg",
-    "assets/img/editorial/cable-knit-grey-9.jpg"
+    "assets/img/editorial/cable-knit-grey-1.webp",
+    "assets/img/editorial/cable-knit-grey-2.webp",
+    "assets/img/editorial/cable-knit-grey-4.webp",
+    "assets/img/editorial/cable-knit-grey-5.webp",
+    "assets/img/editorial/cable-knit-grey-6.webp",
+    "assets/img/editorial/cable-knit-grey-7.webp",
+    "assets/img/editorial/cable-knit-grey-8.webp",
+    "assets/img/editorial/cable-knit-grey-9.webp"
    ],
    "cutout": "assets/img/cutout/cable-knit-grey.webp",
    "plate": "assets/img/plate/cable-knit-grey.webp",
@@ -1039,41 +1038,41 @@ window.REWORN = {
  "motion": {
   "heroSequence": [
    {
-    "src": "assets/img/mood/rack-warm.jpg",
-    "alt": "A rail of shirts under a single raking light"
+    "src": "assets/img/editorial/onward-furcollar-20.webp",
+    "alt": "Burgundy faux-fur collar jacket under a warm lamp"
    },
    {
-    "src": "assets/img/mood/wardrobe-shaft.jpg",
-    "alt": "A rail of shirts in a shaft of daylight"
+    "src": "assets/img/editorial/nike-padded-5.webp",
+    "alt": "Nike padded jacket folded on linen"
    },
    {
-    "src": "assets/img/mood/camel-hands.jpg",
-    "alt": "Hands at rest inside a camel coat"
+    "src": "assets/img/editorial/jinlong-carcoat-20.webp",
+    "alt": "Hong Kong tailored wool car coat under a warm lamp"
    },
    {
-    "src": "assets/img/mood/flatlay-polo.jpg",
-    "alt": "Knit polo, leather belt and a watch laid out on slate"
+    "src": "assets/img/editorial/rare-rabbit-kufa-2.webp",
+    "alt": "Rare Rabbit KUFA print shirt on charcoal"
    },
    {
-    "src": "assets/img/mood/lineup-bw.jpg",
-    "alt": "Four pairs of trousers and shoes, lined up"
+    "src": "assets/img/editorial/lilang-trench-20.webp",
+    "alt": "Grey-taupe car coat under a warm lamp"
    },
    {
-    "src": "assets/img/editorial/rl-linen-olive-20.jpg",
+    "src": "assets/img/editorial/rl-linen-olive-20.webp",
     "id": "rl-linen-olive",
     "brand": "Polo Ralph Lauren",
     "name": "Olive Linen Shirt",
     "alt": "Polo Ralph Lauren Olive Linen Shirt"
    },
    {
-    "src": "assets/img/editorial/rare-rabbit-kufa-4.jpg",
+    "src": "assets/img/editorial/rare-rabbit-kufa-4.webp",
     "id": "rare-rabbit-kufa",
     "brand": "Rare Rabbit",
     "name": "KUFA Print Shirt",
     "alt": "Rare Rabbit KUFA Print Shirt"
    },
    {
-    "src": "assets/img/editorial/nike-padded-2.jpg",
+    "src": "assets/img/editorial/nike-padded-2.webp",
     "id": "nike-padded",
     "brand": "Nike Sportswear",
     "name": "Lightweight Padded Jacket",
@@ -1088,7 +1087,7 @@ window.REWORN = {
     "alt": "Hands at rest inside a camel coat"
    },
    {
-    "src": "assets/img/editorial/rl-linen-olive-20.jpg",
+    "src": "assets/img/editorial/rl-linen-olive-20.webp",
     "id": "rl-linen-olive",
     "brand": "Polo Ralph Lauren",
     "alt": "Polo Ralph Lauren Olive Linen Shirt"
@@ -1098,7 +1097,7 @@ window.REWORN = {
     "alt": "Four pairs of trousers and shoes, lined up"
    },
    {
-    "src": "assets/img/editorial/lilang-trench-20.jpg",
+    "src": "assets/img/editorial/lilang-trench-20.webp",
     "id": "lilang-trench",
     "brand": "Lilang (利郎)",
     "alt": "Lilang (利郎) Grey-Taupe Car Coat"
@@ -1111,9 +1110,9 @@ window.REWORN = {
     "href": "collection.html?c=shirts",
     "count": 8,
     "shots": [
-     "assets/img/editorial/rl-linen-olive-1.jpg",
-     "assets/img/editorial/rare-rabbit-kufa-1.jpg",
-     "assets/img/editorial/pepe-linen-ecru-1.jpg"
+     "assets/img/editorial/rl-linen-olive-1.webp",
+     "assets/img/editorial/rare-rabbit-kufa-1.webp",
+     "assets/img/editorial/pepe-linen-ecru-1.webp"
     ]
    },
    {
@@ -1122,9 +1121,9 @@ window.REWORN = {
     "href": "collection.html?c=outerwear",
     "count": 9,
     "shots": [
-     "assets/img/editorial/nike-padded-1.jpg",
-     "assets/img/editorial/lilang-trench-1.jpg",
-     "assets/img/editorial/sourepose-chore-1.jpg"
+     "assets/img/editorial/nike-padded-1.webp",
+     "assets/img/editorial/lilang-trench-1.webp",
+     "assets/img/editorial/sourepose-chore-1.webp"
     ]
    },
    {
@@ -1133,9 +1132,9 @@ window.REWORN = {
     "href": "collection.html?c=knitwear",
     "count": 3,
     "shots": [
-     "assets/img/editorial/greymarl-mockneck-1.jpg",
-     "assets/img/editorial/xint-henley-1.jpg",
-     "assets/img/editorial/cable-knit-grey-1.jpg"
+     "assets/img/editorial/greymarl-mockneck-1.webp",
+     "assets/img/editorial/xint-henley-1.webp",
+     "assets/img/editorial/cable-knit-grey-1.webp"
     ]
    },
    {
@@ -1144,9 +1143,9 @@ window.REWORN = {
     "href": "collection.html?max=1500",
     "count": 12,
     "shots": [
-     "assets/img/editorial/pan-america-navy-1.jpg",
-     "assets/img/editorial/greymarl-mockneck-1.jpg",
-     "assets/img/editorial/cable-knit-grey-1.jpg"
+     "assets/img/editorial/pan-america-navy-1.webp",
+     "assets/img/editorial/greymarl-mockneck-1.webp",
+     "assets/img/editorial/cable-knit-grey-1.webp"
     ]
    },
    {
@@ -1155,9 +1154,9 @@ window.REWORN = {
     "href": "collection.html?health=100",
     "count": 19,
     "shots": [
-     "assets/img/editorial/rl-linen-olive-1.jpg",
-     "assets/img/editorial/rare-rabbit-kufa-1.jpg",
-     "assets/img/editorial/pepe-linen-ecru-1.jpg"
+     "assets/img/editorial/rl-linen-olive-1.webp",
+     "assets/img/editorial/rare-rabbit-kufa-1.webp",
+     "assets/img/editorial/pepe-linen-ecru-1.webp"
     ]
    }
   ],
@@ -1166,54 +1165,54 @@ window.REWORN = {
     "label": "Shirts",
     "href": "collection.html?c=shirts",
     "shots": [
-     "assets/img/editorial/rl-linen-olive-1.jpg",
-     "assets/img/editorial/rare-rabbit-kufa-1.jpg",
-     "assets/img/editorial/pepe-linen-ecru-1.jpg"
+     "assets/img/editorial/rl-linen-olive-1.webp",
+     "assets/img/editorial/rare-rabbit-kufa-1.webp",
+     "assets/img/editorial/pepe-linen-ecru-1.webp"
     ]
    },
    {
     "label": "Outerwear",
     "href": "collection.html?c=outerwear",
     "shots": [
-     "assets/img/editorial/nike-padded-1.jpg",
-     "assets/img/editorial/lilang-trench-1.jpg",
-     "assets/img/editorial/sourepose-chore-1.jpg"
+     "assets/img/editorial/nike-padded-1.webp",
+     "assets/img/editorial/lilang-trench-1.webp",
+     "assets/img/editorial/sourepose-chore-1.webp"
     ]
    },
    {
     "label": "Knitwear",
     "href": "collection.html?c=knitwear",
     "shots": [
-     "assets/img/editorial/greymarl-mockneck-1.jpg",
-     "assets/img/editorial/xint-henley-1.jpg",
-     "assets/img/editorial/cable-knit-grey-1.jpg"
+     "assets/img/editorial/greymarl-mockneck-1.webp",
+     "assets/img/editorial/xint-henley-1.webp",
+     "assets/img/editorial/cable-knit-grey-1.webp"
     ]
    },
    {
     "label": "Archive",
     "href": "collection.html",
     "shots": [
-     "assets/img/editorial/rl-linen-olive-1.jpg",
-     "assets/img/editorial/rare-rabbit-kufa-1.jpg",
-     "assets/img/editorial/nike-padded-1.jpg"
+     "assets/img/editorial/rl-linen-olive-1.webp",
+     "assets/img/editorial/rare-rabbit-kufa-1.webp",
+     "assets/img/editorial/nike-padded-1.webp"
     ]
    },
    {
     "label": "Under ₹1500",
     "href": "collection.html",
     "shots": [
-     "assets/img/editorial/rl-linen-olive-1.jpg",
-     "assets/img/editorial/pepe-denim-1.jpg",
-     "assets/img/editorial/uspa-stripe-1.jpg"
+     "assets/img/editorial/rl-linen-olive-1.webp",
+     "assets/img/editorial/pepe-denim-1.webp",
+     "assets/img/editorial/uspa-stripe-1.webp"
     ]
    },
    {
     "label": "Full health",
     "href": "collection.html",
     "shots": [
-     "assets/img/editorial/rl-linen-olive-1.jpg",
-     "assets/img/editorial/rare-rabbit-kufa-1.jpg",
-     "assets/img/editorial/pepe-linen-ecru-1.jpg"
+     "assets/img/editorial/rl-linen-olive-1.webp",
+     "assets/img/editorial/rare-rabbit-kufa-1.webp",
+     "assets/img/editorial/pepe-linen-ecru-1.webp"
     ]
    }
   ],
@@ -1241,12 +1240,6 @@ window.REWORN = {
     "title": "Grey-Taupe Car Coat",
     "id": "lilang-trench",
     "meta": "Lilang (利郎) — ₹1,499"
-   },
-   {
-    "image": "assets/img/cutout/wuhuan-plaid.webp",
-    "title": "Vintage Plaid Harrington",
-    "id": "wuhuan-plaid",
-    "meta": "Wuhuan (五环) — Shanghai, 1990s — ₹1,999"
    }
   ],
   "svgPanes": [
@@ -1257,7 +1250,7 @@ window.REWORN = {
     "octaves": "3",
     "scale": "50",
     "final": "1500",
-    "src": "assets/img/editorial/rl-linen-olive-1.jpg",
+    "src": "assets/img/editorial/rl-linen-olive-1.webp",
     "id": "rl-linen-olive",
     "w": 1289,
     "h": 1600,
@@ -1270,7 +1263,7 @@ window.REWORN = {
     "octaves": "1",
     "scale": "100",
     "final": "1600",
-    "src": "assets/img/editorial/rare-rabbit-kufa-1.jpg",
+    "src": "assets/img/editorial/rare-rabbit-kufa-1.webp",
     "id": "rare-rabbit-kufa",
     "w": 1289,
     "h": 1600,
@@ -1283,7 +1276,7 @@ window.REWORN = {
     "octaves": "3",
     "scale": "80",
     "final": "1500",
-    "src": "assets/img/editorial/nike-padded-1.jpg",
+    "src": "assets/img/editorial/nike-padded-1.webp",
     "id": "nike-padded",
     "w": 1289,
     "h": 1600,
@@ -1322,43 +1315,43 @@ window.REWORN = {
   ],
   "heroStack": [
    {
-    "src": "assets/img/editorial/rl-linen-olive-1.jpg",
+    "src": "assets/img/editorial/rl-linen-olive-1.webp",
     "id": "rl-linen-olive",
     "brand": "Polo Ralph Lauren",
     "name": "Olive Linen Shirt"
    },
    {
-    "src": "assets/img/editorial/rare-rabbit-kufa-1.jpg",
+    "src": "assets/img/editorial/rare-rabbit-kufa-1.webp",
     "id": "rare-rabbit-kufa",
     "brand": "Rare Rabbit",
     "name": "KUFA Print Shirt"
    },
    {
-    "src": "assets/img/editorial/nike-padded-1.jpg",
+    "src": "assets/img/editorial/nike-padded-1.webp",
     "id": "nike-padded",
     "brand": "Nike Sportswear",
     "name": "Lightweight Padded Jacket"
    },
    {
-    "src": "assets/img/editorial/lilang-trench-1.jpg",
+    "src": "assets/img/editorial/lilang-trench-1.webp",
     "id": "lilang-trench",
     "brand": "Lilang (利郎)",
     "name": "Grey-Taupe Car Coat"
    },
    {
-    "src": "assets/img/editorial/wuhuan-plaid-1.jpg",
+    "src": "assets/img/editorial/wuhuan-plaid-1.webp",
     "id": "wuhuan-plaid",
     "brand": "Wuhuan (五环) — Shanghai, 1990s",
     "name": "Vintage Plaid Harrington"
    },
    {
-    "src": "assets/img/editorial/jinlong-carcoat-1.jpg",
+    "src": "assets/img/editorial/jinlong-carcoat-1.webp",
     "id": "jinlong-carcoat",
     "brand": "Jin Long (金龍) — Hong Kong tailoring",
     "name": "Charcoal Wool Car Coat"
    },
    {
-    "src": "assets/img/editorial/onward-furcollar-1.jpg",
+    "src": "assets/img/editorial/onward-furcollar-1.webp",
     "id": "onward-furcollar",
     "brand": "Clothing 9 to 5 by Onward Kashiyama (Tokyo)",
     "name": "Burgundy Faux-Fur Collar Jacket"
@@ -1366,140 +1359,140 @@ window.REWORN = {
   ],
   "marquee": [
    {
-    "src": "assets/img/editorial/rl-linen-olive-1.jpg",
+    "src": "assets/img/editorial/rl-linen-olive-1.webp",
     "id": "rl-linen-olive",
     "brand": "Polo Ralph Lauren",
     "name": "Olive Linen Shirt",
     "pin": false
    },
    {
-    "src": "assets/img/editorial/rare-rabbit-kufa-1.jpg",
+    "src": "assets/img/editorial/rare-rabbit-kufa-1.webp",
     "id": "rare-rabbit-kufa",
     "brand": "Rare Rabbit",
     "name": "KUFA Print Shirt",
     "pin": false
    },
    {
-    "src": "assets/img/editorial/pepe-linen-ecru-1.jpg",
+    "src": "assets/img/editorial/pepe-linen-ecru-1.webp",
     "id": "pepe-linen-ecru",
     "brand": "Pepe Jeans London",
     "name": "Ecru Linen Shirt",
     "pin": false
    },
    {
-    "src": "assets/img/editorial/pepe-denim-1.jpg",
+    "src": "assets/img/editorial/pepe-denim-1.webp",
     "id": "pepe-denim",
     "brand": "Pepe Jeans London",
     "name": "Denim Shirt",
     "pin": false
    },
    {
-    "src": "assets/img/editorial/uspa-stripe-1.jpg",
+    "src": "assets/img/editorial/uspa-stripe-1.webp",
     "id": "uspa-stripe",
     "brand": "USPA Denim Co.",
     "name": "Navy Stripe Shirt",
     "pin": false
    },
    {
-    "src": "assets/img/editorial/vanheusen-brown-1.jpg",
+    "src": "assets/img/editorial/vanheusen-brown-1.webp",
     "id": "vanheusen-brown",
     "brand": "Van Heusen",
     "name": "Brown Cotton-Linen Shirt",
     "pin": false
    },
    {
-    "src": "assets/img/editorial/lp-polo-black-1.jpg",
+    "src": "assets/img/editorial/lp-polo-black-1.webp",
     "id": "lp-polo-black",
     "brand": "Louis Philippe",
     "name": "Black Knit Polo, Mint Tipping",
     "pin": false
    },
    {
-    "src": "assets/img/editorial/pan-america-navy-1.jpg",
+    "src": "assets/img/editorial/pan-america-navy-1.webp",
     "id": "pan-america-navy",
     "brand": "U.S. Lee",
     "name": "Navy Short-Sleeve Shirt",
     "pin": false
    },
    {
-    "src": "assets/img/editorial/nike-padded-1.jpg",
+    "src": "assets/img/editorial/nike-padded-1.webp",
     "id": "nike-padded",
     "brand": "Nike Sportswear",
     "name": "Lightweight Padded Jacket",
     "pin": false
    },
    {
-    "src": "assets/img/editorial/lilang-trench-1.jpg",
+    "src": "assets/img/editorial/lilang-trench-1.webp",
     "id": "lilang-trench",
     "brand": "Lilang (利郎)",
     "name": "Grey-Taupe Car Coat",
     "pin": false
    },
    {
-    "src": "assets/img/editorial/sourepose-chore-1.jpg",
+    "src": "assets/img/editorial/sourepose-chore-1.webp",
     "id": "sourepose-chore",
     "brand": "Sourepose (奢步士)",
     "name": "Olive Chore Overshirt",
     "pin": false
    },
    {
-    "src": "assets/img/editorial/angn-utility-1.jpg",
+    "src": "assets/img/editorial/angn-utility-1.webp",
     "id": "angn-utility",
     "brand": "ANGN / Artisan Gratification",
     "name": "Charcoal Utility Overshirt",
     "pin": false
    },
    {
-    "src": "assets/img/editorial/wuhuan-plaid-1.jpg",
+    "src": "assets/img/editorial/wuhuan-plaid-1.webp",
     "id": "wuhuan-plaid",
     "brand": "Wuhuan (五环) — Shanghai, 1990s",
     "name": "Vintage Plaid Harrington",
     "pin": false
    },
    {
-    "src": "assets/img/editorial/hongdou-harrington-1.jpg",
+    "src": "assets/img/editorial/hongdou-harrington-1.webp",
     "id": "hongdou-harrington",
     "brand": "Hongdou (红豆)",
     "name": "Black Zip Harrington",
     "pin": false
    },
    {
-    "src": "assets/img/editorial/tries-coated-1.jpg",
+    "src": "assets/img/editorial/tries-coated-1.webp",
     "id": "tries-coated",
     "brand": "TRIES / Caizi (才子)",
     "name": "Black Coated Biker Jacket",
     "pin": false
    },
    {
-    "src": "assets/img/editorial/jinlong-carcoat-1.jpg",
+    "src": "assets/img/editorial/jinlong-carcoat-1.webp",
     "id": "jinlong-carcoat",
     "brand": "Jin Long (金龍) — Hong Kong tailoring",
     "name": "Charcoal Wool Car Coat",
     "pin": true
    },
    {
-    "src": "assets/img/editorial/greymarl-mockneck-1.jpg",
+    "src": "assets/img/editorial/greymarl-mockneck-1.webp",
     "id": "greymarl-mockneck",
     "brand": "No-label (archive surplus)",
     "name": "Grey Marl Mock-Neck Knit",
     "pin": false
    },
    {
-    "src": "assets/img/editorial/xint-henley-1.jpg",
+    "src": "assets/img/editorial/xint-henley-1.webp",
     "id": "xint-henley",
     "brand": "XINT (Turkey)",
     "name": "Beige Henley Knit",
     "pin": false
    },
    {
-    "src": "assets/img/editorial/onward-furcollar-1.jpg",
+    "src": "assets/img/editorial/onward-furcollar-1.webp",
     "id": "onward-furcollar",
     "brand": "Clothing 9 to 5 by Onward Kashiyama (Tokyo)",
     "name": "Burgundy Faux-Fur Collar Jacket",
     "pin": false
    },
    {
-    "src": "assets/img/editorial/cable-knit-grey-1.jpg",
+    "src": "assets/img/editorial/cable-knit-grey-1.webp",
     "id": "cable-knit-grey",
     "brand": "No-label (archive)",
     "name": "Grey Cable-Knit Sweater",
@@ -1508,7 +1501,7 @@ window.REWORN = {
   ],
   "horizontal": [
    {
-    "src": "assets/img/editorial/rl-linen-olive-2.jpg",
+    "src": "assets/img/editorial/rl-linen-olive-2.webp",
     "id": "rl-linen-olive",
     "brand": "Polo Ralph Lauren",
     "name": "Olive Linen Shirt",
@@ -1516,7 +1509,7 @@ window.REWORN = {
     "story": "The green that works in every season. Classic Fit Polo linen — the quiet flex."
    },
    {
-    "src": "assets/img/editorial/rare-rabbit-kufa-2.jpg",
+    "src": "assets/img/editorial/rare-rabbit-kufa-2.webp",
     "id": "rare-rabbit-kufa",
     "brand": "Rare Rabbit",
     "name": "KUFA Print Shirt",
@@ -1530,9 +1523,9 @@ window.REWORN = {
     "label": "Shirts",
     "count": 8,
     "shots": [
-     "assets/img/editorial/rl-linen-olive-1.jpg",
-     "assets/img/editorial/rare-rabbit-kufa-1.jpg",
-     "assets/img/editorial/pepe-linen-ecru-1.jpg"
+     "assets/img/editorial/rl-linen-olive-1.webp",
+     "assets/img/editorial/rare-rabbit-kufa-1.webp",
+     "assets/img/editorial/pepe-linen-ecru-1.webp"
     ]
    },
    {
@@ -1540,9 +1533,9 @@ window.REWORN = {
     "label": "Outerwear",
     "count": 9,
     "shots": [
-     "assets/img/editorial/nike-padded-1.jpg",
-     "assets/img/editorial/lilang-trench-1.jpg",
-     "assets/img/editorial/sourepose-chore-1.jpg"
+     "assets/img/editorial/nike-padded-1.webp",
+     "assets/img/editorial/lilang-trench-1.webp",
+     "assets/img/editorial/sourepose-chore-1.webp"
     ]
    },
    {
@@ -1550,9 +1543,9 @@ window.REWORN = {
     "label": "Knitwear",
     "count": 3,
     "shots": [
-     "assets/img/editorial/greymarl-mockneck-1.jpg",
-     "assets/img/editorial/xint-henley-1.jpg",
-     "assets/img/editorial/cable-knit-grey-1.jpg"
+     "assets/img/editorial/greymarl-mockneck-1.webp",
+     "assets/img/editorial/xint-henley-1.webp",
+     "assets/img/editorial/cable-knit-grey-1.webp"
     ]
    }
   ]
