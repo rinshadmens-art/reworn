@@ -20,7 +20,7 @@
 (function () {
   'use strict';
 
-  var SITE = '';          /* <-- your goatcounter code goes here */
+  var SITE = 'rinshad';   /* rinshad.goatcounter.com */
 
   if (!SITE) return;      /* unconfigured: do nothing at all */
 
@@ -35,7 +35,8 @@
       var q = '?p=' + encodeURIComponent(path) +
               '&t=' + encodeURIComponent(title || '') +
               '&r=' + encodeURIComponent(document.referrer || '') +
-              (event ? '&e=true' : '');
+              (event ? '&e=true' : '') +
+              '&rnd=' + Math.random().toString(36).slice(2);
       img.src = endpoint + q;
     } catch (e) { /* analytics must never break the page */ }
   }
